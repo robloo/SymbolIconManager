@@ -1,0 +1,12 @@
+{
+  {
+    "SrcUnicode": "E100",
+    "SrcName": "IconNameOrDescription",
+    "DestUnicode": "E100",
+    "DestName": "IconNameOrDescription",
+    "MetaphorMatchQuality": "High",
+    "GlyphMatchQuality": "High",
+    "IsPlaceholder": "False",
+    "Comments": "Descriptive comments describing the mapping and any decisions."
+  }
+}
