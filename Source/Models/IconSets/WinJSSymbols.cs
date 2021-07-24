@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
-namespace IconManager
+namespace IconManager.Models.IconSets
 {
     /// <summary>
-    /// Contains data and information for the Segoe MDL2 Assets Icons.
+    /// Contains data and information for WinJS Symbols icons.
     /// </summary>
-    public class SegoeMDL2Assets
+    public class WinJSSymbols
     {
         private static IReadOnlyList<Icon>? cachedIcons = null;
 
@@ -24,7 +24,7 @@ namespace IconManager
         {
             List<Icon> icons = new List<Icon>();
             var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-            string sourceDataPath = "avares://IconManager/Data/SegoeMDL2Assets.json";
+            string sourceDataPath = "avares://IconManager/Data/Symbols.json";
 
             using (var reader = new StreamReader(assets.Open(new Uri(sourceDataPath))))
             {
@@ -38,7 +38,7 @@ namespace IconManager
                         icons.Add(new Icon()
                         {
                             Name         = entry.Value,
-                            UnicodePoint = entry.Key.ToUpperInvariant()
+                            UnicodePoint = entry.Key.ToUpperInvariant().Substring(2) // Remove 'U+'
                         });
                     }
                 }
@@ -50,7 +50,7 @@ namespace IconManager
         }
 
         /// <summary>
-        /// Gets a read-only list of all icons in the Segoe MDL2 Assets icon set.
+        /// Gets a read-only list of all icons in the WinJS Symbols icon set.
         /// </summary>
         public static IReadOnlyList<IIcon> Icons
         {
@@ -72,7 +72,7 @@ namespace IconManager
          ***************************************************************************************/
 
         /// <summary>
-        /// Represents a single icon in Segoe MDL2 Assets.
+        /// Represents a single icon in WinJS Symbols.
         /// </summary>
         public class Icon : IIcon
         {

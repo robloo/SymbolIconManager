@@ -50,17 +50,13 @@ namespace IconManager
             iOS
         }
 
-        /* Note the following resources to help explain the Fluent UI System Icons
-         * 
-         *  https://michaelwe.st/work/fluent-icons/
-         *  https://medium.com/microsoft-design/developing-an-open-source-icon-system-at-microsoft-b1796315df9f
-         *
-         * Also see:
-         *  https://www.figma.com/community/file/836835755999342788
-         *  https://bennymeg.github.io/ngx-fluent-ui/
-         */
-
         private static IReadOnlyList<Icon>? cachedIcons = null;
+
+        /***************************************************************************************
+         *
+         * Methods
+         *
+         ***************************************************************************************/
 
         private static void RebuildCache()
         {
@@ -126,7 +122,7 @@ namespace IconManager
                 RebuildCache();
             }
 
-            foreach (var icon in cachedIcons!)
+            foreach (Icon icon in cachedIcons!)
             {
                 if (string.Equals(icon.BaseName, baseName, StringComparison.OrdinalIgnoreCase) &&
                     icon.Size == desiredSize &&
@@ -153,7 +149,7 @@ namespace IconManager
                 RebuildCache();
             }
 
-            foreach (var icon in cachedIcons!)
+            foreach (Icon icon in cachedIcons!)
             {
                 if (string.Equals(icon.BaseName, baseName, StringComparison.OrdinalIgnoreCase) &&
                     icon.Theme == desiredTheme)
@@ -179,7 +175,7 @@ namespace IconManager
                 RebuildCache();
             }
 
-            foreach (var icon in cachedIcons!)
+            foreach (Icon icon in cachedIcons!)
             {
                 if (string.Equals(icon.BaseName, baseName, StringComparison.OrdinalIgnoreCase) &&
                     icon.Size == desiredSize)
@@ -211,6 +207,12 @@ namespace IconManager
             IconSize.Size48 => 48,
             _ => 0,
         };
+
+        /***************************************************************************************
+         *
+         * Classes
+         *
+         ***************************************************************************************/
 
         /// <summary>
         /// Represents a single icon in the Fluent UI System.
