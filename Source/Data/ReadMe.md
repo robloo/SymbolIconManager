@@ -4,13 +4,15 @@ This folder contains raw icon set data files used by the application. Data is co
 
 Note the following:
  * JSON is the preferred format for all data.
- * JSON does not support comments; therefore, file information (including last update) is tracked here
+ * JSON does not support comments; therefore, file information (including last update) is tracked here.
+ * Data is copied even if it is publicly available elsewhere. This is a failsafe if ever the source goes offline; however, this requires maintenence to keep in sync.
 
-| Data File | Last Update | Source |
-|-----------|-------------|--------|
-| `FluentSystemIcons-Filled.json`  | 2021-Jul-20 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Filled.json) |
-| `FluentSystemIcons-Regular.json` | 2021-Jul-20 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.json) |
-| `SegoeMDL2Assets.json`           | 2021-Jul-18 | [Microsoft Website](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-ui-symbol-font) |
+| Icon Set | Data File | Last Update | Last Version | Source |
+|----------|-----------|-------------|--------------|--------|
+| Fluent UI System  | `FluentSystemIcons-Filled.json`  | 2021-Jul-20 | 1.1.135 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Filled.json) |
+| Fluent UI System  | `FluentSystemIcons-Regular.json` | 2021-Jul-20 | 1.1.135 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.json) |
+| Segoe MDL2 Assets | `SegoeMDL2Assets.json`           | 2021-Jul-18 | -       | [Microsoft Website](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-ui-symbol-font) |
+| WinJS Symbols     | `Symbols.json`                   | TBD         | 1.05    | [GitHub PDF](https://github.com/winjs/winjs/blob/master/src/fonts/SymbolsWinJS.pdf) |
 
 ## *Fluent UI System* Icon Data | Microsoft | MIT License
 
