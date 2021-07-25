@@ -10,9 +10,13 @@ Note the following:
 | Icon Set | Data File | Last Update | Last Version | Source |
 |----------|-----------|-------------|--------------|--------|
 | Fluent UI System  | `FluentSystemIcons-Filled.json`  | 2021-Jul-20 | 1.1.135 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Filled.json) |
+| Fluent UI System  | `FluentSystemIcons-Filled.ttf`   | 2021-Jul-24 | 1.1.135 | [GitHub Rego](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Filled.ttf) |
 | Fluent UI System  | `FluentSystemIcons-Regular.json` | 2021-Jul-20 | 1.1.135 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.json) |
+| Fluent UI System  | `FluentSystemIcons-Regular.ttf`  | 2021-Jul-24 | 1.1.135 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.ttf) |
 | Segoe MDL2 Assets | `SegoeMDL2Assets.json`           | 2021-Jul-18 | -       | [Microsoft Website](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-ui-symbol-font) |
-| WinJS Symbols     | `Symbols.json`                   | TBD         | 1.05    | [GitHub PDF](https://github.com/winjs/winjs/blob/master/src/fonts/SymbolsWinJS.pdf) |
+| WinJS Symbols     | `Symbols.json`                   | 2021-Jul-24 | 1.05    | [GitHub PDF](https://github.com/winjs/winjs/blob/master/src/fonts/SymbolsWinJS.pdf) |
+| WinJS Symbols     | `Symbols.json`                   | 2021-Jul-24 | 1.05    | [GitHub Rego](https://github.com/winjs/winjs/blob/master/src/fonts/Symbols.ttf) |
+
 
 ## *Fluent UI System* Icon Data | Microsoft | MIT License
 
@@ -21,8 +25,7 @@ Note the following:
 
 #### JSON Files
 
-The Fluent UI System icons come in two themes: regular and filled.
-Each of these themes has their own font and JSON file:
+The Fluent UI System icons come in two themes: regular and filled. Each of these themes has their own font and JSON file:
 
  1. `FluentSystemIcons-Filled.json` : Contains a list of all filled theme Unicode points and names (key).
  2. `FluentSystemIcons-Regular.json` : Contains a list of all regular theme Unicode points and names (key).
@@ -35,7 +38,7 @@ This application uses the *Fluent UI System* Unicode points defined in JSON file
 
 #### Glyphs
 
-*Fluent UI System* icon glyphs are available under the MIT license. Due to file size, this application does not distribute these glyphs (which are SVG files). Glyphs are downloaded for some purposes directly from the GitHub repository.
+*Fluent UI System* icon glyphs (SVG files) are available in GitHub under the MIT license. Due to file size, this application does not distribute these source glyphs. Glyphs are downloaded on demand directly from the GitHub repository. The open source (MIT licensed) .ttf files are used to render glyphs in text.
 
 ## *Segoe MDL2 Assets* Icon Data | Microsoft | Proprietary (Windows-only)
 
@@ -60,6 +63,21 @@ Icon glyphs are not open source and can only be used on Microsoft's Windows oper
 
  * [GitHub Repo](https://github.com/winjs/winjs/tree/master/src/fonts)
 
+The source data is in maintence mode and hasn't been changed in seven years (as of 2021). WinJS itself has been deprecated. Therefore, this data is not expected to need updates in the future.
+
+#### JSON File
+
+ 1. `Symbols.json` : Contains a list of all Unicode points (key) and their description/name
+
+The first column (key) is the Unicode point and the second is the description.
+
+#### Unicode Points
+
+This application uses the *WinJS Symbols* Unicode points defined in the source PDF hosted on GitHub. The PDF is converted into a table and then manually merged to create the source JSON data.
+
+#### Glyphs
+
+The open source (MIT licensed) .ttf file is used to render glyphs in text.
 
 # Mapping Data
 
