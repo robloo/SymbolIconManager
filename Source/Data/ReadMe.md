@@ -1,11 +1,6 @@
 ﻿# Icon Set Data
 
-This folder contains raw icon set data files used by the application. Data is commonly gathered from third party sources. A individual data files is given in the below table.
-
-Note the following:
- * Where applicable, JSON is the preferred format for all data.
- * JSON does not support comments; therefore, file information (including last update) is tracked here.
- * Data is copied even if it is publicly available elsewhere. This is a failsafe if ever the source goes offline; however, this requires maintenence to keep in sync.
+This folder contains raw icon set data files used by the application. Data is commonly gathered from third party sources. A list of individual data files is given in the below table.
 
 | Icon Set | Data File | Last Update | Last Version | Source |
 |----------|-----------|-------------|--------------|--------|
@@ -17,6 +12,10 @@ Note the following:
 | WinJS Symbols     | `Symbols.json`                   | 2021-Jul-24 | 1.05    | [GitHub PDF](https://github.com/winjs/winjs/blob/master/src/fonts/SymbolsWinJS.pdf) |
 | WinJS Symbols     | `Symbols.json`                   | 2021-Jul-24 | 1.05    | [GitHub Repo](https://github.com/winjs/winjs/blob/master/src/fonts/Symbols.ttf) |
 
+Note the following:
+ * Where applicable, JSON is the preferred format for all data.
+ * JSON does not support comments; therefore, file information (including last update) is tracked here.
+ * Data is copied even if it is publicly available elsewhere. This is a failsafe if ever the source goes offline; however, this requires maintenence to keep in sync.
 
 ## *Fluent UI System* Icon Data | Microsoft | MIT License
 
