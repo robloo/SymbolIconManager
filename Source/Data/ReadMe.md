@@ -1,9 +1,9 @@
 ﻿# Icon Set Data
 
-This folder contains raw icon set data files used by the application. Data is commonly gathered from third party sources.
+This folder contains raw icon set data files used by the application. Data is commonly gathered from third party sources. A individual data files is given in the below table.
 
 Note the following:
- * JSON is the preferred format for all data.
+ * Where applicable, JSON is the preferred format for all data.
  * JSON does not support comments; therefore, file information (including last update) is tracked here.
  * Data is copied even if it is publicly available elsewhere. This is a failsafe if ever the source goes offline; however, this requires maintenence to keep in sync.
 
@@ -15,7 +15,7 @@ Note the following:
 | Fluent UI System  | `FluentSystemIcons-Regular.ttf`  | 2021-Jul-24 | 1.1.135 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.ttf) |
 | Segoe MDL2 Assets | `SegoeMDL2Assets.json`           | 2021-Jul-18 | -       | [Microsoft Website](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-ui-symbol-font) |
 | WinJS Symbols     | `Symbols.json`                   | 2021-Jul-24 | 1.05    | [GitHub PDF](https://github.com/winjs/winjs/blob/master/src/fonts/SymbolsWinJS.pdf) |
-| WinJS Symbols     | `Symbols.json`                   | 2021-Jul-24 | 1.05    | [GitHub Rego](https://github.com/winjs/winjs/blob/master/src/fonts/Symbols.ttf) |
+| WinJS Symbols     | `Symbols.json`                   | 2021-Jul-24 | 1.05    | [GitHub Repo](https://github.com/winjs/winjs/blob/master/src/fonts/Symbols.ttf) |
 
 
 ## *Fluent UI System* Icon Data | Microsoft | MIT License
