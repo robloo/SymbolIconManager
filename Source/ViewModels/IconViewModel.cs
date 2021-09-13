@@ -28,24 +28,45 @@ namespace IconManager
             this._UnicodePoint = string.Empty;
         }
 
+        public IconViewModel(IIcon icon, IconSet iconSet)
+        {
+            this._Glyph        = null;
+            this._GlyphUrl     = null;
+            this._IconSet      = iconSet;
+            this._Name         = icon.Name;
+            this._UnicodePoint = icon.UnicodePoint;
+
+            this.UpdateProperties();
+        }
+
         /***************************************************************************************
          *
          * Property Accessors
          *
          ***************************************************************************************/
 
+        /// <summary>
+        /// Gets or sets the displayed glyph (graphic/symbol) of the icon.
+        /// </summary>
         public Bitmap? Glyph
         {
             get => this._Glyph;
             set => this.SetField(ref this._Glyph, value);
         }
 
+        /// <summary>
+        /// Gets or sets the URL (if it exists) of the icon.
+        /// This URL is usually an online address pointing to the glyph to download.
+        /// </summary>
         public Uri? GlyphUrl
         {
             get => this._GlyphUrl;
             set => this.SetField(ref this._GlyphUrl, value);
         }
 
+        /// <summary>
+        /// Gets or sets the <see cref="IconSet"/> that contains the icon.
+        /// </summary>
         public IconSet? IconSet
         {
             get => this._IconSet;
@@ -59,12 +80,14 @@ namespace IconManager
             }
         }
 
+        /// <inheritdoc cref="IIcon.Name"/>
         public string Name
         {
             get => this._Name;
             set => this.SetField(ref this._Name, value);
         }
 
+        /// <inheritdoc cref="IIcon.UnicodePoint"/>
         public string UnicodePoint
         {
             get => this._UnicodePoint;
@@ -86,28 +109,22 @@ namespace IconManager
 
         private void UpdateProperties()
         {
-            bool propertiesSet = false;
-
-            if (this.IconSet.HasValue &&
-                this.IconSet.Value == IconManager.IconSet.SegoeMDL2Assets)
+            switch (this.IconSet)
             {
-                for (int i = 0; i < SegoeMDL2Assets.Icons.Count; i++)
+                case IconManager.IconSet.SegoeFluent:
                 {
-                    if (string.Equals(this.UnicodePoint, SegoeMDL2Assets.Icons[i].UnicodePoint, StringComparison.OrdinalIgnoreCase))
-                    {
-                        this.GlyphUrl = new Uri(@"https://docs.microsoft.com/en-us/windows/apps/design/style/images/segoe-mdl/" + this.UnicodePoint + ".png");
-                        this.Name     = SegoeMDL2Assets.Icons[i].Name;
+                    this.GlyphUrl = new Uri(@"https://docs.microsoft.com/en-us/windows/apps/design/style/images/glyphs/segoe-fluent-icons/" + this.UnicodePoint.ToLowerInvariant() + ".png");
+                    this.Name     = SegoeFluent.FindName(this.UnicodePoint);
 
-                        propertiesSet = true;
-                        break;
-                    }
+                    break;
                 }
-            }
+                case IconManager.IconSet.SegoeMDL2Assets:
+                {
+                    this.GlyphUrl = new Uri(@"https://docs.microsoft.com/en-us/windows/apps/design/style/images/segoe-mdl/" + this.UnicodePoint + ".png");
+                    this.Name     = SegoeMDL2Assets.FindName(this.UnicodePoint);
 
-            if (propertiesSet == false)
-            {
-                this.GlyphUrl = null;
-                this.Name     = string.Empty;
+                    break;
+                }
             }
 
             return;

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
-namespace IconManager.Models.IconSets
+namespace IconManager
 {
     /// <summary>
     /// Contains data and information for WinJS Symbols icons.

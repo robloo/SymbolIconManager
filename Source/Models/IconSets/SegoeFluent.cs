@@ -8,9 +8,9 @@ using System.Text.Json;
 namespace IconManager
 {
     /// <summary>
-    /// Contains data and information for the Segoe MDL2 Assets Icons.
+    /// Contains data and information for the Segoe Fluent Icons.
     /// </summary>
-    public class SegoeMDL2Assets
+    public class SegoeFluent
     {
         private static IReadOnlyList<Icon>? cachedIcons = null;
         private static IReadOnlyDictionary<string, string>? cachedNames = null;
@@ -26,7 +26,7 @@ namespace IconManager
             List<Icon> icons = new List<Icon>();
             Dictionary<string, string> names = new Dictionary<string, string>();
             var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-            string sourceDataPath = "avares://IconManager/Data/SegoeMDL2Assets.json";
+            string sourceDataPath = "avares://IconManager/Data/SegoeFluentIcons.json";
 
             using (var reader = new StreamReader(assets.Open(new Uri(sourceDataPath))))
             {
@@ -95,7 +95,7 @@ namespace IconManager
          ***************************************************************************************/
 
         /// <summary>
-        /// Represents a single icon in Segoe MDL2 Assets.
+        /// Represents a single icon in Segoe Fluent Icons.
         /// </summary>
         public class Icon : IIcon
         {
