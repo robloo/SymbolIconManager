@@ -9,6 +9,10 @@
         x:Class="IconManager.MainWindow"
         Title="Symbol Icon Manager">
     <TabControl>
+        <!-- Icon Sets -->
+        <TabItem Header="Icon Sets">
+            <local:IconSetsView />
+        </TabItem>
         <!-- Font Builder -->
         <TabItem Header="Font Builder"
                  IsVisible="False">

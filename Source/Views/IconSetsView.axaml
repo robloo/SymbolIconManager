@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:IconManager"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="450"
+             x:Class="IconManager.IconSetsView">
+    <Grid Margin="10"
+          RowDefinitions="Auto,*">
+        <ComboBox x:Name="SelectedIconSetComboBox"
+                  Grid.Row="0"
+                  SelectionChanged="SelectedIconSetComboBox_SelectionChanged" />
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="0"
+                    HorizontalAlignment="Right">
+            <TextBox x:Name="FilterTextBox"
+                     Text="{Binding FilterText, Mode=TwoWay}"
+                     Watermark="Filter"
+                     Width="200" />
+            <Button x:Name="FilterButton"
+                    Content="✔️"
+                    Click="FilterButton_Click" />
+        </StackPanel>
+        <ListBox x:Name="IconSetListBox"
+                 Grid.Row="2"
+                 Items="{Binding IconSetIcons}"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="local:IconViewModel">
+                    <Grid ColumnDefinitions="Auto,Auto,*">
+                        <Image Grid.Column="0"
+                               Width="50"
+                               Height="50"
+                               Source="{Binding Glyph}" />
+                        <TextBlock Grid.Column="1"
+                                   Text="{Binding UnicodePoint}"
+                                   HorizontalAlignment="Stretch"
+                                   Margin="5"
+                                   VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="2"
+                                   Text="{Binding Name}"
+                                   VerticalAlignment="Center"
+                                   Margin="5" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

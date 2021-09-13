@@ -10,6 +10,12 @@ namespace IconManager
 {
     public partial class MainWindow : Window
     {
+        /***************************************************************************************
+         *
+         * Constructor
+         *
+         ***************************************************************************************/
+
         public MainWindow()
         {
             InitializeComponent();
@@ -261,7 +267,7 @@ namespace IconManager
         /// <summary>
         /// Event handler for when the select source directory button is clicked.
         /// </summary>
-        public async void SourceDirectoryButton_Click(object sender, RoutedEventArgs e)
+        private async void SourceDirectoryButton_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new OpenFolderDialog();
             var result = await dialog.ShowAsync(App.MainWindow);
@@ -275,7 +281,7 @@ namespace IconManager
         /// <summary>
         /// Event handler for when the list icons button is clicked.
         /// </summary>
-        public void ListIconsButton_Click(object sender, RoutedEventArgs e)
+        private void ListIconsButton_Click(object sender, RoutedEventArgs e)
         {
             var usedGlyphs = this.ListUsedIcons(IconSet.SegoeMDL2Assets);
 
@@ -293,7 +299,7 @@ namespace IconManager
         /// <summary>
         /// Event handler for when the remap icons button is clicked.
         /// </summary>
-        public void RemapIconsButton_Click(object sender, RoutedEventArgs e)
+        private void RemapIconsButton_Click(object sender, RoutedEventArgs e)
         {
             this.RemapIcons(
                 SegoeMDL2AssetsToFluentUISystem.BuildMapping(FluentUISystem.IconSize.Size20),
@@ -302,7 +308,7 @@ namespace IconManager
             return;
         }
 
-        public void IconViewModel_Click(object sender, RoutedEventArgs e)
+        private void IconViewModel_Click(object sender, RoutedEventArgs e)
         {
             var entry = ((Control)sender).Tag as IconViewModel;
 
