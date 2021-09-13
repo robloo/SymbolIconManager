@@ -1,14 +1,18 @@
-{
+[
   {
-    "DestIconSet": "SegoeFluent",
-    "DestUnicode": "E200",
-    "DestName": "IconNameOrDescription",
-    "SrcIconSet": "FluentUISystem",
-    "SrcUnicode": "E100",
-    "SrcName": "IconNameOrDescription",
-    "GlyphMatchQuality": "High",
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E200",
+      "Name": "IconNameOrDescription"
+    },
+    "Source": {
+      "IconSet": "FluentUISystem",
+      "UnicodePoint": "E100",
+      "Name": "IconNameOrDescription"
+    },
+    "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "High",
-    "IsPlaceholder": "False",
+    "IsPlaceholder": false,
     "Comments": "Descriptive comments describing the mapping and any decisions or special considerations."
   }
-}
+]
