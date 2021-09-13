@@ -102,7 +102,7 @@ namespace IconManager
         {
             public Icon() : base()
             {
-                this.IconSet = IconSet.SegoeMDL2Assets;
+                base.IconSet = IconSet.SegoeMDL2Assets;
             }
         }
     }

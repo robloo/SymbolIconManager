@@ -81,8 +81,11 @@ namespace IconManager
                 {
                     switch (selectedIconSet)
                     {
-                        case IconSet.FluentUISystem:
-                            icons = FluentUISystem.Icons;
+                        case IconSet.FluentUISystemFilled:
+                            icons = FluentUISystem.GetIcons(FluentUISystem.IconTheme.Filled);
+                            break;
+                        case IconSet.FluentUISystemRegular:
+                            icons = FluentUISystem.GetIcons(FluentUISystem.IconTheme.Regular);
                             break;
                         case IconSet.SegoeFluent:
                             icons = SegoeFluent.Icons;

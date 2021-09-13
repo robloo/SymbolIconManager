@@ -102,7 +102,7 @@ namespace IconManager
         {
             public Icon() : base()
             {
-                this.IconSet = IconSet.SegoeFluent;
+                base.IconSet = IconSet.SegoeFluent;
             }
         }
     }

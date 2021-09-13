@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// Defines a named set of icons.
+    /// Each icon within an icon set should have a unique Unicode point.
     /// </summary>
     /// <remarks>
     /// This is more generically worded as 'Set' instead of 'Font' as not all icon sets may be
@@ -16,10 +17,16 @@
         Undefined = 0,
 
         /// <summary>
-        /// The cross-platform Fluent UI System icons.
+        /// The cross-platform Fluent UI System icons with filled theme.
         /// https://github.com/microsoft/fluentui-system-icons
         /// </summary>
-        FluentUISystem,
+        FluentUISystemFilled,
+
+        /// <summary>
+        /// The cross-platform Fluent UI System icons with regular theme.
+        /// https://github.com/microsoft/fluentui-system-icons
+        /// </summary>
+        FluentUISystemRegular,
 
         /// <summary>
         /// The Windows 10/11 Segoe Fluent icons (Windows symbols version 3).

@@ -108,6 +108,7 @@ namespace IconManager
 
         /// <summary>
         /// Gets a read-only list of all icons in the Fluent UI System icon set.
+        /// This includes BOTH the regular and filled themes.
         /// </summary>
         public static IReadOnlyList<IIcon> Icons
         {
@@ -120,6 +121,29 @@ namespace IconManager
 
                 return cachedIcons!;
             }
+        }
+
+        /// <summary>
+        /// Gets all icons of the desired theme.
+        /// </summary>
+        public static IReadOnlyList<Icon> GetIcons(IconTheme desiredTheme)
+        {
+            var matchingIcons = new List<Icon>();
+
+            if (cachedIcons == null)
+            {
+                RebuildCache();
+            }
+
+            foreach (Icon icon in cachedIcons!)
+            {
+                if (icon.Theme == desiredTheme)
+                {
+                    matchingIcons.Add(icon);
+                }
+            }
+
+            return matchingIcons.AsReadOnly();
         }
 
         public static Icon? FindIcon(
@@ -230,7 +254,21 @@ namespace IconManager
         public class Icon : IconName, IIcon
         {
             /// <inheritdoc/>
-            public IconSet IconSet { get; set; } = IconSet.FluentUISystem;
+            public IconSet IconSet
+            {
+                get
+                {
+                    if (this.Theme == IconTheme.Filled)
+                    {
+                        return IconSet.FluentUISystemFilled;
+                    }
+                    else
+                    {
+                        return IconSet.FluentUISystemRegular;
+                    }
+                }
+                set { /* Do nothing */ }
+            }
 
             /// <summary>
             /// Gets or sets the raw, unparsed name or description of the icon.

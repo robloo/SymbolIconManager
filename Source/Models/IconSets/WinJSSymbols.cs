@@ -79,7 +79,7 @@ namespace IconManager
         {
             public Icon() : base()
             {
-                this.IconSet = IconSet.WinJSSymbols;
+                base.IconSet = IconSet.WinJSSymbols;
             }
         }
     }
