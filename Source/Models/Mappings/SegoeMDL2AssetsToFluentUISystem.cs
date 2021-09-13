@@ -89,14 +89,6 @@ namespace IconManager
         /// </summary>
         private static readonly string[,] BaseMappingTable = new string[,]
         {
-            // Important:
-            //  1. FluentUISystem must use the size 20 variant
-            //     If no size 20 variant exists, use the next closest (usually size 24)
-            //  2. FluentUISystem uses the Android names
-            //  3. SegoeMDL2Assets are not always unique (WifiCall0 - WifiCall4 and WifiCallBars are duplicated)
-            //     This means they must be matched by Unicode point
-            //  4. FluentUISystem names are considered unique and can be used as an ID like Unicode point
-            //
             // Sequence goes as follows:
             //  1. Use an icon of the same exact metaphor (even if it visually differs, unless totally different)
             //      Add -> ic_fluent_add_20_regular
@@ -104,29 +96,6 @@ namespace IconManager
             //  2. Use an icon of a similar design but more generic purpose/metaphor
             //      Forward -> ic_fluent_arrow_right_20_regular
             //  2. Use an icon of a similar design but different metaphor
-            //      Relationship -> 
-            //
-            // Some glyphs have multiple mappings that make sense.
-            // It may be necessary in the future to have an optional "Priority" column
-            // to indicate which mapping take precedence when there are several options.
-            //
-            // Some glyphs are missing in one font or the other.
-            // In this case, some close equivalent is used.
-            // However, it may be necessary to add an IsExact column to track when a substitution is made.
-            // An IsVisualEquivalent may be added as well.
-            //   -> IsMetaphorMatch
-            //        True : The mapping is 100% equivalent in purpose
-            //       False : The mapping had no equivalent so a close substitution was made
-            //   -> IsSimilarGraphic
-            //   -> IsVisualMatch
-            //        True : Both glyphs look nearly identical in design (regardless of purpose)
-            //       False : The mapped glyphs significantly differ (commonly if a substitution was made)
-            //               These may be good candidates to retrieve from another font instead.
-            //   -> IsGenericPlaceholder
-            //   -> Comments
-            //
-            // MetaphorMatchQuality   NoMatch, Low, Medium, High, Exact
-            // GlyphMatchQuality      NoMatch, Low, Medium, High, Exact
             //
             // Columns:
             //  1. SegoeMDL2Assets Unicode point in hexadecimal

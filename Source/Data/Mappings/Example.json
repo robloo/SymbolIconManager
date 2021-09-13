@@ -1,12 +1,14 @@
 {
   {
+    "DestIconSet": "SegoeFluent",
+    "DestUnicode": "E200",
+    "DestName": "IconNameOrDescription",
+    "SrcIconSet": "FluentUISystem",
     "SrcUnicode": "E100",
     "SrcName": "IconNameOrDescription",
-    "DestUnicode": "E100",
-    "DestName": "IconNameOrDescription",
-    "MetaphorMatchQuality": "High",
     "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": "False",
-    "Comments": "Descriptive comments describing the mapping and any decisions."
+    "Comments": "Descriptive comments describing the mapping and any decisions or special considerations."
   }
 }

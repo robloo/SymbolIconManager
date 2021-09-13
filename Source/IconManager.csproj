@@ -9,6 +9,7 @@
     <None Remove="Data\FluentSystemIcons-Filled.ttf" />
     <None Remove="Data\FluentSystemIcons-Regular.json" />
     <None Remove="Data\FluentSystemIcons-Regular.ttf" />
+    <None Remove="Data\Mappings\Example.json" />
     <None Remove="Data\SegoeFluentIcons.json" />
     <None Remove="Data\SegoeMDL2Assets.json" />
     <None Remove="Data\Symbols.json" />
@@ -19,6 +20,7 @@
     <AvaloniaResource Include="Data\FluentSystemIcons-Filled.ttf" />
     <AvaloniaResource Include="Data\FluentSystemIcons-Regular.json" />
     <AvaloniaResource Include="Data\FluentSystemIcons-Regular.ttf" />
+    <AvaloniaResource Include="Data\Mappings\Example.json" />
     <AvaloniaResource Include="Data\SegoeFluentIcons.json" />
     <AvaloniaResource Include="Data\SegoeMDL2Assets.json" />
     <AvaloniaResource Include="Data\Symbols.json" />
