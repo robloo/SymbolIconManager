@@ -14,6 +14,9 @@ namespace IconManager
     /// </summary>
     public class FluentUISystem
     {
+        /// <summary>
+        /// Defines an icon size within the <see cref="FluentUISystem"/>.
+        /// </summary>
         public enum IconSize
         {
             Size12,
@@ -32,6 +35,9 @@ namespace IconManager
             Size48
         }
 
+        /// <summary>
+        /// Defines an icon theme within the <see cref="FluentUISystem"/>.
+        /// </summary>
         public enum IconTheme
         {
             /// <summary>
@@ -44,6 +50,9 @@ namespace IconManager
             Regular
         }
 
+        /// <summary>
+        /// Defines an icon naming format within the <see cref="FluentUISystem"/>.
+        /// </summary>
         public enum NamingFormat
         {
             Android,
