@@ -45,7 +45,7 @@ namespace IconManager
          *
          ***************************************************************************************/
 
-        private List<IconViewModel> ListUsedIcons(IconSet? iconSet)
+        private List<IconViewModel> ListUsedIcons(IconSet iconSet)
         {
             var locatedIcons = new List<IconViewModel>();
 
@@ -104,11 +104,11 @@ namespace IconManager
 
                             // Check if the icon is in the set being search for
                             bool includeIcon = true;
-                            if (iconSet == null)
+                            if (iconSet == IconSet.Undefined)
                             {
                                 includeIcon = true;
                             }
-                            else if (iconSet.Value == IconSet.SegoeMDL2Assets)
+                            else if (iconSet == IconSet.SegoeMDL2Assets)
                             {
                                 bool iconExistsInTable = false;
                                 for (int i = 0; i < SegoeMDL2Assets.Icons.Count; i++)

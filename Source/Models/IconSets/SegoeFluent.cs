@@ -100,6 +100,9 @@ namespace IconManager
         public class Icon : IIcon
         {
             /// <inheritdoc/>
+            public IconSet IconSet { get; set; } = IconSet.SegoeFluent;
+
+            /// <inheritdoc/>
             public string Name { get; set; } = string.Empty;
 
             /// <inheritdoc/>

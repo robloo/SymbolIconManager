@@ -10,6 +10,12 @@
     public enum IconSet
     {
         /// <summary>
+        /// No icon set is defined.
+        /// This should only be used as a default value.
+        /// </summary>
+        Undefined = 0,
+
+        /// <summary>
         /// The cross-platform Fluent UI System icons.
         /// https://github.com/microsoft/fluentui-system-icons
         /// </summary>

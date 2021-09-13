@@ -219,6 +219,9 @@ namespace IconManager
         /// </summary>
         public class Icon : IconName, IIcon
         {
+            /// <inheritdoc/>
+            public IconSet IconSet { get; set; } = IconSet.FluentUISystem;
+
             /// <summary>
             /// Gets or sets the raw, unparsed name or description of the icon.
             /// </summary>

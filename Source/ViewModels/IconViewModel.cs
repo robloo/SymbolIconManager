@@ -5,13 +5,13 @@ using System.Net;
 
 namespace IconManager
 {
-    public class IconViewModel : ViewModelBase
+    public class IconViewModel : ViewModelBase, IIcon
     {
-        private Bitmap?  _Glyph;
-        private Uri?     _GlyphUrl;
-        private IconSet? _IconSet;
-        private string   _Name;
-        private string   _UnicodePoint;
+        private Bitmap? _Glyph;
+        private Uri?    _GlyphUrl;
+        private IconSet _IconSet;
+        private string  _Name;
+        private string  _UnicodePoint;
 
         /***************************************************************************************
          *
@@ -23,7 +23,7 @@ namespace IconManager
         {
             this._Glyph        = null;
             this._GlyphUrl     = null;
-            this._IconSet      = null;
+            this._IconSet      = IconSet.Undefined;
             this._Name         = string.Empty;
             this._UnicodePoint = string.Empty;
         }
@@ -64,10 +64,8 @@ namespace IconManager
             set => this.SetField(ref this._GlyphUrl, value);
         }
 
-        /// <summary>
-        /// Gets or sets the <see cref="IconSet"/> that contains the icon.
-        /// </summary>
-        public IconSet? IconSet
+        /// <inheritdoc cref="IIcon.IconSet"/>
+        public IconSet IconSet
         {
             get => this._IconSet;
             set

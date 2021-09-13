@@ -25,7 +25,7 @@
             <Grid />
         </TabItem>
         <!-- Application Tools -->
-        <TabItem Header="Application Tools">
+        <TabItem Header="App Tools">
             <local:AppToolsView />
         </TabItem>
     </TabControl>

@@ -34,6 +34,7 @@ namespace IconManager
                 });
             }
             this.SelectedIconSetComboBox.Items = iconSets;
+            this.SelectedIconSetComboBox.SelectedIndex = 0; // Should be Undefined
 
             this.DataContext = this;
         }
