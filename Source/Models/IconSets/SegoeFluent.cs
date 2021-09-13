@@ -13,7 +13,7 @@ namespace IconManager
     public class SegoeFluent
     {
         private static IReadOnlyList<Icon>? cachedIcons = null;
-        private static IReadOnlyDictionary<string, string>? cachedNames = null;
+        private static IReadOnlyDictionary<uint, string>? cachedNames = null;
 
         /***************************************************************************************
          *
@@ -23,8 +23,8 @@ namespace IconManager
 
         private static void RebuildCache()
         {
-            List<Icon> icons = new List<Icon>();
-            Dictionary<string, string> names = new Dictionary<string, string>();
+            var icons = new List<Icon>();
+            var names = new Dictionary<uint, string>();
             var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
             string sourceDataPath = "avares://IconManager/Data/SegoeFluentIcons.json";
 
@@ -41,7 +41,7 @@ namespace IconManager
                         var icon = new Icon()
                         {
                             Name         = entry.Value,
-                            UnicodePoint = entry.Key.ToUpperInvariant()
+                            UnicodePoint = Convert.ToUInt32(entry.Key, 16)
                         };
 
                         icons.Add(icon);
@@ -56,7 +56,7 @@ namespace IconManager
             return;
         }
 
-        public static string FindName(string unicodePoint)
+        public static string FindName(uint unicodePoint)
         {
             if (cachedIcons == null || cachedNames == null)
             {

@@ -102,7 +102,7 @@ namespace IconManager
                     {
                         for (int i = 0; i < icons.Count; i++)
                         {
-                            var viewModel = new IconViewModel(icons[i], selectedIconSet.Value);
+                            var viewModel = new IconViewModel(icons[i]);
                             viewModel.DownloadGlyphImage();
 
                             iconViewModels.Add(viewModel);
@@ -123,7 +123,7 @@ namespace IconManager
                 for (int i = 0; i < iconViewModels.Count; i++)
                 {
                     if (iconViewModels[i].Name.Contains(this.FilterText, StringComparison.OrdinalIgnoreCase) ||
-                        iconViewModels[i].UnicodePoint.Contains(this.FilterText, StringComparison.OrdinalIgnoreCase))
+                        Icon.ToUnicodeString(iconViewModels[i].UnicodePoint).Contains(this.FilterText, StringComparison.OrdinalIgnoreCase))
                     {
                         filteredIconViewModels.Add(iconViewModels[i]);
                     }

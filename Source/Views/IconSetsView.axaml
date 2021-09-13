@@ -39,7 +39,7 @@
                                Height="50"
                                Source="{Binding Glyph}" />
                         <TextBlock Grid.Column="1"
-                                   Text="{Binding UnicodePoint}"
+                                   Text="{Binding UnicodeString}"
                                    HorizontalAlignment="Stretch"
                                    Margin="5"
                                    VerticalAlignment="Center" />

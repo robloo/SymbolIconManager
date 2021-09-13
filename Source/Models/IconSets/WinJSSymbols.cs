@@ -22,7 +22,7 @@ namespace IconManager
 
         private static void RebuildCache()
         {
-            List<Icon> icons = new List<Icon>();
+            var icons = new List<Icon>();
             var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
             string sourceDataPath = "avares://IconManager/Data/Symbols.json";
 
@@ -39,7 +39,7 @@ namespace IconManager
                         icons.Add(new Icon()
                         {
                             Name         = entry.Value,
-                            UnicodePoint = entry.Key.ToUpperInvariant().Substring(2) // Remove 'U+'
+                            UnicodePoint = Convert.ToUInt32(entry.Key.Substring(2), 16) // Remove 'U+'
                         });
                     }
                 }

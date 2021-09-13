@@ -33,7 +33,7 @@
                 <DataTemplate DataType="local:IconViewModel">
                     <Grid ColumnDefinitions="Auto,Auto,*,Auto">
                         <TextBlock Grid.Column="0"
-                                   Text="{Binding UnicodePoint}"
+                                   Text="{Binding UnicodeString}"
                                    HorizontalAlignment="Stretch"
                                    Margin="5"
                                    VerticalAlignment="Center" />

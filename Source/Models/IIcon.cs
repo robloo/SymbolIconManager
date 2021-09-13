@@ -8,6 +8,10 @@ namespace IconManager
     /// </summary>
     public interface IIcon
     {
+        ///////////////////////////////////////////////////////////
+        // Data
+        ///////////////////////////////////////////////////////////
+
         /// <summary>
         /// Gets or sets the <see cref="IconManager.IconSet"/> that contains the icon.
         /// </summary>
@@ -26,10 +30,19 @@ namespace IconManager
         string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the Unicode point of the icon.
-        /// This must be a hexadecimal format string with no prefix.
+        /// Gets or sets the 32-bit Unicode point of the icon.
         /// </summary>
         [JsonProperty(Order = 2)]
-        string UnicodePoint { get; set; }
+        uint UnicodePoint { get; set; }
+
+        ///////////////////////////////////////////////////////////
+        // Calculated
+        ///////////////////////////////////////////////////////////
+
+        /// <summary>
+        /// Gets the value of the <see cref="UnicodePoint"/> formatted as a hexadecimal string.
+        /// </summary>
+        [JsonIgnore]
+        string UnicodeString { get; }
     }
 }

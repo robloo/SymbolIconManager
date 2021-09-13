@@ -69,7 +69,7 @@ namespace IconManager
 
         private static void RebuildCache()
         {
-            List<Icon> icons = new List<Icon>();
+            var icons = new List<Icon>();
             var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
             string[] sourceDataPaths = new string[]
             {
@@ -94,7 +94,7 @@ namespace IconManager
                             {
                                 RawName      = entry.Key,
                                 Name         = entry.Key, // Automatically parses into components
-                                UnicodePoint = entry.Value.Substring(2).ToUpperInvariant() // Remove '0x'
+                                UnicodePoint = Convert.ToUInt32(entry.Value.Substring(2), 16) // Remove '0x'
                             });
                         }
                     }
@@ -238,7 +238,13 @@ namespace IconManager
             public string RawName { get; set; } = string.Empty;
 
             /// <inheritdoc/>
-            public string UnicodePoint { get; set; } = string.Empty;
+            public uint UnicodePoint { get; set; } = 0;
+
+            /// <inheritdoc/>
+            public string UnicodeString
+            {
+                get => IconManager.Icon.ToUnicodeString(this.UnicodePoint);
+            }
         }
 
         /// <summary>

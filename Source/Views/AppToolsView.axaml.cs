@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Avalonia.Platform;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -97,9 +98,11 @@ namespace IconManager
                             var entry = new IconViewModel()
                             {
                                 IconSet      = iconSet,
-                                UnicodePoint = fileText.Substring(
-                                    index + startPattern.Length,
-                                    endIndex - (index + startPattern.Length)),
+                                UnicodePoint = Convert.ToUInt32(
+                                    fileText.Substring(
+                                        index + startPattern.Length,
+                                        endIndex - (index + startPattern.Length)),
+                                    16),
                             };
 
                             // Check if the icon is in the set being search for
@@ -113,7 +116,7 @@ namespace IconManager
                                 bool iconExistsInTable = false;
                                 for (int i = 0; i < SegoeMDL2Assets.Icons.Count; i++)
                                 {
-                                    if (string.Equals(entry.UnicodePoint, SegoeMDL2Assets.Icons[i].UnicodePoint, StringComparison.OrdinalIgnoreCase))
+                                    if (entry.UnicodePoint == SegoeMDL2Assets.Icons[i].UnicodePoint)
                                     {
                                         iconExistsInTable = true;
                                         break;
@@ -129,7 +132,7 @@ namespace IconManager
                                 bool exists = false;
                                 foreach (var existingEntry in locatedIcons)
                                 {
-                                    if (string.Equals(entry.UnicodePoint, existingEntry.UnicodePoint, StringComparison.OrdinalIgnoreCase))
+                                    if (entry.UnicodePoint == existingEntry.UnicodePoint)
                                     {
                                         exists = true;
                                         break;
@@ -169,7 +172,7 @@ namespace IconManager
                     bool mappingExists = false;
                     for (int i = 0; i < mappings.Count; i++)
                     {
-                        if (string.Equals(entry.UnicodePoint, mappings[i].Source.UnicodePoint, StringComparison.OrdinalIgnoreCase))
+                        if (entry.UnicodePoint == mappings[i].Source.UnicodePoint)
                         {
                             mappingExists = true;
                             break;
@@ -208,14 +211,16 @@ namespace IconManager
 
                         if (endIndex >= 0)
                         {
-                            var unicode = fileText.Substring(
-                                index + startPattern.Length,
-                                endIndex - (index + startPattern.Length));
+                            var unicode = Convert.ToUInt32(
+                                fileText.Substring(
+                                    index + startPattern.Length,
+                                    endIndex - (index + startPattern.Length)),
+                                16);
 
                             int mappingIndex = -1;
                             for (int i = 0; i < mappings.Count; i++)
                             {
-                                if (string.Equals(unicode, mappings[i].Source.UnicodePoint, StringComparison.OrdinalIgnoreCase))
+                                if (unicode == mappings[i].Source.UnicodePoint)
                                 {
                                     mappingIndex = i;
                                     break;

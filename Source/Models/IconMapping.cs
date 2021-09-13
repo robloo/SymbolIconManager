@@ -23,6 +23,7 @@ namespace IconManager
             this.GlyphMatchQuality    = MatchQuality.NoMatch;
             this.MetaphorMatchQuality = MatchQuality.NoMatch;
             this.IsPlaceholder        = false;
+            this.Comments             = string.Empty;
         }
 
         public IconMapping(IIcon source, IIcon destination)
@@ -32,6 +33,7 @@ namespace IconManager
             this.GlyphMatchQuality    = MatchQuality.NoMatch;
             this.MetaphorMatchQuality = MatchQuality.NoMatch;
             this.IsPlaceholder        = false;
+            this.Comments             = string.Empty;
         }
 
         /***************************************************************************************
@@ -97,9 +99,9 @@ namespace IconManager
         public bool IsValid
         {
             get => this.Source != null &&
-                   string.IsNullOrEmpty(this.Source.UnicodePoint) == false &&
+                   this.Source.UnicodePoint != 0 &&
                    this.Destination != null &&
-                   string.IsNullOrEmpty(this.Destination.UnicodePoint) == false;
+                   this.Destination.UnicodePoint != 0;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace IconManager
         private Uri?    _GlyphUrl;
         private IconSet _IconSet;
         private string  _Name;
-        private string  _UnicodePoint;
+        private uint    _UnicodePoint;
 
         /***************************************************************************************
          *
@@ -25,14 +25,14 @@ namespace IconManager
             this._GlyphUrl     = null;
             this._IconSet      = IconSet.Undefined;
             this._Name         = string.Empty;
-            this._UnicodePoint = string.Empty;
+            this._UnicodePoint = 0;
         }
 
-        public IconViewModel(IIcon icon, IconSet iconSet)
+        public IconViewModel(IIcon icon)
         {
             this._Glyph        = null;
             this._GlyphUrl     = null;
-            this._IconSet      = iconSet;
+            this._IconSet      = icon.IconSet;
             this._Name         = icon.Name;
             this._UnicodePoint = icon.UnicodePoint;
 
@@ -44,6 +44,10 @@ namespace IconManager
          * Property Accessors
          *
          ***************************************************************************************/
+
+        ///////////////////////////////////////////////////////////
+        // Data
+        ///////////////////////////////////////////////////////////
 
         /// <summary>
         /// Gets or sets the displayed glyph (graphic/symbol) of the icon.
@@ -64,7 +68,7 @@ namespace IconManager
             set => this.SetField(ref this._GlyphUrl, value);
         }
 
-        /// <inheritdoc cref="IIcon.IconSet"/>
+        /// <inheritdoc/>
         public IconSet IconSet
         {
             get => this._IconSet;
@@ -78,15 +82,15 @@ namespace IconManager
             }
         }
 
-        /// <inheritdoc cref="IIcon.Name"/>
+        /// <inheritdoc/>
         public string Name
         {
             get => this._Name;
             set => this.SetField(ref this._Name, value);
         }
 
-        /// <inheritdoc cref="IIcon.UnicodePoint"/>
-        public string UnicodePoint
+        /// <inheritdoc/>
+        public uint UnicodePoint
         {
             get => this._UnicodePoint;
             set
@@ -99,6 +103,16 @@ namespace IconManager
             }
         }
 
+        ///////////////////////////////////////////////////////////
+        // Calculated
+        ///////////////////////////////////////////////////////////
+
+        /// <inheritdoc/>
+        public string UnicodeString
+        {
+            get => Icon.ToUnicodeString(this.UnicodePoint);
+        }
+
         /***************************************************************************************
          *
          * Methods
@@ -109,16 +123,16 @@ namespace IconManager
         {
             switch (this.IconSet)
             {
-                case IconManager.IconSet.SegoeFluent:
+                case IconSet.SegoeFluent:
                 {
-                    this.GlyphUrl = new Uri(@"https://docs.microsoft.com/en-us/windows/apps/design/style/images/glyphs/segoe-fluent-icons/" + this.UnicodePoint.ToLowerInvariant() + ".png");
+                    this.GlyphUrl = new Uri(@"https://docs.microsoft.com/en-us/windows/apps/design/style/images/glyphs/segoe-fluent-icons/" + Icon.ToUnicodeString(this.UnicodePoint) + ".png");
                     this.Name     = SegoeFluent.FindName(this.UnicodePoint);
 
                     break;
                 }
-                case IconManager.IconSet.SegoeMDL2Assets:
+                case IconSet.SegoeMDL2Assets:
                 {
-                    this.GlyphUrl = new Uri(@"https://docs.microsoft.com/en-us/windows/apps/design/style/images/segoe-mdl/" + this.UnicodePoint + ".png");
+                    this.GlyphUrl = new Uri(@"https://docs.microsoft.com/en-us/windows/apps/design/style/images/segoe-mdl/" + Icon.ToUnicodeString(this.UnicodePoint) + ".png");
                     this.Name     = SegoeMDL2Assets.FindName(this.UnicodePoint);
 
                     break;
