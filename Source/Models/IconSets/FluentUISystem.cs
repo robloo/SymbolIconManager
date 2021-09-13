@@ -80,7 +80,8 @@ namespace IconManager
             // Load all data from JSON source files
             foreach (string path in sourceDataPaths)
             {
-                using (var reader = new StreamReader(assets.Open(new Uri(path))))
+                using (var sourceStream = assets.Open(new Uri(path)))
+                using (var reader = new StreamReader(sourceStream))
                 {
                     string jsonString = reader.ReadToEnd();
                     var rawIcons = JsonSerializer.Deserialize<Dictionary<string, string>>(jsonString);

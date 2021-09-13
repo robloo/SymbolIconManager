@@ -26,7 +26,8 @@ namespace IconManager
             var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
             string sourceDataPath = "avares://IconManager/Data/Symbols.json";
 
-            using (var reader = new StreamReader(assets.Open(new Uri(sourceDataPath))))
+            using (var sourceStream = assets.Open(new Uri(sourceDataPath)))
+            using (var reader = new StreamReader(sourceStream))
             {
                 string jsonString = reader.ReadToEnd();
                 var rawIcons = JsonSerializer.Deserialize<Dictionary<string, string>>(jsonString);
