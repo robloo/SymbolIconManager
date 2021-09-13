@@ -12,6 +12,9 @@
         <ComboBox x:Name="SelectedIconSetComboBox"
                   Grid.Row="0"
                   SelectionChanged="SelectedIconSetComboBox_SelectionChanged" />
+        <TextBlock Text="{Binding IconSetIcons.Count}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" />
         <StackPanel Orientation="Horizontal"
                     Grid.Row="0"
                     HorizontalAlignment="Right">
