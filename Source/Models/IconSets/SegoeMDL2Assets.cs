@@ -97,16 +97,12 @@ namespace IconManager
         /// <summary>
         /// Represents a single icon in Segoe MDL2 Assets.
         /// </summary>
-        public class Icon : IIcon
+        public class Icon : IconManager.Icon, IIcon
         {
-            /// <inheritdoc/>
-            public IconSet IconSet { get; set; } = IconSet.SegoeMDL2Assets;
-
-            /// <inheritdoc/>
-            public string Name { get; set; } = string.Empty;
-
-            /// <inheritdoc/>
-            public string UnicodePoint { get; set; } = string.Empty;
+            public Icon() : base()
+            {
+                this.IconSet = IconSet.SegoeMDL2Assets;
+            }
         }
     }
 }
