@@ -11,7 +11,7 @@ This folder contains raw icon set data files used by the application. Data is co
 | Segoe Fluent Icons | `SegoeFluentIcons.json`          | 2021-Sep-12 | -       | [Microsoft Website](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-fluent-icons-font) |
 | Segoe MDL2 Assets  | `SegoeMDL2Assets.json`           | 2021-Jul-18 | -       | [Microsoft Website](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-ui-symbol-font) |
 | WinJS Symbols      | `Symbols.json`                   | 2021-Jul-24 | 1.05    | [GitHub PDF](https://github.com/winjs/winjs/blob/master/src/fonts/SymbolsWinJS.pdf) |
-| WinJS Symbols      | `Symbols.json`                   | 2021-Jul-24 | 1.05    | [GitHub Repo](https://github.com/winjs/winjs/blob/master/src/fonts/Symbols.ttf) |
+| WinJS Symbols      | `Symbols.ttf`                    | 2021-Jul-24 | 1.05    | [GitHub Repo](https://github.com/winjs/winjs/blob/master/src/fonts/Symbols.ttf) |
 
 Note the following:
  * Where applicable, JSON is the preferred format for all data.
@@ -124,11 +124,22 @@ There are two types of mapping files:
 
 Mapping files are serialized using JSON. Each mapping entry in the file has the following properties:
 
- * ...
+ * Destination
+   * `IconSet` : 
+   * `UnicodePoint` : 
+   * `Name` : 
+ * Source
+   * `IconSet` : 
+   * `UnicodePoint` : 
+   * `Name` : 
  * `GlyphMatchQuality` : See 'Match Quality' below
  * `MetaphorMatchQuality` : See 'Match Quality' below
- * IsPlaceholder : The mapping had no equivalent so a generic substitution was made. Generally it is better not to include placeholders in a mapping file. Instead, just exclude the mapping altogether. However, in some cases an icon is quite heavily used and something needs to be provided even if there is no good match.
+ * `IsPlaceholder` : The mapping had no equivalent so a generic substitution was made. Generally it is better not to include placeholders in a mapping file. Instead, just exclude the mapping altogether. However, in some cases an icon is quite heavily used and something needs to be provided even if there is no good match.
  * `Comments` : Descriptive comments describing the mapping and any decisions or special considerations.
+
+Each mapping file includes a name property for both the source and destination. For all icon sets except the *Fluent UI System* these names are unused and are only added to improve human readability. In fact, certain icon sets such as *Segoe MDL2 Assets* do not always have unique names (WifiCall0 - WifiCall4 and WifiCallBars are duplicated). This means they must be matched by Unicode point only.
+
+Future Considerations: Some icons have multiple mappings that make sense. It may be necessary in the future to have an optional "Priority" to indicate which mapping take precedence when there are several options.
 
 ## Match Quality
 
@@ -143,13 +154,7 @@ Separating these two match quality properties allows for easily identifying the 
 
 Most matches between different icon sets should have a quality of `Medium`, `High` or `Exact` (rare). `Low` is commonly used when the mapping is a placeholder that is loosely similar, otherwise 'NoMatch' should be used. Instead of `NoMatch`, it is often better to exclude the mapping entirely (use it only for placeholders).
 
-More details about which values to select for match quality can be found in the source code snippet below.
-
-|Insert MatchQuality source code|
-
-## Special Considerations
-
-Each mapping file includes a name property for both the source and destination. For all icon sets except the *Fluent UI System* these names are unused and are only added to improve human readability. In fact, certain icon sets such as *Segoe MDL2 Assets* do not always have unique names (WifiCall0 - WifiCall4 and WifiCallBars are duplicated). This means they must be matched by Unicode point only.
+More details about which values to select for match quality can be found in the [source code here](https://github.com/robloo/SymbolIconManager/blob/cd3cfa4c59d0dfca2603443061ff3fb2b4b5a834/Source/Models/MatchQuality.cs#L8-L52).
 
 ## Special *Fluent UI System* Considerations
 
@@ -158,7 +163,3 @@ The *Fluent UI System* icons are more powerful than the other icon sets. The *Fl
  1. FluentUISystem must use the size 20 variant. The size 20 variant was specially designed for desktop usage. If no size 20 variant exists, use the next closest (usually size 24). It is possible within code to automatically switch between sizes so setting the size in a mapping file does not restrict the possibility of generating a size 24 for mobile usage. It just helps standardize the mapping file.
  1. FluentUISystem must use the Android names
  1. FluentUISystem names are considered unique and can be used as an ID like Unicode point. This allows for automatically re-mapping between sizes and themes in code.
-
-## Future Considerations
-
-Some icons have multiple mappings that make sense. It may be necessary in the future to have an optional "Priority" to indicate which mapping take precedence when there are several options.
