@@ -66,11 +66,40 @@ namespace IconManager
         }
 
         /// <summary>
-        /// Reprocesses an existing mapping file to repair each mapping and standardize formatting.
+        /// Reprocesses an existing mappings list to repair and standardize each mapping.
         /// This will ensure names are updated, entries are sorted, etc.
+        /// Warning: Unicode points are assumed valid.
         /// </summary>
-        public static void ReprocessMappingFile(string filePath)
+        /// <param name="mappings">The mappings to reprocess.</param>
+        public static void ReprocessMappings(IconMappingList mappings)
         {
+            // Update names, assumes Unicode points are valid
+            foreach (var mapping in mappings)
+            {
+                switch (mapping.Source.IconSet)
+                {
+                    case IconSet.SegoeFluent:
+                        mapping.Source.Name = SegoeFluent.FindName(mapping.Source.UnicodePoint);
+                        break;
+                    case IconSet.SegoeMDL2Assets:
+                        mapping.Source.Name = SegoeMDL2Assets.FindName(mapping.Source.UnicodePoint);
+                        break;
+                }
+
+                switch (mapping.Destination.IconSet)
+                {
+                    case IconSet.SegoeFluent:
+                        mapping.Destination.Name = SegoeFluent.FindName(mapping.Destination.UnicodePoint);
+                        break;
+                    case IconSet.SegoeMDL2Assets:
+                        mapping.Destination.Name = SegoeMDL2Assets.FindName(mapping.Destination.UnicodePoint);
+                        break;
+                }
+            }
+
+            // Sort each mapping by destination icon set and Unicode point
+
+
             return;
         }
     }

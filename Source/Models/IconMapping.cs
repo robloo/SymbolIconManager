@@ -26,7 +26,7 @@ namespace IconManager
             this.Comments             = string.Empty;
         }
 
-        public IconMapping(IIcon source, IIcon destination)
+        public IconMapping(Icon source, Icon destination)
         {
             this.Source               = source;
             this.Destination          = destination;
@@ -50,15 +50,27 @@ namespace IconManager
         /// Gets or sets the source icon to map from.
         /// This must contain a Unicode point in hexadecimal format with no prefix.
         /// </summary>
+        /// <remarks>
+        /// Originally this supported any <see cref="IIcon"/> types.
+        /// However, serialization would then serialize all properties in the derived type as well.
+        /// It is best to forcefully require <see cref="IIcon"/> as it is the only type supported
+        /// in mapping serialization.
+        /// </remarks>
         [JsonProperty(Order = 2)]
-        public IIcon Source { get; set; }
+        public Icon Source { get; set; }
 
         /// <summary>
         /// Gets or sets the destination icon to map to.
         /// This must contain a Unicode point in hexadecimal format with no prefix.
         /// </summary>
+        /// <remarks>
+        /// Originally this supported any <see cref="IIcon"/> types.
+        /// However, serialization would then serialize all properties in the derived type as well.
+        /// It is best to forcefully require <see cref="IIcon"/> as it is the only type supported
+        /// in mapping serialization.
+        /// </remarks>
         [JsonProperty(Order = 1)]
-        public IIcon Destination { get; set; }
+        public Icon Destination { get; set; }
 
         /// <summary>
         /// Gets or sets the quality of match for the glyphs of the two icons.

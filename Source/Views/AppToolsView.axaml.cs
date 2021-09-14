@@ -157,7 +157,7 @@ namespace IconManager
         }
 
         private void RemapIcons(
-            IList<IconMapping> mappings,
+            IconMappingList mappings,
             IconSet originalIconSet)
         {
             if (mappings != null)

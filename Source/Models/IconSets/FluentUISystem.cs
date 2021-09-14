@@ -283,6 +283,22 @@ namespace IconManager
             {
                 get => IconManager.Icon.ToUnicodeString(this.UnicodePoint);
             }
+
+            /// <summary>
+            /// Converts this <see cref="FluentUISystem.Icon"/> into a standard <see cref="Icon"/>.
+            /// This is sometimes needed because <see cref="FluentUISystem.Icon"/> does not derive from
+            /// <see cref="Icon"/> like most other icons do. It only implements the interface.
+            /// </summary>
+            /// <returns></returns>
+            public IconManager.Icon AsIcon()
+            {
+                return new IconManager.Icon()
+                {
+                    IconSet      = this.IconSet,
+                    Name         = this.Name,
+                    UnicodePoint = this.UnicodePoint
+                };
+            }
         }
 
         /// <summary>
