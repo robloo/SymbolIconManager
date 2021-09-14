@@ -1,0 +1,1618 @@
+[
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E707",
+      "Name": "MapPin"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F4F8",
+      "Name": "ic_fluent_location_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Visually different and 'MapPin = Location'"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E70D",
+      "Name": "ChevronDown"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F2A3",
+      "Name": "ic_fluent_chevron_down_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E70E",
+      "Name": "ChevronUp"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F2B6",
+      "Name": "ic_fluent_chevron_up_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E70F",
+      "Name": "Edit"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F3DD",
+      "Name": "ic_fluent_edit_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E710",
+      "Name": "Add"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F109",
+      "Name": "ic_fluent_add_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E711",
+      "Name": "Cancel"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F369",
+      "Name": "ic_fluent_dismiss_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E712",
+      "Name": "More"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FC2D",
+      "Name": "ic_fluent_more_horizontal_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E713",
+      "Name": "Setting"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F6A9",
+      "Name": "ic_fluent_settings_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E71B",
+      "Name": "Link"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FE26",
+      "Name": "ic_fluent_link_square_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E71F",
+      "Name": "ZoomOut"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F8C6",
+      "Name": "ic_fluent_zoom_out_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E721",
+      "Name": "Search"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F68F",
+      "Name": "ic_fluent_search_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E72A",
+      "Name": "Forward"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F181",
+      "Name": "ic_fluent_arrow_right_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Doesn't exist, same as right arrow"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E72B",
+      "Name": "Back"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F15B",
+      "Name": "ic_fluent_arrow_left_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Doesn't exist, same as left arrow"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E72E",
+      "Name": "Lock"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FC22",
+      "Name": "ic_fluent_lock_closed_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E738",
+      "Name": "Remove"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FC72",
+      "Name": "ic_fluent_subtract_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E739",
+      "Name": "Checkbox"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F291",
+      "Name": "ic_fluent_checkbox_unchecked_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E73A",
+      "Name": "CheckboxComposite"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F28D",
+      "Name": "ic_fluent_checkbox_checked_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E73E",
+      "Name": "CheckMark"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F294",
+      "Name": "ic_fluent_checkmark_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E74D",
+      "Name": "Delete"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F34C",
+      "Name": "ic_fluent_delete_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E74E",
+      "Name": "Save"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F67F",
+      "Name": "ic_fluent_save_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E751",
+      "Name": "ReturnKey"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FBC6",
+      "Name": "ic_fluent_arrow_enter_left_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E76B",
+      "Name": "ChevronLeft"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F2AA",
+      "Name": "ic_fluent_chevron_left_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E76C",
+      "Name": "ChevronRight"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F2B0",
+      "Name": "ic_fluent_chevron_right_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E76D",
+      "Name": "InkingTool"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F4A7",
+      "Name": "ic_fluent_inking_tool_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E76F",
+      "Name": "GripperBarHorizontal"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F64A",
+      "Name": "ic_fluent_re_order_24_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Size 20 missing"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E787",
+      "Name": "Calendar"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FD1D",
+      "Name": "ic_fluent_calendar_ltr_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E790",
+      "Name": "Color"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F2F5",
+      "Name": "ic_fluent_color_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7B3",
+      "Name": "RedEye"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F3FB",
+      "Name": "ic_fluent_eye_show_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7BA",
+      "Name": "Warning"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F869",
+      "Name": "ic_fluent_warning_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7C3",
+      "Name": "Page"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F378",
+      "Name": "ic_fluent_document_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7EA",
+      "Name": "ResizeTouchNarrower"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F15B",
+      "Name": "ic_fluent_arrow_left_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Doesn't exist, same as left arrow"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E80F",
+      "Name": "Home"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F480",
+      "Name": "ic_fluent_home_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E814",
+      "Name": "IncidentTriangle"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F881",
+      "Name": "ic_fluent_warning_20_filled"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Maps to filled variant"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E81D",
+      "Name": "Location"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F4F8",
+      "Name": "ic_fluent_location_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E825",
+      "Name": "Bank"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F925",
+      "Name": "ic_fluent_building_bank_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E83B",
+      "Name": "DirectAccess"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F769",
+      "Name": "ic_fluent_server_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E894",
+      "Name": "Clear"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F369",
+      "Name": "ic_fluent_dismiss_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Doesn't exist, same as dismiss (cancel)"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E895",
+      "Name": "Sync"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F190",
+      "Name": "ic_fluent_arrow_sync_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E896",
+      "Name": "Download"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F150",
+      "Name": "ic_fluent_arrow_download_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E897",
+      "Name": "Help"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F638",
+      "Name": "ic_fluent_question_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E898",
+      "Name": "Upload"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1A4",
+      "Name": "ic_fluent_arrow_upload_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8A3",
+      "Name": "ZoomIn"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F8C4",
+      "Name": "ic_fluent_zoom_in_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8A9",
+      "Name": "ViewAll"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "100B0",
+      "Name": "ic_fluent_border_all_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8AB",
+      "Name": "Switch"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F18D",
+      "Name": "ic_fluent_arrow_swap_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8AC",
+      "Name": "Rename"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F669",
+      "Name": "ic_fluent_rename_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8B3",
+      "Name": "SelectAll"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FC56",
+      "Name": "ic_fluent_select_all_on_24_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Doesn't exist, visually similar doesn't exist, using similar purpose icon. Size 20 missing"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8B5",
+      "Name": "Import"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F159",
+      "Name": "ic_fluent_arrow_import_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Arrow direction is reversed"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8BC",
+      "Name": "ShowResults"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FD80",
+      "Name": "ic_fluent_text_bullet_list_ltr_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Doesn't exist, using visually similar icon (purpose not the same), ic_fluent_multiselect_20_regular alternate"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8C8",
+      "Name": "Copy"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F380",
+      "Name": "ic_fluent_document_copy_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Document copy matches icon, ic_fluent_copy_20_regular alternate"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8D1",
+      "Name": "GotoToday"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F23C",
+      "Name": "ic_fluent_calendar_today_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8E5",
+      "Name": "OpenFile"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "10008",
+      "Name": "ic_fluent_document_arrow_up_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8E6",
+      "Name": "ClearSelection"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F696",
+      "Name": "ic_fluent_select_all_off_24_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Doesn't exist, visually similar doesn't exist, using similar purpose icon. Size 20 missing"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8E7",
+      "Name": "FontDecrease"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F437",
+      "Name": "ic_fluent_font_decrease_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8E8",
+      "Name": "FontIncrease"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F439",
+      "Name": "ic_fluent_font_increase_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8F1",
+      "Name": "Library"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FE78",
+      "Name": "ic_fluent_library_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8F4",
+      "Name": "NewFolder"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F41C",
+      "Name": "ic_fluent_folder_add_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "No vertical variant exists"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8FB",
+      "Name": "Accept"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F294",
+      "Name": "ic_fluent_checkmark_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E904",
+      "Name": "ZeroBars"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FBE4",
+      "Name": "ic_fluent_cellular_data_cellular_off_24_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Designed in FluentUISystem off-by-one different"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E905",
+      "Name": "OneBar"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F279",
+      "Name": "ic_fluent_cellular_data_5_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Designed in FluentUISystem off-by-one different"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E906",
+      "Name": "TwoBars"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F277",
+      "Name": "ic_fluent_cellular_data_4_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Designed in FluentUISystem off-by-one different"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E907",
+      "Name": "ThreeBars"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F275",
+      "Name": "ic_fluent_cellular_data_3_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Designed in FluentUISystem off-by-one different"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E908",
+      "Name": "FourBars"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F273",
+      "Name": "ic_fluent_cellular_data_2_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Designed in FluentUISystem off-by-one different"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E909",
+      "Name": "World"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F3DA",
+      "Name": "ic_fluent_earth_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E916",
+      "Name": "Stopwatch"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FAE9",
+      "Name": "ic_fluent_timer_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E946",
+      "Name": "Info"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F4A3",
+      "Name": "ic_fluent_info_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E96D",
+      "Name": "ChevronUpSmall"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F2B6",
+      "Name": "ic_fluent_chevron_up_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "No smaller chevron exists, only regular"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E96E",
+      "Name": "ChevronDownSmall"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F2A3",
+      "Name": "ic_fluent_chevron_down_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "No smaller chevron exists, only regular"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E96F",
+      "Name": "ChevronLeftSmall"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F2AA",
+      "Name": "ic_fluent_chevron_left_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "No smaller chevron exists, only regular"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E970",
+      "Name": "ChevronRightSmall"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F2B0",
+      "Name": "ic_fluent_chevron_right_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "No smaller chevron exists, only regular"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E97A",
+      "Name": "Reply"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F177",
+      "Name": "ic_fluent_arrow_reply_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "ic_fluent_arrow_hook_up_left_20_regular alternate"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E9A6",
+      "Name": "FitPage"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F58F",
+      "Name": "ic_fluent_page_fit_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E9D2",
+      "Name": "AreaChart"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F33D",
+      "Name": "ic_fluent_data_area_24_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Size 20 missing"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E9D9",
+      "Name": "Diagnostic"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FBA0",
+      "Name": "ic_fluent_pulse_square_24_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Size 20 missing"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E9E9",
+      "Name": "Equalizer"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F587",
+      "Name": "ic_fluent_options_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E9F5",
+      "Name": "Processing"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F6A9",
+      "Name": "ic_fluent_settings_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Doesn't exist, closest is a single settings gear"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "EA37",
+      "Name": "List"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F4ED",
+      "Name": "ic_fluent_list_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "EA42",
+      "Name": "BulletedListMirrored"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FD82",
+      "Name": "ic_fluent_text_bullet_list_rtl_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "EA4E",
+      "Name": "ExpandTileMirrored"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "100A9",
+      "Name": "ic_fluent_arrow_step_in_right_16_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Doesn't exist, using visually similar icon (purpose not the same), Size 20 missing"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "EA55",
+      "Name": "ListMirrored"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F4ED",
+      "Name": "ic_fluent_list_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "No mirrored or RTL variant exists, using regular"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "EA62",
+      "Name": "ResizeTouchNarrowerMirrored"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F181",
+      "Name": "ic_fluent_arrow_right_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Doesn't exist, same as right arrow"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "EB05",
+      "Name": "PieSingle"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F344",
+      "Name": "ic_fluent_data_pie_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "EC50",
+      "Name": "FileExplorer"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F418",
+      "Name": "ic_fluent_folder_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Doesn't exist, generic folder is used instead"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "EC59",
+      "Name": "CashDrawer"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F54F",
+      "Name": "ic_fluent_money_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Doesn't exist, no visually similar exists either. Used conceptually similar 'money'"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "EC92",
+      "Name": "DateTime"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F21D",
+      "Name": "ic_fluent_calendar_clock_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "ECA5",
+      "Name": "Tiles"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "100D9",
+      "Name": "ic_fluent_glance_horizontal_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "ECC8",
+      "Name": "AddTo"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F10C",
+      "Name": "ic_fluent_add_circle_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "ECC9",
+      "Name": "RemoveFrom"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F7B0",
+      "Name": "ic_fluent_subtract_circle_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "ED41",
+      "Name": "TreeFolderFolder"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F418",
+      "Name": "ic_fluent_folder_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "No closed vertical or tree variant exists, ic_fluent_folder_open_vertical_20_regular alternate"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "ED5B",
+      "Name": "EmojiSwatch"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "10030",
+      "Name": "ic_fluent_square_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Doesn't exist, generic square is used instead"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "EDE1",
+      "Name": "Export"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FBC8",
+      "Name": "ic_fluent_arrow_export_ltr_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Arrow direction is reversed"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "EE93",
+      "Name": "DateTimeMirrored"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F21D",
+      "Name": "ic_fluent_calendar_clock_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "F003",
+      "Name": "Relationship"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F6B1",
+      "Name": "ic_fluent_share_android_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Doesn't exist, using visually similar icon (purpose not the same)"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "F0E2",
+      "Name": "GridView"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F462",
+      "Name": "ic_fluent_grid_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "F0E3",
+      "Name": "ClipboardList"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FF53",
+      "Name": "ic_fluent_clipboard_bullet_list_ltr_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "F108",
+      "Name": "LeftStick"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F108",
+      "Name": "12Regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Missing"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "F109",
+      "Name": "RightStick"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F109",
+      "Name": "12Regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Missing"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "F164",
+      "Name": "ExploreContentSingle"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F8CA",
+      "Name": "ic_fluent_add_square_24_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Size 20 missing"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "F168",
+      "Name": "GroupList"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F467",
+      "Name": "ic_fluent_group_list_24_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Size 20 missing"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "F413",
+      "Name": "CopyTo"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FBF1",
+      "Name": "ic_fluent_copy_arrow_right_24_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Doesn't exist, copy with arrow has similar visual meaning. Size 20 missing"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "F584",
+      "Name": "DuplexPortraitOneSided"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F399",
+      "Name": "ic_fluent_document_one_page_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": "Doesn't exist, using visually similar document (purpose not the same)"
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "F5ED",
+      "Name": "Set"
+    },
+    "Source": {
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F792",
+      "Name": "ic_fluent_stack_20_regular"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  }
+]
