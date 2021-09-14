@@ -119,6 +119,20 @@ namespace IconManager
          *
          ***************************************************************************************/
 
+        /// <summary>
+        /// Converts this <see cref="IconViewModel"/> into a standard <see cref="Icon"/>.
+        /// </summary>
+        /// <returns>A new <see cref="Icon"/> from the view model properties.</returns>
+        public Icon AsIcon()
+        {
+            return new Icon()
+            {
+                IconSet      = this.IconSet,
+                Name         = this.Name,
+                UnicodePoint = this.UnicodePoint
+            };
+        }
+
         private void UpdateProperties()
         {
             switch (this.IconSet)

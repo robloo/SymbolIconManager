@@ -289,7 +289,7 @@ namespace IconManager
             /// This is sometimes needed because <see cref="FluentUISystem.Icon"/> does not derive from
             /// <see cref="Icon"/> like most other icons do. It only implements the interface.
             /// </summary>
-            /// <returns></returns>
+            /// <returns>A new <see cref="IconManager.Icon"/>.</returns>
             public IconManager.Icon AsIcon()
             {
                 return new IconManager.Icon()

@@ -21,6 +21,7 @@
             <Button x:Name="RemapIconsButton"
                     Content="Remap Icons"
                     Click="RemapIconsButton_Click" />
+            <Button Content="Export to Mappings" />
         </StackPanel>
         <TextBlock x:Name="SourcePathTextBlock"
                    Grid.Row="1" />

@@ -141,7 +141,7 @@ As mentioned above, there are two properties that indicate match quality for eac
 
 Separating these two match quality properties allows for easily identifying the case where one icon set has an icon that looks visually very similar to another icon set; however, it was designed for an entirely different purpose. In this case the glyph match quality would be higher but the metaphor match quality lower.
 
-Most matches between different icon sets should have a quality of `Medium`, `High` or `Exact` (rare). `Low` should only be used when there is a placeholder that is loosely similar. Instead of `NoMatch`, it is better to exclude the mapping altogether. `NoMatch` should be used for internal processing only.
+Most matches between different icon sets should have a quality of `Medium`, `High` or `Exact` (rare). `Low` is commonly used when the mapping is a placeholder that is loosely similar, otherwise 'NoMatch' should be used. Instead of `NoMatch`, it is often better to exclude the mapping entirely (use it only for placeholders).
 
 More details about which values to select for match quality can be found in the source code snippet below.
 

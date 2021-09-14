@@ -20,9 +20,8 @@
             <Grid />
         </TabItem>
         <!-- Icon Mapping -->
-        <TabItem Header="Icon Mapping"
-                 IsVisible="False">
-            <Grid />
+        <TabItem Header="Icon Mapping">
+            <local:IconMappingView />
         </TabItem>
         <!-- Application Tools -->
         <TabItem Header="App Tools">

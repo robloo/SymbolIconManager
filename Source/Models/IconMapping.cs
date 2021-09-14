@@ -48,7 +48,6 @@ namespace IconManager
 
         /// <summary>
         /// Gets or sets the source icon to map from.
-        /// This must contain a Unicode point in hexadecimal format with no prefix.
         /// </summary>
         /// <remarks>
         /// Originally this supported any <see cref="IIcon"/> types.
@@ -61,7 +60,6 @@ namespace IconManager
 
         /// <summary>
         /// Gets or sets the destination icon to map to.
-        /// This must contain a Unicode point in hexadecimal format with no prefix.
         /// </summary>
         /// <remarks>
         /// Originally this supported any <see cref="IIcon"/> types.
