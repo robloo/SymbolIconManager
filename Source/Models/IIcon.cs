@@ -33,6 +33,7 @@ namespace IconManager
         /// Gets or sets the 32-bit Unicode point of the icon.
         /// </summary>
         [JsonProperty(Order = 2)]
+        [JsonConverter(typeof(HexStringConverter))]
         uint UnicodePoint { get; set; }
 
         ///////////////////////////////////////////////////////////
