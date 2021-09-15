@@ -52,9 +52,6 @@
                      Text="{Binding FilterText, Mode=TwoWay}"
                      Watermark="Filter"
                      Width="200" />
-            <Button x:Name="FilterButton"
-                    Content="✔️"
-                    Click="FilterButton_Click" />
         </StackPanel>
         <ListBox Grid.Row="2"
                  Items="{Binding FilteredMappings}"

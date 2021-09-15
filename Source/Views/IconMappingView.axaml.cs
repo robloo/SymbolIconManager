@@ -8,6 +8,8 @@ namespace IconManager
 {
     public partial class IconMappingView : UserControl
     {
+        private string? _FilterText = string.Empty;
+
         /***************************************************************************************
          *
          * Constructors
@@ -41,7 +43,15 @@ namespace IconManager
         /// <summary>
         /// Gets or sets the text used to filter the displayed mappings.
         /// </summary>
-        public string? FilterText { get; set; } = string.Empty;
+        public string? FilterText
+        {
+            get => this._FilterText;
+            set
+            {
+                this._FilterText = value;
+                this.UpdateFilteredMappings();
+            }
+        }
 
         /***************************************************************************************
          *
@@ -91,7 +101,8 @@ namespace IconManager
                     if (this.Mappings[i].SourceViewModel.Name.Contains(this.FilterText, StringComparison.OrdinalIgnoreCase) ||
                         this.Mappings[i].DestinationViewModel.Name.Contains(this.FilterText, StringComparison.OrdinalIgnoreCase) ||
                         Icon.ToUnicodeString(this.Mappings[i].SourceViewModel.UnicodePoint).Contains(this.FilterText, StringComparison.OrdinalIgnoreCase) ||
-                        Icon.ToUnicodeString(this.Mappings[i].DestinationViewModel.UnicodePoint).Contains(this.FilterText, StringComparison.OrdinalIgnoreCase))
+                        Icon.ToUnicodeString(this.Mappings[i].DestinationViewModel.UnicodePoint).Contains(this.FilterText, StringComparison.OrdinalIgnoreCase) ||
+                        this.Mappings[i].Comments.Contains(this.FilterText, StringComparison.OrdinalIgnoreCase))
                     {
                         this.FilteredMappings.Add(this.Mappings[i]);
                     }
@@ -195,15 +206,6 @@ namespace IconManager
         private void BuildFontButton_Click(object sender, RoutedEventArgs e)
         {
             // TODO
-            return;
-        }
-
-        /// <summary>
-        /// Event handler for when the filter text button is clicked.
-        /// </summary>
-        private void FilterButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.UpdateFilteredMappings();
             return;
         }
     }

@@ -10,6 +10,8 @@ namespace IconManager
     {
         private Dictionary<IconSet, List<IconViewModel>> cachedIconSets = new Dictionary<IconSet, List<IconViewModel>>();
 
+        private string? _FilterText = string.Empty;
+
         /***************************************************************************************
          *
          * Constructors
@@ -58,7 +60,15 @@ namespace IconManager
         /// <summary>
         /// Gets or sets the text used to filter the displayed icons.
         /// </summary>
-        public string? FilterText { get; set; } = string.Empty;
+        public string? FilterText
+        {
+            get => this._FilterText;
+            set
+            {
+                this._FilterText = value;
+                this.UpdateFilteredIcons();
+            }
+        }
 
         /***************************************************************************************
          *
@@ -171,15 +181,6 @@ namespace IconManager
         private void SelectedIconSetComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             this.UpdateIcons();
-            return;
-        }
-
-        /// <summary>
-        /// Event handler for when the filter text button is clicked.
-        /// </summary>
-        private void FilterButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.UpdateFilteredIcons();
             return;
         }
     }
