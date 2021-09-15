@@ -4,10 +4,10 @@ This folder contains raw icon set data files used by the application. Data is co
 
 | Icon Set | Data File | Last Update | Last Version | Source |
 |----------|-----------|-------------|--------------|--------|
-| Fluent UI System   | `FluentSystemIcons-Filled.json`  | 2021-Jul-20 | 1.1.135 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Filled.json) |
-| Fluent UI System   | `FluentSystemIcons-Filled.ttf`   | 2021-Jul-24 | 1.1.135 | [GitHub Rego](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Filled.ttf) |
-| Fluent UI System   | `FluentSystemIcons-Regular.json` | 2021-Jul-20 | 1.1.135 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.json) |
-| Fluent UI System   | `FluentSystemIcons-Regular.ttf`  | 2021-Jul-24 | 1.1.135 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.ttf) |
+| Fluent UI System   | `FluentSystemIcons-Filled.json`  | 2021-Sep-15 | 1.1.139 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Filled.json) |
+| Fluent UI System   | `FluentSystemIcons-Filled.ttf`   | 2021-Sep-15 | 1.1.139 | [GitHub Rego](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Filled.ttf) |
+| Fluent UI System   | `FluentSystemIcons-Regular.json` | 2021-Sep-15 | 1.1.139 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.json) |
+| Fluent UI System   | `FluentSystemIcons-Regular.ttf`  | 2021-Sep-15 | 1.1.139 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.ttf) |
 | Segoe Fluent Icons | `SegoeFluentIcons.json`          | 2021-Sep-12 | -       | [Microsoft Website](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-fluent-icons-font) |
 | Segoe MDL2 Assets  | `SegoeMDL2Assets.json`           | 2021-Jul-18 | -       | [Microsoft Website](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-ui-symbol-font) |
 | WinJS Symbols      | `Symbols.json`                   | 2021-Jul-24 | 1.05    | [GitHub PDF](https://github.com/winjs/winjs/blob/master/src/fonts/SymbolsWinJS.pdf) |
