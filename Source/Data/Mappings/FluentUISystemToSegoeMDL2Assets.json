@@ -74,8 +74,8 @@
       "UnicodePoint": "F109",
       "Name": "ic_fluent_add_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -90,8 +90,8 @@
       "UnicodePoint": "F369",
       "Name": "ic_fluent_dismiss_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -106,8 +106,8 @@
       "UnicodePoint": "FC2D",
       "Name": "ic_fluent_more_horizontal_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -122,8 +122,8 @@
       "UnicodePoint": "F6A9",
       "Name": "ic_fluent_settings_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -138,8 +138,8 @@
       "UnicodePoint": "FE26",
       "Name": "ic_fluent_link_square_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -154,8 +154,8 @@
       "UnicodePoint": "F8C6",
       "Name": "ic_fluent_zoom_out_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -170,8 +170,8 @@
       "UnicodePoint": "F68F",
       "Name": "ic_fluent_search_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -186,8 +186,8 @@
       "UnicodePoint": "F181",
       "Name": "ic_fluent_arrow_right_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": "Doesn't exist, same as right arrow"
   },
@@ -202,8 +202,8 @@
       "UnicodePoint": "F15B",
       "Name": "ic_fluent_arrow_left_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": "Doesn't exist, same as left arrow"
   },
@@ -218,8 +218,8 @@
       "UnicodePoint": "FC22",
       "Name": "ic_fluent_lock_closed_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -234,8 +234,8 @@
       "UnicodePoint": "FC72",
       "Name": "ic_fluent_subtract_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -250,8 +250,8 @@
       "UnicodePoint": "F291",
       "Name": "ic_fluent_checkbox_unchecked_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -266,8 +266,8 @@
       "UnicodePoint": "F28D",
       "Name": "ic_fluent_checkbox_checked_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -666,8 +666,8 @@
       "UnicodePoint": "F8C4",
       "Name": "ic_fluent_zoom_in_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -698,8 +698,8 @@
       "UnicodePoint": "F18D",
       "Name": "ic_fluent_arrow_swap_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -714,8 +714,8 @@
       "UnicodePoint": "F669",
       "Name": "ic_fluent_rename_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -730,9 +730,9 @@
       "UnicodePoint": "FC56",
       "Name": "ic_fluent_select_all_on_24_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
+    "IsPlaceholder": true,
     "Comments": "Doesn't exist, visually similar doesn't exist, using similar purpose icon. Size 20 missing"
   },
   {
@@ -826,9 +826,9 @@
       "UnicodePoint": "F696",
       "Name": "ic_fluent_select_all_off_24_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
+    "IsPlaceholder": true,
     "Comments": "Doesn't exist, visually similar doesn't exist, using similar purpose icon. Size 20 missing"
   },
   {
@@ -842,8 +842,8 @@
       "UnicodePoint": "F437",
       "Name": "ic_fluent_font_decrease_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -858,8 +858,8 @@
       "UnicodePoint": "F439",
       "Name": "ic_fluent_font_increase_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -874,8 +874,8 @@
       "UnicodePoint": "FE78",
       "Name": "ic_fluent_library_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -890,8 +890,8 @@
       "UnicodePoint": "F41C",
       "Name": "ic_fluent_folder_add_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
     "Comments": "No vertical variant exists"
   },
@@ -906,8 +906,8 @@
       "UnicodePoint": "F294",
       "Name": "ic_fluent_checkmark_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1516,7 +1516,7 @@
     },
     "GlyphMatchQuality": "NoMatch",
     "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
+    "IsPlaceholder": true,
     "Comments": "Missing"
   },
   {
@@ -1532,7 +1532,7 @@
     },
     "GlyphMatchQuality": "NoMatch",
     "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
+    "IsPlaceholder": true,
     "Comments": "Missing"
   },
   {
@@ -1546,7 +1546,7 @@
       "UnicodePoint": "F8CA",
       "Name": "ic_fluent_add_square_24_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "NoMatch",
     "IsPlaceholder": false,
     "Comments": "Size 20 missing"
@@ -1562,8 +1562,8 @@
       "UnicodePoint": "F467",
       "Name": "ic_fluent_group_list_24_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": "Size 20 missing"
   },
@@ -1578,9 +1578,9 @@
       "UnicodePoint": "FBF1",
       "Name": "ic_fluent_copy_arrow_right_24_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Low",
+    "IsPlaceholder": true,
     "Comments": "Doesn't exist, copy with arrow has similar visual meaning. Size 20 missing"
   },
   {
@@ -1594,9 +1594,9 @@
       "UnicodePoint": "F399",
       "Name": "ic_fluent_document_one_page_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
+    "IsPlaceholder": true,
     "Comments": "Doesn't exist, using visually similar document (purpose not the same)"
   },
   {
@@ -1610,8 +1610,8 @@
       "UnicodePoint": "F792",
       "Name": "ic_fluent_stack_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
     "Comments": ""
   }
