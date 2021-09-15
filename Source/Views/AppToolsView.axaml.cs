@@ -59,10 +59,17 @@ namespace IconManager
                 SearchExtension("*.cs",   "= \"\\u",       "\"");
             }
 
-            // Sort by Unicode point
+            // Sort by IconSet then Unicode point
             locatedIcons.Sort((x, y) =>
             {
-                return x.UnicodePoint.CompareTo(y.UnicodePoint);
+                if (x.IconSet == y.IconSet)
+                {
+                    return x.UnicodePoint.CompareTo(y.UnicodePoint);
+                }
+                else
+                {
+                    return x.IconSet.CompareTo(y.IconSet);
+                }
             });
 
 #if DEBUG
