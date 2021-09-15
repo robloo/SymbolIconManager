@@ -322,7 +322,7 @@ namespace IconManager
             this.ListedIcons.Clear();
             foreach (var entry in usedGlyphs)
             {
-                entry.AddGlyphAsync();
+                entry.UpdateGlyphAsync();
                 this.ListedIcons.Add(entry);
             }
 

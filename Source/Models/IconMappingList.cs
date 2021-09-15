@@ -110,6 +110,8 @@ namespace IconManager
                 }
             });
 
+            // TODO: Remove duplicates?
+
             return;
         }
     }

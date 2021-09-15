@@ -1,4 +1,7 @@
-﻿namespace IconManager
+﻿using System;
+using System.Collections.ObjectModel;
+
+namespace IconManager
 {
     public class IconMappingViewModel : ViewModelBase
     {
@@ -8,6 +11,9 @@
         private MatchQuality  _MetaphorMatchQuality;
         private bool          _IsPlaceholder;
         private string        _Comments;
+
+        private ObservableCollection<MatchQuality> _GlyphMatchQualityOptions    = new ObservableCollection<MatchQuality>();
+        private ObservableCollection<MatchQuality> _MetaphorMatchQualityOptions = new ObservableCollection<MatchQuality>();
 
         /***************************************************************************************
          *
@@ -23,6 +29,8 @@
             this._MetaphorMatchQuality = MatchQuality.NoMatch;
             this._IsPlaceholder        = false;
             this._Comments             = string.Empty;
+
+            this.InitOptions();
         }
 
         public IconMappingViewModel(IconMapping mapping)
@@ -33,6 +41,8 @@
             this._MetaphorMatchQuality = mapping.MetaphorMatchQuality;
             this._IsPlaceholder        = mapping.IsPlaceholder;
             this._Comments             = mapping.Comments;
+
+            this.InitOptions();
         }
 
         /***************************************************************************************
@@ -62,11 +72,27 @@
             set => this.SetField(ref this._GlyphMatchQuality, value);
         }
 
+        /// <summary>
+        /// Gets the list of options available to select from for <see cref="GlyphMatchQuality"/>.
+        /// </summary>
+        public ObservableCollection<MatchQuality> GlyphMatchQualityOptions
+        {
+            get => this._GlyphMatchQualityOptions;
+        }
+
         /// <inheritdoc cref="IconMapping.MetaphorMatchQuality"/>
         public MatchQuality MetaphorMatchQuality
         {
             get => this._MetaphorMatchQuality;
             set => this.SetField(ref this._MetaphorMatchQuality, value);
+        }
+
+        /// <summary>
+        /// Gets the list of options available to select from for <see cref="MetaphorMatchQuality"/>.
+        /// </summary>
+        public ObservableCollection<MatchQuality> MetaphorMatchQualityOptions
+        {
+            get => this._MetaphorMatchQualityOptions;
         }
 
         /// <inheritdoc cref="IconMapping.IsPlaceholder"/>
@@ -88,6 +114,22 @@
          * Methods
          *
          ***************************************************************************************/
+
+        /// <summary>
+        /// Initializes the list of options to select from.
+        /// </summary>
+        private void InitOptions()
+        {
+            var enumValues = (MatchQuality[])Enum.GetValues(typeof(MatchQuality));
+
+            foreach (var value in enumValues)
+            {
+                this._GlyphMatchQualityOptions.Add(value);
+                this._MetaphorMatchQualityOptions.Add(value);
+            }
+
+            return;
+        }
 
         /// <summary>
         /// Converts this <see cref="IconMappingViewModel"/> into a standard <see cref="IconMapping"/>.

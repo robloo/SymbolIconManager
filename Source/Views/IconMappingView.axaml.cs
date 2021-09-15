@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using System;
 using System.Collections.ObjectModel;
 using System.IO;
 
@@ -31,11 +32,74 @@ namespace IconManager
         /// </summary>
         public ObservableCollection<IconMappingViewModel> Mappings { get; } = new ObservableCollection<IconMappingViewModel>();
 
+        /// <summary>
+        /// Gets the collection of filtered mappings loaded in the view.
+        /// This is what should be displayed to the end-user.
+        /// </summary>
+        public ObservableCollection<IconMappingViewModel> FilteredMappings { get; } = new ObservableCollection<IconMappingViewModel>();
+
+        /// <summary>
+        /// Gets or sets the text used to filter the displayed mappings.
+        /// </summary>
+        public string? FilterText { get; set; } = string.Empty;
+
         /***************************************************************************************
          *
          * Methods
          *
          ***************************************************************************************/
+
+        private void UpdateMappings(IconMappingList mappings)
+        {
+            // Update the UI collection
+            this.Mappings.Clear();
+            foreach (IconMapping mapping in mappings)
+            {
+                var viewModel = new IconMappingViewModel(mapping);
+
+                viewModel.SourceViewModel.UpdateGlyphAsync();
+                viewModel.DestinationViewModel.UpdateGlyphAsync();
+
+                // Glyph and name need to be recalculated when selections change
+                viewModel.SourceViewModel.AutoUpdate      = true;
+                viewModel.DestinationViewModel.AutoUpdate = true;
+
+                this.Mappings.Add(viewModel);
+            }
+
+            this.UpdateFilteredMappings();
+
+            return;
+        }
+
+        private void UpdateFilteredMappings()
+        {
+            this.FilteredMappings.Clear();
+
+            // Apply filter and update the UI collection simultaneously
+            if (string.IsNullOrWhiteSpace(this.FilterText))
+            {
+                for (int i = 0; i < this.Mappings.Count; i++)
+                {
+                    this.FilteredMappings.Add(this.Mappings[i]);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < this.Mappings.Count; i++)
+                {
+                    if (this.Mappings[i].SourceViewModel.Name.Contains(this.FilterText, StringComparison.OrdinalIgnoreCase) ||
+                        this.Mappings[i].DestinationViewModel.Name.Contains(this.FilterText, StringComparison.OrdinalIgnoreCase) ||
+                        Icon.ToUnicodeString(this.Mappings[i].SourceViewModel.UnicodePoint).Contains(this.FilterText, StringComparison.OrdinalIgnoreCase) ||
+                        Icon.ToUnicodeString(this.Mappings[i].DestinationViewModel.UnicodePoint).Contains(this.FilterText, StringComparison.OrdinalIgnoreCase))
+                    {
+                        this.FilteredMappings.Add(this.Mappings[i]);
+                    }
+                }
+            }
+
+            return;
+        }
 
         /***************************************************************************************
          *
@@ -70,16 +134,7 @@ namespace IconManager
                 }
             }
 
-            // Update the user-interface collection
-            this.Mappings.Clear();
-            foreach (IconMapping mapping in mappings)
-            {
-                var viewModel = new IconMappingViewModel(mapping);
-                viewModel.SourceViewModel.AddGlyphAsync();
-                viewModel.DestinationViewModel.AddGlyphAsync();
-
-                this.Mappings.Add(viewModel);
-            }
+            this.UpdateMappings(mappings);
 
             return;
         }
@@ -119,6 +174,36 @@ namespace IconManager
                 }
             }
 
+            return;
+        }
+
+        /// <summary>
+        /// Event handler for when the clear button is clicked.
+        /// </summary>
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.FilterText = string.Empty;
+            this.Mappings.Clear();
+            this.FilteredMappings.Clear();
+
+            return;
+        }
+
+        /// <summary>
+        /// Event handler for when the build font button is clicked.
+        /// </summary>
+        private void BuildFontButton_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO
+            return;
+        }
+
+        /// <summary>
+        /// Event handler for when the filter text button is clicked.
+        /// </summary>
+        private void FilterButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.UpdateFilteredMappings();
             return;
         }
     }

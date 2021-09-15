@@ -109,8 +109,10 @@ namespace IconManager
         public bool IsValid
         {
             get => this.Source != null &&
+                   this.Source.IconSet != IconSet.Undefined &&
                    this.Source.UnicodePoint != 0 &&
                    this.Destination != null &&
+                   this.Destination.IconSet != IconSet.Undefined &&
                    this.Destination.UnicodePoint != 0;
         }
     }

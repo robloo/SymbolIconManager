@@ -7,6 +7,11 @@
              d:DesignWidth="800"
              d:DesignHeight="450"
              x:Class="IconManager.IconMappingView">
+    <UserControl.Resources>
+        <local:IconMappingStateToBrushConverter x:Key="IconMappingStateToBrush" />
+        <local:MatchQualityToBrushConverter x:Key="MatchQualityToBrush" />
+        <local:UIntToHexStringConverter x:Key="UIntToHexString" />
+    </UserControl.Resources>
     <Grid Margin="10"
           RowDefinitions="Auto,*">
         <StackPanel Grid.Row="0"
@@ -22,16 +27,44 @@
                     MinWidth="100"
                     Click="SaveButton_Click"
                     Margin="5,0,0,0" />
+            <Button x:Name="ClearButton"
+                    HorizontalContentAlignment="Center"
+                    Content="Clear"
+                    MinWidth="100"
+                    Click="ClearButton_Click"
+                    Margin="20,0,0,0" />
+            <Button x:Name="BuildFontButton"
+                    IsEnabled="False"
+                    HorizontalContentAlignment="Center"
+                    Content="Build Font"
+                    MinWidth="100"
+                    Click="BuildFontButton_Click"
+                    Margin="20,0,0,0" />
         </StackPanel>
-        <ListBox x:Name="MappingsListBox"
-                 Grid.Row="2"
-                 Items="{Binding Mappings}"
+        <TextBlock Grid.Row="0"
+                   Text="{Binding FilteredMappings.Count, StringFormat='Count: {0}'}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" />
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="0"
+                    HorizontalAlignment="Right">
+            <TextBox x:Name="FilterTextBox"
+                     Text="{Binding FilterText, Mode=TwoWay}"
+                     Watermark="Filter"
+                     Width="200" />
+            <Button x:Name="FilterButton"
+                    Content="✔️"
+                    Click="FilterButton_Click" />
+        </StackPanel>
+        <ListBox Grid.Row="2"
+                 Items="{Binding FilteredMappings}"
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="local:IconMappingViewModel">
                     <Grid ColumnDefinitions="Auto,*"
-                          RowDefinitions="Auto,Auto,Auto,Auto">
+                          RowDefinitions="Auto,Auto,Auto,Auto"
+                          Background="{Binding ., Mode=OneWay, Converter={StaticResource IconMappingStateToBrush}}">
                         <!-- Source Icon -->
                         <TextBlock Grid.Column="0"
                                    Grid.Row="0"
@@ -50,13 +83,14 @@
                                    HorizontalAlignment="Center"
                                    Margin="3"
                                    Source="{Binding SourceViewModel.Glyph}" />
-                            <TextBox Grid.Column="1"
-                                     Grid.Row="0"
-                                     Text="{Binding SourceViewModel.IconSet}"
-                                     HorizontalAlignment="Stretch" />
+                            <ComboBox Grid.Column="1"
+                                      Grid.Row="0"
+                                      HorizontalAlignment="Stretch"
+                                      SelectedItem="{Binding SourceViewModel.IconSet, Mode=TwoWay}"
+                                      Items="{Binding SourceViewModel.IconSetOptions}" />
                             <TextBox Grid.Column="2"
                                      Grid.Row="0"
-                                     Text="{Binding SourceViewModel.UnicodePoint}"
+                                     Text="{Binding SourceViewModel.UnicodePoint, Mode=TwoWay, Converter={StaticResource UIntToHexString}}"
                                      HorizontalAlignment="Stretch" />
                             <TextBlock Grid.Column="1"
                                        Grid.ColumnSpan="2"
@@ -84,13 +118,14 @@
                                    HorizontalAlignment="Center"
                                    Margin="3"
                                    Source="{Binding DestinationViewModel.Glyph}" />
-                            <TextBox Grid.Column="1"
-                                     Grid.Row="0"
-                                     Text="{Binding DestinationViewModel.IconSet}"
-                                     HorizontalAlignment="Stretch" />
+                            <ComboBox Grid.Column="1"
+                                      Grid.Row="0"
+                                      HorizontalAlignment="Stretch"
+                                      SelectedItem="{Binding DestinationViewModel.IconSet, Mode=TwoWay}"
+                                      Items="{Binding DestinationViewModel.IconSetOptions}" />
                             <TextBox Grid.Column="2"
                                      Grid.Row="0"
-                                     Text="{Binding DestinationViewModel.UnicodePoint}"
+                                     Text="{Binding DestinationViewModel.UnicodePoint, Mode=TwoWay, Converter={StaticResource UIntToHexString}}"
                                      HorizontalAlignment="Stretch" />
                             <TextBlock Grid.Column="1"
                                        Grid.ColumnSpan="2"
@@ -110,19 +145,23 @@
                             <TextBlock Grid.Column="0"
                                        Grid.Row="0"
                                        Text="GlyphMatchQuality" />
-                            <TextBox Grid.Column="0"
-                                     Grid.Row="1"
-                                     HorizontalAlignment="Stretch"
-                                     Text="{Binding GlyphMatchQuality}" />
+                            <ComboBox Grid.Column="0"
+                                      Grid.Row="1"
+                                      HorizontalAlignment="Stretch"
+                                      Background="{Binding GlyphMatchQuality, Mode=OneWay, Converter={StaticResource MatchQualityToBrush}}"
+                                      SelectedItem="{Binding GlyphMatchQuality, Mode=TwoWay}"
+                                      Items="{Binding GlyphMatchQualityOptions}" />
                             <TextBlock Grid.Column="1"
                                        Grid.Row="0"
                                        Text="MetaphorMatchQuality"
                                        Margin="5,0,5,0" />
-                            <TextBox Grid.Column="1"
-                                     Grid.Row="1"
-                                     HorizontalAlignment="Stretch"
-                                     Text="{Binding MetaphorMatchQuality}"
-                                     Margin="5,0,5,0" />
+                            <ComboBox Grid.Column="1"
+                                      Grid.Row="1"
+                                      HorizontalAlignment="Stretch"
+                                      Background="{Binding MetaphorMatchQuality, Mode=OneWay, Converter={StaticResource MatchQualityToBrush}}"
+                                      SelectedItem="{Binding MetaphorMatchQuality, Mode=TwoWay}"
+                                      Items="{Binding MetaphorMatchQualityOptions}"
+                                      Margin="5,0,5,0" />
                             <CheckBox Grid.Column="2"
                                       Grid.Row="0"
                                       Grid.RowSpan="2"
@@ -135,7 +174,7 @@
                                      Grid.Row="2"
                                      HorizontalAlignment="Stretch"
                                      VerticalAlignment="Stretch"
-                                     Text="{Binding Comments}"
+                                     Text="{Binding Comments, Mode=TwoWay}"
                                      TextWrapping="Wrap"
                                      AcceptsReturn="True"
                                      Watermark="Comments"
