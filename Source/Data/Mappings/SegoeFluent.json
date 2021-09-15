@@ -1,0 +1,370 @@
+[
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E001",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E052",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E0E2",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E0E3",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E0E5",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E0E7",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E10A",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E10C",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E700",
+      "Name": "GlobalNavButton"
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E70D",
+      "Name": "ChevronDown"
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E712",
+      "Name": "More"
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E734",
+      "Name": "FavoriteStar"
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E735",
+      "Name": "FavoriteStarFill"
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E73E",
+      "Name": "CheckMark"
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E76C",
+      "Name": "ChevronRight"
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E787",
+      "Name": "Calendar"
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E96E",
+      "Name": "ChevronDownSmall"
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "E972",
+      "Name": "ChevronDownMed"
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "EC8F",
+      "Name": "ScrollUpDown"
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "EDD9",
+      "Name": "CaretLeftSolid8"
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "EDDA",
+      "Name": "CaretRightSolid8"
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "EDDB",
+      "Name": "CaretUpSolid8"
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeFluent",
+      "UnicodePoint": "EDDC",
+      "Name": "CaretDownSolid8"
+    },
+    "Source": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  }
+]
