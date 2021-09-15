@@ -216,13 +216,18 @@ namespace IconManager
                 }
             }
 
-            // In order to get this far a new glyph bitmap was generated (or at least an attempt was made)
             // Add any new bitmap to the cache for next time
+            // In order to get this far a new glyph bitmap was generated (or at least an attempt was made)
+            // It is possible that two renderers for the same glyph are running simultaneously on differing threads
+            // Therefore, within the lock, a check must be made to ensure a glyph was not already added
             if (result != null)
             {
                 lock (GlyphRenderer.cacheMutex)
                 {
-                    GlyphRenderer.cachedGlyphs.Add(glyphKey, result);
+                    if (GlyphRenderer.cachedGlyphs.ContainsKey(glyphKey) == false)
+                    {
+                        GlyphRenderer.cachedGlyphs.Add(glyphKey, result);
+                    }
                 }
             }
 
