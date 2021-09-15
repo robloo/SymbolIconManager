@@ -919,13 +919,13 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FBE4",
-      "Name": "ic_fluent_cellular_data_cellular_off_24_regular"
+      "UnicodePoint": "F279",
+      "Name": "ic_fluent_cellular_data_5_20_regular"
     },
     "GlyphMatchQuality": "Low",
-    "MetaphorMatchQuality": "Low",
-    "IsPlaceholder": true,
-    "Comments": "Designed in FluentUISystem off-by-one different. In this case Off has a different meaning from zero bars of signal so this is probably not a good mapping."
+    "MetaphorMatchQuality": "High",
+    "IsPlaceholder": false,
+    "Comments": "Designed in FluentUISystem with an off-by-one difference. Metaphor match is priority."
   },
   {
     "Destination": {
@@ -935,13 +935,13 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F279",
-      "Name": "ic_fluent_cellular_data_5_20_regular"
+      "UnicodePoint": "F277",
+      "Name": "ic_fluent_cellular_data_4_20_regular"
     },
     "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": "Designed in FluentUISystem off-by-one different"
+    "Comments": "Designed in FluentUISystem with an off-by-one difference. Metaphor match is priority."
   },
   {
     "Destination": {
@@ -951,13 +951,13 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F277",
-      "Name": "ic_fluent_cellular_data_4_20_regular"
+      "UnicodePoint": "F275",
+      "Name": "ic_fluent_cellular_data_3_20_regular"
     },
-    "GlyphMatchQuality": "Medium",
+    "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": "Designed in FluentUISystem off-by-one different"
+    "Comments": "Designed in FluentUISystem with an off-by-one difference. Metaphor match is priority."
   },
   {
     "Destination": {
@@ -967,13 +967,13 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F275",
-      "Name": "ic_fluent_cellular_data_3_20_regular"
+      "UnicodePoint": "F273",
+      "Name": "ic_fluent_cellular_data_2_20_regular"
     },
-    "GlyphMatchQuality": "Medium",
+    "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": "Designed in FluentUISystem off-by-one different"
+    "Comments": "Designed in FluentUISystem with an off-by-one difference. Metaphor match is priority."
   },
   {
     "Destination": {
@@ -983,13 +983,13 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F273",
-      "Name": "ic_fluent_cellular_data_2_20_regular"
+      "UnicodePoint": "F271",
+      "Name": "ic_fluent_cellular_data_1_20_regular"
     },
-    "GlyphMatchQuality": "Medium",
+    "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": "Designed in FluentUISystem off-by-one different"
+    "Comments": "Designed in FluentUISystem with an off-by-one difference. Metaphor match is priority."
   },
   {
     "Destination": {
