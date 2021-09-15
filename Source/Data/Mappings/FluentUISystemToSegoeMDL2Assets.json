@@ -58,8 +58,8 @@
       "UnicodePoint": "F3DD",
       "Name": "ic_fluent_edit_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -282,8 +282,8 @@
       "UnicodePoint": "F294",
       "Name": "ic_fluent_checkmark_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -298,8 +298,8 @@
       "UnicodePoint": "F34C",
       "Name": "ic_fluent_delete_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -314,8 +314,8 @@
       "UnicodePoint": "F67F",
       "Name": "ic_fluent_save_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -330,8 +330,8 @@
       "UnicodePoint": "FBC6",
       "Name": "ic_fluent_arrow_enter_left_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -490,8 +490,8 @@
       "UnicodePoint": "F15B",
       "Name": "ic_fluent_arrow_left_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
     "Comments": "Doesn't exist, same as left arrow"
   },
@@ -586,8 +586,8 @@
       "UnicodePoint": "F369",
       "Name": "ic_fluent_dismiss_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
     "Comments": "Doesn't exist, same as dismiss (cancel)"
   },
@@ -650,8 +650,8 @@
       "UnicodePoint": "F1A4",
       "Name": "ic_fluent_arrow_upload_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -682,9 +682,9 @@
       "UnicodePoint": "100B0",
       "Name": "ic_fluent_border_all_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
+    "IsPlaceholder": true,
     "Comments": ""
   },
   {
@@ -746,8 +746,8 @@
       "UnicodePoint": "F159",
       "Name": "ic_fluent_arrow_import_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": "Arrow direction is reversed"
   },
@@ -762,9 +762,9 @@
       "UnicodePoint": "FD80",
       "Name": "ic_fluent_text_bullet_list_ltr_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
+    "IsPlaceholder": true,
     "Comments": "Doesn't exist, using visually similar icon (purpose not the same), ic_fluent_multiselect_20_regular alternate"
   },
   {
@@ -778,8 +778,8 @@
       "UnicodePoint": "F380",
       "Name": "ic_fluent_document_copy_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": "Document copy matches icon, ic_fluent_copy_20_regular alternate"
   },
@@ -794,8 +794,8 @@
       "UnicodePoint": "F23C",
       "Name": "ic_fluent_calendar_today_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -810,8 +810,8 @@
       "UnicodePoint": "10008",
       "Name": "ic_fluent_document_arrow_up_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1195,8 +1195,8 @@
       "Name": "ic_fluent_settings_20_regular"
     },
     "GlyphMatchQuality": "Medium",
-    "MetaphorMatchQuality": "Low",
-    "IsPlaceholder": false,
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": true,
     "Comments": "Doesn't exist, closest is a single settings gear"
   },
   {
@@ -1242,9 +1242,9 @@
       "UnicodePoint": "100A9",
       "Name": "ic_fluent_arrow_step_in_right_16_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
+    "IsPlaceholder": true,
     "Comments": "Doesn't exist, using visually similar icon (purpose not the same), Size 20 missing"
   },
   {
@@ -1274,8 +1274,8 @@
       "UnicodePoint": "F181",
       "Name": "ic_fluent_arrow_right_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
     "Comments": "Doesn't exist, same as right arrow"
   },
@@ -1306,7 +1306,7 @@
       "UnicodePoint": "F418",
       "Name": "ic_fluent_folder_20_regular"
     },
-    "GlyphMatchQuality": "Low",
+    "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Low",
     "IsPlaceholder": true,
     "Comments": "Doesn't exist, generic folder is used instead"
@@ -1354,7 +1354,7 @@
       "UnicodePoint": "100D9",
       "Name": "ic_fluent_glance_horizontal_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "NoMatch",
     "IsPlaceholder": false,
     "Comments": ""
@@ -1434,8 +1434,8 @@
       "UnicodePoint": "FBC8",
       "Name": "ic_fluent_arrow_export_ltr_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": "Arrow direction is reversed"
   },
@@ -1450,8 +1450,8 @@
       "UnicodePoint": "F21D",
       "Name": "ic_fluent_calendar_clock_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1466,7 +1466,7 @@
       "UnicodePoint": "F6B1",
       "Name": "ic_fluent_share_android_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "NoMatch",
     "IsPlaceholder": false,
     "Comments": "Doesn't exist, using visually similar icon (purpose not the same)"
@@ -1482,8 +1482,8 @@
       "UnicodePoint": "F462",
       "Name": "ic_fluent_grid_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1498,8 +1498,8 @@
       "UnicodePoint": "FF53",
       "Name": "ic_fluent_clipboard_bullet_list_ltr_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1512,7 +1512,7 @@
     "Source": {
       "IconSet": "FluentUISystemRegular",
       "UnicodePoint": "F108",
-      "Name": "12Regular"
+      "Name": "ic_fluent_add_16_regular"
     },
     "GlyphMatchQuality": "NoMatch",
     "MetaphorMatchQuality": "NoMatch",
@@ -1528,7 +1528,7 @@
     "Source": {
       "IconSet": "FluentUISystemRegular",
       "UnicodePoint": "F109",
-      "Name": "12Regular"
+      "Name": "ic_fluent_add_20_regular"
     },
     "GlyphMatchQuality": "NoMatch",
     "MetaphorMatchQuality": "NoMatch",
