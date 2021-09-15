@@ -21,6 +21,21 @@ namespace IconManager
         {
             InitializeComponent();
 
+            // Set the list of icon sets
+            var iconSetEnumValues = Enum.GetValues(typeof(IconSet));
+            List<ComboBoxItem> iconSets = new List<ComboBoxItem>();
+
+            foreach (var value in iconSetEnumValues)
+            {
+                iconSets.Add(new ComboBoxItem()
+                {
+                    Content = value.ToString(),
+                    Tag     = value
+                });
+            }
+            this.SourceIconSetComboBox.Items = iconSets;
+            this.SourceIconSetComboBox.SelectedIndex = 0; // Should be Undefined
+
             this.DataContext = this;
         }
 
@@ -298,7 +313,10 @@ namespace IconManager
         /// </summary>
         private void ListIconsButton_Click(object sender, RoutedEventArgs e)
         {
-            var usedGlyphs = this.ListUsedIcons(IconSet.SegoeMDL2Assets);
+            var selectedItem = this.SourceIconSetComboBox.SelectedItem as ComboBoxItem;
+            var selectedIconSet = (IconSet?)Enum.Parse(typeof(IconSet), selectedItem?.Tag?.ToString() ?? string.Empty);
+
+            var usedGlyphs = this.ListUsedIcons(selectedIconSet ?? IconSet.Undefined);
 
             // Update the listed glyphs for display to the user
             this.ListedIcons.Clear();
@@ -319,6 +337,54 @@ namespace IconManager
             this.RemapIcons(
                 SegoeMDL2AssetsToFluentUISystem.BuildMapping(FluentUISystem.IconSize.Size20),
                 IconSet.SegoeMDL2Assets);
+
+            return;
+        }
+
+        private async void ExportToMappings_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.ListedIcons.Count > 0)
+            {
+                var dialog = new SaveFileDialog();
+                var path = await dialog.ShowAsync(App.MainWindow);
+
+                if (path != null)
+                {
+                    if (File.Exists(path))
+                    {
+                        // Delete the existing file, it will be replaced
+                        File.Delete(path);
+                    }
+
+                    if (Directory.Exists(Path.GetDirectoryName(path)) == false)
+                    {
+                        Directory.CreateDirectory(Path.GetDirectoryName(path));
+                    }
+
+                    using (var fileStream = File.OpenWrite(path))
+                    {
+                        var mappings = new IconMappingList();
+
+                        foreach (IconViewModel viewModel in this.ListedIcons)
+                        {
+                            var mapping = new IconMapping()
+                            {
+                                Source               = new Icon(),
+                                Destination          = viewModel.AsIcon(),
+                                GlyphMatchQuality    = MatchQuality.NoMatch,
+                                MetaphorMatchQuality = MatchQuality.NoMatch,
+                                IsPlaceholder        = false,
+                                Comments             = string.Empty
+                            };
+
+                            mappings.Add(mapping);
+                        }
+
+                        IconMappingList.ReprocessMappings(mappings);
+                        IconMappingList.Save(mappings, fileStream);
+                    }
+                }
+            }
 
             return;
         }

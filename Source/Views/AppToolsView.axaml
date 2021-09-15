@@ -9,22 +9,52 @@
              x:Class="IconManager.AppToolsView">
     <Grid Margin="10"
           RowDefinitions="Auto,Auto,*">
+        <Grid Grid.Row="0"
+              HorizontalAlignment="Left"
+              Grid.ColumnDefinitions="Auto,Auto"
+              Grid.RowDefinitions="Auto,Auto,Auto">
+            <TextBlock Grid.Column="0"
+                       Grid.Row="0"
+                       Text="Source Code:"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,0,5,0" />
+            <TextBlock x:Name="SourcePathTextBlock"
+                       Grid.Column="1"
+                       Grid.Row="0" />
+            <Button x:Name="SourceDirectoryButton"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Content="Select Folder"
+                    Click="SourceDirectoryButton_Click" />
+            <TextBlock Grid.Column="0"
+                       Grid.Row="2"
+                       Text="Source Icon Set:"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,0,5,0" />
+            <ComboBox x:Name="SourceIconSetComboBox"
+                      Grid.Column="1"
+                      Grid.Row="2" />
+        </Grid>
         <StackPanel Grid.Row="0"
                     Orientation="Horizontal"
+                    HorizontalAlignment="Right"
                     Spacing="5">
-            <Button x:Name="SourceDirectoryButton"
-                    Content="Select Source Code"
-                    Click="SourceDirectoryButton_Click" />
             <Button x:Name="ListIconsButton"
                     Content="List Used Icons"
                     Click="ListIconsButton_Click" />
             <Button x:Name="RemapIconsButton"
                     Content="Remap Icons"
                     Click="RemapIconsButton_Click" />
-            <Button Content="Export to Mappings" />
+            <Button x:Name="ExportToMappings"
+                    Content="Export to Mappings"
+                    Click="ExportToMappings_Click" />
         </StackPanel>
-        <TextBlock x:Name="SourcePathTextBlock"
-                   Grid.Row="1" />
+        <TextBlock Text="{Binding ListedIcons.Count, StringFormat='Count: {0}'}"
+                   Grid.Row="1"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" />
         <ListBox x:Name="ListBox"
                  Grid.Row="2"
                  Items="{Binding ListedIcons}"
@@ -32,25 +62,20 @@
                  VerticalAlignment="Stretch">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="local:IconViewModel">
-                    <Grid ColumnDefinitions="Auto,Auto,*,Auto">
-                        <TextBlock Grid.Column="0"
+                    <Grid ColumnDefinitions="Auto,Auto,*">
+                        <Image Grid.Column="0"
+                               Width="50"
+                               Height="50"
+                               Source="{Binding Glyph}" />
+                        <TextBlock Grid.Column="1"
                                    Text="{Binding UnicodeString}"
                                    HorizontalAlignment="Stretch"
                                    Margin="5"
                                    VerticalAlignment="Center" />
-                        <Image Grid.Column="1"
-                               Width="50"
-                               Height="50"
-                               Source="{Binding Glyph}" />
                         <TextBlock Grid.Column="2"
                                    Text="{Binding Name}"
                                    VerticalAlignment="Center"
                                    Margin="5" />
-                        <Button Grid.Column="3"
-                                Content="Details"
-                                Tag="{Binding}"
-                                Click="IconViewModel_Click"
-                                VerticalAlignment="Center" />
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

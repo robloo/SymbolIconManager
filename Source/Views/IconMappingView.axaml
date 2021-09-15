@@ -136,6 +136,9 @@
                                      HorizontalAlignment="Stretch"
                                      VerticalAlignment="Stretch"
                                      Text="{Binding Comments}"
+                                     TextWrapping="Wrap"
+                                     AcceptsReturn="True"
+                                     Watermark="Comments"
                                      Margin="0,5,0,0" />
                         </Grid>
                     </Grid>

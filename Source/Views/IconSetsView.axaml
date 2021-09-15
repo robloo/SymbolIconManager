@@ -12,7 +12,7 @@
         <ComboBox x:Name="SelectedIconSetComboBox"
                   Grid.Row="0"
                   SelectionChanged="SelectedIconSetComboBox_SelectionChanged" />
-        <TextBlock Text="{Binding IconSetIcons.Count}"
+        <TextBlock Text="{Binding IconSetIcons.Count, StringFormat='Count: {0}'}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center" />
         <StackPanel Orientation="Horizontal"
