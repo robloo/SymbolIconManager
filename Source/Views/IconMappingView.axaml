@@ -34,7 +34,6 @@
                     Click="ClearButton_Click"
                     Margin="20,0,0,0" />
             <Button x:Name="BuildFontButton"
-                    IsEnabled="False"
                     HorizontalContentAlignment="Center"
                     Content="Build Font"
                     MinWidth="100"

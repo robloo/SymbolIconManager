@@ -14,11 +14,6 @@
                  IsSelected="True">
             <local:IconSetsView />
         </TabItem>
-        <!-- Font Builder -->
-        <TabItem Header="Font Builder"
-                 IsVisible="False">
-            <Grid />
-        </TabItem>
         <!-- Icon Mapping -->
         <TabItem Header="Icon Mapping">
             <local:IconMappingView />

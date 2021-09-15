@@ -205,7 +205,16 @@ namespace IconManager
         /// </summary>
         private void BuildFontButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO
+            var mappings = new IconMappingList();
+
+            foreach (IconMappingViewModel viewModel in this.Mappings)
+            {
+                mappings.Add(viewModel.AsIconMapping());
+            }
+
+            var fontBuilder = new FontBuilder();
+            fontBuilder.BuildFont(mappings);
+
             return;
         }
     }
