@@ -297,7 +297,7 @@ namespace IconManager
             this.ListedIcons.Clear();
             foreach (var entry in usedGlyphs)
             {
-                entry.DownloadGlyphImage();
+                entry.AddGlyphAsync();
                 this.ListedIcons.Add(entry);
             }
 

@@ -21,7 +21,7 @@ namespace IconManager
         {
             InitializeComponent();
 
-            // Init the list of icon sets
+            // Set the list of icon sets
             var iconSetEnumValues = Enum.GetValues(typeof(IconSet));
             List<ComboBoxItem> iconSets = new List<ComboBoxItem>();
 
@@ -106,7 +106,7 @@ namespace IconManager
                         for (int i = 0; i < icons.Count; i++)
                         {
                             var viewModel = new IconViewModel(icons[i]);
-                            viewModel.DownloadGlyphImage();
+                            viewModel.AddGlyphAsync();
 
                             iconViewModels.Add(viewModel);
                         }

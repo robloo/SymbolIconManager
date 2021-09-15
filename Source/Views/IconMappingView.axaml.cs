@@ -75,8 +75,8 @@ namespace IconManager
             foreach (IconMapping mapping in mappings)
             {
                 var viewModel = new IconMappingViewModel(mapping);
-                viewModel.SourceViewModel.DownloadGlyphImage();
-                viewModel.DestinationViewModel.DownloadGlyphImage();
+                viewModel.SourceViewModel.AddGlyphAsync();
+                viewModel.DestinationViewModel.AddGlyphAsync();
 
                 this.Mappings.Add(viewModel);
             }
