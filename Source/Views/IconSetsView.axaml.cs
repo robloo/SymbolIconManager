@@ -1,4 +1,3 @@
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using System;
@@ -46,12 +45,18 @@ namespace IconManager
          ***************************************************************************************/
 
         /// <summary>
-        /// Gets the list of icons to display in the user-interface.
+        /// Gets the collection of icons loaded in the view.
         /// </summary>
-        public ObservableCollection<IconViewModel> IconSetIcons { get; } = new ObservableCollection<IconViewModel>();
+        public ObservableCollection<IconViewModel> Icons { get; } = new ObservableCollection<IconViewModel>();
 
         /// <summary>
-        /// Gets or sets the text used to filter the display icons.
+        /// Gets the collection of filtered icons loaded in the view.
+        /// This is what should be displayed to the end-user.
+        /// </summary>
+        public ObservableCollection<IconViewModel> FilteredIcons { get; } = new ObservableCollection<IconViewModel>();
+
+        /// <summary>
+        /// Gets or sets the text used to filter the displayed icons.
         /// </summary>
         public string? FilterText { get; set; } = string.Empty;
 
@@ -66,7 +71,6 @@ namespace IconManager
             ComboBoxItem? selectedItem = this.SelectedIconSetComboBox.SelectedItem as ComboBoxItem;
             IReadOnlyList<IIcon>? icons = null;
             List<IconViewModel> iconViewModels = new List<IconViewModel>();
-            List<IconViewModel> filteredIconViewModels = new List<IconViewModel>();
 
             var selectedIconSet = (IconSet?)Enum.Parse(typeof(IconSet), selectedItem?.Tag?.ToString() ?? string.Empty);
 
@@ -106,7 +110,7 @@ namespace IconManager
                         for (int i = 0; i < icons.Count; i++)
                         {
                             var viewModel = new IconViewModel(icons[i]);
-                            viewModel.AddGlyphAsync();
+                            viewModel.UpdateGlyphAsync();
 
                             iconViewModels.Add(viewModel);
                         }
@@ -116,28 +120,40 @@ namespace IconManager
                 }
             }
 
-            // Apply filter
+            // Update the UI collection
+            this.Icons.Clear();
+            for (int i = 0; i < iconViewModels.Count; i++)
+            {
+                this.Icons.Add(iconViewModels[i]);
+            }
+
+            this.UpdateFilteredIcons();
+
+            return;
+        }
+
+        private void UpdateFilteredIcons()
+        {
+            this.FilteredIcons.Clear();
+
+            // Apply filter and update the UI collection simultaneously
             if (string.IsNullOrWhiteSpace(this.FilterText))
             {
-                filteredIconViewModels = iconViewModels;
+                for (int i = 0; i < this.Icons.Count; i++)
+                {
+                    this.FilteredIcons.Add(this.Icons[i]);
+                }
             }
             else
             {
-                for (int i = 0; i < iconViewModels.Count; i++)
+                for (int i = 0; i < this.Icons.Count; i++)
                 {
-                    if (iconViewModels[i].Name.Contains(this.FilterText, StringComparison.OrdinalIgnoreCase) ||
-                        Icon.ToUnicodeString(iconViewModels[i].UnicodePoint).Contains(this.FilterText, StringComparison.OrdinalIgnoreCase))
+                    if (this.Icons[i].Name.Contains(this.FilterText, StringComparison.OrdinalIgnoreCase) ||
+                        Icon.ToUnicodeString(this.Icons[i].UnicodePoint).Contains(this.FilterText, StringComparison.OrdinalIgnoreCase))
                     {
-                        filteredIconViewModels.Add(iconViewModels[i]);
+                        this.FilteredIcons.Add(this.Icons[i]);
                     }
                 }
-            }
-
-            // Update the UI
-            this.IconSetIcons.Clear();
-            for (int i = 0; i < filteredIconViewModels.Count; i++)
-            {
-                this.IconSetIcons.Add(filteredIconViewModels[i]);
             }
 
             return;
@@ -163,7 +179,7 @@ namespace IconManager
         /// </summary>
         private void FilterButton_Click(object sender, RoutedEventArgs e)
         {
-            this.UpdateIcons();
+            this.UpdateFilteredIcons();
             return;
         }
     }

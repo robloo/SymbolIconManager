@@ -12,7 +12,7 @@
         <ComboBox x:Name="SelectedIconSetComboBox"
                   Grid.Row="0"
                   SelectionChanged="SelectedIconSetComboBox_SelectionChanged" />
-        <TextBlock Text="{Binding IconSetIcons.Count, StringFormat='Count: {0}'}"
+        <TextBlock Text="{Binding FilteredIcons.Count, StringFormat='Count: {0}'}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center" />
         <StackPanel Orientation="Horizontal"
@@ -26,9 +26,8 @@
                     Content="✔️"
                     Click="FilterButton_Click" />
         </StackPanel>
-        <ListBox x:Name="IconSetListBox"
-                 Grid.Row="2"
-                 Items="{Binding IconSetIcons}"
+        <ListBox Grid.Row="2"
+                 Items="{Binding FilteredIcons}"
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch">
             <ListBox.ItemTemplate>
