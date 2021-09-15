@@ -60,6 +60,8 @@ namespace IconManager
         }
 
         private static IReadOnlyList<Icon>? cachedIcons = null;
+        private static IReadOnlyDictionary<uint, string>? cachedFilledNames = null;
+        private static IReadOnlyDictionary<uint, string>? cachedRegularNames = null;
 
         /***************************************************************************************
          *
@@ -70,6 +72,8 @@ namespace IconManager
         private static void RebuildCache()
         {
             var icons = new List<Icon>();
+            var filledNames = new Dictionary<uint, string>();
+            var regularNames = new Dictionary<uint, string>();
             var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
             string[] sourceDataPaths = new string[]
             {
@@ -90,20 +94,66 @@ namespace IconManager
                     {
                         foreach (var entry in rawIcons)
                         {
-                            icons.Add(new Icon()
+                            var icon = new Icon()
                             {
                                 RawName      = entry.Key,
                                 Name         = entry.Key, // Automatically parses into components
                                 UnicodePoint = Convert.ToUInt32(entry.Value.Substring(2), 16) // Remove '0x'
-                            });
+                            };
+
+                            icons.Add(icon);
+
+                            if (icon.Theme == IconTheme.Filled)
+                            {
+                                filledNames.Add(icon.UnicodePoint, icon.Name);
+                            }
+                            else
+                            {
+                                regularNames.Add(icon.UnicodePoint, icon.Name);
+                            }
                         }
                     }
                 }
             }
 
-            cachedIcons = icons.AsReadOnly();
+            cachedIcons        = icons.AsReadOnly();
+            cachedFilledNames  = filledNames;
+            cachedRegularNames = regularNames;
 
             return;
+        }
+
+        public static string FindName(uint unicodePoint, IconTheme theme)
+        {
+            if (cachedIcons == null ||
+                cachedFilledNames == null ||
+                cachedRegularNames == null)
+            {
+                RebuildCache();
+            }
+
+            if (theme == IconTheme.Filled)
+            {
+                if (cachedFilledNames!.TryGetValue(unicodePoint, out string? name))
+                {
+                    return name ?? string.Empty;
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+            else
+            {
+                if (cachedRegularNames!.TryGetValue(unicodePoint, out string? name))
+                {
+                    return name ?? string.Empty;
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
         }
 
         /// <summary>
@@ -124,9 +174,9 @@ namespace IconManager
         }
 
         /// <summary>
-        /// Gets all icons of the desired theme.
+        /// Gets all icons of the defined theme.
         /// </summary>
-        public static IReadOnlyList<Icon> GetIcons(IconTheme desiredTheme)
+        public static IReadOnlyList<Icon> GetIcons(IconTheme theme)
         {
             var matchingIcons = new List<Icon>();
 
@@ -137,7 +187,7 @@ namespace IconManager
 
             foreach (Icon icon in cachedIcons!)
             {
-                if (icon.Theme == desiredTheme)
+                if (icon.Theme == theme)
                 {
                     matchingIcons.Add(icon);
                 }
