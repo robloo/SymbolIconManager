@@ -2,6 +2,7 @@
 using Avalonia.Platform;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Net;
@@ -78,8 +79,11 @@ namespace IconManager
          *
          ***************************************************************************************/
 
-
-
+        /// <summary>
+        /// Writes all scripts and assembles all files necessary to generate a new font using FontForge.
+        /// An output folder will be created with a script that can be run to generate the font.
+        /// </summary>
+        /// <param name="mappings">The icon glyph mappings to generate the font with.</param>
         public void BuildFont(IconMappingList mappings)
         {
             if (mappings.Count == 0)
@@ -99,9 +103,6 @@ namespace IconManager
                     Path.Combine(outputDirectory, WindowsScriptFileName));
             }
 
-            // Assemble all glyphs in the sources directory
-
-
             // Write the python script to build the actual font with FontForge
             using (MemoryStream pythonScript = this.BuildPythonFontScript(mappings, outputDirectory))
             {
@@ -109,6 +110,18 @@ namespace IconManager
                     pythonScript,
                     Path.Combine(outputDirectory, PythonScriptFileName));
             }
+
+            // Open the output location for the end-user
+            // This currently only works on Windows
+            try
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    Arguments = outputDirectory,
+                    FileName = "explorer.exe"
+                });
+            }
+            catch { }
 
             return;
         }
@@ -148,6 +161,19 @@ namespace IconManager
             sb.AppendLine();
             sb.AppendLine(@"# Create a new, empty font");
             sb.AppendLine(@"font = fontforge.font()");
+            sb.AppendLine();
+            sb.AppendLine(@"# Each character's glyph is created and added to the font below.");
+            sb.AppendLine(@"# Glyphs are created by automatically importing from an SVG source when possible.");
+            sb.AppendLine(@"# FontForge uses the following metrics automatically when importing from SVG:");
+            sb.AppendLine(@"#   - Assumes the SVG is 1000px-by-1000px and will scale an SVG of a different size");
+            sb.AppendLine(@"#   - Sets the baseline at 200px from the bottom");
+            sb.AppendLine(@"# The width of the glyph is not automatically set when automatically importing an SVG.");
+            sb.AppendLine(@"# This is true even though the SVG width is scaled to 1000px.");
+            sb.AppendLine(@"# To work-around this, the glyph width is set for all characters as well.");
+            sb.AppendLine(@"#");
+            sb.AppendLine(@"# Further information about scripting FontForge can be found at the below links:");
+            sb.AppendLine(@"#   1. https://fontforge.org/docs/scripting/python.html");
+            sb.AppendLine(@"#   2. https://fontforge.org/docs/scripting/python/fontforge.html#glyph");
             sb.AppendLine();
 
             //      Source: Name is ignored, use IconSet+UnicodePoint to lookup the glyph
@@ -206,12 +232,26 @@ namespace IconManager
                         webClient.DownloadDataAsync(svgUrl);
                     }
 
-                    sb.AppendLine($@"char = font.createChar(0x{mapping.Destination.UnicodeString})");
-                    sb.AppendLine($@"char.importOutlines('{GlyphSubDirectoryName}\{svgName}')");
+                    if (string.IsNullOrWhiteSpace(mapping.Destination.Name) == false)
+                    {
+                        sb.AppendLine($@"# {mapping.Destination.Name}");
+                    }
+
+                    sb.AppendLine($@"glyph = font.createChar(0x{mapping.Destination.UnicodeString})");
+                    sb.AppendLine($@"glyph.importOutlines('{GlyphSubDirectoryName}\{svgName}')");
+                    sb.AppendLine($@"glyph.width = 1000");
+
+                    // Only override the default FontForge name if one is provided
+                    if (string.IsNullOrWhiteSpace(mapping.Destination.Name) == false)
+                    {
+                        sb.AppendLine($@"glyph.glyphname = '{mapping.Destination.Name}'");
+                    }
+
                     sb.AppendLine();
                 }
             }
 
+            sb.AppendLine(@"# Export the newly created font");
             sb.AppendLine($@"font.generate('{OutputFontFileName}')");
 
             return new MemoryStream(Encoding.UTF8.GetBytes(sb.ToString()));
@@ -221,9 +261,12 @@ namespace IconManager
         {
             var sb = new StringBuilder();
 
+            sb.AppendLine(@"@ECHO OFF");
             sb.AppendLine(@"set scriptPath=%cd%");
             sb.AppendLine();
             sb.AppendLine($@"""{FontForgeFilePath}"" -script ""%scriptPath%\{PythonScriptFileName}""");
+            sb.AppendLine();
+            sb.AppendLine($@"ECHO FontForge has finished building the {OutputFontFileName} font.");
             sb.AppendLine();
             sb.AppendLine(@"PAUSE");
 
