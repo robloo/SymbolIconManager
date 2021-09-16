@@ -138,8 +138,11 @@ namespace IconManager
 
             foreach (IconMapping mapping in mappings)
             {
-                if (mapping.Source.IconSet == IconSet.FluentUISystemFilled ||
-                    mapping.Source.IconSet == IconSet.FluentUISystemRegular)
+                var possibleGlyphSources = GlyphRenderer.GetPossibleGlyphSources(
+                    mapping.Source.IconSet,
+                    mapping.Source.UnicodePoint);
+
+                if (possibleGlyphSources.Contains(GlyphSource.RemoteSvgFile))
                 {
                     var svgUrl = GlyphRenderer.GetGlyphSourceUrl(
                         mapping.Source.IconSet,
