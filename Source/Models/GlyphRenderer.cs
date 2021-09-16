@@ -1,7 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Platform;
 using SkiaSharp;
-using SkiaSharp.Extended.Svg;
 using System;
 using System.Collections.Generic;
 using System.IO;

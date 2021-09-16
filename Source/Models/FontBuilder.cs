@@ -142,7 +142,8 @@ namespace IconManager
                     mapping.Source.IconSet,
                     mapping.Source.UnicodePoint);
 
-                if (possibleGlyphSources.Contains(GlyphSource.RemoteSvgFile))
+                if (mapping.IsValidForFont &&
+                    possibleGlyphSources.Contains(GlyphSource.RemoteSvgFile))
                 {
                     var svgUrl = GlyphRenderer.GetGlyphSourceUrl(
                         mapping.Source.IconSet,
@@ -207,7 +208,7 @@ namespace IconManager
             var sb = new StringBuilder();
 
             sb.AppendLine(@"@ECHO OFF");
-            sb.AppendLine(@"set scriptPath=%cd%");
+            sb.AppendLine(@"SET scriptPath=%cd%");
             sb.AppendLine();
             sb.AppendLine($@"""{FontForgeFilePath}"" -script ""%scriptPath%\{PythonScriptFileName}""");
             sb.AppendLine();

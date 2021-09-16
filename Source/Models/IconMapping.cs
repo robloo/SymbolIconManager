@@ -115,5 +115,21 @@ namespace IconManager
                    this.Destination.IconSet != IconSet.Undefined &&
                    this.Destination.UnicodePoint != 0;
         }
+
+        /// <summary>
+        /// Gets a value indicating whether the mapping is consider valid for the
+        /// purpose of building a font. This is similar to <see cref="IsValid"/> 
+        /// except the destination <see cref="IconSet"/> may be excluded.
+        /// </summary>
+        [JsonIgnore]
+        public bool IsValidForFont
+        {
+            get => this.Source != null &&
+                   this.Source.IconSet != IconSet.Undefined &&
+                   this.Source.UnicodePoint != 0 &&
+                   this.Destination != null &&
+                   // Destination.IconSet may be excluded entirely
+                   this.Destination.UnicodePoint != 0;
+        }
     }
 }

@@ -57,12 +57,96 @@ namespace IconManager
             return;
         }
 
-        public static void InitNewMapping(
+        /// <summary>
+        /// Creates a brand-new <see cref="IconMappingList"/> including all icons is the specified
+        /// <paramref name="destinationIconSet"/>.
+        /// </summary>
+        /// <param name="destinationIconSet">
+        /// Defines the <see cref="IconSet"/> used to generate the full list of mappings,
+        /// each mapping representing a single icon in the set.
+        /// This is the common <see cref="IconSet"/> used in the destination of all mappings.
+        /// </param>
+        /// <param name="sourceIconSet">
+        /// An optional value used to set the icon set used as the source for all icons.
+        /// Since it is common for multiple sources to be used, this should almost never be set.
+        /// </param>
+        /// <param name="baseMappings">
+        /// An optional collection of base mappings used to set initial mapping values.
+        /// Order of lists is important, the first mapping match will stop the search.
+        /// Place primary, higher quality mapping lists before secondary ones.
+        /// </param>
+        public static IconMappingList InitNewMappings(
             IconSet destinationIconSet,
             IconSet sourceIconSet = IconSet.Undefined,
-            IconMappingList? baseMappings = null)
+            List<IconMappingList>? baseMappings = null)
         {
-            return;
+            var icons = IconSetBase.GetIcons(destinationIconSet);
+            IconMappingList mappings = new IconMappingList();
+
+            for (int i = 0; i < icons.Count; i++)
+            {
+                IconMapping? baseMapping = null;
+
+                var mapping = new IconMapping()
+                {
+                    Destination = new Icon()
+                    {
+                        IconSet      = icons[i].IconSet,
+                        Name         = icons[i].Name,
+                        UnicodePoint = icons[i].UnicodePoint
+                    },
+                    Source = new Icon()
+                    {
+                        IconSet = sourceIconSet, // Undefined will equal default
+                    }
+                    // Leave metadata unset and the default value
+                };
+
+                // Attempt to find a matching base mapping
+                // Only the first match is used, order of lists is important
+                if (baseMappings != null)
+                {
+                    for (int j = 0; j < baseMappings.Count; j++)
+                    {
+                        for (int k = 0; k < baseMappings[j].Count; k++)
+                        {
+                            if (baseMappings[j][k].Destination.IsUnicodeMatch(mapping.Destination))
+                            {
+                                if (mapping.Source.IconSet == IconSet.Undefined ||
+                                    (mapping.Source.IconSet != IconSet.Undefined &&
+                                     baseMappings[j][k].Source.IconSet == mapping.Source.IconSet))
+                                {
+                                    // Match found
+                                    baseMapping = baseMappings[j][k];
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (baseMapping != null)
+                        {
+                            break;
+                        }
+                    }
+                }
+
+                // Copy over information from the base mapping
+                if (baseMapping != null)
+                {
+                    // Copy everything but the Destination
+                    // Even the destination name isn't copied as the new name
+                    // generated above is considered more accurate.
+                    mapping.Source               = baseMapping.Source.Clone();
+                    mapping.GlyphMatchQuality    = baseMapping.GlyphMatchQuality;
+                    mapping.MetaphorMatchQuality = baseMapping.MetaphorMatchQuality;
+                    mapping.IsPlaceholder        = baseMapping.IsPlaceholder;
+                    mapping.Comments             = baseMapping.Comments;
+                }
+
+                mappings.Add(mapping);
+            }
+
+            return mappings;
         }
 
         /// <summary>
