@@ -12,7 +12,7 @@ namespace IconManager
     /// <summary>
     /// Contains data and information for the Fluent UI System Icons.
     /// </summary>
-    public class FluentUISystem
+    public class FluentUISystem : IconSetBase
     {
         /// <summary>
         /// Defines an icon size within the <see cref="FluentUISystem"/>.
@@ -388,7 +388,7 @@ namespace IconManager
             }
 
             /// <summary>
-            /// Creates a new <see cref="Icon"/> instance form the instance's values.
+            /// Creates a new <see cref="Icon"/> instance from this instance's values.
             /// </summary>
             /// <returns>The cloned <see cref="Icon"/>.</returns>
             public Icon Clone()

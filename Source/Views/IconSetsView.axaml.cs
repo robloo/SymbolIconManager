@@ -79,7 +79,6 @@ namespace IconManager
         private void UpdateIcons()
         {
             ComboBoxItem? selectedItem = this.SelectedIconSetComboBox.SelectedItem as ComboBoxItem;
-            IReadOnlyList<IReadOnlyIcon>? icons = null;
             List<IconViewModel> iconViewModels = new List<IconViewModel>();
 
             var selectedIconSet = (IconSet?)Enum.Parse(typeof(IconSet), selectedItem?.Tag?.ToString() ?? string.Empty);
@@ -93,37 +92,13 @@ namespace IconManager
                 }
                 else
                 {
-                    switch (selectedIconSet)
+                    var icons = IconSetBase.GetIcons(selectedIconSet.Value);
+                    for (int i = 0; i < icons.Count; i++)
                     {
-                        case IconSet.FluentUISystemFilled:
-                            icons = FluentUISystem.GetIcons(FluentUISystem.IconTheme.Filled);
-                            break;
-                        case IconSet.FluentUISystemRegular:
-                            icons = FluentUISystem.GetIcons(FluentUISystem.IconTheme.Regular);
-                            break;
-                        case IconSet.SegoeFluent:
-                            icons = SegoeFluent.Icons;
-                            break;
-                        case IconSet.SegoeMDL2Assets:
-                            icons = SegoeMDL2Assets.Icons;
-                            break;
-                        case IconSet.SegoeUISymbol:
-                            // Not currently supported
-                            break;
-                        case IconSet.WinJSSymbols:
-                            icons = WinJSSymbols.Icons;
-                            break;
-                    }
+                        var viewModel = new IconViewModel(icons[i]);
+                        viewModel.UpdateGlyphAsync();
 
-                    if (icons != null)
-                    {
-                        for (int i = 0; i < icons.Count; i++)
-                        {
-                            var viewModel = new IconViewModel(icons[i]);
-                            viewModel.UpdateGlyphAsync();
-
-                            iconViewModels.Add(viewModel);
-                        }
+                        iconViewModels.Add(viewModel);
                     }
 
                     this.cachedIconSets.Add(selectedIconSet.Value, iconViewModels);

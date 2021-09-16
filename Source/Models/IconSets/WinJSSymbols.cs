@@ -10,7 +10,7 @@ namespace IconManager
     /// <summary>
     /// Contains data and information for WinJS Symbols icons.
     /// </summary>
-    public class WinJSSymbols
+    public class WinJSSymbols : IconSetBase
     {
         private static IReadOnlyList<Icon>?               cachedIcons = null;
         private static IReadOnlyDictionary<uint, string>? cachedNames = null;

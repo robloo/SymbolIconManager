@@ -10,7 +10,7 @@ namespace IconManager
     /// <summary>
     /// Contains data and information for the Segoe Fluent Icons.
     /// </summary>
-    public class SegoeFluent
+    public class SegoeFluent : IconSetBase
     {
         private static IReadOnlyList<Icon>?               cachedIcons = null;
         private static IReadOnlyDictionary<uint, string>? cachedNames = null;

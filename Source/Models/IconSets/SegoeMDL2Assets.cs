@@ -10,7 +10,7 @@ namespace IconManager
     /// <summary>
     /// Contains data and information for the Segoe MDL2 Assets Icons.
     /// </summary>
-    public class SegoeMDL2Assets
+    public class SegoeMDL2Assets : IconSetBase
     {
         private static IReadOnlyList<Icon>?               cachedIcons = null;
         private static IReadOnlyDictionary<uint, string>? cachedNames = null;
