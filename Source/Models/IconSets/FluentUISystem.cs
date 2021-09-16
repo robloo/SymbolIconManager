@@ -292,6 +292,47 @@ namespace IconManager
             _ => 0,
         };
 
+        /// <summary>
+        /// Builds the full list of glyph sources for the Fluent UI System icons.
+        /// Source files must already be downloaded and present in the cache.
+        /// </summary>
+        /// <remarks>
+        /// This method is NOT intended for general-purpose use.
+        /// It should only be used by those who know what they are doing to re-build the glyph sources.
+        /// </remarks>
+        public static void BuildGlyphSources()
+        {
+            List<string> glyphSources = new List<string>();
+            string fluentUISystemCacheDirectory = @"fluentui-system-icons-1.1.139";
+
+            string searchDirectory = Path.Combine(App.IconManagerCache, fluentUISystemCacheDirectory, "assets");
+
+            foreach (string filePath in Directory.EnumerateFiles(searchDirectory, "*.*", SearchOption.AllDirectories))
+            {
+                if (Path.GetExtension(filePath).ToUpperInvariant() == ".PDF" ||
+                    Path.GetExtension(filePath).ToUpperInvariant() == ".SVG")
+                {
+                    glyphSources.Add(filePath.Replace(searchDirectory, string.Empty));
+                }
+            }
+
+            glyphSources.Sort();
+
+            var jsonString = JsonSerializer.Serialize(
+                glyphSources.ToArray(),
+                new JsonSerializerOptions()
+                {
+                    WriteIndented = true
+                });
+
+            using (var fileStream = File.OpenWrite(Path.Combine(App.IconManagerCache, "FluentUISystemGlyphSources.json")))
+            {
+                fileStream.Write(Encoding.UTF8.GetBytes(jsonString));
+            }
+
+            return;
+        }
+
         /***************************************************************************************
          *
          * Classes
