@@ -1,13 +1,8 @@
-﻿using Avalonia;
-using Avalonia.Platform;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Globalization;
 using System.IO;
-using System.Net;
 using System.Text;
-using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace IconManager
 {
@@ -23,10 +18,7 @@ namespace IconManager
         // File paths
         private const string FontForgeFilePath = @"C:\Program Files (x86)\FontForgeBuilds\run_fontforge.exe";
 
-        private static List<string>? cachedFluentUISystemGlyphSources = null;
-
         private static object directoryMutex = new object();
-        private static object cacheMutex     = new object();
 
         /***************************************************************************************
          *
@@ -149,55 +141,38 @@ namespace IconManager
                 if (mapping.Source.IconSet == IconSet.FluentUISystemFilled ||
                     mapping.Source.IconSet == IconSet.FluentUISystemRegular)
                 {
-                    var nameComponents = new FluentUISystem.IconName(mapping.Source.Name);
-                    string svgName = $@"{nameComponents.Name}.svg";
-                    string relativeGlyphUrl = string.Empty;
-                    List<string>? relativeGlyphUrls = null;
+                    var svgUrl = GlyphRenderer.GetGlyphSourceUrl(
+                        mapping.Source.IconSet,
+                        mapping.Source.UnicodePoint);
 
-                    // Find all possible SVG file glyph sources
-                    lock (cacheMutex)
+                    // Calculate the SVG name from the URL itself instead of the Icon name
+                    // This ensures the name calculation is done only once inside the URL calculation
+                    string svgName = Path.GetFileName(svgUrl?.LocalPath ?? string.Empty);
+
+                    // Download the SVG image file
+                    // This can be done totally async with no need to await
+                    // The file is just being added to the file system for external use later
+                    Task.Run(async () =>
                     {
-                        if (cachedFluentUISystemGlyphSources == null)
+                        if (svgUrl != null)
                         {
-                            RebuildCache();
-                        }
-
-                        relativeGlyphUrls = cachedFluentUISystemGlyphSources!.FindAll(s => s.EndsWith(svgName));
-                    }
-
-                    // Use the relativeGlyphUrl with the smallest directory structure
-                    // There are sometimes many variants with the exact same name -- some for other cultures
-                    // Each culture is usually placed in it's own folder
-                    // We want the invariant culture, as best as possible
-                    if (relativeGlyphUrls != null &&
-                        relativeGlyphUrls.Count > 0)
-                    {
-                        relativeGlyphUrl = relativeGlyphUrls[0];
-
-                        for (int i = 1; i < relativeGlyphUrls.Count; i++)
-                        {
-                            if (relativeGlyphUrls[i].Split('\\').Length < relativeGlyphUrl.Split('\\').Length)
+                            using (var stream = await GlyphRenderer.GetGlyphSourceStreamAsync(svgUrl!))
                             {
-                                relativeGlyphUrl = relativeGlyphUrls[i];
+                                if (stream != null)
+                                {
+                                    var filePath = Path.Combine(
+                                        outputDirectory,
+                                        GlyphSubDirectoryName,
+                                        svgName);
+
+                                    using (var fileStream = File.OpenWrite(filePath))
+                                    {
+                                        stream.WriteTo(fileStream);
+                                    }
+                                }
                             }
                         }
-                    }
-
-                    Uri svgUrl = new Uri($@"https://raw.githubusercontent.com/microsoft/fluentui-system-icons/master/assets/{relativeGlyphUrl}");
-
-                    using (var webClient = new WebClient())
-                    {
-                        webClient.DownloadDataCompleted += (sender, args) =>
-                        {
-                            var filePath = Path.Combine(outputDirectory, GlyphSubDirectoryName, svgName);
-                            using (var fileStream = File.OpenWrite(filePath))
-                            {
-                                fileStream.Write(args.Result);
-                            }
-                        };
-
-                        webClient.DownloadDataAsync(svgUrl);
-                    }
+                    });
 
                     if (string.IsNullOrWhiteSpace(mapping.Destination.Name) == false)
                     {
@@ -260,36 +235,6 @@ namespace IconManager
                 {
                     stream.WriteTo(fileStream);
                 }
-            }
-
-            return;
-        }
-
-        private static void RebuildCache()
-        {
-            var sources = new List<string>();
-            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-            string sourceDataPath = "avares://IconManager/Data/Sources/FluentUISystemGlyphSources.json";
-
-            // Currently only the FluentUISystem is supported
-            using (var sourceStream = assets.Open(new Uri(sourceDataPath)))
-            using (var reader = new StreamReader(sourceStream))
-            {
-                string jsonString = reader.ReadToEnd();
-                var rawGlyphSources = JsonSerializer.Deserialize<string[]>(jsonString);
-
-                if (rawGlyphSources != null)
-                {
-                    foreach (var entry in rawGlyphSources)
-                    {
-                        sources.Add(entry);
-                    }
-                }
-            }
-
-            lock (cacheMutex)
-            {
-                cachedFluentUISystemGlyphSources = sources;
             }
 
             return;

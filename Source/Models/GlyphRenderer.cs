@@ -5,11 +5,19 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Bitmap = Avalonia.Media.Imaging.Bitmap;
 
 namespace IconManager
 {
+    /// <summary>
+    /// Contains methods to retrieve images and details about a glyph.
+    /// </summary>
+    /// <remarks>
+    /// Not that some functionality could be separated out in a future GlyphProvider.
+    /// The GlyphProvider would retrieve raw glyph data, the GlyphRenderer would draw it.
+    /// </remarks>
     public static class GlyphRenderer
     {
         public const int RenderWidth  = 50; // Pixels
@@ -21,7 +29,10 @@ namespace IconManager
         private static Dictionary<IconSet, SKFont>  cachedFonts      = new Dictionary<IconSet, SKFont>(); // IconSet is key
         private static Dictionary<IconSet, SKPaint> cachedTextPaints = new Dictionary<IconSet, SKPaint>(); // IconSet is key
 
-        private static object cacheMutex = new object();
+        private static List<string>? cachedFluentUISystemGlyphSources = null;
+
+        private static object cacheMutex             = new object();
+        private static object glyphSourcesCacheMutex = new object();
 
         /// <summary>
         /// Gets a preview bitmap of the glyph for the defined icon set and Unicode point.
@@ -43,9 +54,9 @@ namespace IconManager
             }
 
             // Attempt to quickly load and return the preview from the cache
-            lock (GlyphRenderer.cacheMutex)
+            lock (cacheMutex)
             {
-                if (GlyphRenderer.cachedGlyphs.TryGetValue(glyphKey, out result))
+                if (cachedGlyphs.TryGetValue(glyphKey, out result))
                 {
                     return result;
                 }
@@ -69,10 +80,10 @@ namespace IconManager
                         GlyphRenderer.RenderWidth,
                         GlyphRenderer.RenderHeight);
 
-                    lock (GlyphRenderer.cacheMutex)
+                    lock (cacheMutex)
                     {
                         // Load the SKFont (and internally the SKTypeface)
-                        if (GlyphRenderer.cachedFonts.TryGetValue(iconSet, out textFont) == false)
+                        if (cachedFonts.TryGetValue(iconSet, out textFont) == false)
                         {
                             var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
                             string fontPath = string.Empty;
@@ -99,27 +110,27 @@ namespace IconManager
                                     Size     = GlyphRenderer.RenderWidth // In pixels not points
                                 };
 
-                                GlyphRenderer.cachedFonts.Add(iconSet, textFont);
+                                cachedFonts.Add(iconSet, textFont);
                             }
                         }
 
                         // Load all SKPaint objects
-                        if (GlyphRenderer.cachedBackgroundPaint == null)
+                        if (cachedBackgroundPaint == null)
                         {
-                            GlyphRenderer.cachedBackgroundPaint = new SKPaint()
+                            cachedBackgroundPaint = new SKPaint()
                             {
                                 Color = SKColors.White
                             };
                         }
 
-                        if (GlyphRenderer.cachedTextPaints.TryGetValue(iconSet, out textPaint) == false)
+                        if (cachedTextPaints.TryGetValue(iconSet, out textPaint) == false)
                         {
                             textPaint = new SKPaint(textFont)
                             {
                                 Color = SKColors.Black
                             };
 
-                            GlyphRenderer.cachedTextPaints.Add(iconSet, textPaint);
+                            cachedTextPaints.Add(iconSet, textPaint);
                         }
 
                         // Render the glyph using SkiaSharp
@@ -135,7 +146,7 @@ namespace IconManager
                                 y: 0,
                                 w: GlyphRenderer.RenderWidth,
                                 h: GlyphRenderer.RenderHeight,
-                                GlyphRenderer.cachedBackgroundPaint);
+                                cachedBackgroundPaint);
 
                             canvas.DrawText(
                                 text,
@@ -165,54 +176,9 @@ namespace IconManager
                 // These preview images are also never distributed with source code
                 // Also note that SegoeUISymbol is also proprietary but has no website to retrieve preview images from
 
-                Uri? glyphUrl = null;
-
-                // Determine the web URL to retrieve the image from
-                switch (iconSet)
+                using (Stream? imageStream = await GlyphRenderer.GetGlyphSourceStreamAsync(iconSet, unicodePoint))
                 {
-                    case IconSet.SegoeFluent:
-                        glyphUrl = new Uri(@"https://docs.microsoft.com/en-us/windows/apps/design/style/images/glyphs/segoe-fluent-icons/" + Icon.ToUnicodeString(unicodePoint) + ".png");
-                        break;
-                    case IconSet.SegoeMDL2Assets:
-                        glyphUrl = new Uri(@"https://docs.microsoft.com/en-us/windows/apps/design/style/images/segoe-mdl/" + Icon.ToUnicodeString(unicodePoint) + ".png");
-                        break;
-                }
-
-                // Download the image
-                if (glyphUrl != null)
-                {
-                    // Always creating a new WebClient is poor performance
-                    // This needs to be updated in the future
-                    using (WebClient client = new WebClient())
-                    {
-                        var downloadTaskResult = new TaskCompletionSource<Bitmap?>();
-
-                        DownloadDataCompletedEventHandler? eventHandler = null;
-                        eventHandler = (sender, e) =>
-                        {
-                            try
-                            {
-                                using (Stream stream = new MemoryStream(e.Result))
-                                {
-                                    downloadTaskResult.SetResult(new Bitmap(stream));
-                                }
-                            }
-                            catch
-                            {
-                                // In the future, retries could be allowed
-                                downloadTaskResult.SetResult(null);
-                            }
-                            finally
-                            {
-                                client.DownloadDataCompleted -= eventHandler;
-                            }
-                        };
-
-                        client.DownloadDataCompleted += eventHandler;
-                        client.DownloadDataAsync(glyphUrl);
-
-                        result = await downloadTaskResult.Task;
-                    }
+                    return new Bitmap(imageStream);
                 }
             }
 
@@ -222,16 +188,211 @@ namespace IconManager
             // Therefore, within the lock, a check must be made to ensure a glyph was not already added
             if (result != null)
             {
-                lock (GlyphRenderer.cacheMutex)
+                lock (cacheMutex)
                 {
-                    if (GlyphRenderer.cachedGlyphs.ContainsKey(glyphKey) == false)
+                    if (cachedGlyphs.ContainsKey(glyphKey) == false)
                     {
-                        GlyphRenderer.cachedGlyphs.Add(glyphKey, result);
+                        cachedGlyphs.Add(glyphKey, result);
                     }
                 }
             }
 
             return result;
+        }
+
+        // Gets all possible glyph sources for the given icon set and uniocode point.
+        // Not that POSSIBLE here means it may exist, but is not guaranteed.
+        // Use an associated GetStream or GetSource method to confirm.
+
+        /// <summary>
+        /// Gets the image data source URL of the defined glyph.
+        /// </summary>
+        /// <param name="iconSet">The icon set containing the glyph.</param>
+        /// <param name="unicodePoint">The Unicode point of the glyph.</param>
+        public static Uri? GetGlyphSourceUrl(
+            IconSet iconSet,
+            uint unicodePoint)
+        {
+            string relativeGlyphUrl = string.Empty;
+            List<string>? relativeGlyphUrls = null;
+
+            switch (iconSet)
+            {
+                case IconSet.FluentUISystemFilled:
+                case IconSet.FluentUISystemRegular:
+                {
+                    string svgName = string.Empty;
+
+                    // Determine the SVG file name
+                    if (string.IsNullOrWhiteSpace(svgName))
+                    {
+                        switch (iconSet)
+                        {
+                            case IconSet.FluentUISystemFilled:
+                                svgName = FluentUISystem.FindName(unicodePoint, FluentUISystem.IconTheme.Filled);
+                                break;
+                            case IconSet.FluentUISystemRegular:
+                                svgName = FluentUISystem.FindName(unicodePoint, FluentUISystem.IconTheme.Regular);
+                                break;
+                        }
+
+                        svgName = $@"{svgName}.svg";
+                    }
+
+                    if (string.IsNullOrWhiteSpace(svgName))
+                    {
+                        return null;
+                    }
+
+                    lock (glyphSourcesCacheMutex)
+                    {
+                        if (cachedFluentUISystemGlyphSources == null)
+                        {
+                            // Rebuild the cache
+                            var sources = new List<string>();
+                            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
+                            string sourceDataPath = "avares://IconManager/Data/Sources/FluentUISystemGlyphSources.json";
+
+                            using (var sourceStream = assets.Open(new Uri(sourceDataPath)))
+                            using (var reader = new StreamReader(sourceStream))
+                            {
+                                string jsonString = reader.ReadToEnd();
+                                var rawGlyphSources = JsonSerializer.Deserialize<string[]>(jsonString);
+
+                                if (rawGlyphSources != null)
+                                {
+                                    foreach (var entry in rawGlyphSources)
+                                    {
+                                        sources.Add(entry);
+                                    }
+                                }
+                            }
+
+                            cachedFluentUISystemGlyphSources = sources;
+                        }
+
+                        relativeGlyphUrls = cachedFluentUISystemGlyphSources!.FindAll(s => s.EndsWith(svgName));
+                    }
+
+                    // Use the relativeGlyphUrl with the smallest directory structure
+                    // There are sometimes many variants with the exact same file name -- some for other cultures
+                    // Each culture is usually placed in it's own folder
+                    // We want the invariant culture (smallest directory structure), as best as possible
+                    if (relativeGlyphUrls != null &&
+                        relativeGlyphUrls.Count > 0)
+                    {
+                        relativeGlyphUrl = relativeGlyphUrls[0];
+
+                        for (int i = 1; i < relativeGlyphUrls.Count; i++)
+                        {
+                            // Not the most efficient to keep splitting, but it's easiest
+                            if (relativeGlyphUrls[i].Split('\\').Length < relativeGlyphUrl.Split('\\').Length)
+                            {
+                                relativeGlyphUrl = relativeGlyphUrls[i];
+                            }
+                        }
+                    }
+
+                    if (string.IsNullOrWhiteSpace(relativeGlyphUrl) == false)
+                    {
+                        try
+                        {
+                            // Note that the relative URL determined above starts with '/'
+                            string baseUrl = @"https://raw.githubusercontent.com/microsoft/fluentui-system-icons/master/assets";
+                            return new Uri($@"{baseUrl}{relativeGlyphUrl}");
+                        }
+                        catch { }
+                    }
+
+                    break;
+                }
+                case IconSet.SegoeFluent:
+                {
+                    string baseUrl = @"https://docs.microsoft.com/en-us/windows/apps/design/style/images/glyphs/segoe-fluent-icons/";
+                    return new Uri(baseUrl + Icon.ToUnicodeString(unicodePoint) + ".png");
+                }
+                case IconSet.SegoeMDL2Assets:
+                {
+                    string baseUrl = @"https://docs.microsoft.com/en-us/windows/apps/design/style/images/segoe-mdl/";
+                    return new Uri(baseUrl + Icon.ToUnicodeString(unicodePoint) + ".png");
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Gets the image data stream (usually PNG or SVG format) of the defined glyph.
+        /// It is up to the caller to ensure the data stream is a supported format.
+        /// This will be downloaded from an online source.
+        /// </summary>
+        /// <param name="iconSet">The icon set containing the glyph.</param>
+        /// <param name="unicodePoint">The Unicode point of the glyph.</param>
+        /// <returns>The glyph source image data stream.</returns>
+        public static async Task<MemoryStream?> GetGlyphSourceStreamAsync(
+            IconSet iconSet,
+            uint unicodePoint)
+        {
+            Uri? glyphUrl = GlyphRenderer.GetGlyphSourceUrl(iconSet, unicodePoint);
+
+            if (glyphUrl != null)
+            {
+                return await GlyphRenderer.GetGlyphSourceStreamAsync(glyphUrl!);
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Gets the image data stream (usually PNG or SVG format) of the glyph image file at the given URL.
+        /// It is up to the caller to ensure the data stream is a supported format.
+        /// This will be downloaded from an online source.
+        /// </summary>
+        /// <param name="uri">The URL of the glyph source image file to download.</param>
+        /// <returns>The glyph source image data stream.</returns>
+        public static async Task<MemoryStream?> GetGlyphSourceStreamAsync(Uri uri)
+        {
+            if (uri != null)
+            {
+                // Always creating a new WebClient is poor performance
+                // This needs to be updated in the future
+                using (WebClient client = new WebClient())
+                {
+                    var downloadTaskResult = new TaskCompletionSource<MemoryStream?>();
+
+                    DownloadDataCompletedEventHandler? eventHandler = null;
+                    eventHandler = (sender, e) =>
+                    {
+                        try
+                        {
+                            downloadTaskResult.SetResult(new MemoryStream(e.Result));
+                        }
+                        catch
+                        {
+                            // In the future, retries could be allowed
+                            downloadTaskResult.SetResult(null);
+                        }
+                        finally
+                        {
+                            client.DownloadDataCompleted -= eventHandler;
+                        }
+                    };
+
+                    try
+                    {
+                        client.DownloadDataCompleted += eventHandler;
+                        client.DownloadDataAsync(uri);
+
+                        return await downloadTaskResult.Task;
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                }
+            }
+
+            return null;
         }
     }
 }
