@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Avalonia;
+using Avalonia.Platform;
+using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Net;
-using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 
 namespace IconManager
 {
@@ -18,9 +21,11 @@ namespace IconManager
 
         // File paths
         private const string FontForgeFilePath = @"C:\Program Files (x86)\FontForgeBuilds\run_fontforge.exe";
-        private const string SourceFileCache   = @"%%\IconManagerCache";
+
+        private static List<string>? cachedFluentUISystemGlyphSources = null;
 
         private static object directoryMutex = new object();
+        private static object cacheMutex     = new object();
 
         /// <summary>
         /// Defines possible sources for a glyph.
@@ -155,9 +160,37 @@ namespace IconManager
                 {
                     var nameComponents = new FluentUISystem.IconName(mapping.Source.Name);
 
+                    lock (cacheMutex)
+                    {
+                        if (cachedFluentUISystemGlyphSources == null)
+                        {
+                            RebuildCache();
+                        }
+                    }
+
+                    // Find all possible sources of the SVG file
                     string svgName = $@"{nameComponents.Name}.svg";
-                    string svgDirectory = GuessDirectoryName(nameComponents);
-                    string svgUrl = $@"https://raw.githubusercontent.com/microsoft/fluentui-system-icons/master/assets/{svgDirectory}/SVG/{svgName}";
+                    string relativeGlyphUrl = string.Empty;
+                    List<string> relativeGlyphUrls = cachedFluentUISystemGlyphSources!.FindAll(s => s.EndsWith(svgName));
+
+                    // Use the relativeGlyphUrl with the smallest directory structure
+                    // There are sometimes many variants with the exact same name -- some for other cultures
+                    // Each culture is usually placed in it's own folder
+                    // We want the invariant culture, as best as possible
+                    if (relativeGlyphUrls.Count > 0)
+                    {
+                        relativeGlyphUrl = relativeGlyphUrls[0];
+
+                        for (int i = 1; i < relativeGlyphUrls.Count; i++)
+                        {
+                            if (relativeGlyphUrls[i].Split('\\').Length < relativeGlyphUrl.Split('\\').Length)
+                            {
+                                relativeGlyphUrl = relativeGlyphUrls[i];
+                            }
+                        }
+                    }
+
+                    Uri svgUrl = new Uri($@"https://raw.githubusercontent.com/microsoft/fluentui-system-icons/master/assets/{relativeGlyphUrl}");
 
                     using (var webClient = new WebClient())
                     {
@@ -170,7 +203,7 @@ namespace IconManager
                             }
                         };
 
-                        webClient.DownloadDataAsync(new Uri(svgUrl));
+                        webClient.DownloadDataAsync(svgUrl);
                     }
 
                     sb.AppendLine($@"char = font.createChar(0x{mapping.Destination.UnicodeString})");
@@ -180,26 +213,6 @@ namespace IconManager
             }
 
             sb.AppendLine($@"font.generate('{OutputFontFileName}')");
-
-            string GuessDirectoryName(FluentUISystem.IconName iconName)
-            {
-                string directoryName = string.Empty;
-
-                var words = iconName.BaseName.Split('_');
-                for (int i = 0; i < words.Length; i++)
-                {
-                    if (i == (words.Length - 1))
-                    {
-                        directoryName += textInfo.ToTitleCase(words[i]);
-                    }
-                    else
-                    {
-                        directoryName = directoryName + textInfo.ToTitleCase(words[i]) + " ";
-                    }
-                }
-
-                return directoryName;
-            }
 
             return new MemoryStream(Encoding.UTF8.GetBytes(sb.ToString()));
         }
@@ -237,6 +250,36 @@ namespace IconManager
                 {
                     stream.WriteTo(fileStream);
                 }
+            }
+
+            return;
+        }
+
+        private static void RebuildCache()
+        {
+            var sources = new List<string>();
+            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
+            string sourceDataPath = "avares://IconManager/Data/Sources/FluentUISystemGlyphSources.json";
+
+            // Currently only the FluentUISystem is supported
+            using (var sourceStream = assets.Open(new Uri(sourceDataPath)))
+            using (var reader = new StreamReader(sourceStream))
+            {
+                string jsonString = reader.ReadToEnd();
+                var rawGlyphSources = JsonSerializer.Deserialize<string[]>(jsonString);
+
+                if (rawGlyphSources != null)
+                {
+                    foreach (var entry in rawGlyphSources)
+                    {
+                        sources.Add(entry);
+                    }
+                }
+            }
+
+            lock (cacheMutex)
+            {
+                cachedFluentUISystemGlyphSources = sources;
             }
 
             return;
