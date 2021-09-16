@@ -422,12 +422,12 @@
       "Name": "Stop"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F72A",
+      "Name": "ic_fluent_stop_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -710,12 +710,12 @@
       "Name": "Refresh"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F13D",
+      "Name": "ic_fluent_arrow_clockwise_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -822,12 +822,12 @@
       "Name": "ReadingMode"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F908",
+      "Name": "ic_fluent_book_open_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1574,14 +1574,14 @@
       "Name": "Volume"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FC63",
+      "Name": "ic_fluent_speaker_2_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "No speaker with 3 waves exists, using two waver glyph"
   },
   {
     "Destination": {
@@ -2118,14 +2118,14 @@
       "Name": "SaveLocal"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "101ED",
+      "Name": "ic_fluent_save_arrow_right_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Arrow is pointing to the right instead of down. This indicates forward instead of save/download."
   },
   {
     "Destination": {
@@ -2166,12 +2166,12 @@
       "Name": "SaveAs"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FC51",
+      "Name": "ic_fluent_save_edit_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -2230,12 +2230,12 @@
       "Name": "Redo"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F16E",
+      "Name": "ic_fluent_arrow_redo_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -2246,12 +2246,12 @@
       "Name": "Undo"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F199",
+      "Name": "ic_fluent_arrow_undo_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -2390,12 +2390,12 @@
       "Name": "ReadingList"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F652",
+      "Name": "ic_fluent_reading_list_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -4310,14 +4310,14 @@
       "Name": "BatterySaver0"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1D3",
+      "Name": "ic_fluent_battery_saver_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Fluent UI System only has one battery saver icon. There are no variants with other state of charge levels. Using the standard glyph."
   },
   {
     "Destination": {
@@ -4326,14 +4326,14 @@
       "Name": "BatterySaver1"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1D3",
+      "Name": "ic_fluent_battery_saver_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Fluent UI System only has one battery saver icon. There are no variants with other state of charge levels. Using the standard glyph."
   },
   {
     "Destination": {
@@ -4342,14 +4342,14 @@
       "Name": "BatterySaver2"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1D3",
+      "Name": "ic_fluent_battery_saver_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Fluent UI System only has one battery saver icon. There are no variants with other state of charge levels. Using the standard glyph."
   },
   {
     "Destination": {
@@ -4358,14 +4358,14 @@
       "Name": "BatterySaver3"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1D3",
+      "Name": "ic_fluent_battery_saver_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Fluent UI System only has one battery saver icon. There are no variants with other state of charge levels. Using the standard glyph."
   },
   {
     "Destination": {
@@ -4374,14 +4374,14 @@
       "Name": "BatterySaver4"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1D3",
+      "Name": "ic_fluent_battery_saver_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Fluent UI System only has one battery saver icon. There are no variants with other state of charge levels. Using the standard glyph."
   },
   {
     "Destination": {
@@ -4390,14 +4390,14 @@
       "Name": "BatterySaver5"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1D3",
+      "Name": "ic_fluent_battery_saver_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Fluent UI System only has one battery saver icon. There are no variants with other state of charge levels. Using the standard glyph."
   },
   {
     "Destination": {
@@ -4406,14 +4406,14 @@
       "Name": "BatterySaver6"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1D3",
+      "Name": "ic_fluent_battery_saver_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Fluent UI System only has one battery saver icon. There are no variants with other state of charge levels. Using the standard glyph."
   },
   {
     "Destination": {
@@ -4422,14 +4422,14 @@
       "Name": "BatterySaver7"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1D3",
+      "Name": "ic_fluent_battery_saver_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Fluent UI System only has one battery saver icon. There are no variants with other state of charge levels. Using the standard glyph."
   },
   {
     "Destination": {
@@ -4438,14 +4438,14 @@
       "Name": "BatterySaver8"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1D3",
+      "Name": "ic_fluent_battery_saver_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Fluent UI System only has one battery saver icon. There are no variants with other state of charge levels. Using the standard glyph."
   },
   {
     "Destination": {
@@ -5062,12 +5062,12 @@
       "Name": "Previous"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F628",
+      "Name": "ic_fluent_previous_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -5830,12 +5830,12 @@
       "Name": "Read"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F521",
+      "Name": "ic_fluent_mail_read_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -6518,12 +6518,12 @@
       "Name": "RepeatAll"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F171",
+      "Name": "ic_fluent_arrow_repeat_all_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -6906,7 +6906,7 @@
       "UnicodePoint": "F3DA",
       "Name": "ic_fluent_earth_20_regular"
     },
-    "GlyphMatchQuality": "Medium",
+    "GlyphMatchQuality": "Exact",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
@@ -7094,14 +7094,14 @@
       "Name": "RadioBullet"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F64E",
+      "Name": "ic_fluent_radio_button_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Fluent UI System does not have bullet glyphs only. There is always the full radio button border. No small sized bullet variant either."
   },
   {
     "Destination": {
@@ -8694,12 +8694,12 @@
       "Name": "Volume0"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FA9E",
+      "Name": "ic_fluent_speaker_0_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -8710,12 +8710,12 @@
       "Name": "Volume1"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FAA2",
+      "Name": "ic_fluent_speaker_1_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -8726,12 +8726,12 @@
       "Name": "Volume2"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FC63",
+      "Name": "ic_fluent_speaker_2_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -8742,14 +8742,14 @@
       "Name": "Volume3"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FC63",
+      "Name": "ic_fluent_speaker_2_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "No speaker with 3 waves exists, using two waver glyph"
   },
   {
     "Destination": {
@@ -9190,12 +9190,12 @@
       "Name": "Unknown"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F63D",
+      "Name": "ic_fluent_question_circle_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -9430,14 +9430,14 @@
       "Name": "SaveCopy"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F683",
+      "Name": "ic_fluent_save_copy_24_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Icon glyph is quite a bit different with no floppy disk version available in the Fluent UI System."
   },
   {
     "Destination": {
@@ -10422,14 +10422,14 @@
       "Name": "BatterySaver9"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1D3",
+      "Name": "ic_fluent_battery_saver_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Fluent UI System only has one battery saver icon. There are no variants with other state of charge levels. Using the standard glyph."
   },
   {
     "Destination": {
@@ -10438,14 +10438,14 @@
       "Name": "BatterySaver10"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F1D3",
+      "Name": "ic_fluent_battery_saver_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Fluent UI System only has one battery saver icon. There are no variants with other state of charge levels. Using the standard filled glyph appears as full state of charge."
   },
   {
     "Destination": {
@@ -11462,12 +11462,12 @@
       "Name": "Rewind"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F674",
+      "Name": "ic_fluent_rewind_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -13926,12 +13926,12 @@
       "Name": "RadioBtnOff"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F644",
+      "Name": "ic_fluent_radio_button_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -13942,12 +13942,12 @@
       "Name": "RadioBtnOn"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F64E",
+      "Name": "ic_fluent_radio_button_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -13958,14 +13958,14 @@
       "Name": "RadioBullet2"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F64E",
+      "Name": "ic_fluent_radio_button_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Fluent UI System does not have bullet glyphs only. There is always the full radio button border."
   },
   {
     "Destination": {
@@ -14230,14 +14230,14 @@
       "Name": "Subtitles"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F286",
+      "Name": "ic_fluent_chat_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "IsPlaceholder": true,
+    "Comments": "Not a good match but added as a placeholder only"
   },
   {
     "Destination": {
@@ -14246,14 +14246,14 @@
       "Name": "SubtitlesAudio"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F813",
+      "Name": "ic_fluent_textbox_align_bottom_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "IsPlaceholder": true,
+    "Comments": "Not a good match but added as a placeholder only. No audio icon. "
   },
   {
     "Destination": {
@@ -16086,12 +16086,12 @@
       "Name": "Eyedropper"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FD3E",
+      "Name": "ic_fluent_eyedropper_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -20598,12 +20598,12 @@
       "Name": "RepeatOff"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F174",
+      "Name": "ic_fluent_arrow_repeat_all_off_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -21814,12 +21814,12 @@
       "Name": "RevealPasswordMedium"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F3FB",
+      "Name": "ic_fluent_eye_show_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -22406,12 +22406,12 @@
       "Name": "SettingsSolid"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F6B2",
+      "Name": "ic_fluent_settings_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
