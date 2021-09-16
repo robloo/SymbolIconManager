@@ -12,8 +12,10 @@ namespace IconManager
     /// </summary>
     public class SegoeFluent
     {
-        private static IReadOnlyList<Icon>? cachedIcons = null;
+        private static IReadOnlyList<Icon>?               cachedIcons = null;
         private static IReadOnlyDictionary<uint, string>? cachedNames = null;
+
+        private static object cacheMutex = new object();
 
         /***************************************************************************************
          *
@@ -50,39 +52,45 @@ namespace IconManager
                 }
             }
 
-            cachedIcons = icons.AsReadOnly();
-            cachedNames = names;
+            lock (cacheMutex)
+            {
+                cachedIcons = icons.AsReadOnly();
+                cachedNames = names;
+            }
 
             return;
         }
 
         public static string FindName(uint unicodePoint)
         {
-            if (cachedIcons == null || cachedNames == null)
+            string? name = null;
+
+            lock (cacheMutex)
             {
-                RebuildCache();
+                if (cachedNames == null)
+                {
+                    RebuildCache();
+                }
+
+                cachedNames!.TryGetValue(unicodePoint, out name);
             }
 
-            if (cachedNames!.TryGetValue(unicodePoint, out string? name))
-            {
-                return name ?? string.Empty;
-            }
-            else
-            {
-                return string.Empty;
-            }
+            return name ?? string.Empty;
         }
 
         /// <summary>
         /// Gets a read-only list of all icons in the Segoe MDL2 Assets icon set.
         /// </summary>
-        public static IReadOnlyList<IIcon> Icons
+        public static IReadOnlyList<IReadOnlyIcon> Icons
         {
             get
             {
-                if (cachedIcons == null || cachedNames == null)
+                lock (cacheMutex)
                 {
-                    RebuildCache();
+                    if (cachedIcons == null)
+                    {
+                        RebuildCache();
+                    }
                 }
 
                 return cachedIcons!;

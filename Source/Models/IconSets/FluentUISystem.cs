@@ -63,6 +63,8 @@ namespace IconManager
         private static IReadOnlyDictionary<uint, string>? cachedFilledNames = null;
         private static IReadOnlyDictionary<uint, string>? cachedRegularNames = null;
 
+        private static object cacheMutex = new object();
+
         /***************************************************************************************
          *
          * Methods
@@ -116,57 +118,55 @@ namespace IconManager
                 }
             }
 
-            cachedIcons        = icons.AsReadOnly();
-            cachedFilledNames  = filledNames;
-            cachedRegularNames = regularNames;
+            lock (cacheMutex)
+            {
+                cachedIcons        = icons.AsReadOnly();
+                cachedFilledNames  = filledNames;
+                cachedRegularNames = regularNames;
+            }
 
             return;
         }
 
         public static string FindName(uint unicodePoint, IconTheme theme)
         {
-            if (cachedIcons == null ||
-                cachedFilledNames == null ||
-                cachedRegularNames == null)
+            string? name = null;
+
+            lock (cacheMutex)
             {
-                RebuildCache();
+                if (cachedFilledNames == null ||
+                    cachedRegularNames == null)
+                {
+                    RebuildCache();
+                }
+
+                if (theme == IconTheme.Filled)
+                {
+                    cachedFilledNames!.TryGetValue(unicodePoint, out name);
+                }
+                else
+                {
+                    cachedRegularNames!.TryGetValue(unicodePoint, out name);
+                }
             }
 
-            if (theme == IconTheme.Filled)
-            {
-                if (cachedFilledNames!.TryGetValue(unicodePoint, out string? name))
-                {
-                    return name ?? string.Empty;
-                }
-                else
-                {
-                    return string.Empty;
-                }
-            }
-            else
-            {
-                if (cachedRegularNames!.TryGetValue(unicodePoint, out string? name))
-                {
-                    return name ?? string.Empty;
-                }
-                else
-                {
-                    return string.Empty;
-                }
-            }
+            return name ?? string.Empty;
         }
 
         /// <summary>
         /// Gets a read-only list of all icons in the Fluent UI System icon set.
         /// This includes BOTH the regular and filled themes.
         /// </summary>
-        public static IReadOnlyList<IIcon> Icons
+        public static IReadOnlyList<IReadOnlyIcon> Icons
         {
             get
             {
-                if (cachedIcons == null)
+                lock (cacheMutex)
                 {
-                    RebuildCache();
+                    if (cachedIcons == null)
+                    {
+                        RebuildCache();
+                    }
                 }
 
                 return cachedIcons!;
@@ -176,20 +176,23 @@ namespace IconManager
         /// <summary>
         /// Gets all icons of the defined theme.
         /// </summary>
-        public static IReadOnlyList<Icon> GetIcons(IconTheme theme)
+        public static IReadOnlyList<IReadOnlyIcon> GetIcons(IconTheme theme)
         {
             var matchingIcons = new List<Icon>();
 
-            if (cachedIcons == null)
+            lock (cacheMutex)
             {
-                RebuildCache();
-            }
-
-            foreach (Icon icon in cachedIcons!)
-            {
-                if (icon.Theme == theme)
+                if (cachedIcons == null)
                 {
-                    matchingIcons.Add(icon);
+                    RebuildCache();
+                }
+
+                foreach (Icon icon in cachedIcons!)
+                {
+                    if (icon.Theme == theme)
+                    {
+                        matchingIcons.Add(icon);
+                    }
                 }
             }
 
@@ -201,18 +204,21 @@ namespace IconManager
             IconSize desiredSize,
             IconTheme desiredTheme)
         {
-            if (cachedIcons == null)
+            lock (cacheMutex)
             {
-                RebuildCache();
-            }
-
-            foreach (Icon icon in cachedIcons!)
-            {
-                if (string.Equals(icon.BaseName, baseName, StringComparison.OrdinalIgnoreCase) &&
-                    icon.Size == desiredSize &&
-                    icon.Theme == desiredTheme)
+                if (cachedIcons == null)
                 {
-                    return icon;
+                    RebuildCache();
+                }
+
+                foreach (Icon icon in cachedIcons!)
+                {
+                    if (string.Equals(icon.BaseName, baseName, StringComparison.OrdinalIgnoreCase) &&
+                        icon.Size == desiredSize &&
+                        icon.Theme == desiredTheme)
+                    {
+                        return icon.Clone();
+                    }
                 }
             }
 
@@ -228,17 +234,20 @@ namespace IconManager
         {
             var matchingIcons = new List<Icon>();
 
-            if (cachedIcons == null)
+            lock (cacheMutex)
             {
-                RebuildCache();
-            }
-
-            foreach (Icon icon in cachedIcons!)
-            {
-                if (string.Equals(icon.BaseName, baseName, StringComparison.OrdinalIgnoreCase) &&
-                    icon.Theme == desiredTheme)
+                if (cachedIcons == null)
                 {
-                    matchingIcons.Add(icon);
+                    RebuildCache();
+                }
+
+                foreach (Icon icon in cachedIcons!)
+                {
+                    if (string.Equals(icon.BaseName, baseName, StringComparison.OrdinalIgnoreCase) &&
+                        icon.Theme == desiredTheme)
+                    {
+                        matchingIcons.Add(icon.Clone());
+                    }
                 }
             }
 
@@ -254,17 +263,20 @@ namespace IconManager
         {
             var matchingIcons = new List<Icon>();
 
-            if (cachedIcons == null)
+            lock (cacheMutex)
             {
-                RebuildCache();
-            }
-
-            foreach (Icon icon in cachedIcons!)
-            {
-                if (string.Equals(icon.BaseName, baseName, StringComparison.OrdinalIgnoreCase) &&
-                    icon.Size == desiredSize)
+                if (cachedIcons == null)
                 {
-                    matchingIcons.Add(icon);
+                    RebuildCache();
+                }
+
+                foreach (Icon icon in cachedIcons!)
+                {
+                    if (string.Equals(icon.BaseName, baseName, StringComparison.OrdinalIgnoreCase) &&
+                        icon.Size == desiredSize)
+                    {
+                        matchingIcons.Add(icon.Clone());
+                    }
                 }
             }
 
@@ -373,6 +385,22 @@ namespace IconManager
             public string UnicodeString
             {
                 get => IconManager.Icon.ToUnicodeString(this.UnicodePoint);
+            }
+
+            /// <summary>
+            /// Creates a new <see cref="Icon"/> instance form the instance's values.
+            /// </summary>
+            /// <returns>The cloned <see cref="Icon"/>.</returns>
+            public Icon Clone()
+            {
+                Icon clone = new Icon()
+                {
+                    RawName      = this.RawName,
+                    Name         = this.Name, // Automatically parses into components
+                    UnicodePoint = this.UnicodePoint
+                };
+
+                return clone;
             }
 
             /// <summary>

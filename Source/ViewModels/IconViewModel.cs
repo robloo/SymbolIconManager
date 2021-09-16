@@ -42,6 +42,17 @@ namespace IconManager
             this.InitOptions();
         }
 
+        public IconViewModel(IReadOnlyIcon icon)
+        {
+            this._AutoUpdate   = false;
+            this._Glyph        = null;
+            this._IconSet      = icon.IconSet;
+            this._Name         = icon.Name;
+            this._UnicodePoint = icon.UnicodePoint;
+
+            this.InitOptions();
+        }
+
         /***************************************************************************************
          *
          * Property Accessors

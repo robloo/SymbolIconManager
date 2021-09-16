@@ -29,7 +29,7 @@ namespace IconManager
         private static object cacheMutex     = new object();
 
         /// <summary>
-        /// Defines possible sources for a glyph.
+        /// Defines a potential source for a glyph.
         /// </summary>
         private enum GlyphSource
         {
@@ -177,7 +177,7 @@ namespace IconManager
             sb.AppendLine();
 
             //      Source: Name is ignored, use IconSet+UnicodePoint to lookup the glyph
-            // Destination: IconSet and Name is ignored, the only relevant data is Unicode Point
+            // Destination: IconSet is ignored, the only relevant data is Unicode Point and Name
 
             foreach (IconMapping mapping in mappings)
             {
@@ -185,25 +185,27 @@ namespace IconManager
                     mapping.Source.IconSet == IconSet.FluentUISystemRegular)
                 {
                     var nameComponents = new FluentUISystem.IconName(mapping.Source.Name);
+                    string svgName = $@"{nameComponents.Name}.svg";
+                    string relativeGlyphUrl = string.Empty;
+                    List<string>? relativeGlyphUrls = null;
 
+                    // Find all possible SVG file glyph sources
                     lock (cacheMutex)
                     {
                         if (cachedFluentUISystemGlyphSources == null)
                         {
                             RebuildCache();
                         }
-                    }
 
-                    // Find all possible sources of the SVG file
-                    string svgName = $@"{nameComponents.Name}.svg";
-                    string relativeGlyphUrl = string.Empty;
-                    List<string> relativeGlyphUrls = cachedFluentUISystemGlyphSources!.FindAll(s => s.EndsWith(svgName));
+                        relativeGlyphUrls = cachedFluentUISystemGlyphSources!.FindAll(s => s.EndsWith(svgName));
+                    }
 
                     // Use the relativeGlyphUrl with the smallest directory structure
                     // There are sometimes many variants with the exact same name -- some for other cultures
                     // Each culture is usually placed in it's own folder
                     // We want the invariant culture, as best as possible
-                    if (relativeGlyphUrls.Count > 0)
+                    if (relativeGlyphUrls != null &&
+                        relativeGlyphUrls.Count > 0)
                     {
                         relativeGlyphUrl = relativeGlyphUrls[0];
 

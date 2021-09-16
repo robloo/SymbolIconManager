@@ -1,12 +1,16 @@
 ﻿using IconManager.Models.Serialization;
 using Newtonsoft.Json;
+using System;
 
 namespace IconManager
 {
     /// <summary>
     /// Represents basic information for an icon.
     /// </summary>
-    public interface IIcon
+    /// <remarks>
+    /// Make sure to keep members and comments in sync with <see cref="IReadOnlyIcon"/>.
+    /// </remarks>
+    public interface IIcon : IReadOnlyIcon
     {
         ///////////////////////////////////////////////////////////
         // Data
@@ -20,21 +24,21 @@ namespace IconManager
         /// </remarks>
         [JsonProperty(Order = 1)]
         [JsonConverter(typeof(IconSetConverter))]
-        IconSet IconSet { get; set; }
+        new IconSet IconSet { get; set; }
 
         /// <summary>
         /// Gets or sets the full name or description of the icon.
         /// The format is specific to each font or icon package.
         /// </summary>
         [JsonProperty(Order = 3)]
-        string Name { get; set; }
+        new string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the 32-bit Unicode point of the icon.
         /// </summary>
         [JsonProperty(Order = 2)]
         [JsonConverter(typeof(HexStringConverter))]
-        uint UnicodePoint { get; set; }
+        new uint UnicodePoint { get; set; }
 
         ///////////////////////////////////////////////////////////
         // Calculated
@@ -44,6 +48,6 @@ namespace IconManager
         /// Gets the value of the <see cref="UnicodePoint"/> formatted as a hexadecimal string.
         /// </summary>
         [JsonIgnore]
-        string UnicodeString { get; }
+        new string UnicodeString { get; }
     }
 }

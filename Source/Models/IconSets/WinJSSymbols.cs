@@ -12,7 +12,10 @@ namespace IconManager
     /// </summary>
     public class WinJSSymbols
     {
-        private static IReadOnlyList<Icon>? cachedIcons = null;
+        private static IReadOnlyList<Icon>?               cachedIcons = null;
+        private static IReadOnlyDictionary<uint, string>? cachedNames = null;
+
+        private static object cacheMutex = new object();
 
         /***************************************************************************************
          *
@@ -23,6 +26,7 @@ namespace IconManager
         private static void RebuildCache()
         {
             var icons = new List<Icon>();
+            var names = new Dictionary<uint, string>();
             var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
             string sourceDataPath = "avares://IconManager/Data/Symbols.json";
 
@@ -36,30 +40,57 @@ namespace IconManager
                 {
                     foreach (var entry in rawIcons)
                     {
-                        icons.Add(new Icon()
+                        var icon = new Icon()
                         {
                             Name         = entry.Value,
                             UnicodePoint = Convert.ToUInt32(entry.Key.Substring(2), 16) // Remove 'U+'
-                        });
+                        };
+
+                        icons.Add(icon);
+                        names.Add(icon.UnicodePoint, icon.Name);
                     }
                 }
             }
 
-            cachedIcons = icons.AsReadOnly();
+            lock (cacheMutex)
+            {
+                cachedIcons = icons.AsReadOnly();
+                cachedNames = names;
+            }
 
             return;
+        }
+
+        public static string FindName(uint unicodePoint)
+        {
+            string? name = null;
+
+            lock (cacheMutex)
+            {
+                if (cachedNames == null)
+                {
+                    RebuildCache();
+                }
+
+                cachedNames!.TryGetValue(unicodePoint, out name);
+            }
+
+            return name ?? string.Empty;
         }
 
         /// <summary>
         /// Gets a read-only list of all icons in the WinJS Symbols icon set.
         /// </summary>
-        public static IReadOnlyList<IIcon> Icons
+        public static IReadOnlyList<IReadOnlyIcon> Icons
         {
             get
             {
-                if (cachedIcons == null)
+                lock (cacheMutex)
                 {
-                    RebuildCache();
+                    if (cachedIcons == null)
+                    {
+                        RebuildCache();
+                    }
                 }
 
                 return cachedIcons!;

@@ -79,7 +79,7 @@ namespace IconManager
         private void UpdateIcons()
         {
             ComboBoxItem? selectedItem = this.SelectedIconSetComboBox.SelectedItem as ComboBoxItem;
-            IReadOnlyList<IIcon>? icons = null;
+            IReadOnlyList<IReadOnlyIcon>? icons = null;
             List<IconViewModel> iconViewModels = new List<IconViewModel>();
 
             var selectedIconSet = (IconSet?)Enum.Parse(typeof(IconSet), selectedItem?.Tag?.ToString() ?? string.Empty);
