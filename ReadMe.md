@@ -10,8 +10,11 @@ This project is currently focusing on Microsoft's symbol icon fonts including *S
 
 ## App Functionality
 
-This application has the following planned functionality:
+This application has the following functionality:
 
+ 1. **Icon Sets Viewer**
+     * Quickly browse through all Microsoft symbol font glyphs.
+     * Supports search/filtering to find glyphs faster.
  1. **Icon Mapping & Font Builder**
      * Provides tools to facilitate making and reviewing icon set mapping files (by Unicode point/Glyph).
      * Provides a tool to build cross-platform, open-source variants of Microsoft's Symbol fonts using icon mapping files.
