@@ -200,9 +200,41 @@ namespace IconManager
             return result;
         }
 
-        // Gets all possible glyph sources for the given icon set and uniocode point.
-        // Not that POSSIBLE here means it may exist, but is not guaranteed.
-        // Use an associated GetStream or GetSource method to confirm.
+        /// <summary>
+        /// Gets all possible glyph sources for the given icon set and Unicode point.
+        /// Note that 'possible' here means it may exist, but is not guaranteed.
+        /// Use an associated GetGlyphSource method to confirm.
+        /// </summary>
+        /// <param name="iconSet">The icon set containing the glyph.</param>
+        /// <param name="unicodePoint">The Unicode point of the glyph.</param>
+        /// <returns>The list of possible glyph sources.</returns>
+        public static List<GlyphSource> GetPossibleGlyphSources(
+            IconSet iconSet,
+            uint unicodePoint)
+        {
+            var possibleSources = new List<GlyphSource>();
+
+            switch (iconSet)
+            {
+                case IconSet.FluentUISystemFilled:
+                case IconSet.FluentUISystemRegular:
+                    possibleSources.Add(GlyphSource.LocalFontFile);
+                    possibleSources.Add(GlyphSource.RemoteSvgFile);
+                    break;
+                case IconSet.SegoeFluent:
+                case IconSet.SegoeMDL2Assets:
+                    possibleSources.Add(GlyphSource.RemotePngFile);
+                    break;
+                case IconSet.SegoeUISymbol:
+                    // Not available anywhere
+                    break;
+                case IconSet.WinJSSymbols:
+                    possibleSources.Add(GlyphSource.LocalFontFile);
+                    break;
+            }
+
+            return possibleSources;
+        }
 
         /// <summary>
         /// Gets the image data source URL of the defined glyph.
