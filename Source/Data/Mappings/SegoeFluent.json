@@ -22,12 +22,12 @@
       "Name": "Wifi"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F8AC",
+      "Name": "ic_fluent_wifi_1_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -38,12 +38,12 @@
       "Name": "Bluetooth"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1DE",
+      "Name": "ic_fluent_bluetooth_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -550,14 +550,14 @@
       "Name": "Camera"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F254",
+      "Name": "ic_fluent_camera_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Softer edges"
   },
   {
     "Destination": {
@@ -2045,7 +2045,7 @@
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Softer edges"
   },
   {
     "Destination": {
@@ -5238,12 +5238,12 @@
       "Name": "RotateCamera"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F25A",
+      "Name": "ic_fluent_camera_switch_24_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -5302,14 +5302,14 @@
       "Name": "AttachCamera"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F257",
+      "Name": "ic_fluent_camera_add_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "No attach camera glyph exists in the Fluent UI System, a similar metaphor was used."
   },
   {
     "Destination": {
@@ -5766,12 +5766,12 @@
       "Name": "CalendarDay"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F222",
+      "Name": "ic_fluent_calendar_day_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -5782,14 +5782,14 @@
       "Name": "CalendarWeek"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F20E",
+      "Name": "ic_fluent_calendar_3_day_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Fluent UI System has a different glyph for week view, used one with the closest glyph instead."
   },
   {
     "Destination": {
@@ -5798,14 +5798,14 @@
       "Name": "Characters"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F4F3",
+      "Name": "ic_fluent_local_language_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Different Japanese character, but otherwise similar"
   },
   {
     "Destination": {
@@ -6630,14 +6630,14 @@
       "Name": "CalendarReply"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F232",
+      "Name": "ic_fluent_calendar_reply_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "No variant with days marked on the calendar"
   },
   {
     "Destination": {
@@ -8189,7 +8189,7 @@
     "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "No smaller chevron exists, only regular"
+    "Comments": "The Fluent UI System only has one size chevron. The standard size was used here. It's not bold and not \"small/med\"."
   },
   {
     "Destination": {
@@ -8205,7 +8205,7 @@
     "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "The Fluent UI System only has one size chevron. The standard size was used here."
+    "Comments": "The Fluent UI System only has one size chevron. The standard size was used here. It's not bold and not \"small/med\"."
   },
   {
     "Destination": {
@@ -8221,7 +8221,7 @@
     "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "No smaller chevron exists, only regular"
+    "Comments": "The Fluent UI System only has one size chevron. The standard size was used here. It's not bold and not \"small/med\"."
   },
   {
     "Destination": {
@@ -8237,7 +8237,7 @@
     "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "No smaller chevron exists, only regular"
+    "Comments": "The Fluent UI System only has one size chevron. The standard size was used here. It's not bold and not \"small/med\"."
   },
   {
     "Destination": {
@@ -8246,14 +8246,14 @@
       "Name": "ChevronUpMed"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F2B6",
+      "Name": "ic_fluent_chevron_up_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "The Fluent UI System only has one size chevron. The standard size was used here. It's not bold and not \"small/med\"."
   },
   {
     "Destination": {
@@ -8269,7 +8269,7 @@
     "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "The Fluent UI System only has one size chevron. The standard size was used here."
+    "Comments": "The Fluent UI System only has one size chevron. The standard size was used here. It's not bold and not \"small/med\"."
   },
   {
     "Destination": {
@@ -8278,14 +8278,14 @@
       "Name": "ChevronLeftMed"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F2AA",
+      "Name": "ic_fluent_chevron_left_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "The Fluent UI System only has one size chevron. The standard size was used here. It's not bold and not \"small/med\"."
   },
   {
     "Destination": {
@@ -8294,14 +8294,14 @@
       "Name": "ChevronRightMed"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F2B0",
+      "Name": "ic_fluent_chevron_right_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "The Fluent UI System only has one size chevron. The standard size was used here. It's not bold and not \"small/med\"."
   },
   {
     "Destination": {
@@ -10246,12 +10246,12 @@
       "Name": "CalendarSolid"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "FD26",
+      "Name": "ic_fluent_calendar_ltr_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -12278,12 +12278,12 @@
       "Name": "RightArrowKeyTime0"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F181",
+      "Name": "ic_fluent_arrow_right_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -13158,12 +13158,12 @@
       "Name": "LeftArrowKeyTime0"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F15B",
+      "Name": "ic_fluent_arrow_left_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -14278,12 +14278,12 @@
       "Name": "CalendarMirrored"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FD20",
+      "Name": "ic_fluent_calendar_rtl_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -16502,14 +16502,14 @@
       "Name": "ArrowUp8"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F19B",
+      "Name": "ic_fluent_arrow_up_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Lines not as thick, could go to size 16 to compensate."
   },
   {
     "Destination": {
@@ -16518,14 +16518,14 @@
       "Name": "ArrowDown8"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F148",
+      "Name": "ic_fluent_arrow_down_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Lines not as thick, could go to size 16 to compensate."
   },
   {
     "Destination": {
@@ -16534,14 +16534,14 @@
       "Name": "ArrowRight8"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F181",
+      "Name": "ic_fluent_arrow_right_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Lines not as thick, could go to size 16 to compensate."
   },
   {
     "Destination": {
@@ -16550,14 +16550,14 @@
       "Name": "ArrowLeft8"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F15B",
+      "Name": "ic_fluent_arrow_left_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Lines not as thick, could go to size 16 to compensate."
   },
   {
     "Destination": {
@@ -21654,12 +21654,12 @@
       "Name": "ChevronLeft20"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F2AA",
+      "Name": "ic_fluent_chevron_left_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -21670,14 +21670,14 @@
       "Name": "ChevronLeft32"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F2AD",
+      "Name": "ic_fluent_chevron_left_48_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Specially deviate from the standard size 20 here to match the Segoe Fluent design more closely. No size 32 variant exists, using size 48 instead."
   },
   {
     "Destination": {
@@ -21686,12 +21686,12 @@
       "Name": "ChevronRight20"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F2B0",
+      "Name": "ic_fluent_chevron_right_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -21702,14 +21702,14 @@
       "Name": "ChevronRight32"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F2B3",
+      "Name": "ic_fluent_chevron_right_48_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Specially deviate from the standard size 20 here to match the Segoe Fluent design more closely. No size 32 variant exists, using size 48 instead."
   },
   {
     "Destination": {
