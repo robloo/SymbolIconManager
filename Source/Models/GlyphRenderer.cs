@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Platform;
 using SkiaSharp;
+using SkiaSharp.Extended.Svg;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -66,7 +67,7 @@ namespace IconManager
                 iconSet == IconSet.FluentUISystemRegular ||
                 iconSet == IconSet.WinJSSymbols)
             {
-                result = await Task.Run<Bitmap?>(() =>
+                result = await Task.Run<Bitmap?>(async () =>
                 {
                     // These icon sets have an embedded font file within the application
                     // Rendering glyphs is fastest using the embedded font itself
@@ -74,6 +75,8 @@ namespace IconManager
                     // See: https://github.com/microsoft/fluentui-system-icons/issues/299
                     // A work-around for this case is required using the online SVG file sources
 
+                    var textBounds = new SKRect();
+                    bool glyphExistsInFont = true;
                     SKFont? textFont = null;
                     SKPaint? textPaint = null;
                     SKBitmap bitmap = new SKBitmap(
@@ -133,37 +136,76 @@ namespace IconManager
                             cachedTextPaints.Add(iconSet, textPaint);
                         }
 
-                        // Render the glyph using SkiaSharp
-                        using (SKCanvas canvas = new SKCanvas(bitmap))
+                        // Measure the rendered text
+                        // This also checks if the glyph exists in the font before continuing
+                        string text = char.ConvertFromUtf32((int)unicodePoint).ToString();
+                        textPaint.MeasureText(text, ref textBounds);
+
+                        if (textBounds.Width == 0 ||
+                            textBounds.Height == 0)
                         {
-                            string text = char.ConvertFromUtf32((int)unicodePoint).ToString();
+                            glyphExistsInFont = false;
+                        }
 
-                            var textBounds = new SKRect();
-                            textPaint.MeasureText(text, ref textBounds);
+                        // Render the glyph using SkiaSharp
+                        if (glyphExistsInFont)
+                        {
+                            using (SKCanvas canvas = new SKCanvas(bitmap))
+                            {
+                                canvas.DrawRect(
+                                    x: 0,
+                                    y: 0,
+                                    w: GlyphRenderer.RenderWidth,
+                                    h: GlyphRenderer.RenderHeight,
+                                    cachedBackgroundPaint);
 
-                            canvas.DrawRect(
-                                x: 0,
-                                y: 0,
-                                w: GlyphRenderer.RenderWidth,
-                                h: GlyphRenderer.RenderHeight,
-                                cachedBackgroundPaint);
-
-                            canvas.DrawText(
-                                text,
-                                // No need to consider baseline, just center the glyph
-                                x: (GlyphRenderer.RenderWidth / 2f) - textBounds.MidX,
-                                y: (GlyphRenderer.RenderHeight / 2f) - textBounds.MidY,
-                                textFont,
-                                textPaint);
+                                canvas.DrawText(
+                                    text,
+                                    // No need to consider baseline, just center the glyph
+                                    x: (GlyphRenderer.RenderWidth / 2f) - textBounds.MidX,
+                                    y: (GlyphRenderer.RenderHeight / 2f) - textBounds.MidY,
+                                    textFont,
+                                    textPaint);
+                            }
                         }
                     }
 
-                    // Note that the default SKImage encoding format is .png
-                    using (SKImage image = SKImage.FromBitmap(bitmap))
-                    using (SKData encoded = image.Encode())
-                    using (Stream stream = encoded.AsStream())
+                    if (glyphExistsInFont)
                     {
-                        return new Bitmap(stream);
+                        // Use the Skia font-rendered glyph
+                        // Note that the default SKImage encoding format is .png
+                        using (SKImage image = SKImage.FromBitmap(bitmap))
+                        using (SKData encoded = image.Encode())
+                        using (Stream stream = encoded.AsStream())
+                        {
+                            return new Bitmap(stream);
+                        }
+                    }
+                    else
+                    {
+                        // Attempt to use an SVG image as fallback
+                        // Note that the icon set determines that the format will be SVG
+                        var svgStream = await GlyphRenderer.GetGlyphSourceStreamAsync(iconSet, unicodePoint);
+
+                        if (svgStream != null)
+                        {
+                            // The size here (and above) isn't taking into account device DPI
+                            // It probably should in the future
+                            // Also note that no background is added to the rendered SVG unlike above
+                            var svg = new SkiaSharp.Extended.Svg.SKSvg(
+                                new SKSize(GlyphRenderer.RenderWidth, GlyphRenderer.RenderHeight));
+                            svg.Load(svgStream);
+
+                            // Note that the default SKImage encoding format is .png
+                            using (SKImage image = SKImage.FromPicture(svg.Picture, svg.CanvasSize.ToSizeI()))
+                            using (SKData encoded = image.Encode())
+                            using (Stream stream = encoded.AsStream())
+                            {
+                                return new Bitmap(stream);
+                            }
+                        }
+
+                        return null;
                     }
                 });
             }
