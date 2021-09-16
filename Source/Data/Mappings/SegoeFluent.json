@@ -123,9 +123,9 @@
       "Name": "ic_fluent_location_20_regular"
     },
     "GlyphMatchQuality": "Low",
-    "MetaphorMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": "Visually different and 'MapPin = Location'"
+    "Comments": "Visually different and MapPin is not equal to Location"
   },
   {
     "Destination": {
@@ -342,12 +342,12 @@
       "Name": "Mail"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F506",
+      "Name": "ic_fluent_mail_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -390,12 +390,12 @@
       "Name": "Pin"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F601",
+      "Name": "ic_fluent_pin_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -538,10 +538,10 @@
       "UnicodePoint": "F68F",
       "Name": "ic_fluent_search_20_regular"
     },
-    "GlyphMatchQuality": "High",
+    "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Flipped vertically"
   },
   {
     "Destination": {
@@ -982,12 +982,12 @@
       "Name": "FullScreen"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F15F",
+      "Name": "ic_fluent_arrow_maximize_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1590,12 +1590,12 @@
       "Name": "Play"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F605",
+      "Name": "ic_fluent_play_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1846,12 +1846,12 @@
       "Name": "ContactInfo"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "100E6",
+      "Name": "ic_fluent_person_info_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1862,12 +1862,12 @@
       "Name": "Unpin"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F603",
+      "Name": "ic_fluent_pin_off_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -2422,12 +2422,12 @@
       "Name": "ShoppingCart"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F952",
+      "Name": "ic_fluent_cart_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -3750,12 +3750,12 @@
       "Name": "Pinned"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F601",
+      "Name": "ic_fluent_pin_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -3766,12 +3766,12 @@
       "Name": "PinFill"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F60B",
+      "Name": "ic_fluent_pin_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -3782,12 +3782,12 @@
       "Name": "PinnedFill"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F60B",
+      "Name": "ic_fluent_pin_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -5078,12 +5078,12 @@
       "Name": "Next"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F569",
+      "Name": "ic_fluent_next_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -5222,14 +5222,14 @@
       "Name": "MailForward"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "10019",
+      "Name": "ic_fluent_mail_arrow_forward_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Arrow curve does not match"
   },
   {
     "Destination": {
@@ -5398,12 +5398,12 @@
       "Name": "MailFill"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F510",
+      "Name": "ic_fluent_mail_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -5670,14 +5670,14 @@
       "Name": "Picture"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F5FD",
+      "Name": "ic_fluent_picture_in_picture_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Picture in picture instead of one overlaid on other"
   },
   {
     "Destination": {
@@ -5814,12 +5814,12 @@
       "Name": "MailReplyAll"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "10017",
+      "Name": "ic_fluent_mail_arrow_double_back_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -7158,14 +7158,14 @@
       "Name": "FullCircleMask"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F2BB",
+      "Name": "ic_fluent_circle_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Not a mask, using the standard Fluent UI System circle size."
   },
   {
     "Destination": {
@@ -9494,12 +9494,12 @@
       "Name": "CircleRing"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F2BB",
+      "Name": "ic_fluent_circle_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -9510,12 +9510,12 @@
       "Name": "CircleFill"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F2BB",
+      "Name": "ic_fluent_circle_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -10390,12 +10390,12 @@
       "Name": "HeartBroken"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FF9C",
+      "Name": "ic_fluent_heart_broken_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -10822,12 +10822,12 @@
       "Name": "Heart"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F479",
+      "Name": "ic_fluent_heart_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -10838,12 +10838,12 @@
       "Name": "HeartFill"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F47D",
+      "Name": "ic_fluent_heart_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -11158,14 +11158,14 @@
       "Name": "EditMirrored"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F3DD",
+      "Name": "ic_fluent_edit_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "No mirrored variant exists in the Fluent UI System"
   },
   {
     "Destination": {
@@ -11446,12 +11446,12 @@
       "Name": "FastForward"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F3FE",
+      "Name": "ic_fluent_fast_forward_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -12582,14 +12582,14 @@
       "Name": "MiracastLogoSmall"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F26C",
+      "Name": "ic_fluent_cast_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "No size large/small variants exist in Fluent UI System. Using the standard size. Cast bottom left instead of top right"
   },
   {
     "Destination": {
@@ -12598,14 +12598,14 @@
       "Name": "MiracastLogoLarge"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F26C",
+      "Name": "ic_fluent_cast_20_regular"
     },
     "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "No size large/small variants exist in Fluent UI System. Using the standard size."
   },
   {
     "Destination": {
@@ -13222,14 +13222,14 @@
       "Name": "PlaybackRate1x"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "100E8",
+      "Name": "ic_fluent_replay_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Arrow direction is reversed"
   },
   {
     "Destination": {
@@ -13238,14 +13238,14 @@
       "Name": "PlaybackRateOther"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "100EC",
+      "Name": "ic_fluent_replay_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Arrow direction is reversed"
   },
   {
     "Destination": {
@@ -14502,12 +14502,12 @@
       "Name": "SkipBack10"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FD58",
+      "Name": "ic_fluent_skip_back_10_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -14518,12 +14518,12 @@
       "Name": "SkipForward30"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FD5A",
+      "Name": "ic_fluent_skip_forward_30_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -15190,14 +15190,14 @@
       "Name": "CircleRingBadge12"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F2BB",
+      "Name": "ic_fluent_circle_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Not a badge, using the standard Fluent UI System circle size."
   },
   {
     "Destination": {
@@ -15238,14 +15238,14 @@
       "Name": "MailBadge12"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F506",
+      "Name": "ic_fluent_mail_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Using the standard mail glyph"
   },
   {
     "Destination": {
@@ -15270,14 +15270,14 @@
       "Name": "PlayBadge12"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FADC",
+      "Name": "ic_fluent_play_12_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Purposely using smaller size 12 variant (instead of standard size 20) to better match line widths."
   },
   {
     "Destination": {
@@ -15622,12 +15622,12 @@
       "Name": "Play36"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F605",
+      "Name": "ic_fluent_play_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -16070,12 +16070,12 @@
       "Name": "Replay"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "100E8",
+      "Name": "ic_fluent_replay_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -16157,7 +16157,7 @@
     "GlyphMatchQuality": "NoMatch",
     "MetaphorMatchQuality": "NoMatch",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Does not exist"
   },
   {
     "Destination": {
@@ -18182,12 +18182,12 @@
       "Name": "InfoSolid"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F4AA",
+      "Name": "ic_fluent_info_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -20582,12 +20582,12 @@
       "Name": "PlaySolid"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F60F",
+      "Name": "ic_fluent_play_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -21206,12 +21206,12 @@
       "Name": "CircleShapeSolid"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F2BB",
+      "Name": "ic_fluent_circle_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -21782,14 +21782,14 @@
       "Name": "SearchMedium"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FB1A",
+      "Name": "ic_fluent_search_12_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Flipped vertically. Using Size 12 (instead of standard size 20) to more closely match Segoe Fluent line thickness."
   },
   {
     "Destination": {
@@ -21862,14 +21862,14 @@
       "Name": "DeleteLines"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "10149",
+      "Name": "ic_fluent_delete_lines_20_regular"
     },
     "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "MetaphorMatchQuality": "Exact",
+    "IsPlaceholder": true,
+    "Comments": "The purpose is a match but the glyph does not match at all."
   },
   {
     "Destination": {
@@ -21878,14 +21878,14 @@
       "Name": "DeleteLinesFill"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "1014D",
+      "Name": "ic_fluent_delete_lines_20_filled"
     },
     "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "MetaphorMatchQuality": "High",
+    "IsPlaceholder": true,
+    "Comments": "The purpose seems to match but the glyph does not match at all."
   },
   {
     "Destination": {
