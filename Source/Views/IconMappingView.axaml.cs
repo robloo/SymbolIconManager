@@ -2,7 +2,9 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace IconManager
 {
@@ -214,6 +216,50 @@ namespace IconManager
 
             var fontBuilder = new FontBuilder();
             fontBuilder.BuildFont(mappings);
+
+            return;
+        }
+
+        /// <summary>
+        /// Event handler for when the merge in mappings button is clicked.
+        /// </summary>
+        private void MergeInButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Available for use to select a second mapping file and then merge
+            // any common mappings from the second file into the current mappings list
+            return;
+        }
+
+        /// <summary>
+        /// Event handler for when the help with match quality definitions button is clicked.
+        /// </summary>
+        private void MatchQualityHelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            string url = @"https://github.com/robloo/SymbolIconManager/blob/main/Docs/IconMapping.md#match-quality-values";
+
+            // See: https://brockallen.com/2016/09/24/process-start-for-urls-on-net-core/ and
+            // https://github.com/dotnet/runtime/issues/17938
+            try
+            {
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    Process.Start(new ProcessStartInfo()
+                    {
+                        Arguments       = "/c start " + url,
+                        UseShellExecute = true,
+                        FileName        = "cmd"
+                    });
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    Process.Start("xdg-open", url);
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                {
+                    Process.Start("open", url);
+                }
+            }
+            catch { }
 
             return;
         }

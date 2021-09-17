@@ -8,7 +8,7 @@
              d:DesignHeight="450"
              x:Class="IconManager.AppToolsView">
     <Grid Margin="10"
-          RowDefinitions="Auto,Auto,*">
+          RowDefinitions="Auto,*">
         <Grid Grid.Row="0"
               HorizontalAlignment="Left"
               Grid.ColumnDefinitions="Auto,Auto"
@@ -41,22 +41,26 @@
                     Orientation="Horizontal"
                     HorizontalAlignment="Right"
                     Spacing="5">
+            <TextBlock Text="{Binding ListedIcons.Count, StringFormat='Count: {0}'}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Margin="0,0,5,0" />
             <Button x:Name="ListIconsButton"
                     Content="List Used Icons"
                     Click="ListIconsButton_Click" />
             <Button x:Name="RemapIconsButton"
                     Content="Remap Icons"
                     Click="RemapIconsButton_Click" />
-            <Button x:Name="ExportToMappings"
+            <Button x:Name="ExportToMappingsButton"
                     Content="Export to Mappings"
-                    Click="ExportToMappings_Click" />
+                    Click="ExportToMappingsButton_Click" />
+            <Button x:Name="BuildFontButton"
+                    IsEnabled="False"
+                    Content="Build Font"
+                    Click="BuildFontButton_Click" />
         </StackPanel>
-        <TextBlock Text="{Binding ListedIcons.Count, StringFormat='Count: {0}'}"
-                   Grid.Row="1"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center" />
         <ListBox x:Name="ListBox"
-                 Grid.Row="2"
+                 Grid.Row="1"
                  Items="{Binding ListedIcons}"
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch">

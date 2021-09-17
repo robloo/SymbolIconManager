@@ -341,7 +341,7 @@ namespace IconManager
             return;
         }
 
-        private async void ExportToMappings_Click(object sender, RoutedEventArgs e)
+        private async void ExportToMappingsButton_Click(object sender, RoutedEventArgs e)
         {
             if (this.ListedIcons.Count > 0)
             {
@@ -385,6 +385,15 @@ namespace IconManager
                     }
                 }
             }
+
+            return;
+        }
+
+        /// <summary>
+        /// Event handler for when the build font button is clicked.
+        /// </summary>
+        private void BuildFontButton_Click(object sender, RoutedEventArgs e)
+        {
 
             return;
         }

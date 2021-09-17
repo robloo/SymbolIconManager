@@ -12,12 +12,13 @@
         <ComboBox x:Name="SelectedIconSetComboBox"
                   Grid.Row="0"
                   SelectionChanged="SelectedIconSetComboBox_SelectionChanged" />
-        <TextBlock Text="{Binding FilteredIcons.Count, StringFormat='Count: {0}'}"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center" />
         <StackPanel Orientation="Horizontal"
                     Grid.Row="0"
                     HorizontalAlignment="Right">
+            <TextBlock Text="{Binding FilteredIcons.Count, StringFormat='Count: {0}'}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Margin="0,0,5,0" />
             <TextBox x:Name="FilterTextBox"
                      Text="{Binding FilterText, Mode=TwoWay}"
                      Watermark="Filter"
