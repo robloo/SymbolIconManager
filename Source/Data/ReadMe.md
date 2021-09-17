@@ -16,14 +16,15 @@ This folder contains raw icon set data files used by the application. Data is co
 | Line Awesome       | `la-regular-400.ttf`             | 2021-Sep-16 | 1.3.0   | [GitHub Repo](https://github.com/icons8/line-awesome/blob/master/dist/line-awesome/fonts/la-regular-400.ttf) |
 | Line Awesome       | `la-solid-900.ttf`               | 2021-Sep-16 | 1.3.0   | [GitHub Repo](https://github.com/icons8/line-awesome/blob/master/dist/line-awesome/fonts/la-solid-900.ttf) |
 | Line Awesome       | `line-awesome.css`               | 2021-Sep-16 | 1.3.0   | [GitHub Repo](https://github.com/icons8/line-awesome/blob/master/dist/line-awesome/css/line-awesome.css) |
-| Segoe Fluent Icons | `SegoeFluentIcons.json`          | 2021-Sep-12 | -       | [Microsoft Website](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-fluent-icons-font) |
+| Segoe Fluent       | `SegoeFluentIcons.json`          | 2021-Sep-12 | -       | [Microsoft Website](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-fluent-icons-font) |
 | Segoe MDL2 Assets  | `SegoeMDL2Assets.json`           | 2021-Jul-18 | -       | [Microsoft Website](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-ui-symbol-font) |
 | WinJS Symbols      | `Symbols.json`                   | 2021-Jul-24 | 1.05    | [GitHub PDF](https://github.com/winjs/winjs/blob/master/src/fonts/SymbolsWinJS.pdf) |
 | WinJS Symbols      | `Symbols.ttf`                    | 2021-Jul-24 | 1.05    | [GitHub Repo](https://github.com/winjs/winjs/blob/master/src/fonts/Symbols.ttf) |
 
 Note the following:
  * Where applicable, JavaScript Object Notation (JSON) is the preferred format for all textual data.
- * Where applicable, TrueType Font (TTF) is the preferred format for all font data
+ * Where applicable, TrueType Font (TTF) is the preferred format for all font data.
+ * When possible, data file names should match the source -- including capitalization rules.
  * Data files do not support comments; therefore, file information (including last update) is tracked here.
  * Data (except glyph source images) is copied even if it is publicly available elsewhere. This is a failsafe if ever the source goes offline; however, this requires maintenance to keep in sync.
  * Glyph source image files are not currently copied into this project due to file size.
