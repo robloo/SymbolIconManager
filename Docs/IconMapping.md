@@ -56,15 +56,15 @@ Each match quality property can be set with the below values:
 
  * `NoMatch` :  There is no discernible match between two icons.
    * Generally 'NoMatch' should not be used and instead no association (mapping) between two such icons should be made.
- * `Low` : Two icons are loosely similar in metaphor or glyph and there are significant differences. **The user may have difficulty recognizing the similarity.**
+ * `Low` : **The user may have difficulty recognizing the similarity.** Two icons are loosely similar in metaphor or glyph and there are significant differences.
    * Significant differences are common if a substitution was made. For glyphs, these may be good candidates to retrieve from another icon set instead. Low match quality metaphors that have a higher glyph match quality are generally fine.
- * `Medium` : Two icons are moderately similar in metaphor or glyph. **The user can usually recognize the similarity.**
+ * `Medium` : **The user can usually recognize the similarity.** Two icons are moderately similar in metaphor or glyph.
    * Example 1: One glyph has an accent arrow facing a different direction.
    * Example 2: One glyph is flipped vertically or horizontally from the other.
- * `High` : Two icons have a very high degree of similarity in metaphor or glyph. **The user can perfectly recognize the similarity.**
+ * `High` : **The user can perfectly recognize the similarity.** Two icons have a very high degree of similarity in metaphor or glyph.
    * Example 1: One icon has rounded edges and the other square, but all other characteristics in the glyph are the same.
    * Example 2: One glyph is slightly larger or smaller than the other.
- * `Exact` : **Two icons are exactly the same in metaphor or glyph.** The user can perfectly recognize the similarity.
+ * `Exact` : **Two icons are exactly the same in metaphor or glyph.** Again, the user can perfectly recognize the similarity.
    * Exact means there are absolutely no discernible differences between two icons.
    * This value is extremely rare for glyph matches but very common for metaphor matches.
 
