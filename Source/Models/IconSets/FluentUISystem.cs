@@ -356,6 +356,16 @@ namespace IconManager
         /// </summary>
         public class Icon : IconName, IIcon
         {
+            /***************************************************************************************
+             *
+             * Property Accessors
+             *
+             ***************************************************************************************/
+
+            ///////////////////////////////////////////////////////////
+            // Data
+            ///////////////////////////////////////////////////////////
+
             /// <inheritdoc/>
             public IconSet IconSet
             {
@@ -381,11 +391,21 @@ namespace IconManager
             /// <inheritdoc/>
             public uint UnicodePoint { get; set; } = 0;
 
+            ///////////////////////////////////////////////////////////
+            // Calculated
+            ///////////////////////////////////////////////////////////
+
             /// <inheritdoc/>
             public string UnicodeString
             {
                 get => IconManager.Icon.ToUnicodeString(this.UnicodePoint);
             }
+
+            /***************************************************************************************
+             *
+             * Methods
+             *
+             ***************************************************************************************/
 
             /// <summary>
             /// Creates a new <see cref="Icon"/> instance from this instance's values.
@@ -393,7 +413,7 @@ namespace IconManager
             /// <returns>The cloned <see cref="Icon"/>.</returns>
             public Icon Clone()
             {
-                Icon clone = new Icon()
+                var clone = new Icon()
                 {
                     RawName      = this.RawName,
                     Name         = this.Name, // Automatically parses into components
@@ -404,9 +424,9 @@ namespace IconManager
             }
 
             /// <summary>
-            /// Converts this <see cref="FluentUISystem.Icon"/> into a standard <see cref="Icon"/>.
+            /// Converts this <see cref="FluentUISystem.Icon"/> into a standard <see cref="IconManager.Icon"/>.
             /// This is sometimes needed because <see cref="FluentUISystem.Icon"/> does not derive from
-            /// <see cref="Icon"/> like most other icons do. It only implements the interface.
+            /// <see cref="IconManager.Icon"/> like most other icons do. It only implements the interface.
             /// </summary>
             /// <returns>A new <see cref="IconManager.Icon"/>.</returns>
             public IconManager.Icon AsIcon()

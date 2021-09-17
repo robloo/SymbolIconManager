@@ -2,22 +2,27 @@
 
 This folder contains raw icon set data files used by the application. Data is commonly gathered from third party sources. A list of individual data files is given in the below table.
 
-| Icon Set | Data File | Last Update | Last Version | Source |
-|----------|-----------|-------------|--------------|--------|
+| Icon Set Family | Data File | Last Update | Last Version | Source |
+|-----------------|-----------|-------------|--------------|--------|
 | Fluent UI System   | `FluentSystemIcons-Filled.json`  | 2021-Sep-15 | 1.1.139 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Filled.json) |
 | Fluent UI System   | `FluentSystemIcons-Filled.ttf`   | 2021-Sep-15 | 1.1.139 | [GitHub Rego](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Filled.ttf) |
 | Fluent UI System   | `FluentSystemIcons-Regular.json` | 2021-Sep-15 | 1.1.139 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.json) |
 | Fluent UI System   | `FluentSystemIcons-Regular.ttf`  | 2021-Sep-15 | 1.1.139 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.ttf) |
+| Line Awesome       | `la-brands-400.ttf`              | 2021-Sep-16 | 1.3.0   | [GitHub Repo](https://github.com/icons8/line-awesome/blob/master/dist/line-awesome/fonts/la-brands-400.ttf) |
+| Line Awesome       | `la-regular-400.ttf`             | 2021-Sep-16 | 1.3.0   | [GitHub Repo](https://github.com/icons8/line-awesome/blob/master/dist/line-awesome/fonts/la-regular-400.ttf) |
+| Line Awesome       | `la-solid-900.ttf`               | 2021-Sep-16 | 1.3.0   | [GitHub Repo](https://github.com/icons8/line-awesome/blob/master/dist/line-awesome/fonts/la-solid-900.ttf) |
+| Line Awesome       | `line-awesome.css`               | 2021-Sep-16 | 1.3.0   | [GitHub Repo](https://github.com/icons8/line-awesome/blob/master/dist/line-awesome/css/line-awesome.css) |
 | Segoe Fluent Icons | `SegoeFluentIcons.json`          | 2021-Sep-12 | -       | [Microsoft Website](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-fluent-icons-font) |
 | Segoe MDL2 Assets  | `SegoeMDL2Assets.json`           | 2021-Jul-18 | -       | [Microsoft Website](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-ui-symbol-font) |
 | WinJS Symbols      | `Symbols.json`                   | 2021-Jul-24 | 1.05    | [GitHub PDF](https://github.com/winjs/winjs/blob/master/src/fonts/SymbolsWinJS.pdf) |
 | WinJS Symbols      | `Symbols.ttf`                    | 2021-Jul-24 | 1.05    | [GitHub Repo](https://github.com/winjs/winjs/blob/master/src/fonts/Symbols.ttf) |
 
 Note the following:
- * Where applicable, JSON is the preferred format for all data.
- * JSON does not support comments; therefore, file information (including last update) is tracked here.
- * Data (except glyph images) is copied even if it is publicly available elsewhere. This is a failsafe if ever the source goes offline; however, this requires maintenance to keep in sync.
- * Glyph source image files are not copied into this project due to file size.
+ * Where applicable, JavaScript Object Notation (JSON) is the preferred format for all textual data.
+ * Where applicable, TrueType Font (TTF) is the preferred format for all font data
+ * Data files do not support comments; therefore, file information (including last update) is tracked here.
+ * Data (except glyph source images) is copied even if it is publicly available elsewhere. This is a failsafe if ever the source goes offline; however, this requires maintenance to keep in sync.
+ * Glyph source image files are not currently copied into this project due to file size.
 
 ## *Fluent UI System* Icon Data | Microsoft | MIT License
 
@@ -40,6 +45,29 @@ This application uses the *Fluent UI System* Unicode points defined in JSON file
 #### Glyphs
 
 *Fluent UI System* icon glyphs (SVG files) are available in GitHub under the MIT license. Due to file size, this application does not distribute these source glyphs. Glyphs are downloaded on demand directly from the GitHub repository. The open source (MIT licensed) .ttf files are used to render glyphs in text.
+
+## *Line Awesome* Icon Data | Icons8 | MIT License
+
+ * [GitHub Repo](https://github.com/icons8/line-awesome)
+ * [Website](https://icons8.com/line-awesome)
+
+ > Line Awesome is a free alternative for Font Awesome 5.11.2. It consists of ~1380 flat icons that offer complete coverage of the main Font Awesome icon set.
+ >
+ > This icon-font is based off of the Icons8 Windows 10 style...
+
+#### CSS Files
+
+All three styles of the *Line Awesome* icons share a single CSS file that defines the Unicode points and names for all supported icons. This file requires heavier processing to extract the needed information compared to JSON formatted files in other icon sets.
+
+ 1. `line-awesome.css` : Contains a CSS formatted list of all Unicode points and names for all three icon styles.
+
+#### Unicode Points
+
+This application uses the *Line Awesome* Unicode points defined in the CSS file. This file is updated externally (on GitHub) and copied verbatim here for further use.
+
+#### Glyphs
+
+*Line Awesome* icon glyphs (SVG files) are available in GitHub under the MIT license. Due to file size, this application does not distribute these source glyphs. Glyphs are downloaded on demand directly from the GitHub repository. The open source (MIT licensed) .ttf files are used to render glyphs in text.
 
 ## *Segoe Fluent Icons* Icon Data | Microsoft | Proprietary (Windows-only)
 

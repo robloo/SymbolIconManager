@@ -18,15 +18,38 @@
 
         /// <summary>
         /// The cross-platform Fluent UI System icons with filled theme.
+        /// Family: FluentUISystem.
         /// https://github.com/microsoft/fluentui-system-icons
         /// </summary>
         FluentUISystemFilled,
 
         /// <summary>
         /// The cross-platform Fluent UI System icons with regular theme.
+        /// Family: FluentUISystem.
         /// https://github.com/microsoft/fluentui-system-icons
         /// </summary>
         FluentUISystemRegular,
+
+        /// <summary>
+        /// The cross-platform, open-source Line Awesome icons with company brand style.
+        /// Family: LineAwesome.
+        /// https://github.com/icons8/line-awesome
+        /// </summary>
+        LineAwesomeBrand,
+
+        /// <summary>
+        /// The cross-platform, open-source Line Awesome icons with regular style.
+        /// Family: LineAwesome.
+        /// https://github.com/icons8/line-awesome
+        /// </summary>
+        LineAwesomeRegular,
+
+        /// <summary>
+        /// The cross-platform, open-source Line Awesome icons with solid fill style.
+        /// Family: LineAwesome.
+        /// https://github.com/icons8/line-awesome
+        /// </summary>
+        LineAwesomeSolid,
 
         /// <summary>
         /// The Windows 10/11 Segoe Fluent icons (Windows symbols version 3).
