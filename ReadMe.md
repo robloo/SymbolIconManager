@@ -12,6 +12,18 @@ In other words, the primary purpose of this tool is to build alternatives for Mi
 
 This project is currently focusing on Microsoft's symbol icon fonts including *Segoe MDL2 Assets* and *Segoe Fluent Icons*. Other symbol icon sets (such as *Line Awesome*) are used only to provide equivalent glyphs for Microsoft's already defined Unicode points. Symbol icons for other frameworks or platforms are currently out of scope.
 
+## Pre-Built Fonts
+
+The table below provides information for those looking for pre-built, drop-in replacements for Microsoft's various symbol icon fonts.
+
+| Font Name & Link  | Microsoft Equivalent | Mapping File | Comments |
+|-------------------|----------------------|--------------|----------|
+| **WinSymbols1.ttf** | Segoe UI Symbol | None | Not available, but you can contribute a mapping file! |
+| **WinSymbols2.ttf** | [Segoe MDL2 Assets](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-ui-symbol-font) | None | Not available, but you can contribute a mapping file! |
+| [**WinSymbols3.ttf**](https://github.com/robloo/SymbolIconManager/blob/main/Fonts/WinSymbols3.ttf) | [Segoe Fluent Icons](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-fluent-icons-font) | [`SegoeFluent.json`](https://github.com/robloo/SymbolIconManager/blob/main/Source/Data/Mappings/SegoeFluent.json) | Please contribute more mappings! |
+
+ * Note that `WinSymbols3` is backwards compatible with `WinSymbols2` by Unicode point. However, the glyph design/style will be different.
+
 ## App Functionality
 
 This application has the following functionality:
