@@ -4,13 +4,42 @@ The Symbol Icon Manager is an application written to facilitate working with Mic
 
 In other words, the primary purpose of this tool is to build alternatives for Microsoft's symbol icon fonts for both the Avalonia and Uno Platform cross-platform UI frameworks.
 
+<p align="center">
+  <img src="https://github.com/robloo/SymbolIconManager/raw/main/Docs/Images/IconMappingView.png" height="500px">
+</p>
+
 **Scope**
 
-This project is currently focusing on Microsoft's symbol icon fonts including *Segoe MDL2 Assets* and *Segoe Fluent Icons*. Other symbol icon sets are used only to provide equivalent glyphs for Microsoft's already defined Unicode points. Symbol icons for other frameworks or platforms are currently out of scope.
+This project is currently focusing on Microsoft's symbol icon fonts including *Segoe MDL2 Assets* and *Segoe Fluent Icons*. Other symbol icon sets (such as *Line Awesome*) are used only to provide equivalent glyphs for Microsoft's already defined Unicode points. Symbol icons for other frameworks or platforms are currently out of scope.
 
 ## App Functionality
 
 This application has the following functionality:
+
+<table>
+  <tr>
+    <th><b>Icon Sets Viewer</b></th> 
+    <th><b>Icon Mapping & Font Builder</b></th>
+    <th><b>Application Tools</b></th>
+  </tr>
+  <tr>
+    <td>
+      <p align="center">
+        <img src="https://github.com/robloo/SymbolIconManager/raw/main/Docs/Images/IconSetsView.png" width="300px">
+      </p>
+    </td>
+    <td>
+      <p align="center">
+        <img src="https://github.com/robloo/SymbolIconManager/raw/main/Docs/Images/IconMappingView.png" width="300px">
+      </p>
+    </td>
+    <td>
+      <p align="center">
+        <img src="https://github.com/robloo/SymbolIconManager/raw/main/Docs/Images/AppToolsView.png" width="300px">
+      </p>
+    </td>
+  </tr>
+</table>
 
  1. **Icon Sets Viewer**
      * Quickly browse through all Microsoft symbol font glyphs.
