@@ -79,8 +79,8 @@ namespace IconManager
             var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
             string[] sourceDataPaths = new string[]
             {
-                "avares://IconManager/Data/FluentSystemIcons-Filled.json",
-                "avares://IconManager/Data/FluentSystemIcons-Regular.json"
+                "avares://IconManager/Data/FluentUISystem/FluentSystemIcons-Filled.json",
+                "avares://IconManager/Data/FluentUISystem/FluentSystemIcons-Regular.json"
             };
 
             // Load all data from JSON source files

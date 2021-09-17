@@ -93,13 +93,13 @@ namespace IconManager
                             switch (iconSet)
                             {
                                 case IconSet.FluentUISystemFilled:
-                                    fontPath = "avares://IconManager/Data/FluentSystemIcons-Filled.ttf";
+                                    fontPath = "avares://IconManager/Data/FluentUISystem/FluentSystemIcons-Filled.ttf";
                                     break;
                                 case IconSet.FluentUISystemRegular:
-                                    fontPath = "avares://IconManager/Data/FluentSystemIcons-Regular.ttf";
+                                    fontPath = "avares://IconManager/Data/FluentUISystem/FluentSystemIcons-Regular.ttf";
                                     break;
                                 case IconSet.WinJSSymbols:
-                                    fontPath = "avares://IconManager/Data/Symbols.ttf";
+                                    fontPath = "avares://IconManager/Data/WinJSSymbols/Symbols.ttf";
                                     break;
                             }
 
@@ -324,7 +324,7 @@ namespace IconManager
                             // Rebuild the cache
                             var sources = new List<string>();
                             var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-                            string sourceDataPath = "avares://IconManager/Data/Sources/FluentUISystemGlyphSources.json";
+                            string sourceDataPath = "avares://IconManager/Data/FluentUISystem/FluentUISystemGlyphSources.json";
 
                             using (var sourceStream = assets.Open(new Uri(sourceDataPath)))
                             using (var reader = new StreamReader(sourceStream))

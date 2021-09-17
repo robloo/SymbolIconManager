@@ -1,14 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="Data\FluentSystemIcons-Filled.json" />
-    <None Remove="Data\FluentSystemIcons-Filled.ttf" />
-    <None Remove="Data\FluentSystemIcons-Regular.json" />
-    <None Remove="Data\FluentSystemIcons-Regular.ttf" />
+    <None Remove="Data\FluentUISystem\FluentSystemIcons-Filled.json" />
+    <None Remove="Data\FluentUISystem\FluentSystemIcons-Filled.ttf" />
+    <None Remove="Data\FluentUISystem\FluentSystemIcons-Regular.json" />
+    <None Remove="Data\FluentUISystem\FluentSystemIcons-Regular.ttf" />
+    <None Remove="Data\FluentUISystem\FluentUISystemGlyphSources.json" />
     <None Remove="Data\LineAwesome\la-brands-400.ttf" />
     <None Remove="Data\LineAwesome\la-regular-400.ttf" />
     <None Remove="Data\LineAwesome\la-solid-900.ttf" />
@@ -16,17 +17,17 @@
     <None Remove="Data\Mappings\Example.json" />
     <None Remove="Data\Mappings\FluentUISystemToSegoeMDL2Assets.json" />
     <None Remove="Data\Mappings\SegoeFluent.json" />
-    <None Remove="Data\Sources\FluentUISystemGlyphSources.json" />
-    <None Remove="Data\SegoeFluentIcons.json" />
-    <None Remove="Data\SegoeMDL2Assets.json" />
-    <None Remove="Data\Symbols.json" />
-    <None Remove="Data\Symbols.ttf" />
+    <None Remove="Data\SegoeFluent\SegoeFluentIcons.json" />
+    <None Remove="Data\SegoeMDL2Assets\SegoeMDL2Assets.json" />
+    <None Remove="Data\WinJSSymbols\Symbols.json" />
+    <None Remove="Data\WinJSSymbols\Symbols.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <AvaloniaResource Include="Data\FluentSystemIcons-Filled.json" />
-    <AvaloniaResource Include="Data\FluentSystemIcons-Filled.ttf" />
-    <AvaloniaResource Include="Data\FluentSystemIcons-Regular.json" />
-    <AvaloniaResource Include="Data\FluentSystemIcons-Regular.ttf" />
+    <AvaloniaResource Include="Data\FluentUISystem\FluentSystemIcons-Filled.json" />
+    <AvaloniaResource Include="Data\FluentUISystem\FluentSystemIcons-Filled.ttf" />
+    <AvaloniaResource Include="Data\FluentUISystem\FluentSystemIcons-Regular.json" />
+    <AvaloniaResource Include="Data\FluentUISystem\FluentSystemIcons-Regular.ttf" />
+    <AvaloniaResource Include="Data\FluentUISystem\FluentUISystemGlyphSources.json" />
     <AvaloniaResource Include="Data\LineAwesome\la-brands-400.ttf" />
     <AvaloniaResource Include="Data\LineAwesome\la-regular-400.ttf" />
     <AvaloniaResource Include="Data\LineAwesome\la-solid-900.ttf" />
@@ -34,11 +35,10 @@
     <AvaloniaResource Include="Data\Mappings\Example.json" />
     <AvaloniaResource Include="Data\Mappings\FluentUISystemToSegoeMDL2Assets.json" />
     <AvaloniaResource Include="Data\Mappings\SegoeFluent.json" />
-    <AvaloniaResource Include="Data\Sources\FluentUISystemGlyphSources.json" />
-    <AvaloniaResource Include="Data\SegoeFluentIcons.json" />
-    <AvaloniaResource Include="Data\SegoeMDL2Assets.json" />
-    <AvaloniaResource Include="Data\Symbols.json" />
-    <AvaloniaResource Include="Data\Symbols.ttf" />
+    <AvaloniaResource Include="Data\SegoeFluent\SegoeFluentIcons.json" />
+    <AvaloniaResource Include="Data\SegoeMDL2Assets\SegoeMDL2Assets.json" />
+    <AvaloniaResource Include="Data\WinJSSymbols\Symbols.json" />
+    <AvaloniaResource Include="Data\WinJSSymbols\Symbols.ttf" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.10.7" />

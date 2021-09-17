@@ -28,7 +28,7 @@ namespace IconManager
             var icons = new List<Icon>();
             var names = new Dictionary<uint, string>();
             var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-            string sourceDataPath = "avares://IconManager/Data/SegoeFluentIcons.json";
+            string sourceDataPath = "avares://IconManager/Data/SegoeFluent/SegoeFluentIcons.json";
 
             using (var sourceStream = assets.Open(new Uri(sourceDataPath)))
             using (var reader = new StreamReader(sourceStream))
