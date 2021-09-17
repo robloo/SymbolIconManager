@@ -4458,7 +4458,7 @@
       "UnicodePoint": "F279",
       "Name": "ic_fluent_cellular_data_5_20_regular"
     },
-    "GlyphMatchQuality": "High",
+    "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
@@ -4474,7 +4474,7 @@
       "UnicodePoint": "F277",
       "Name": "ic_fluent_cellular_data_4_20_regular"
     },
-    "GlyphMatchQuality": "High",
+    "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
@@ -4490,7 +4490,7 @@
       "UnicodePoint": "F275",
       "Name": "ic_fluent_cellular_data_3_20_regular"
     },
-    "GlyphMatchQuality": "High",
+    "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
@@ -12774,12 +12774,12 @@
       "Name": "MobSignal1"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F279",
+      "Name": "ic_fluent_cellular_data_5_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -12790,12 +12790,12 @@
       "Name": "MobSignal2"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F277",
+      "Name": "ic_fluent_cellular_data_4_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -12806,12 +12806,12 @@
       "Name": "MobSignal3"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F275",
+      "Name": "ic_fluent_cellular_data_3_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -12822,12 +12822,12 @@
       "Name": "MobSignal4"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F273",
+      "Name": "ic_fluent_cellular_data_2_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -12838,12 +12838,12 @@
       "Name": "MobSignal5"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F271",
+      "Name": "ic_fluent_cellular_data_1_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -18934,12 +18934,12 @@
       "Name": "SignOut"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FA94",
+      "Name": "ic_fluent_sign_out_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
