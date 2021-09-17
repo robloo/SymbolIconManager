@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Text;
@@ -112,12 +113,19 @@ namespace IconManager
             string outputDirectory)
         {
             var sb = new StringBuilder();
+            var copyright = $@"Copyright (c) {DateTime.Now.Year}, Unnamed";
+            var familyName = @"Symbols";
+            var fontName = @"Symbols";
+            //var comments = @"Built using FontForge and SymbolIconManager";
             TextInfo textInfo = CultureInfo.InvariantCulture.TextInfo;
 
             sb.AppendLine(@"import fontforge");
             sb.AppendLine();
-            sb.AppendLine(@"# Create a new, empty font");
-            sb.AppendLine(@"font = fontforge.font()");
+            sb.AppendLine( @"# Create a new, empty font");
+            sb.AppendLine( @"font = fontforge.font()");
+            sb.AppendLine($@"font.copyright  = '{copyright}'");
+            sb.AppendLine($@"font.familyname = '{familyName}'");
+            sb.AppendLine($@"font.fontname   = '{fontName}'");
             sb.AppendLine();
             sb.AppendLine(@"# Each character's glyph is created and added to the font below.");
             sb.AppendLine(@"# Glyphs are created by automatically importing from an SVG source when possible.");
@@ -197,8 +205,9 @@ namespace IconManager
                 }
             }
 
-            sb.AppendLine(@"# Export the newly created font");
+            sb.AppendLine( @"# Export the newly created font");
             sb.AppendLine($@"font.generate('{OutputFontFileName}')");
+            sb.AppendLine( @"font.close()");
 
             return new MemoryStream(Encoding.UTF8.GetBytes(sb.ToString()));
         }
