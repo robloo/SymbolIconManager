@@ -18,7 +18,7 @@ namespace IconManager.Models.Serialization
 
             if (value is uint integer)
             {
-                text = Icon.ToUnicodeString(integer);
+                text = Icon.ToUnicodeHexString(integer);
             }
 
             writer.WriteValue(text);

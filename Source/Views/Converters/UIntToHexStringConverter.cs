@@ -19,13 +19,13 @@ namespace IconManager
         {
             if (value is uint unsignedInt)
             {
-                return Icon.ToUnicodeString(unsignedInt);
+                return Icon.ToUnicodeHexString(unsignedInt);
             }
             else if (value is int integer)
             {
                 if (integer >= 0)
                 {
-                    return Icon.ToUnicodeString(System.Convert.ToUInt32(integer));
+                    return Icon.ToUnicodeHexString(System.Convert.ToUInt32(integer));
                 }
                 else
                 {

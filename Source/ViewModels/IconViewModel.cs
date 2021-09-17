@@ -148,9 +148,9 @@ namespace IconManager
         ///////////////////////////////////////////////////////////
 
         /// <inheritdoc/>
-        public string UnicodeString
+        public string UnicodeHexString
         {
-            get => Icon.ToUnicodeString(this.UnicodePoint);
+            get => Icon.ToUnicodeHexString(this.UnicodePoint);
         }
 
         /***************************************************************************************

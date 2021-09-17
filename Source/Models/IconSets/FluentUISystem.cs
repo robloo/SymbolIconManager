@@ -396,9 +396,9 @@ namespace IconManager
             ///////////////////////////////////////////////////////////
 
             /// <inheritdoc/>
-            public string UnicodeString
+            public string UnicodeHexString
             {
-                get => IconManager.Icon.ToUnicodeString(this.UnicodePoint);
+                get => IconManager.Icon.ToUnicodeHexString(this.UnicodePoint);
             }
 
             /***************************************************************************************

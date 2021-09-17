@@ -35,9 +35,9 @@ namespace IconManager
         ///////////////////////////////////////////////////////////
 
         /// <inheritdoc/>
-        public string UnicodeString
+        public string UnicodeHexString
         {
-            get => ToUnicodeString(this.UnicodePoint);
+            get => ToUnicodeHexString(this.UnicodePoint);
         }
 
         /***************************************************************************************
@@ -94,7 +94,7 @@ namespace IconManager
         /// Converts the given numerical Unicode point to a hexadecimal formatted string (with no prefix).
         /// </summary>
         /// <param name="unicodePoint">The Unicode point to convert to a string.</param>
-        public static string ToUnicodeString(uint unicodePoint)
+        public static string ToUnicodeHexString(uint unicodePoint)
         {
             if (unicodePoint <= 0xFFFF)
             {

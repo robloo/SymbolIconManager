@@ -34,7 +34,8 @@
 
         /// <summary>
         /// Gets the value of the <see cref="UnicodePoint"/> formatted as a hexadecimal string.
+        /// This value is intended for display to users and export in mappings files.
         /// </summary>
-        string UnicodeString { get; }
+        string UnicodeHexString { get; }
     }
 }

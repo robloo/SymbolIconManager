@@ -43,7 +43,7 @@ namespace IconManager
         public static async Task<Bitmap?> GetBitmapAsync(IconSet iconSet, uint unicodePoint)
         {
             string iconSetKey = iconSet.ToString();
-            string glyphKey = iconSetKey + "_" + Icon.ToUnicodeString(unicodePoint);
+            string glyphKey = iconSetKey + "_" + Icon.ToUnicodeHexString(unicodePoint);
             Bitmap? result = null;
 
             // Quickly return for unsupported icon sets
@@ -382,12 +382,12 @@ namespace IconManager
                 case IconSet.SegoeFluent:
                 {
                     string baseUrl = @"https://docs.microsoft.com/en-us/windows/apps/design/style/images/glyphs/segoe-fluent-icons/";
-                    return new Uri(baseUrl + Icon.ToUnicodeString(unicodePoint) + ".png");
+                    return new Uri(baseUrl + Icon.ToUnicodeHexString(unicodePoint) + ".png");
                 }
                 case IconSet.SegoeMDL2Assets:
                 {
                     string baseUrl = @"https://docs.microsoft.com/en-us/windows/apps/design/style/images/segoe-mdl/";
-                    return new Uri(baseUrl + Icon.ToUnicodeString(unicodePoint) + ".png");
+                    return new Uri(baseUrl + Icon.ToUnicodeHexString(unicodePoint) + ".png");
                 }
             }
 

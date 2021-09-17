@@ -1,6 +1,5 @@
 ﻿using IconManager.Models.Serialization;
 using Newtonsoft.Json;
-using System;
 
 namespace IconManager
 {
@@ -46,8 +45,9 @@ namespace IconManager
 
         /// <summary>
         /// Gets the value of the <see cref="UnicodePoint"/> formatted as a hexadecimal string.
+        /// This value is intended for display to users and export in mappings files.
         /// </summary>
         [JsonIgnore]
-        new string UnicodeString { get; }
+        new string UnicodeHexString { get; }
     }
 }

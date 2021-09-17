@@ -134,7 +134,7 @@ namespace IconManager
                 for (int i = 0; i < this.Icons.Count; i++)
                 {
                     if (this.Icons[i].Name.Contains(this.FilterText, StringComparison.OrdinalIgnoreCase) ||
-                        Icon.ToUnicodeString(this.Icons[i].UnicodePoint).Contains(this.FilterText, StringComparison.OrdinalIgnoreCase))
+                        Icon.ToUnicodeHexString(this.Icons[i].UnicodePoint).Contains(this.FilterText, StringComparison.OrdinalIgnoreCase))
                     {
                         this.FilteredIcons.Add(this.Icons[i]);
                     }

@@ -102,8 +102,8 @@ namespace IconManager
                 {
                     if (this.Mappings[i].SourceViewModel.Name.Contains(this.FilterText, StringComparison.OrdinalIgnoreCase) ||
                         this.Mappings[i].DestinationViewModel.Name.Contains(this.FilterText, StringComparison.OrdinalIgnoreCase) ||
-                        Icon.ToUnicodeString(this.Mappings[i].SourceViewModel.UnicodePoint).Contains(this.FilterText, StringComparison.OrdinalIgnoreCase) ||
-                        Icon.ToUnicodeString(this.Mappings[i].DestinationViewModel.UnicodePoint).Contains(this.FilterText, StringComparison.OrdinalIgnoreCase) ||
+                        Icon.ToUnicodeHexString(this.Mappings[i].SourceViewModel.UnicodePoint).Contains(this.FilterText, StringComparison.OrdinalIgnoreCase) ||
+                        Icon.ToUnicodeHexString(this.Mappings[i].DestinationViewModel.UnicodePoint).Contains(this.FilterText, StringComparison.OrdinalIgnoreCase) ||
                         this.Mappings[i].Comments.Contains(this.FilterText, StringComparison.OrdinalIgnoreCase))
                     {
                         this.FilteredMappings.Add(this.Mappings[i]);

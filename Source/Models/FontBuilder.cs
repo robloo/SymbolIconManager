@@ -191,7 +191,7 @@ namespace IconManager
                         sb.AppendLine($@"# {mapping.Destination.Name}");
                     }
 
-                    sb.AppendLine($@"glyph = font.createChar(0x{mapping.Destination.UnicodeString})");
+                    sb.AppendLine($@"glyph = font.createChar(0x{mapping.Destination.UnicodeHexString})");
                     sb.AppendLine($@"glyph.importOutlines('{GlyphSubDirectoryName}\{svgName}')");
                     sb.AppendLine($@"glyph.width = 1000");
 
