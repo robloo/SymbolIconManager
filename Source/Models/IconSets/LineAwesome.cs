@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Avalonia;
+using Avalonia.Platform;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace IconManager
 {
@@ -43,11 +43,168 @@ namespace IconManager
             Solid
         }
 
+        private static IReadOnlyList<Icon>? cachedIcons = null;
+        private static IReadOnlyDictionary<uint, string>? cachedBrandNames   = null;
+        private static IReadOnlyDictionary<uint, string>? cachedRegularNames = null;
+        private static IReadOnlyDictionary<uint, string>? cachedSolidNames   = null;
+
+        private static object cacheMutex = new object();
+
         /***************************************************************************************
          *
          * Methods
          *
          ***************************************************************************************/
+
+        private static void RebuildCache()
+        {
+            var icons = new List<Icon>();
+            var brandNames = new Dictionary<uint, string>();
+            var regularNames = new Dictionary<uint, string>();
+            var solidNames = new Dictionary<uint, string>();
+            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
+            var sourceDataPaths = new Tuple<IconSet, IconStyle, string>[]
+            {
+                Tuple.Create(
+                    IconSet.LineAwesomeBrand,
+                    IconStyle.Brand,
+                    "avares://IconManager/Data/LineAwesome/la-brands-400.json"),
+                Tuple.Create(
+                    IconSet.LineAwesomeRegular,
+                    IconStyle.Regular,
+                    "avares://IconManager/Data/LineAwesome/la-regular-400.json"),
+                Tuple.Create(
+                    IconSet.LineAwesomeSolid,
+                    IconStyle.Solid,
+                    "avares://IconManager/Data/LineAwesome/la-solid-900.json")
+            };
+
+            // Load all data from JSON source files
+            foreach (var entry in sourceDataPaths)
+            {
+                using (var sourceStream = assets.Open(new Uri(entry.Item3)))
+                using (var reader = new StreamReader(sourceStream))
+                {
+                    string jsonString = reader.ReadToEnd();
+                    var rawIcons = JsonSerializer.Deserialize<Dictionary<string, string>>(jsonString);
+
+                    if (rawIcons != null)
+                    {
+                        foreach (var rawIcon in rawIcons)
+                        {
+                            var icon = new Icon()
+                            {
+                                // IconSet is determined automatically from Style
+                                Name         = rawIcon.Value,
+                                Style        = entry.Item2,
+                                UnicodePoint = Convert.ToUInt32(rawIcon.Key.Substring(2), 16) // Remove '0x'
+                            };
+
+                            icons.Add(icon);
+
+                            if (icon.Style == IconStyle.Brand)
+                            {
+                                brandNames.Add(icon.UnicodePoint, icon.Name);
+                            }
+                            else if (icon.Style == IconStyle.Solid)
+                            {
+                                solidNames.Add(icon.UnicodePoint, icon.Name);
+                            }
+                            else
+                            {
+                                regularNames.Add(icon.UnicodePoint, icon.Name);
+                            }
+                        }
+                    }
+                }
+            }
+
+            lock (cacheMutex)
+            {
+                cachedIcons        = icons.AsReadOnly();
+                cachedBrandNames   = brandNames;
+                cachedRegularNames = regularNames;
+                cachedSolidNames   = solidNames;
+            }
+
+            return;
+        }
+
+        public static string FindName(uint unicodePoint, IconStyle style)
+        {
+            string? name = null;
+
+            lock (cacheMutex)
+            {
+                if (cachedBrandNames == null ||
+                    cachedRegularNames == null ||
+                    cachedSolidNames == null)
+                {
+                    RebuildCache();
+                }
+
+                if (style == IconStyle.Brand)
+                {
+                    cachedBrandNames!.TryGetValue(unicodePoint, out name);
+                }
+                else if (style == IconStyle.Solid)
+                {
+                    cachedSolidNames!.TryGetValue(unicodePoint, out name);
+                }
+                else
+                {
+                    cachedRegularNames!.TryGetValue(unicodePoint, out name);
+                }
+            }
+
+            return name ?? string.Empty;
+        }
+
+        /// <summary>
+        /// Gets a read-only list of all icons in the Line Awesome icon set family.
+        /// This includes ALL styles: brand, solid and regular.
+        /// </summary>
+        public static IReadOnlyList<IReadOnlyIcon> Icons
+        {
+            get
+            {
+                lock (cacheMutex)
+                {
+                    if (cachedIcons == null)
+                    {
+                        RebuildCache();
+                    }
+                }
+
+                return cachedIcons!;
+            }
+        }
+
+        /// <summary>
+        /// Gets all icons of the defined <see cref="IconStyle"/>.
+        /// </summary>
+        public static IReadOnlyList<IReadOnlyIcon> GetIcons(IconStyle style)
+        {
+            var matchingIcons = new List<Icon>();
+
+            lock (cacheMutex)
+            {
+                if (cachedIcons == null)
+                {
+                    RebuildCache();
+                }
+
+                foreach (Icon icon in cachedIcons!)
+                {
+                    if (icon.Style == style)
+                    {
+                        matchingIcons.Add(icon);
+                    }
+                }
+            }
+
+            return matchingIcons.AsReadOnly();
+        }
 
         /// <summary>
         /// Builds the full list of glyph sources for Line Awesome icons.

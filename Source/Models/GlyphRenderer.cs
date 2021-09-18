@@ -30,6 +30,7 @@ namespace IconManager
         private static Dictionary<IconSet, SKPaint> cachedTextPaints = new Dictionary<IconSet, SKPaint>(); // IconSet is key
 
         private static List<string>? cachedFluentUISystemGlyphSources = null;
+        private static List<string>? cachedLineAwesomeGlyphSources    = null;
 
         private static object cacheMutex             = new object();
         private static object glyphSourcesCacheMutex = new object();
@@ -64,6 +65,9 @@ namespace IconManager
 
             if (iconSet == IconSet.FluentUISystemFilled ||
                 iconSet == IconSet.FluentUISystemRegular ||
+                iconSet == IconSet.LineAwesomeBrand ||
+                iconSet == IconSet.LineAwesomeRegular ||
+                iconSet == IconSet.LineAwesomeSolid ||
                 iconSet == IconSet.WinJSSymbols)
             {
                 result = await Task.Run<Bitmap?>(async () =>
@@ -88,22 +92,9 @@ namespace IconManager
                         if (cachedFonts.TryGetValue(iconSet, out textFont) == false)
                         {
                             var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-                            string fontPath = string.Empty;
+                            Uri? fontPath = GlyphRenderer.GetFontSourceUri(iconSet);
 
-                            switch (iconSet)
-                            {
-                                case IconSet.FluentUISystemFilled:
-                                    fontPath = "avares://IconManager/Data/FluentUISystem/FluentSystemIcons-Filled.ttf";
-                                    break;
-                                case IconSet.FluentUISystemRegular:
-                                    fontPath = "avares://IconManager/Data/FluentUISystem/FluentSystemIcons-Regular.ttf";
-                                    break;
-                                case IconSet.WinJSSymbols:
-                                    fontPath = "avares://IconManager/Data/WinJSSymbols/Symbols.ttf";
-                                    break;
-                            }
-
-                            using (var sourceStream = assets.Open(new Uri(fontPath)))
+                            using (var sourceStream = assets.Open(fontPath))
                             {
                                 var typeface = SKTypeface.FromStream(sourceStream);
                                 textFont = new SKFont()
@@ -262,6 +253,12 @@ namespace IconManager
                     possibleSources.Add(GlyphSource.LocalFontFile);
                     possibleSources.Add(GlyphSource.RemoteSvgFile);
                     break;
+                case IconSet.LineAwesomeBrand:
+                case IconSet.LineAwesomeRegular:
+                case IconSet.LineAwesomeSolid:
+                    possibleSources.Add(GlyphSource.LocalFontFile);
+                    possibleSources.Add(GlyphSource.RemoteSvgFile);
+                    break;
                 case IconSet.SegoeFluent:
                 case IconSet.SegoeMDL2Assets:
                     possibleSources.Add(GlyphSource.RemotePngFile);
@@ -278,14 +275,42 @@ namespace IconManager
         }
 
         /// <summary>
+        /// Gets the font data source URI of the defined icon set.
+        /// </summary>
+        /// <param name="iconSet">The icon set to get the font URI for.</param>
+        /// <returns>The URI for the icon set's font data source.</returns>
+        public static Uri? GetFontSourceUri(IconSet iconSet)
+        {
+            switch (iconSet)
+            {
+                case IconSet.FluentUISystemFilled:
+                    return new Uri("avares://IconManager/Data/FluentUISystem/FluentSystemIcons-Filled.ttf");
+                case IconSet.FluentUISystemRegular:
+                    return new Uri("avares://IconManager/Data/FluentUISystem/FluentSystemIcons-Regular.ttf");
+                case IconSet.LineAwesomeBrand:
+                    return new Uri("avares://IconManager/Data/LineAwesome/la-brands-400.ttf");
+                case IconSet.LineAwesomeRegular:
+                    return new Uri("avares://IconManager/Data/LineAwesome/la-regular-400.ttf");
+                case IconSet.LineAwesomeSolid:
+                    return new Uri("avares://IconManager/Data/LineAwesome/la-solid-900.ttf");
+                case IconSet.WinJSSymbols:
+                    return new Uri("avares://IconManager/Data/WinJSSymbols/Symbols.ttf");
+            }
+
+            return null;
+        }
+
+        /// <summary>
         /// Gets the image data source URL of the defined glyph.
         /// </summary>
         /// <param name="iconSet">The icon set containing the glyph.</param>
         /// <param name="unicodePoint">The Unicode point of the glyph.</param>
+        /// <returns>The URL of the glyph's image data source.</returns>
         public static Uri? GetGlyphSourceUrl(
             IconSet iconSet,
             uint unicodePoint)
         {
+            string nameBase;
             string relativeGlyphUrl = string.Empty;
             List<string>? relativeGlyphUrls = null;
 
@@ -294,25 +319,9 @@ namespace IconManager
                 case IconSet.FluentUISystemFilled:
                 case IconSet.FluentUISystemRegular:
                 {
-                    string svgName = string.Empty;
+                    nameBase = IconSetBase.FindName(iconSet, unicodePoint);
 
-                    // Determine the SVG file name
-                    if (string.IsNullOrWhiteSpace(svgName))
-                    {
-                        switch (iconSet)
-                        {
-                            case IconSet.FluentUISystemFilled:
-                                svgName = FluentUISystem.FindName(unicodePoint, FluentUISystem.IconTheme.Filled);
-                                break;
-                            case IconSet.FluentUISystemRegular:
-                                svgName = FluentUISystem.FindName(unicodePoint, FluentUISystem.IconTheme.Regular);
-                                break;
-                        }
-
-                        svgName = $@"{svgName}.svg";
-                    }
-
-                    if (string.IsNullOrWhiteSpace(svgName))
+                    if (string.IsNullOrWhiteSpace(nameBase))
                     {
                         return null;
                     }
@@ -344,7 +353,7 @@ namespace IconManager
                             cachedFluentUISystemGlyphSources = sources;
                         }
 
-                        relativeGlyphUrls = cachedFluentUISystemGlyphSources!.FindAll(s => s.EndsWith(svgName));
+                        relativeGlyphUrls = cachedFluentUISystemGlyphSources!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
                     }
 
                     // Use the relativeGlyphUrl with the smallest directory structure
@@ -372,6 +381,88 @@ namespace IconManager
                         {
                             // Note that the relative URL determined above starts with '/'
                             string baseUrl = @"https://raw.githubusercontent.com/microsoft/fluentui-system-icons/master/assets";
+                            return new Uri($@"{baseUrl}{relativeGlyphUrl}");
+                        }
+                        catch { }
+                    }
+
+                    break;
+                }
+                case IconSet.LineAwesomeBrand:
+                case IconSet.LineAwesomeRegular:
+                case IconSet.LineAwesomeSolid:
+                {
+                    nameBase = IconSetBase.FindName(iconSet, unicodePoint);
+
+                    if (string.IsNullOrWhiteSpace(nameBase))
+                    {
+                        return null;
+                    }
+
+                    lock (glyphSourcesCacheMutex)
+                    {
+                        if (cachedLineAwesomeGlyphSources == null)
+                        {
+                            // Rebuild the cache
+                            var sources = new List<string>();
+                            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
+                            string sourceDataPath = "avares://IconManager/Data/LineAwesome/LineAwesomeGlyphSources.json";
+
+                            using (var sourceStream = assets.Open(new Uri(sourceDataPath)))
+                            using (var reader = new StreamReader(sourceStream))
+                            {
+                                string jsonString = reader.ReadToEnd();
+                                var rawGlyphSources = JsonSerializer.Deserialize<string[]>(jsonString);
+
+                                if (rawGlyphSources != null)
+                                {
+                                    foreach (var entry in rawGlyphSources)
+                                    {
+                                        sources.Add(entry);
+                                    }
+                                }
+                            }
+
+                            cachedLineAwesomeGlyphSources = sources;
+                        }
+
+                        relativeGlyphUrls = cachedLineAwesomeGlyphSources!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
+
+                        if (relativeGlyphUrls.Count == 0)
+                        {
+                            // Only SVG sources are available for Line Awesome so the search can remove the extension
+                            // This is necessary for the Line Awesome font family because exact names are not enforced
+                            // There is often some slight variation such as 'unlink' name with 'unlink-solid.svg' file
+                            // In this example some file names have the style added to the end
+                            relativeGlyphUrls = cachedLineAwesomeGlyphSources!.FindAll(s => s.Contains(nameBase));
+                        }
+                    }
+
+                    // Use the relativeGlyphUrl with the smallest directory structure
+                    // There are sometimes many variants with the exact same file name -- some for other cultures
+                    // Each culture is usually placed in it's own folder
+                    // We want the invariant culture (smallest directory structure), as best as possible
+                    if (relativeGlyphUrls != null &&
+                        relativeGlyphUrls.Count > 0)
+                    {
+                        relativeGlyphUrl = relativeGlyphUrls[0];
+
+                        for (int i = 1; i < relativeGlyphUrls.Count; i++)
+                        {
+                            // Not the most efficient to keep splitting, but it's easiest
+                            if (relativeGlyphUrls[i].Split('\\').Length < relativeGlyphUrl.Split('\\').Length)
+                            {
+                                relativeGlyphUrl = relativeGlyphUrls[i];
+                            }
+                        }
+                    }
+
+                    if (string.IsNullOrWhiteSpace(relativeGlyphUrl) == false)
+                    {
+                        try
+                        {
+                            // Note that the relative URL determined above starts with '/'
+                            string baseUrl = @"https://raw.githubusercontent.com/icons8/line-awesome/master/svg";
                             return new Uri($@"{baseUrl}{relativeGlyphUrl}");
                         }
                         catch { }

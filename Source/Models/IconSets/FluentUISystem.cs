@@ -60,7 +60,7 @@ namespace IconManager
         }
 
         private static IReadOnlyList<Icon>? cachedIcons = null;
-        private static IReadOnlyDictionary<uint, string>? cachedFilledNames = null;
+        private static IReadOnlyDictionary<uint, string>? cachedFilledNames  = null;
         private static IReadOnlyDictionary<uint, string>? cachedRegularNames = null;
 
         private static object cacheMutex = new object();
@@ -77,16 +77,23 @@ namespace IconManager
             var filledNames = new Dictionary<uint, string>();
             var regularNames = new Dictionary<uint, string>();
             var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-            string[] sourceDataPaths = new string[]
+            var sourceDataPaths = new Tuple<IconSet, IconTheme, string>[]
             {
-                "avares://IconManager/Data/FluentUISystem/FluentSystemIcons-Filled.json",
-                "avares://IconManager/Data/FluentUISystem/FluentSystemIcons-Regular.json"
+                Tuple.Create(
+                    IconSet.FluentUISystemFilled,
+                    IconTheme.Filled,
+                    "avares://IconManager/Data/FluentUISystem/FluentSystemIcons-Filled.json"),
+                Tuple.Create(
+                    IconSet.FluentUISystemRegular,
+                    IconTheme.Regular,
+                    "avares://IconManager/Data/FluentUISystem/FluentSystemIcons-Regular.json"
+                )
             };
 
             // Load all data from JSON source files
-            foreach (string path in sourceDataPaths)
+            foreach (var entry in sourceDataPaths)
             {
-                using (var sourceStream = assets.Open(new Uri(path)))
+                using (var sourceStream = assets.Open(new Uri(entry.Item3)))
                 using (var reader = new StreamReader(sourceStream))
                 {
                     string jsonString = reader.ReadToEnd();
@@ -94,13 +101,13 @@ namespace IconManager
 
                     if (rawIcons != null)
                     {
-                        foreach (var entry in rawIcons)
+                        foreach (var rawIcon in rawIcons)
                         {
                             var icon = new Icon()
                             {
-                                RawName      = entry.Key,
-                                Name         = entry.Key, // Automatically parses into components
-                                UnicodePoint = Convert.ToUInt32(entry.Value.Substring(2), 16) // Remove '0x'
+                                RawName      = rawIcon.Key,
+                                Name         = rawIcon.Key, // Automatically parses into components
+                                UnicodePoint = Convert.ToUInt32(rawIcon.Value.Substring(2), 16) // Remove '0x'
                             };
 
                             icons.Add(icon);
@@ -154,7 +161,7 @@ namespace IconManager
         }
 
         /// <summary>
-        /// Gets a read-only list of all icons in the Fluent UI System icon set.
+        /// Gets a read-only list of all icons in the Fluent UI System icon set family.
         /// This includes BOTH the regular and filled themes.
         /// </summary>
         public static IReadOnlyList<IReadOnlyIcon> Icons
@@ -174,7 +181,7 @@ namespace IconManager
         }
 
         /// <summary>
-        /// Gets all icons of the defined theme.
+        /// Gets all icons of the defined <see cref="IconTheme"/>.
         /// </summary>
         public static IReadOnlyList<IReadOnlyIcon> GetIcons(IconTheme theme)
         {

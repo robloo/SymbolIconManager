@@ -204,22 +204,7 @@ namespace IconManager
         /// </summary>
         public void UpdateName()
         {
-            switch (this.IconSet)
-            {
-                case IconSet.FluentUISystemFilled:
-                    this.Name = FluentUISystem.FindName(this.UnicodePoint, FluentUISystem.IconTheme.Filled);
-                    break;
-                case IconSet.FluentUISystemRegular:
-                    this.Name = FluentUISystem.FindName(this.UnicodePoint, FluentUISystem.IconTheme.Regular);
-                    break;
-                case IconSet.SegoeFluent:
-                    this.Name = SegoeFluent.FindName(this.UnicodePoint);
-                    break;
-                case IconSet.SegoeMDL2Assets:
-                    this.Name = SegoeMDL2Assets.FindName(this.UnicodePoint);
-                    break;
-            }
-
+            this.Name = IconSetBase.FindName(this.IconSet, this.UnicodePoint);
             return;
         }
     }

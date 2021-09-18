@@ -157,9 +157,15 @@ namespace IconManager
                         mapping.Source.IconSet,
                         mapping.Source.UnicodePoint);
 
-                    // Calculate the SVG name from the URL itself instead of the Icon name
+                    // Calculate the initial SVG file name from the URL itself (instead of with Icon name)
                     // This ensures the name calculation is done only once inside the URL calculation
-                    string svgName = Path.GetFileName(svgUrl?.LocalPath ?? string.Empty);
+                    string svgFileName = Path.GetFileName(svgUrl?.LocalPath ?? string.Empty);
+
+                    // Transform the SVG file name to:
+                    //  1. Remove illegal Python characters such as '-'
+                    //  2. Add the icon set as a prefix ensuring file names are unique
+                    svgFileName = svgFileName.Replace('-', '_');
+                    svgFileName = mapping.Source.IconSet.ToString() + "_" + svgFileName;
 
                     // Download the SVG image file
                     // This can be done totally async with no need to await
@@ -175,7 +181,7 @@ namespace IconManager
                                     var filePath = Path.Combine(
                                         outputDirectory,
                                         GlyphSubDirectoryName,
-                                        svgName);
+                                        svgFileName);
 
                                     using (var fileStream = File.OpenWrite(filePath))
                                     {
@@ -192,7 +198,7 @@ namespace IconManager
                     }
 
                     sb.AppendLine($@"glyph = font.createChar(0x{mapping.Destination.UnicodeHexString})");
-                    sb.AppendLine($@"glyph.importOutlines('{GlyphSubDirectoryName}\{svgName}')");
+                    sb.AppendLine($@"glyph.importOutlines('{GlyphSubDirectoryName}\{svgFileName}')");
                     sb.AppendLine($@"glyph.width = 1000");
 
                     // Only override the default FontForge name if one is provided
