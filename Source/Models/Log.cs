@@ -18,7 +18,17 @@ namespace IconManager
         /// </summary>
         public bool IsEmpty
         {
-            get => this.messages.Count == 0;
+            get
+            {
+                bool isEmpty;
+
+                lock (messagesMutex)
+                {
+                    isEmpty = this.messages.Count == 0;
+                }
+
+                return isEmpty;
+            }
         }
 
         /// <summary>
@@ -56,7 +66,12 @@ namespace IconManager
         /// <param name="filePath">The destination file path to write the log to.</param>
         public void Export(string filePath)
         {
-            string log = string.Join(Environment.NewLine, messages);
+            string log;
+
+            lock (messagesMutex)
+            {
+                log = string.Join(Environment.NewLine, messages);
+            }
 
             if (string.IsNullOrWhiteSpace(filePath) == false)
             {
