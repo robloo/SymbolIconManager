@@ -44,6 +44,8 @@ namespace IconManager
         /// <param name="mappings">The icon glyph mappings to generate the font with.</param>
         public void BuildFont(IconMappingList mappings)
         {
+            var buildLog = new Log();
+
             if (mappings.Count == 0)
             {
                 return;
@@ -62,11 +64,17 @@ namespace IconManager
             }
 
             // Write the python script to build the actual font with FontForge
-            using (MemoryStream pythonScript = this.BuildPythonFontScript(mappings, outputDirectory))
+            using (MemoryStream pythonScript = this.BuildPythonFontScript(mappings, outputDirectory, buildLog))
             {
                 this.WriteStreamToFile(
                     pythonScript,
                     Path.Combine(outputDirectory, PythonScriptFileName));
+            }
+
+            // Write the build log
+            if (buildLog.IsEmpty == false)
+            {
+                buildLog.Export(Path.Combine(outputDirectory, "log.txt"));
             }
 
             // Open the output location for the end-user
@@ -110,7 +118,8 @@ namespace IconManager
 
         private MemoryStream BuildPythonFontScript(
             IconMappingList mappings,
-            string outputDirectory)
+            string outputDirectory,
+            Log buildLog)
         {
             var sb = new StringBuilder();
             var copyright = $@"Copyright (c) {DateTime.Now.Year}, Unnamed";
@@ -157,6 +166,12 @@ namespace IconManager
                         mapping.Source.IconSet,
                         mapping.Source.UnicodePoint);
 
+                    if (svgUrl == null)
+                    {
+                        buildLog.Error($"Missing SVG source URL 0x{mapping.Source.UnicodeHexString} ({mapping.Source.Name})");
+                        continue; // Fatal error
+                    }
+
                     // Calculate the initial SVG file name from the URL itself (instead of with Icon name)
                     // This ensures the name calculation is done only once inside the URL calculation
                     string svgFileName = Path.GetFileName(svgUrl?.LocalPath ?? string.Empty);
@@ -188,6 +203,10 @@ namespace IconManager
                                         stream.WriteTo(fileStream);
                                     }
                                 }
+                                else
+                                {
+                                    buildLog.Error($"Missing source glyph data for {svgUrl}");
+                                }
                             }
                         }
                     });
@@ -208,6 +227,11 @@ namespace IconManager
                     }
 
                     sb.AppendLine();
+                }
+                else
+                {
+                    buildLog.Error($"Invalid mapping skipped src=0x{mapping.Source.UnicodeHexString}, dst=0x{mapping.Destination.UnicodeHexString}");
+                    continue; // Fatal error
                 }
             }
 
@@ -234,9 +258,12 @@ namespace IconManager
             return new MemoryStream(Encoding.UTF8.GetBytes(sb.ToString()));
         }
 
+        /// <summary>
+        /// Writes the data stream to the given file path.
+        /// Existing files will be overwritten, directories will automatically be created.
+        /// </summary>
         private void WriteStreamToFile(MemoryStream stream, string filePath)
         {
-
             if (string.IsNullOrWhiteSpace(filePath) == false)
             {
                 if (File.Exists(filePath))
