@@ -60,11 +60,18 @@ This application uses the *Fluent UI System* Unicode points defined in JSON file
  >
  > This icon-font is based off of the Icons8 Windows 10 style...
 
-#### CSS Files
+#### JSON/CSS Files
 
-All three styles of the *Line Awesome* icons share a single CSS file that defines the Unicode points and names for all supported icons. This file requires heavier processing to extract the needed information compared to JSON formatted files in other icon sets.
+All three styles of the *Line Awesome* icons share a single CSS file that defines the Unicode points and names for all supported icons. This file requires heavier processing to extract the needed information compared to JSON formatted files in other icon sets. Additionally, the CSS file processing is prone to error and mismatches with other data sources.
+
+For this reason, a Python script is available that uses FontForge to build the list of all Unicode points and names from the TTF source itself. These files are much higher quality (as they are generated from the font) and are what is used in processing throughout the application. Always update the TTF font files then run the script to update these JSON files.
 
  1. `line-awesome.css` : Contains a CSS formatted list of all Unicode points and names for all three icon styles.
+ 2. `la-brands-400.json` : Contains a list of all Unicode points (key) and their corresponding name for the brands style.
+ 3. `la-regular-400.json` : Contains a list of all Unicode points (key) and their corresponding name for the regular style.
+ 4. `la-solid-900.json` : Contains a list of all Unicode points (key) and their corresponding name for the solid style.
+
+In all JSON files the first column (key) is the Unicode point and the second is the name.
 
 #### Unicode Points
 
