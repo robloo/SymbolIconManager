@@ -322,7 +322,7 @@ namespace IconManager
         public static void BuildGlyphSources()
         {
             List<string> glyphSources = new List<string>();
-            string fluentUISystemCacheDirectory = @"fluentui-system-icons-1.1.139";
+            string fluentUISystemCacheDirectory = @"fluentui-system-icons-1.1.141";
 
             string searchDirectory = Path.Combine(App.IconManagerCache, fluentUISystemCacheDirectory, "assets");
 
