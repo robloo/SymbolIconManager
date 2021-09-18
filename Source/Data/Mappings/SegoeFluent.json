@@ -439,10 +439,10 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FE26",
-      "Name": "ic_fluent_link_square_20_regular"
+      "UnicodePoint": "F4E4",
+      "Name": "ic_fluent_link_20_regular"
     },
-    "GlyphMatchQuality": "Medium",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
@@ -461,7 +461,7 @@
     "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "'funnel' is an alternate"
+    "Comments": "'funnel' is an alternate. LineAwesomeSolid has a better matching glyph but poor line thickness."
   },
   {
     "Destination": {
@@ -518,12 +518,12 @@
       "Name": "Microphone"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F544",
+      "Name": "ic_fluent_mic_on_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -614,14 +614,14 @@
       "Name": "WalkSolid"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F554",
+      "Name": "walking"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Fluent UI System doesn't have an equivalent. The Line Awesome version has a lot of differences in glyph style."
   },
   {
     "Destination": {
@@ -838,12 +838,12 @@
       "Name": "Favicon"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F8B5",
+      "Name": "ic_fluent_window_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1110,12 +1110,12 @@
       "Name": "SwitchUser"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F5DC",
+      "Name": "ic_fluent_person_swap_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1510,14 +1510,14 @@
       "Name": "KeyboardLeftHanded"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F4BC",
+      "Name": "ic_fluent_keyboard_layout_one_handed_left_24_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "No size 20 variant exists"
   },
   {
     "Destination": {
@@ -1533,7 +1533,7 @@
     "GlyphMatchQuality": "NoMatch",
     "MetaphorMatchQuality": "NoMatch",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "While a left handed variant exists in Fluent UI System, there is no right"
   },
   {
     "Destination": {
@@ -1542,12 +1542,12 @@
       "Name": "KeyboardClassic"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F4B8",
+      "Name": "ic_fluent_keyboard_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1558,14 +1558,14 @@
       "Name": "KeyboardSplit"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F4BE",
+      "Name": "ic_fluent_keyboard_layout_split_24_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "No size 20 variant exists"
   },
   {
     "Destination": {
@@ -1718,14 +1718,14 @@
       "Name": "Personalize"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F1FC",
+      "Name": "paint-brush"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "No similar glyph in Fluent UI System"
   },
   {
     "Destination": {
@@ -1894,12 +1894,12 @@
       "Name": "Memo"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F863",
+      "Name": "ic_fluent_voicemail_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -2022,12 +2022,12 @@
       "Name": "Slideshow"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "101E5",
+      "Name": "ic_fluent_projection_screen_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -2103,11 +2103,11 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "100FB",
-      "Name": "ic_fluent_window_arrow_up_20_regular"
+      "UnicodePoint": "FC57",
+      "Name": "ic_fluent_share_screen_start_20_regular"
     },
-    "GlyphMatchQuality": "Low",
-    "MetaphorMatchQuality": "Medium",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
     "Comments": "'window_new' glyph exists but looks completely different."
   },
@@ -2198,14 +2198,14 @@
       "Name": "AspectRatio"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F70A",
+      "Name": "ic_fluent_ratio_one_to_one_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "No similar glyph in the Fluent UI System"
   },
   {
     "Destination": {
@@ -2342,14 +2342,14 @@
       "Name": "MapPin2"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F276",
+      "Name": "map-pin"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "No good match exists in Fluent UI System"
   },
   {
     "Destination": {
@@ -2438,14 +2438,14 @@
       "Name": "Train"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F238",
+      "Name": "train"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Doesn't exist in Fluent UI System"
   },
   {
     "Destination": {
@@ -2566,12 +2566,12 @@
       "Name": "Record"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F64E",
+      "Name": "ic_fluent_radio_button_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -2774,12 +2774,12 @@
       "Name": "CC"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F971",
+      "Name": "ic_fluent_closed_caption_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -2790,14 +2790,14 @@
       "Name": "SDCard"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F7C2",
+      "Name": "sd-card"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Doesn't exist in the Fluent UI System. Edges are much sharper in the Line Awesome variant used."
   },
   {
     "Destination": {
@@ -3046,14 +3046,14 @@
       "Name": "Walk"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F554",
+      "Name": "walking"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Fluent UI System doesn't have an equivalent. The Line Awesome version has a lot of differences in glyph style."
   },
   {
     "Destination": {
@@ -3238,14 +3238,14 @@
       "Name": "Touch"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FA47",
+      "Name": "ic_fluent_hand_draw_24_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Path of line above hand is different. Icon is for a different metaphor"
   },
   {
     "Destination": {
@@ -3334,14 +3334,14 @@
       "Name": "Location"
     },
     "Source": {
-      "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F4F8",
-      "Name": "ic_fluent_location_20_regular"
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F64E",
+      "Name": "ic_fluent_radio_button_20_filled"
     },
     "GlyphMatchQuality": "Medium",
-    "MetaphorMatchQuality": "Exact",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "The 'location' icon in Fluent UI System is a better metaphor match; however, the glyph doesn't match"
   },
   {
     "Destination": {
@@ -3574,14 +3574,14 @@
       "Name": "ChromeBack"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "100A1",
+      "Name": "ic_fluent_arrow_left_12_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Size 12 variant used on purpose to better match line widths"
   },
   {
     "Destination": {
@@ -3718,14 +3718,14 @@
       "Name": "BatteryCharging9"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1CD",
+      "Name": "ic_fluent_battery_9_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Missing charging cable"
   },
   {
     "Destination": {
@@ -3734,12 +3734,12 @@
       "Name": "Battery10"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1D1",
+      "Name": "ic_fluent_battery_full_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -4006,12 +4006,12 @@
       "Name": "Battery0"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1BB",
+      "Name": "ic_fluent_battery_0_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -4022,12 +4022,12 @@
       "Name": "Battery1"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1BD",
+      "Name": "ic_fluent_battery_1_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -4038,12 +4038,12 @@
       "Name": "Battery2"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1BF",
+      "Name": "ic_fluent_battery_2_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -4054,12 +4054,12 @@
       "Name": "Battery3"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1C1",
+      "Name": "ic_fluent_battery_3_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -4070,12 +4070,12 @@
       "Name": "Battery4"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1C3",
+      "Name": "ic_fluent_battery_4_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -4086,12 +4086,12 @@
       "Name": "Battery5"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1C5",
+      "Name": "ic_fluent_battery_5_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -4102,12 +4102,12 @@
       "Name": "Battery6"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1C7",
+      "Name": "ic_fluent_battery_6_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -4118,12 +4118,12 @@
       "Name": "Battery7"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1C9",
+      "Name": "ic_fluent_battery_7_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -4134,12 +4134,12 @@
       "Name": "Battery8"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1CB",
+      "Name": "ic_fluent_battery_8_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -4150,12 +4150,12 @@
       "Name": "Battery9"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1CD",
+      "Name": "ic_fluent_battery_9_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -4166,12 +4166,12 @@
       "Name": "BatteryCharging0"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1CF",
+      "Name": "ic_fluent_battery_charge_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -4182,14 +4182,14 @@
       "Name": "BatteryCharging1"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1BD",
+      "Name": "ic_fluent_battery_1_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Missing charging cable"
   },
   {
     "Destination": {
@@ -4198,14 +4198,14 @@
       "Name": "BatteryCharging2"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1BF",
+      "Name": "ic_fluent_battery_2_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Missing charging cable"
   },
   {
     "Destination": {
@@ -4214,14 +4214,14 @@
       "Name": "BatteryCharging3"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1C1",
+      "Name": "ic_fluent_battery_3_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Missing charging cable"
   },
   {
     "Destination": {
@@ -4230,14 +4230,14 @@
       "Name": "BatteryCharging4"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1C3",
+      "Name": "ic_fluent_battery_4_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Missing charging cable"
   },
   {
     "Destination": {
@@ -4246,14 +4246,14 @@
       "Name": "BatteryCharging5"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1C5",
+      "Name": "ic_fluent_battery_5_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Missing charging cable"
   },
   {
     "Destination": {
@@ -4262,14 +4262,14 @@
       "Name": "BatteryCharging6"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1C7",
+      "Name": "ic_fluent_battery_6_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Missing charging cable"
   },
   {
     "Destination": {
@@ -4278,14 +4278,14 @@
       "Name": "BatteryCharging7"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1C9",
+      "Name": "ic_fluent_battery_7_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Missing charging cable"
   },
   {
     "Destination": {
@@ -4294,14 +4294,14 @@
       "Name": "BatteryCharging8"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F1CB",
+      "Name": "ic_fluent_battery_8_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Missing charging cable"
   },
   {
     "Destination": {
@@ -4758,13 +4758,13 @@
       "Name": "JpnRomanjiShiftLock"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F4CA",
+      "Name": "ic_fluent_keyboard_shift_uppercase_24_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Low",
+    "IsPlaceholder": true,
     "Comments": ""
   },
   {
@@ -5334,12 +5334,12 @@
       "Name": "Bookmarks"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F7AE",
+      "Name": "ic_fluent_text_bullet_list_tree_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -5478,12 +5478,12 @@
       "Name": "Go"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FDA4",
+      "Name": "ic_fluent_arrow_up_right_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -5590,12 +5590,12 @@
       "Name": "Orientation"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FCEB",
+      "Name": "ic_fluent_orientation_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -5622,14 +5622,14 @@
       "Name": "ImportAll"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F159",
+      "Name": "ic_fluent_arrow_import_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Not import all variant exists, using standard from Fluent UI system"
   },
   {
     "Destination": {
@@ -5702,14 +5702,14 @@
       "Name": "ChromeClose"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F369",
+      "Name": "ic_fluent_dismiss_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Using the standard dismiss glyph as a substitute"
   },
   {
     "Destination": {
@@ -6102,12 +6102,12 @@
       "Name": "Contact2"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FCC3",
+      "Name": "ic_fluent_book_contacts_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -6182,12 +6182,12 @@
       "Name": "Unfavorite"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F728",
+      "Name": "ic_fluent_star_off_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -6326,12 +6326,12 @@
       "Name": "AlignRight"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F7A1",
+      "Name": "ic_fluent_text_align_right_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -6342,12 +6342,12 @@
       "Name": "AlignCenter"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F799",
+      "Name": "ic_fluent_text_align_center_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -6358,12 +6358,12 @@
       "Name": "AlignLeft"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F79F",
+      "Name": "ic_fluent_text_align_left_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -6438,12 +6438,12 @@
       "Name": "FontSize"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F7E4",
+      "Name": "ic_fluent_text_font_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -6454,12 +6454,12 @@
       "Name": "CellPhone"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F5E0",
+      "Name": "ic_fluent_phone_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -6534,12 +6534,12 @@
       "Name": "Calculator"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F20A",
+      "Name": "ic_fluent_calculator_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -6550,12 +6550,12 @@
       "Name": "Directions"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F365",
+      "Name": "ic_fluent_directions_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -6582,14 +6582,14 @@
       "Name": "ChatBubbles"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FB7A",
+      "Name": "ic_fluent_chat_bubbles_question_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Question mark doesn't match"
   },
   {
     "Destination": {
@@ -9958,12 +9958,12 @@
       "Name": "ParkingLocationMirrored"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "10036",
+      "Name": "ic_fluent_vehicle_car_profile_ltr_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -10278,12 +10278,12 @@
       "Name": "ParkingLocationSolid"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "1003B",
+      "Name": "ic_fluent_vehicle_car_profile_rtl_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -12966,14 +12966,14 @@
       "Name": "MobLocation"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F64E",
+      "Name": "ic_fluent_radio_button_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "The 'location' icon in Fluent UI System is a better metaphor match; however, the glyph doesn't match"
   },
   {
     "Destination": {
