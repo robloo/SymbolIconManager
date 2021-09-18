@@ -58,7 +58,7 @@ namespace IconManager
         }
 
         /// <summary>
-        /// Creates a brand-new <see cref="IconMappingList"/> including all icons is the specified
+        /// Creates a new <see cref="IconMappingList"/> including all icons is the specified
         /// <paramref name="destinationIconSet"/>.
         /// </summary>
         /// <param name="destinationIconSet">
@@ -75,6 +75,7 @@ namespace IconManager
         /// Order of lists is important, the first mapping match will stop the search.
         /// Place primary, higher quality mapping lists before secondary ones.
         /// </param>
+        /// <returns>A new icon mapping list.</returns>
         public static IconMappingList InitNewMappings(
             IconSet destinationIconSet,
             IconSet sourceIconSet = IconSet.Undefined,
@@ -142,6 +143,52 @@ namespace IconManager
                     mapping.IsPlaceholder        = baseMapping.IsPlaceholder;
                     mapping.Comments             = baseMapping.Comments;
                 }
+
+                mappings.Add(mapping);
+            }
+
+            return mappings;
+        }
+
+        /// <summary>
+        /// Creates a new, specialized <see cref="IconMappingList"/> of all icons in the specified
+        /// <paramref name="iconSet"/> mapped to themselves (identity mapping).
+        /// </summary>
+        /// <remarks>
+        /// For supported icon sets, this specialized mapping can be used to completely rebuild fonts from source glyphs.
+        /// For example, it can build the FluentUISystem fonts using the source SVG images.
+        /// </remarks>
+        /// <param name="iconSet">
+        /// The <see cref="IconSet"/> to generated the identify mappings for.
+        /// </param>
+        /// <returns>A new identity icon mapping list.</returns>
+        public static IconMappingList InitNewIdentityMappings(
+            IconSet iconSet)
+        {
+            var icons = IconSetBase.GetIcons(iconSet);
+            IconMappingList mappings = new IconMappingList();
+
+            for (int i = 0; i < icons.Count; i++)
+            {
+                var mapping = new IconMapping()
+                {
+                    Destination = new Icon()
+                    {
+                        IconSet      = icons[i].IconSet,
+                        Name         = icons[i].Name,
+                        UnicodePoint = icons[i].UnicodePoint
+                    },
+                    Source = new Icon()
+                    {
+                        IconSet      = icons[i].IconSet,
+                        Name         = icons[i].Name,
+                        UnicodePoint = icons[i].UnicodePoint
+                    },
+                    GlyphMatchQuality    = MatchQuality.Exact,
+                    MetaphorMatchQuality = MatchQuality.Exact,
+                    IsPlaceholder        = false,
+                    Comments             = string.Empty
+                };
 
                 mappings.Add(mapping);
             }
