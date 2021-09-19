@@ -8,7 +8,6 @@
              d:DesignHeight="450"
              x:Class="IconManager.IconMappingView">
     <UserControl.Resources>
-        <local:IconMappingStateToBrushConverter x:Key="IconMappingStateToBrush" />
         <local:MatchQualityToBrushConverter x:Key="MatchQualityToBrush" />
         <local:UIntToHexStringConverter x:Key="UIntToHexString" />
     </UserControl.Resources>
@@ -67,7 +66,7 @@
                 <DataTemplate DataType="local:IconMappingViewModel">
                     <Grid ColumnDefinitions="Auto,*"
                           RowDefinitions="Auto,Auto,Auto,Auto"
-                          Background="{Binding ., Mode=OneWay, Converter={StaticResource IconMappingStateToBrush}}">
+                          Background="{Binding Background, Mode=OneWay}">
                         <!-- Source Icon -->
                         <TextBlock Grid.Column="0"
                                    Grid.Row="0"
