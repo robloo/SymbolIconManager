@@ -334,10 +334,12 @@ namespace IconManager
         /// </summary>
         private void RemapIconsButton_Click(object sender, RoutedEventArgs e)
         {
+            /*
+            // Not currently general purpose, code must be modified here for use
             this.RemapIcons(
                 SegoeMDL2AssetsToFluentUISystem.BuildMapping(FluentUISystem.IconSize.Size20),
                 IconSet.SegoeMDL2Assets);
-
+            */
             return;
         }
 
