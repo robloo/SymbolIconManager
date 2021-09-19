@@ -122,19 +122,16 @@ namespace IconManager
             Log buildLog)
         {
             var sb = new StringBuilder();
-            var copyright = $@"Copyright (c) {DateTime.Now.Year}, Unnamed";
-            var familyName = @"Symbols";
-            var fontName = @"Symbols";
-            //var comments = @"Built using FontForge and SymbolIconManager";
+            var props = new FontProperties(); // May be passed in the future
             TextInfo textInfo = CultureInfo.InvariantCulture.TextInfo;
 
             sb.AppendLine(@"import fontforge");
             sb.AppendLine();
             sb.AppendLine( @"# Create a new, empty font");
             sb.AppendLine( @"font = fontforge.font()");
-            sb.AppendLine($@"font.copyright  = '{copyright}'");
-            sb.AppendLine($@"font.familyname = '{familyName}'");
-            sb.AppendLine($@"font.fontname   = '{fontName}'");
+            sb.AppendLine($@"font.copyright  = '{props.Copyright}'");
+            sb.AppendLine($@"font.familyname = '{props.FamilyName}'");
+            sb.AppendLine($@"font.fontname   = '{props.Name}'");
             sb.AppendLine();
             sb.AppendLine(@"# Each character's glyph is created and added to the font below.");
             sb.AppendLine(@"# Glyphs are created by automatically importing from an SVG source when possible.");
@@ -284,6 +281,46 @@ namespace IconManager
             }
 
             return;
+        }
+
+        /***************************************************************************************
+         *
+         * Classes
+         *
+         ***************************************************************************************/
+
+        /// <summary>
+        /// Contains properties of a font.
+        /// </summary>
+        public class FontProperties
+        {
+            public FontProperties()
+            {
+                this.Comments   = "Released under the terms of the MIT license.";
+                this.Copyright  = $@"Copyright (c) {DateTime.Now.Year}, SymbolIconManager";
+                this.FamilyName = @"Symbols";
+                this.Name       = @"Symbols";
+            }
+
+            /// <summary>
+            /// Gets or sets any comments of the font.
+            /// </summary>
+            public string Comments { get; set; }
+
+            /// <summary>
+            /// Gets or sets the copyright information of the font.
+            /// </summary>
+            public string Copyright { get; set; }
+
+            /// <summary>
+            /// Gets or sets the name of the font's family.
+            /// </summary>
+            public string FamilyName { get; set; }
+
+            /// <summary>
+            /// Gets or sets the name of the font.
+            /// </summary>
+            public string Name { get; set; }
         }
     }
 }
