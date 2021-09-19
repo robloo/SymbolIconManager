@@ -5703,13 +5703,13 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F369",
-      "Name": "ic_fluent_dismiss_20_regular"
+      "UnicodePoint": "F367",
+      "Name": "ic_fluent_dismiss_12_regular"
     },
-    "GlyphMatchQuality": "Medium",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": "Using the standard dismiss glyph as a substitute"
+    "Comments": "Size 12 variant used on purpose to better match line widths"
   },
   {
     "Destination": {
@@ -7174,14 +7174,14 @@
       "Name": "ChromeMinimize"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FC70",
+      "Name": "ic_fluent_subtract_12_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Size 12 variant used on purpose to better match line widths"
   },
   {
     "Destination": {
@@ -7190,14 +7190,14 @@
       "Name": "ChromeMaximize"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "100E9",
+      "Name": "ic_fluent_square_12_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Size 12 variant used on purpose to better match line widths"
   },
   {
     "Destination": {
@@ -7206,14 +7206,14 @@
       "Name": "ChromeRestore"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F670",
+      "Name": "ic_fluent_restore_16_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Size 16 (rather than 12) variant used on purpose to better match line widths. Size 12 doesn't exist."
   },
   {
     "Destination": {
@@ -7322,10 +7322,10 @@
       "UnicodePoint": "F166",
       "Name": "ic_fluent_arrow_minimize_24_regular"
     },
-    "GlyphMatchQuality": "Medium",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Size 24 slightly better matches the line widths"
+    "Comments": "Size 24 (rather than 12) slightly better matches the line widths"
   },
   {
     "Destination": {
@@ -7338,10 +7338,10 @@
       "UnicodePoint": "F160",
       "Name": "ic_fluent_arrow_maximize_24_regular"
     },
-    "GlyphMatchQuality": "Medium",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Size 24 slightly better matches the line widths"
+    "Comments": "Size 24 (rather than 12) slightly better matches the line widths"
   },
   {
     "Destination": {
@@ -8902,9 +8902,9 @@
       "Name": "ForwardSm"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F181",
+      "Name": "ic_fluent_arrow_right_20_regular"
     },
     "GlyphMatchQuality": "NoMatch",
     "MetaphorMatchQuality": "NoMatch",
@@ -9654,14 +9654,14 @@
       "Name": "ChromeBackMirrored"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "100A4",
+      "Name": "ic_fluent_arrow_right_12_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Size 12 variant used on purpose to better match line widths"
   },
   {
     "Destination": {
@@ -15990,14 +15990,14 @@
       "Name": "ChromeCloseContrast"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F367",
+      "Name": "ic_fluent_dismiss_12_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Size 12, filled variant used on purpose to better match line widths. Contrast=Filled"
   },
   {
     "Destination": {
@@ -16006,14 +16006,14 @@
       "Name": "ChromeMinimizeContrast"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "FC7A",
+      "Name": "ic_fluent_subtract_12_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Size 12, filled variant used on purpose to better match line widths. Contrast=Filled"
   },
   {
     "Destination": {
@@ -16022,14 +16022,14 @@
       "Name": "ChromeMaximizeContrast"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "100E9",
+      "Name": "ic_fluent_square_12_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Size 12 variant used on purpose to better match line widths."
   },
   {
     "Destination": {
@@ -16038,14 +16038,14 @@
       "Name": "ChromeRestoreContrast"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F67A",
+      "Name": "ic_fluent_restore_16_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Size 16 (rather than 12), filled variant used on purpose to better match line widths. Size 12 doesn't exist. Contrast=Filled"
   },
   {
     "Destination": {
@@ -16806,14 +16806,14 @@
       "Name": "BackMirrored"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F181",
+      "Name": "ic_fluent_arrow_right_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Doesn't exist, same as right arrow"
   },
   {
     "Destination": {
@@ -16838,14 +16838,14 @@
       "Name": "ChromeBackContrast"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "100A5",
+      "Name": "ic_fluent_arrow_left_12_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Size 12, filled variant used on purpose to better match line widths. Contrast=Filled"
   },
   {
     "Destination": {
@@ -16854,14 +16854,14 @@
       "Name": "ChromeBackContrastMirrored"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "100A8",
+      "Name": "ic_fluent_arrow_right_12_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Size 12, filled variant used on purpose to better match line widths. Contrast=Filled"
   },
   {
     "Destination": {
@@ -16870,14 +16870,14 @@
       "Name": "ChromeBackToWindowContrast"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F166",
+      "Name": "ic_fluent_arrow_minimize_24_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Size 24 (rather than 12), filled variant used on purpose to better match line widths. Contrast=Filled"
   },
   {
     "Destination": {
@@ -16886,14 +16886,14 @@
       "Name": "ChromeFullScreenContrast"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F160",
+      "Name": "ic_fluent_arrow_maximize_24_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Size 24 (rather than 12), filled variant used on purpose to better match line widths. Contrast=Filled"
   },
   {
     "Destination": {
@@ -17158,14 +17158,14 @@
       "Name": "ChromeAnnotateContrast"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "FCFF",
+      "Name": "ic_fluent_screen_cut_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Low",
+    "IsPlaceholder": true,
+    "Comments": "Only size 20 exists (rather than 12) Scissors are in the wront location,  line weights are quite a bit different and there shouldn't be a filled rectangle. Contrast=Filled"
   },
   {
     "Destination": {
@@ -18470,14 +18470,14 @@
       "Name": "ChromeSwitch"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F18E",
+      "Name": "ic_fluent_arrow_swap_24_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Size 24 (rather than 12) variant used on purpose to better match line widths. Size 12 does not exist."
   },
   {
     "Destination": {
@@ -18486,14 +18486,14 @@
       "Name": "ChromeSwitchContast"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F18E",
+      "Name": "ic_fluent_arrow_swap_24_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Size 24 (rather than 12), filled variant used on purpose to better match line widths. Size 12 does not exist. Contrast=Filled"
   },
   {
     "Destination": {
