@@ -406,14 +406,14 @@
       "Name": "Shop"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F76F",
+      "Name": "ic_fluent_shopping_bag_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "The Fluent UI System briefcase is an alternate. Line Awesome also includes a better matching shopping bag."
   },
   {
     "Destination": {
@@ -1686,14 +1686,14 @@
       "Name": "GripperBarHorizontal"
     },
     "Source": {
-      "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F64A",
-      "Name": "ic_fluent_re_order_24_regular"
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F7A4",
+      "Name": "grip-lines"
     },
     "GlyphMatchQuality": "High",
-    "MetaphorMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Size 20 missing"
+    "Comments": "Fluent UI System has re_order which closely matches. However, there is no vertical variant. Line Awesome is used for both horizontal and vertical for consistency."
   },
   {
     "Destination": {
@@ -1990,14 +1990,14 @@
       "Name": "GripperBarVertical"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F7A5",
+      "Name": "grip-lines-vertical"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Fluent UI System has re_order which closely matches. However, there is no vertical variant. Line Awesome is used for both horizontal and vertical for consistency."
   },
   {
     "Destination": {
@@ -2438,14 +2438,14 @@
       "Name": "Train"
     },
     "Source": {
-      "IconSet": "LineAwesomeSolid",
-      "UnicodePoint": "F238",
-      "Name": "train"
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FB00",
+      "Name": "ic_fluent_vehicle_subway_20_regular"
     },
-    "GlyphMatchQuality": "Medium",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Doesn't exist in Fluent UI System"
+    "Comments": ""
   },
   {
     "Destination": {
@@ -2534,14 +2534,14 @@
       "Name": "HalfStarLeft"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F089",
+      "Name": "star-half"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Does not exist in Fluent UI System"
   },
   {
     "Destination": {
@@ -2918,14 +2918,14 @@
       "Name": "DeviceMonitorRightPic"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FAF2",
+      "Name": "ic_fluent_tv_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
+    "IsPlaceholder": true,
+    "Comments": "Standard TV/monitor used becasue no variant with pic exists."
   },
   {
     "Destination": {
@@ -2934,14 +2934,14 @@
       "Name": "DeviceMonitorLeftPic"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FAF2",
+      "Name": "ic_fluent_tv_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
+    "IsPlaceholder": true,
+    "Comments": "Standard TV/monitor used becasue no variant with pic exists."
   },
   {
     "Destination": {
@@ -2950,12 +2950,12 @@
       "Name": "DeviceMonitorNoPic"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FAF2",
+      "Name": "ic_fluent_tv_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -3085,7 +3085,7 @@
     "GlyphMatchQuality": "NoMatch",
     "MetaphorMatchQuality": "NoMatch",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Does not exist in Fluent UI System or Line Awesome"
   },
   {
     "Destination": {
@@ -3094,12 +3094,12 @@
       "Name": "TiltDown"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F75D",
+      "Name": "ic_fluent_table_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -3372,7 +3372,7 @@
     },
     "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "High",
-    "IsPlaceholder": false,
+    "IsPlaceholder": true,
     "Comments": ""
   },
   {
@@ -3398,13 +3398,13 @@
       "Name": "Construction"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "10165",
+      "Name": "ic_fluent_road_cone_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
+    "IsPlaceholder": true,
     "Comments": ""
   },
   {
@@ -3462,14 +3462,14 @@
       "Name": "InkingToolFill2"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F4AE",
+      "Name": "ic_fluent_inking_tool_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "While visually a bit different, it perfectly matches with the Fluent UI System inking tool."
   },
   {
     "Destination": {
@@ -3494,14 +3494,14 @@
       "Name": "EraseToolFill"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "FA00",
+      "Name": "ic_fluent_eraser_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Only one eraser fill variant exists."
   },
   {
     "Destination": {
@@ -3510,14 +3510,14 @@
       "Name": "EraseToolFill2"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "FA00",
+      "Name": "ic_fluent_eraser_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Only one eraser fill variant exists."
   },
   {
     "Destination": {
@@ -5014,14 +5014,14 @@
       "Name": "InkingToolFill"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F4B1",
+      "Name": "ic_fluent_inking_tool_accent_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "While visually a bit different, it perfectly matches with the Fluent UI System inking tool."
   },
   {
     "Destination": {
@@ -5190,12 +5190,12 @@
       "Name": "TwoPage"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F9DD",
+      "Name": "ic_fluent_document_landscape_split_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -5549,7 +5549,7 @@
     "GlyphMatchQuality": "NoMatch",
     "MetaphorMatchQuality": "NoMatch",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "This does not exist in any base icon sets. However, it is often used and likely needs a custom alternate."
   },
   {
     "Destination": {
@@ -6662,12 +6662,12 @@
       "Name": "SyncFolder"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FF92",
+      "Name": "ic_fluent_folder_sync_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -7014,14 +7014,14 @@
       "Name": "Accounts"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F1FA",
+      "Name": "at"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Doesn't exist in the Fluent UI System"
   },
   {
     "Destination": {
@@ -7222,14 +7222,14 @@
       "Name": "Annotation"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FCF6",
+      "Name": "ic_fluent_screen_cut_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Scissors in a different location"
   },
   {
     "Destination": {
@@ -7398,14 +7398,14 @@
       "Name": "ChromeAnnotate"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FCF6",
+      "Name": "ic_fluent_screen_cut_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Low",
+    "IsPlaceholder": true,
+    "Comments": "Scissors are in the wront location and line weights are quite a bit different."
   },
   {
     "Destination": {
@@ -7430,14 +7430,14 @@
       "Name": "IBeam"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F246",
+      "Name": "i-beam-cursor"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "High",
+    "IsPlaceholder": true,
+    "Comments": "Doesn't exist in Fluent UI System. Line Awesome variant is not a great match."
   },
   {
     "Destination": {
@@ -7446,14 +7446,14 @@
       "Name": "IBeamOutline"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F246",
+      "Name": "i-beam-cursor"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "High",
+    "IsPlaceholder": true,
+    "Comments": "Doesn't exist in Fluent UI System. Line Awesome variant is not a great match."
   },
   {
     "Destination": {
@@ -7606,14 +7606,14 @@
       "Name": "LightningBolt"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F0E7",
+      "Name": "lightning-bolt"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Doesn't exist in Fluent UI System"
   },
   {
     "Destination": {
@@ -7638,14 +7638,14 @@
       "Name": "CalculatorMultiply"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F00D",
+      "Name": "times"
     },
     "GlyphMatchQuality": "NoMatch",
     "MetaphorMatchQuality": "NoMatch",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Doens't exist in the Fluent UI System; however, dismiss/cancel is an alternate. Line Awesome variant differs in style from add/subtract that do exist in Fluent UI."
   },
   {
     "Destination": {
@@ -7686,14 +7686,14 @@
       "Name": "CalculatorDivide"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F529",
+      "Name": "divide"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Doesn't exist in the Fluent UI System. Line Awesome variant differs in style from add/subtract that do exist in Fluent UI."
   },
   {
     "Destination": {
@@ -7702,14 +7702,14 @@
       "Name": "CalculatorSquareroot"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F698",
+      "Name": "alternate-square-root"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Doesn't exist in the Fluent UI System. Line Awesome variant differs in style from add/subtract that do exist in Fluent UI."
   },
   {
     "Destination": {
@@ -7718,14 +7718,14 @@
       "Name": "CalculatorPercentage"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F295",
+      "Name": "percent"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Doesn't exist in the Fluent UI System. Line Awesome variant differs in style from add/subtract that do exist in Fluent UI."
   },
   {
     "Destination": {
@@ -7750,14 +7750,14 @@
       "Name": "CalculatorEqualTo"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F52C",
+      "Name": "equals"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Doesn't exist in the Fluent UI System. Line Awesome variant differs in style from add/subtract that do exist in Fluent UI."
   },
   {
     "Destination": {
@@ -7773,7 +7773,7 @@
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "No calculator variant exists"
   },
   {
     "Destination": {
@@ -7910,14 +7910,14 @@
       "Name": "StorageOptical"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F51F",
+      "Name": "compact-disc"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Doesn't exist in Fluent UI System"
   },
   {
     "Destination": {
@@ -7942,12 +7942,12 @@
       "Name": "Headset"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FA21",
+      "Name": "ic_fluent_headset_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -8038,14 +8038,14 @@
       "Name": "Mouse"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F8CC",
+      "Name": "mouse"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Doesn't exist in Fluent UI System"
   },
   {
     "Destination": {
@@ -10758,12 +10758,12 @@
       "Name": "TrainSolid"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "FB08",
+      "Name": "ic_fluent_vehicle_subway_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -13478,14 +13478,14 @@
       "Name": "DeveloperTools"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "LineAwesomeSolid",
+      "UnicodePoint": "F7D9",
+      "Name": "tools"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "No good Fluent UI System variant exists; however, 'window_dev_tools' is an alternate. The Line Awesome variant crosses the tools (which is a bit more standard anyway)."
   },
   {
     "Destination": {
@@ -14566,12 +14566,12 @@
       "Name": "TreeFolderFolderOpen"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F430",
+      "Name": "ic_fluent_folder_open_vertical_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -14582,12 +14582,12 @@
       "Name": "TreeFolderFolderOpenFill"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F434",
+      "Name": "ic_fluent_folder_open_vertical_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -19046,14 +19046,14 @@
       "Name": "ClippingTool"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "FCF6",
+      "Name": "ic_fluent_screen_cut_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Scissors are in a different location and the rectangle has a dashed line. However, the user can recognize this."
   },
   {
     "Destination": {
