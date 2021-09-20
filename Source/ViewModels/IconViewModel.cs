@@ -31,17 +31,6 @@ namespace IconManager
             this.InitOptions();
         }
 
-        public IconViewModel(IIcon icon)
-        {
-            this._AutoUpdate   = false;
-            this._Glyph        = null;
-            this._IconSet      = icon.IconSet;
-            this._Name         = icon.Name;
-            this._UnicodePoint = icon.UnicodePoint;
-
-            this.InitOptions();
-        }
-
         public IconViewModel(IReadOnlyIcon icon)
         {
             this._AutoUpdate   = false;
@@ -94,19 +83,7 @@ namespace IconManager
         public IconSet IconSet
         {
             get => this._IconSet;
-            set
-            {
-                if (object.Equals(this._IconSet, value) == false)
-                {
-                    this.SetField(ref this._IconSet, value);
-
-                    if (this.AutoUpdate)
-                    {
-                        this.UpdateName();
-                        this.UpdateGlyphAsync();
-                    }
-                }
-            }
+            set => this.SetField(ref this._IconSet, value);
         }
 
         /// <summary>
@@ -128,19 +105,7 @@ namespace IconManager
         public uint UnicodePoint
         {
             get => this._UnicodePoint;
-            set
-            {
-                if (object.Equals(this._UnicodePoint, value) == false)
-                {
-                    this.SetField(ref this._UnicodePoint, value);
-
-                    if (this.AutoUpdate)
-                    {
-                        this.UpdateName();
-                        this.UpdateGlyphAsync();
-                    }
-                }
-            }
+            set => this.SetField(ref this._UnicodePoint, value);
         }
 
         ///////////////////////////////////////////////////////////
@@ -155,24 +120,9 @@ namespace IconManager
 
         /***************************************************************************************
          *
-         * Methods
+         * Public Methods
          *
          ***************************************************************************************/
-
-        /// <summary>
-        /// Initializes the list of options to select from.
-        /// </summary>
-        private void InitOptions()
-        {
-            var enumValues = (IconSet[])Enum.GetValues(typeof(IconSet));
-
-            foreach (var value in enumValues)
-            {
-                this._IconSetOptions.Add(value);
-            }
-
-            return;
-        }
 
         /// <summary>
         /// Converts this <see cref="IconViewModel"/> into a standard <see cref="Icon"/>.
@@ -205,6 +155,46 @@ namespace IconManager
         public void UpdateName()
         {
             this.Name = IconSetBase.FindName(this.IconSet, this.UnicodePoint);
+            return;
+        }
+
+        /***************************************************************************************
+         *
+         * Private Methods
+         *
+         ***************************************************************************************/
+
+        /// <inheritdoc/>
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            if ((propertyName == nameof(this.IconSet) ||
+                 propertyName == nameof(this.UnicodePoint)) &&
+                (propertyName != nameof(this.Glyph) &&
+                 propertyName != nameof(this.Name)))
+            {
+                if (this.AutoUpdate)
+                {
+                    this.UpdateName();
+                    this.UpdateGlyphAsync();
+                }
+            }
+
+            base.OnPropertyChanged(propertyName);
+            return;
+        }
+
+        /// <summary>
+        /// Initializes the list of options to select from.
+        /// </summary>
+        private void InitOptions()
+        {
+            var enumValues = (IconSet[])Enum.GetValues(typeof(IconSet));
+
+            foreach (var value in enumValues)
+            {
+                this._IconSetOptions.Add(value);
+            }
+
             return;
         }
     }

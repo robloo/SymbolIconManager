@@ -146,7 +146,32 @@ namespace IconManager
 
         /***************************************************************************************
          *
-         * Methods
+         * Public Methods
+         *
+         ***************************************************************************************/
+
+        /// <summary>
+        /// Converts this <see cref="IconMappingViewModel"/> into a standard <see cref="IconMapping"/>.
+        /// </summary>
+        /// <returns>A new <see cref="IconMapping"/> from the view models properties.</returns>
+        public IconMapping AsIconMapping()
+        {
+            var mapping = new IconMapping()
+            {
+                Source               = this.SourceViewModel.AsIcon(),
+                Destination          = this.DestinationViewModel.AsIcon(),
+                GlyphMatchQuality    = this.GlyphMatchQuality,
+                MetaphorMatchQuality = this.MetaphorMatchQuality,
+                IsPlaceholder        = this.IsPlaceholder,
+                Comments             = this.Comments
+            };
+
+            return mapping;
+        }
+
+        /***************************************************************************************
+         *
+         * Private Methods
          *
          ***************************************************************************************/
 
@@ -176,25 +201,6 @@ namespace IconManager
             }
 
             return;
-        }
-
-        /// <summary>
-        /// Converts this <see cref="IconMappingViewModel"/> into a standard <see cref="IconMapping"/>.
-        /// </summary>
-        /// <returns>A new <see cref="IconMapping"/> from the view models properties.</returns>
-        public IconMapping AsIconMapping()
-        {
-            var mapping = new IconMapping()
-            {
-                Source               = this.SourceViewModel.AsIcon(),
-                Destination          = this.DestinationViewModel.AsIcon(),
-                GlyphMatchQuality    = this.GlyphMatchQuality,
-                MetaphorMatchQuality = this.MetaphorMatchQuality,
-                IsPlaceholder        = this.IsPlaceholder,
-                Comments             = this.Comments
-            };
-
-            return mapping;
         }
 
         /// <summary>
