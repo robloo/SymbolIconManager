@@ -453,16 +453,26 @@ namespace IconManager
         public static void BuildGlyphSources()
         {
             List<string> glyphSources = new List<string>();
+            List<string> searchDirectories = new List<string>();
             string fluentUISystemCacheDirectory = @"fluentui-system-icons";
 
-            string searchDirectory = Path.Combine(App.IconManagerCache, fluentUISystemCacheDirectory, "assets");
+            searchDirectories.Add(Path.Combine(App.IconManagerCache, fluentUISystemCacheDirectory, "assets"));
+            //searchDirectories.Add(Path.Combine(new string[] {
+            //    App.IconManagerCache,
+            //    fluentUISystemCacheDirectory,
+            //    "ios",
+            //    "FluentIcons",
+            //    "Assets"}));
 
-            foreach (string filePath in Directory.EnumerateFiles(searchDirectory, "*.*", SearchOption.AllDirectories))
+            foreach (string searchDirectory in searchDirectories)
             {
-                if (Path.GetExtension(filePath).ToUpperInvariant() == ".PDF" ||
-                    Path.GetExtension(filePath).ToUpperInvariant() == ".SVG")
+                foreach (string filePath in Directory.EnumerateFiles(searchDirectory, "*.*", SearchOption.AllDirectories))
                 {
-                    glyphSources.Add(filePath.Replace(searchDirectory, string.Empty));
+                    if (Path.GetExtension(filePath).ToUpperInvariant() == ".PDF" ||
+                        Path.GetExtension(filePath).ToUpperInvariant() == ".SVG")
+                    {
+                        glyphSources.Add(filePath.Replace(searchDirectory, string.Empty));
+                    }
                 }
             }
 
