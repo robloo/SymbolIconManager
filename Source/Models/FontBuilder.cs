@@ -165,7 +165,7 @@ namespace IconManager
 
                     if (svgUrl == null)
                     {
-                        buildLog.Error($"Missing SVG source URL 0x{mapping.Source.UnicodeHexString} ({mapping.Source.Name})");
+                        buildLog.Error($"Missing SVG source URL, mapping skipped src=0x{mapping.Source.UnicodeHexString}, dst=0x{mapping.Destination.UnicodeHexString} ({mapping.Source.Name})");
                         continue; // Fatal error
                     }
 
