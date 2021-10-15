@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Text.Json;
 
@@ -19,20 +20,20 @@ namespace IconManager
         /// </summary>
         public enum IconSize
         {
-            Size12,
-            Size16,
+            Size12 = 12,
+            Size16 = 16,
             /// <summary>
             /// Designed specifically for desktop.
             /// </summary>
-            Size20,
+            Size20 = 20,
             /// <remarks>
             /// The 24-pixel art board uses a 1.5 pixel stroke.
             /// This will not align with the pixel grid and may appear blurry.
             /// </remarks>
-            Size24,
-            Size28,
-            Size32,
-            Size48
+            Size24 = 24,
+            Size28 = 28,
+            Size32 = 32,
+            Size48 = 48
         }
 
         /// <summary>
@@ -301,15 +302,145 @@ namespace IconManager
 
         public static int ToNumericalSize(IconSize size) => size switch
         {
-            IconSize.Size12 => 12,
-            IconSize.Size16 => 16,
-            IconSize.Size20 => 20,
-            IconSize.Size24 => 24,
-            IconSize.Size28 => 28,
-            IconSize.Size32 => 32,
-            IconSize.Size48 => 48,
-            _ => 0,
+            IconSize.Size12 => (int)IconSize.Size12,
+            IconSize.Size16 => (int)IconSize.Size16,
+            IconSize.Size20 => (int)IconSize.Size20,
+            IconSize.Size24 => (int)IconSize.Size24,
+            IconSize.Size28 => (int)IconSize.Size28,
+            IconSize.Size32 => (int)IconSize.Size32,
+            IconSize.Size48 => (int)IconSize.Size48,
+            _ => 0, // Value is outside the defined enum values
         };
+
+        /// <summary>
+        /// Rebuilds the given icon to match the desired size (or the next closest size available).
+        /// The FluentUISystem name is used directly as an ID in order to do this - Unicode point is ignored.
+        /// </summary>
+        /// <param name="icon">The icon to convert.</param>
+        /// <param name="desiredSize">The desired size of the icon.</param>
+        /// <param name="allowApproximate">Set to true to return the next nearest size if
+        /// an exact match isn't available.</param>
+        /// <returns>A new icon with the desired size; otherwise,
+        /// the next closest size available.</returns>
+        public static FluentUISystem.Icon? ConvertToSize(
+            FluentUISystem.Icon icon,
+            IconSize desiredSize,
+            bool allowApproximate = true)
+        {
+            var sourceFluentUIName = new FluentUISystem.IconName(icon.Name);
+
+            if (sourceFluentUIName.Size == desiredSize)
+            {
+                return icon.Clone();
+            }
+            else
+            {
+                // Attempt to find an exact size match
+                FluentUISystem.Icon? match = FluentUISystem.FindIcon(
+                    sourceFluentUIName.BaseName,
+                    desiredSize,
+                    sourceFluentUIName.Theme);
+
+                if (match != null)
+                {
+                    // Return the exact match
+                    return match;
+                }
+                else if (allowApproximate)
+                {
+                    // Use the nearest numerical size instead
+                    var matches = FluentUISystem.FindIcons(
+                        sourceFluentUIName.BaseName,
+                        sourceFluentUIName.Theme);
+
+                    if (matches != null &&
+                        matches.Count > 0)
+                    {
+                        // To find the numerically closest match in size simply find the difference from the desired size
+                        // to actual size for each item, sort from smallest to largest, then take the first item
+                        var closestMatch = matches.OrderBy(icon => Math.Abs(FluentUISystem.ToNumericalSize(desiredSize) - icon.NumericalSize)).First();
+                        
+                        return closestMatch;
+                    }
+                    else
+                    {
+                        // Nothing was found, just return the input which is already the closest size
+                        // Note that to get here an error must have occurred with the icon name
+                        return icon.Clone();
+                    }
+                }
+                else
+                {
+                    // Unable to convert the icon size
+                    return null;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Rebuilds the given mapping list's source icons to match the desired size.
+        /// The source icons must be within the FluentUISystem family or no changes will be made.
+        /// </summary>
+        /// <param name="mappings">The list of FluentUISystem mappings to convert.</param>
+        /// <param name="desiredSize">The desired size of all source icons.</param>
+        /// <returns>A new list of mappings with source icons changed to the desired size.</returns>
+        public static IconMappingList ConvertToSize(
+            IconMappingList mappings,
+            IconSize desiredSize)
+        {
+            int nonExactMappings = 0;
+            int missingMappings = 0;
+            int invalidMappings = 0;
+            IconMappingList finalMappings = new IconMappingList();
+
+            for (int i = 0; i < mappings.Count; i++)
+            {
+                if (mappings[i].Source.IconSet != IconSet.FluentUISystemFilled &&
+                    mappings[i].Source.IconSet != IconSet.FluentUISystemRegular)
+                {
+                    // The mapping was not sourced from the FluentUISystem family
+                    // In that case, just copy it to the final mappings unchanged
+                    finalMappings.Add(mappings[i].Clone());
+
+                    invalidMappings++;
+                }
+                else
+                {
+                    FluentUISystem.Icon? convertedSourceIcon = FluentUISystem.ConvertToSize(
+                        new FluentUISystem.Icon()
+                        {
+                            Name         = mappings[i].Source.Name,
+                            UnicodePoint = mappings[i].Source.UnicodePoint,
+                            // IconSet is determined automatically from the name
+                        },
+                        desiredSize,
+                        allowApproximate: true);
+
+                    if (convertedSourceIcon == null)
+                    {
+                        missingMappings++;
+                    }
+                    else if (convertedSourceIcon.Size != desiredSize)
+                    {
+                        nonExactMappings++;
+                    }
+
+                    var newMapping = new IconMapping()
+                    {
+                        Source               = convertedSourceIcon?.AsIcon() ?? mappings[i].Source.Clone(),
+                        Destination          = mappings[i].Destination.Clone(),
+                        GlyphMatchQuality    = mappings[i].GlyphMatchQuality,
+                        MetaphorMatchQuality = mappings[i].MetaphorMatchQuality,
+                        IsPlaceholder        = mappings[i].IsPlaceholder,
+                        Comments             = mappings[i].Comments
+                    };
+
+                    finalMappings.Add(newMapping);
+                }
+            }
+
+            return finalMappings;
+        }
 
         /// <summary>
         /// Builds the full list of glyph sources for the Fluent UI System icons.
@@ -462,6 +593,8 @@ namespace IconManager
             {
             }
 
+            /// <param name="name">The full name of the icon including all components.
+            /// Example: ic_fluent_caret_up_24_filled.</param>
             public IconName(string name)
             {
                 this.SetName(name);
@@ -531,7 +664,7 @@ namespace IconManager
             /// Sets the icon name and extracts all components.
             /// </summary>
             /// <param name="name">The full name of the icon.</param>
-            public void SetName(string name)
+            private void SetName(string name)
             {
                 string workingName = name;
 
@@ -662,7 +795,7 @@ namespace IconManager
             /// Gets a full icon name built from individual components.
             /// </summary>
             /// <returns>The full name of the icon.</returns>
-            public string GetName(
+            private string GetName(
                 string baseName,
                 IconSize size,
                 IconTheme theme,

@@ -131,5 +131,30 @@ namespace IconManager
                    // Destination.IconSet may be excluded entirely
                    this.Destination.UnicodePoint != 0;
         }
+
+        /***************************************************************************************
+         *
+         * Methods
+         *
+         ***************************************************************************************/
+
+        /// <summary>
+        /// Creates a new <see cref="IconMapping"/> instance from this instance's values.
+        /// </summary>
+        /// <returns>The cloned <see cref="IconMapping"/>.</returns>
+        public IconMapping Clone()
+        {
+            IconMapping clone = new IconMapping()
+            {
+                Source               = this.Source.Clone(),
+                Destination          = this.Destination.Clone(),
+                GlyphMatchQuality    = this.GlyphMatchQuality,
+                MetaphorMatchQuality = this.MetaphorMatchQuality,
+                IsPlaceholder        = this.IsPlaceholder,
+                Comments             = this.Comments
+            };
+
+            return clone;
+        }
     }
 }
