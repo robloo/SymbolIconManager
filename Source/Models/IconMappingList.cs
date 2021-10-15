@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System;
+using Avalonia;
+using Avalonia.Platform;
 
 namespace IconManager
 {
@@ -179,6 +181,74 @@ namespace IconManager
          * Static Methods
          *
          ***************************************************************************************/
+
+        /// <summary>
+        /// Loads a known mapping list for the given icon set.
+        /// This will be a 'Font Mapping File'.
+        /// </summary>
+        /// <param name="iconSet">The icon set to get the mapping list for.</param>
+        /// <returns>A new mapping list.</returns>
+        public static IconMappingList Load(IconSet iconSet)
+        {
+            string resourcePath = string.Empty;
+
+            switch (iconSet)
+            {
+                case IconSet.SegoeFluent:
+                    resourcePath = "avares://IconManager/Data/Mappings/SegoeFluent.json";
+                    break;
+            }
+
+            if (string.IsNullOrWhiteSpace(resourcePath) == false)
+            {
+                var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
+
+                using (var sourceStream = assets.Open(new Uri(resourcePath)))
+                {
+                    return IconMappingList.Load(sourceStream);
+                }
+            }
+
+            return new IconMappingList();
+        }
+
+        /// <summary>
+        /// Loads a known mapping list for converting from the source icon set to the destination icon set.
+        /// This will be an 'Icon Set Mapping File'.
+        /// </summary>
+        /// <param name="sourceIconSet">The source icon set to convert from.</param>
+        /// <param name="destIconSet">The destination icon set to convert to.</param>
+        /// <returns>A new mapping list.</returns>
+        public static IconMappingList Load(
+            IconSet sourceIconSet,
+            IconSet destIconSet)
+        {
+            string resourcePath = string.Empty;
+
+            if ((sourceIconSet == IconSet.FluentUISystemFilled ||
+                 sourceIconSet == IconSet.FluentUISystemRegular) &&
+                destIconSet == IconSet.SegoeMDL2Assets)
+            {
+                resourcePath = "avares://IconManager/Data/Mappings/FluentUISystemToSegoeMDL2Assets.json";
+            }
+            else if (sourceIconSet == IconSet.SegoeUISymbol &&
+                     destIconSet == IconSet.SegoeMDL2Assets)
+            {
+                resourcePath = "avares://IconManager/Data/Mappings/SegoeUISymbolToSegoeMDL2Assets.json";
+            }
+
+            if (string.IsNullOrWhiteSpace(resourcePath) == false)
+            {
+                var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
+
+                using (var sourceStream = assets.Open(new Uri(resourcePath)))
+                {
+                    return IconMappingList.Load(sourceStream);
+                }
+            }
+
+            return new IconMappingList();
+        }
 
         /// <summary>
         /// Loads a mapping list from the given stream.

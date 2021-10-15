@@ -21,6 +21,7 @@
     <None Remove="Data\Mappings\Example.json" />
     <None Remove="Data\Mappings\FluentUISystemToSegoeMDL2Assets.json" />
     <None Remove="Data\Mappings\SegoeFluent.json" />
+    <None Remove="Data\Mappings\SegoeUISymbolToSegoeMDL2Assets.json" />
     <None Remove="Data\SegoeFluent\SegoeFluentIcons.json" />
     <None Remove="Data\SegoeMDL2Assets\SegoeMDL2Assets.json" />
     <None Remove="Data\SegoeUISymbol\SegoeUISymbol.json" />
@@ -44,6 +45,7 @@
     <AvaloniaResource Include="Data\Mappings\Example.json" />
     <AvaloniaResource Include="Data\Mappings\FluentUISystemToSegoeMDL2Assets.json" />
     <AvaloniaResource Include="Data\Mappings\SegoeFluent.json" />
+    <AvaloniaResource Include="Data\Mappings\SegoeUISymbolToSegoeMDL2Assets.json" />
     <AvaloniaResource Include="Data\SegoeFluent\SegoeFluentIcons.json" />
     <AvaloniaResource Include="Data\SegoeMDL2Assets\SegoeMDL2Assets.json" />
     <AvaloniaResource Include="Data\SegoeUISymbol\SegoeUISymbol.json" />
