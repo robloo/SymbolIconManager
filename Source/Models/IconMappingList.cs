@@ -108,6 +108,72 @@ namespace IconManager
             return result;
         }
 
+        /// <summary>
+        /// Sort each mapping alphabetically by source name.
+        /// </summary>
+        public void SortBySourceName()
+        {
+            this.Sort((x, y) =>
+            {
+                return string.Compare(x.Source.Name, y.Source.Name);
+            });
+
+            return;
+        }
+
+        /// <summary>
+        /// Sort each mapping by source icon set and Unicode point.
+        /// </summary>
+        public void SortBySourceUnicode()
+        {
+            this.Sort((x, y) =>
+            {
+                if (x.Source.IconSet == y.Source.IconSet)
+                {
+                    return x.Source.UnicodePoint.CompareTo(y.Source.UnicodePoint);
+                }
+                else
+                {
+                    return x.Source.IconSet.CompareTo(y.Source.IconSet);
+                }
+            });
+
+            return;
+        }
+
+        /// <summary>
+        /// Sort each mapping alphabetically by destination name.
+        /// </summary>
+        public void SortByDestinationName()
+        {
+            this.Sort((x, y) =>
+            {
+                return string.Compare(x.Destination.Name, y.Destination.Name);
+            });
+
+            return;
+        }
+
+        /// <summary>
+        /// Sort each mapping by destination icon set and Unicode point.
+        /// </summary>
+        public void SortByDestinationUnicode()
+        {
+            this.Sort((x, y) =>
+            {
+                if (x.Destination.IconSet == y.Destination.IconSet)
+                {
+                    return x.Destination.UnicodePoint.CompareTo(y.Destination.UnicodePoint);
+                }
+                else
+                {
+                    return x.Destination.IconSet.CompareTo(y.Destination.IconSet);
+                }
+            });
+
+            return;
+        }
+
         /***************************************************************************************
          *
          * Static Methods
