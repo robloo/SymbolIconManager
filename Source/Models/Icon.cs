@@ -75,11 +75,10 @@ namespace IconManager
         /// otherwise, false.</returns>
         public bool IsUnicodeMatch(Icon other)
         {
-            if (this.IconSet != IconSet.Undefined &&
-                other.IconSet != IconSet.Undefined &&
-                this.UnicodePoint != 0 &&
+            if (this.UnicodePoint != 0 &&
                 other.UnicodePoint != 0)
             {
+                // IconSet.Undefined is allowed but must be the same for both
                 if (this.IconSet == other.IconSet &&
                     this.UnicodePoint == other.UnicodePoint)
                 {

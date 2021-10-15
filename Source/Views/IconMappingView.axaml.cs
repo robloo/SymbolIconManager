@@ -5,12 +5,15 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace IconManager
 {
     public partial class IconMappingView : UserControl
     {
         private string? _FilterText = string.Empty;
+
+        private IconMappingList mappingList = new IconMappingList();
 
         /***************************************************************************************
          *
@@ -63,6 +66,8 @@ namespace IconManager
 
         private void UpdateMappings(IconMappingList mappings)
         {
+            this.mappingList = mappings;
+
             // Update the UI collection
             this.Mappings.Clear();
             foreach (IconMapping mapping in mappings)
@@ -114,16 +119,7 @@ namespace IconManager
             return;
         }
 
-        /***************************************************************************************
-         *
-         * Event Handling
-         *
-         ***************************************************************************************/
-
-        /// <summary>
-        /// Event handler for when the load button is clicked.
-        /// </summary>
-        private async void LoadButton_Click(object sender, RoutedEventArgs e)
+        private async Task<IconMappingList> SelectAndLoadMappings()
         {
             var dialog = new OpenFileDialog();
             var paths = await dialog.ShowAsync(App.MainWindow);
@@ -147,7 +143,21 @@ namespace IconManager
                 }
             }
 
-            this.UpdateMappings(mappings);
+            return mappings;
+        }
+
+        /***************************************************************************************
+         *
+         * Event Handling
+         *
+         ***************************************************************************************/
+
+        /// <summary>
+        /// Event handler for when the load button is clicked.
+        /// </summary>
+        private async void LoadButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.UpdateMappings(await SelectAndLoadMappings());
 
             return;
         }
@@ -223,10 +233,13 @@ namespace IconManager
         /// <summary>
         /// Event handler for when the merge in mappings button is clicked.
         /// </summary>
-        private void MergeInButton_Click(object sender, RoutedEventArgs e)
+        private async void MergeInButton_Click(object sender, RoutedEventArgs e)
         {
-            // Available for use to select a second mapping file and then merge
-            // any common mappings from the second file into the current mappings list
+            IconMappingList newMappings = await SelectAndLoadMappings();
+
+            newMappings.MergeInto(this.mappingList);
+            this.UpdateMappings(this.mappingList);
+
             return;
         }
 

@@ -19,6 +19,41 @@ namespace IconManager
          ***************************************************************************************/
 
         /// <summary>
+        /// Merges any mappings from this list into the destination.
+        /// Any matching mappings in the destination will be replaced by information in the source.
+        /// Any mappings that exist in the source but not the destination will be added to the destination.
+        /// </summary>
+        /// <param name="destMappings">The destination mappings list to merge into.</param>
+        public void MergeInto(IconMappingList destMappings)
+        {
+            foreach (IconMapping sourceMapping in this)
+            {
+                bool matchFound = false;
+                foreach (IconMapping destMapping in destMappings)
+                {
+                    if (sourceMapping.Destination.IsUnicodeMatch(destMapping.Destination))
+                    {
+                        destMapping.Source               = sourceMapping.Source.Clone();
+                        destMapping.GlyphMatchQuality    = sourceMapping.GlyphMatchQuality;
+                        destMapping.MetaphorMatchQuality = sourceMapping.MetaphorMatchQuality;
+                        destMapping.IsPlaceholder        = sourceMapping.IsPlaceholder;
+                        // Exclude comments intentionally
+
+                        matchFound = true;
+                        // Do not break, update all duplicates (Yes, this is slow)
+                    }
+                }
+
+                if (matchFound == false)
+                {
+                    destMappings.Add(sourceMapping.Clone());
+                }
+            }
+
+            return;
+        }
+
+        /// <summary>
         /// Finds all mappings in the list that match the given destination name.
         /// </summary>
         /// <param name="name">The name of the destination icon to search for.</param>

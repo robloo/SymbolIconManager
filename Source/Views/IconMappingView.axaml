@@ -33,7 +33,6 @@
                     Click="ClearButton_Click"
                     Margin="20,0,0,0" />
             <Button x:Name="MergeInButton"
-                    IsEnabled="False"
                     HorizontalContentAlignment="Center"
                     Content="Merge In"
                     MinWidth="100"
