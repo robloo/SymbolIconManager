@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IconManager.Specialized
 {
@@ -31,7 +27,12 @@ namespace IconManager.Specialized
         /// <returns>A new icon mapping list.</returns>
         public IconMappingList InitNewMappings()
         {
-            IconMappingList mappings = new IconMappingList();
+            return this.RebuildMappings(this.LoadInitialRawSource());
+        }
+
+        public IconMappingList RebuildMappings(IconMappingList existingMappings)
+        {
+            IconMappingList mappings = existingMappings;
 
             // Initialize the starting value of all new symbols Unicode points here.
             // New symbols are those that do not exist by name in either SegoeFluent or the
@@ -48,37 +49,26 @@ namespace IconManager.Specialized
             var segoeFluentMappings = IconMappingList.Load(IconSet.SegoeFluent);
             var segoeV1toV2 = IconMappingList.Load(IconSet.SegoeUISymbol, IconSet.SegoeMDL2Assets);
 
-            // Load the Fluent Avalonia raw sources
-            // This contains all symbols specially added in addition to some that overlap with WinUI
-            for (int i = 0; i < rawSource.GetLength(0); i++)
+            // Raw sources use the 'SegoeFluent' font is some cases
+            // This cannot be used to construct a font as it doesn't have SVG sources by itself
+            // Therefore, translate all 'SegoeFluent' to the corresponding mapped source glyph
+            foreach (IconMapping mapping in mappings)
             {
-                string name = rawSource[i, 0];
-                string iconSrc = rawSource[i, 1];
-                var iconSet = (IconSet)Enum.Parse(typeof(IconSet), iconSrc.Split(":")[0]);
-                var unicode = Convert.ToUInt32(iconSrc.Split(":")[1].Substring(2), 16);
-
-                var newMapping = new IconMapping()
+                if (mapping.Source.IconSet == IconSet.SegoeFluent)
                 {
-                    Source = new Icon()
-                    {
-                        IconSet      = iconSet,
-                        UnicodePoint = unicode,
-                    },
-                    Destination = new Icon()
-                    {
-                        IconSet = IconSet.Undefined, // Fluent Avalonia is not a defined icon set
-                        Name    = name,
-                    },
-                };
+                    var matchingSegoeFluentMappings = segoeFluentMappings.FindByDestinationUnicode(mapping.Source.UnicodePoint);
 
-                mappings.Add(newMapping);
+                    if (matchingSegoeFluentMappings.Count != 1)
+                    {
+                        throw new Exception("Invalid SegoeFluent Unicode point detected.");
+                    }
+                    else
+                    {
+                        mapping.Source = matchingSegoeFluentMappings[0].Source.Clone();
+                        // Update other properties?
+                    }
+                }
             }
-
-            // Remove any mappings that have the same name as those in the WinUI Symbol enum
-            // These mappings will be added back using the 'official' values next
-            //for (int i = (mappings.Count - 1); i >= 0; i--)
-            //{
-            //}
 
             // Add all entries from the WinUI symbols enum
             // Any matching Fluent Avalonia entries will be overwritten
@@ -119,14 +109,17 @@ namespace IconManager.Specialized
                 // This is primary over any mapping defined in the raw Fluent Avalonia sources
                 var symbolEnumMapping = new IconMapping()
                 {
-                    Source = matchingSegoeFluentMappings[0].Source,
+                    Source      = matchingSegoeFluentMappings[0].Source,
                     Destination = new Icon()
                     {
                         IconSet      = IconSet.Undefined, // Fluent Avalonia is not a defined icon set
                         UnicodePoint = (uint)value,       // Do NOT use the translated Unicode value, keep original
                         Name         = value.ToString()
-                    }
-                    // TODO Add more properties
+                    },
+                    GlyphMatchQuality    = matchingSegoeFluentMappings[0].GlyphMatchQuality,
+                    MetaphorMatchQuality = matchingSegoeFluentMappings[0].MetaphorMatchQuality,
+                    IsPlaceholder        = matchingSegoeFluentMappings[0].IsPlaceholder,
+                    Comments             = "WinUI Symbol. " + matchingSegoeFluentMappings[0].Comments
                 };
 
                 // Check for an existing mapping already (that should be overwritten)
@@ -152,11 +145,7 @@ namespace IconManager.Specialized
                 }
             }
 
-            // Any destination name that matches with a WinUI symbol enum entry should be overwritten
-            // with the official value from the WinUI Symbol enum.
-            // This includes both the destination and source.
-
-            // Sort all mappings alphabetically by destination name for easier readability of the .JSON file
+            // Sort all mappings alphabetically by destination name for easier readability of the JSON file
             // This is also important to do before new Unicode points are assigned so the Unicode points follow some order
             mappings.SortByDestinationName();
 
@@ -175,8 +164,117 @@ namespace IconManager.Specialized
             mappings.Reprocess();
 
             // Double check: ensure that all Symbol enum values are in the mapping list
+            foreach (WinUISymbols.Symbol value in enumValues)
+            {
+                bool existsByName = false;
+                bool existsByUnicode = false;
 
+                foreach (IconMapping mapping in mappings)
+                {
+                    if (existsByName == false &&
+                        string.Equals(mapping.Destination.Name, value.ToString(), StringComparison.OrdinalIgnoreCase))
+                    {
+                        existsByName = true;
+                    }
 
+                    if (existsByUnicode == false &&
+                        mapping.Destination.UnicodePoint == (uint)value)
+                    {
+                        existsByUnicode = true;
+                    }
+
+                    if (existsByName && existsByUnicode)
+                    {
+                        break;
+                    }
+                }
+
+                if (existsByName == false || existsByUnicode == false)
+                {
+                    throw new Exception("Missing Symbol enum mapping.");
+                }
+            }
+
+            // Double check: Ensure that each destination icon name and Unicode point only occurs one time
+            for (int i = 0; i < mappings.Count; i++)
+            {
+                for (int j = i + 1; j < mappings.Count; j++)
+                {
+                    if (string.Equals(
+                        mappings[i].Destination.Name.Trim(),
+                        mappings[j].Destination.Name.Trim(),
+                        StringComparison.OrdinalIgnoreCase))
+                    {
+                        throw new Exception("Duplicate destination name detected.");
+                    }
+
+                    if (mappings[i].Destination.UnicodePoint == mappings[j].Destination.UnicodePoint)
+                    {
+                        throw new Exception("Duplicate destination Unicode point detected.");
+                    }
+                }
+            }
+
+            // Double check: ensure all source icon sets have a real glyph source that can be used for font construction
+            foreach (IconMapping mapping in mappings)
+            {
+                var possibleGlyphSources = GlyphRenderer.GetPossibleGlyphSources(
+                    mapping.Source.IconSet,
+                    mapping.Source.UnicodePoint);
+
+                if (mapping.IsValidForFont == false ||
+                    possibleGlyphSources.Contains(GlyphSource.RemoteSvgFile) == false)
+                {
+                    if (mapping.Source.IconSet == IconSet.Undefined)
+                    {
+                        // Allow for now
+                    }
+                    else
+                    {
+                        throw new Exception("Invalid source for building a font.");
+                    }
+                }
+            }
+
+            return mappings;
+        }
+
+        private IconMappingList LoadInitialRawSource()
+        {
+            IconMappingList mappings = new IconMappingList();
+
+            // Load the Fluent Avalonia raw sources
+            // This contains all symbols specially added in addition to some that overlap with WinUI
+            for (int i = 0; i < rawSource.GetLength(0); i++)
+            {
+                string name = rawSource[i, 0];
+                string iconSrc = rawSource[i, 1];
+                var iconSet = (IconSet)Enum.Parse(typeof(IconSet), iconSrc.Split(":")[0]);
+                var unicode = Convert.ToUInt32(iconSrc.Split(":")[1].Substring(2), 16);
+
+                var newMapping = new IconMapping()
+                {
+                    Source = new Icon()
+                    {
+                        IconSet      = iconSet,
+                        UnicodePoint = unicode,
+                    },
+                    Destination = new Icon()
+                    {
+                        IconSet = IconSet.Undefined, // Fluent Avalonia is not a defined icon set
+                        Name    = name,
+                    },
+                    // Unless the mapping is part of the Symbol enum (handled next),
+                    // these mappings are additions derived from the Fluent UI System
+                    // Therefore, they are an exact mapping.
+                    GlyphMatchQuality    = MatchQuality.Exact,
+                    MetaphorMatchQuality = MatchQuality.Exact,
+                    IsPlaceholder        = false,
+                    Comments             = string.Empty
+                };
+
+                mappings.Add(newMapping);
+            }
 
             return mappings;
         }
