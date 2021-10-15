@@ -399,19 +399,6 @@ namespace IconManager
                 }
             }
 
-            // Sort each mapping by destination icon set and Unicode point
-            mappings.Sort((x, y) =>
-            {
-                if (x.Destination.IconSet == y.Destination.IconSet)
-                {
-                    return x.Destination.UnicodePoint.CompareTo(y.Destination.UnicodePoint);
-                }
-                else
-                {
-                    return x.Destination.IconSet.CompareTo(y.Destination.IconSet);
-                }
-            });
-
             // TODO: Remove duplicates?
 
             return;
