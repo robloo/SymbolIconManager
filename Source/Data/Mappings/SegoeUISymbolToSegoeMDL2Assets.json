@@ -2001,9 +2001,9 @@
   },
   {
     "Destination": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "F140",
+      "Name": "StatusCircleBlock"
     },
     "Source": {
       "IconSet": "SegoeUISymbol",
@@ -2012,8 +2012,8 @@
     },
     "GlyphMatchQuality": "NoMatch",
     "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "IsPlaceholder": true,
+    "Comments": "A placeholder for a placeholder, ironic. This is a placeholder as the correct glyph doesn't seem to exist in higher code points."
   },
   {
     "Destination": {
@@ -2066,18 +2066,18 @@
   {
     "Destination": {
       "IconSet": "SegoeMDL2Assets",
-      "UnicodePoint": "E8BA",
-      "Name": "Caption"
+      "UnicodePoint": "E7F0",
+      "Name": "CC"
     },
     "Source": {
       "IconSet": "SegoeUISymbol",
       "UnicodePoint": "E190",
       "Name": "ClosedCaption"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "Low",
-    "IsPlaceholder": true,
-    "Comments": "This is a placeholder since the correct CC glyph doesn't seem to exist in higher codepoints."
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
+    "IsPlaceholder": false,
+    "Comments": ""
   },
   {
     "Destination": {
