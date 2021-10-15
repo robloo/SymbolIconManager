@@ -1,0 +1,3090 @@
+[
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E892",
+      "Name": "Previous"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E100",
+      "Name": "Previous"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E893",
+      "Name": "Next"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E101",
+      "Name": "Next"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E768",
+      "Name": "Play"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E102",
+      "Name": "Play"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E769",
+      "Name": "Pause"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E103",
+      "Name": "Pause"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E70F",
+      "Name": "Edit"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E104",
+      "Name": "Edit"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E74E",
+      "Name": "Save"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E105",
+      "Name": "Save"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E894",
+      "Name": "Clear"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E106",
+      "Name": "Clear"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E74D",
+      "Name": "Delete"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E107",
+      "Name": "Delete"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E738",
+      "Name": "Remove"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E108",
+      "Name": "Remove"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E710",
+      "Name": "Add"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E109",
+      "Name": "Add"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E711",
+      "Name": "Cancel"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E10A",
+      "Name": "Cancel"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8FB",
+      "Name": "Accept"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E10B",
+      "Name": "Accept"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E712",
+      "Name": "More"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E10C",
+      "Name": "More"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7A6",
+      "Name": "Redo"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E10D",
+      "Name": "Redo"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7A7",
+      "Name": "Undo"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E10E",
+      "Name": "Undo"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E80F",
+      "Name": "Home"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E10F",
+      "Name": "Home"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E74A",
+      "Name": "Up"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E110",
+      "Name": "Up"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E72A",
+      "Name": "Forward"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E111",
+      "Name": "Forward"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E72B",
+      "Name": "Back"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E112",
+      "Name": "Back"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E113",
+      "Name": "Favorite"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E722",
+      "Name": "Camera"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E114",
+      "Name": "Camera"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E713",
+      "Name": "Setting"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E115",
+      "Name": "Setting"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E714",
+      "Name": "Video"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E116",
+      "Name": "Video"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E895",
+      "Name": "Sync"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E117",
+      "Name": "Sync"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E896",
+      "Name": "Download"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E118",
+      "Name": "Download"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E715",
+      "Name": "Mail"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E119",
+      "Name": "Mail"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E11A",
+      "Name": "Find"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E897",
+      "Name": "Help"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E11B",
+      "Name": "Help"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E898",
+      "Name": "Upload"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E11C",
+      "Name": "Upload"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E899",
+      "Name": "Emoji"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E11D",
+      "Name": "Emoji"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E89A",
+      "Name": "TwoPage"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E11E",
+      "Name": "TwoPage"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E89B",
+      "Name": "LeaveChat"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E11F",
+      "Name": "LeaveChat"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E89C",
+      "Name": "MailForward"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E120",
+      "Name": "MailForward"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E121",
+      "Name": "Clock"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E724",
+      "Name": "Send"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E122",
+      "Name": "Send"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7A8",
+      "Name": "Crop"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E123",
+      "Name": "Crop"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E89E",
+      "Name": "RotateCamera"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E124",
+      "Name": "RotateCamera"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E716",
+      "Name": "People"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E125",
+      "Name": "People"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8A0",
+      "Name": "OpenPane"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E126",
+      "Name": "OpenPane"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E89F",
+      "Name": "ClosePane"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E127",
+      "Name": "ClosePane"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E909",
+      "Name": "World"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E128",
+      "Name": "World"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7C1",
+      "Name": "Flag"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E129",
+      "Name": "Flag"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8A1",
+      "Name": "PreviewLink"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E12A",
+      "Name": "PreviewLink"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E774",
+      "Name": "Globe"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E12B",
+      "Name": "Globe"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E78A",
+      "Name": "Trim"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E12C",
+      "Name": "Trim"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8A2",
+      "Name": "AttachCamera"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E12D",
+      "Name": "AttachCamera"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8A3",
+      "Name": "ZoomIn"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E12E",
+      "Name": "ZoomIn"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8A4",
+      "Name": "Bookmarks"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E12F",
+      "Name": "Bookmarks"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8A5",
+      "Name": "Document"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E130",
+      "Name": "Document"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8A6",
+      "Name": "ProtectedDocument"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E131",
+      "Name": "ProtectedDocument"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7C3",
+      "Name": "Page"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E132",
+      "Name": "Page"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E133",
+      "Name": "Bullets"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E90A",
+      "Name": "Comment"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E134",
+      "Name": "Comment"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E135",
+      "Name": "MailFilled"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E779",
+      "Name": "ContactInfo"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E136",
+      "Name": "ContactInfo"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E778",
+      "Name": "HangUp"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E137",
+      "Name": "HangUp"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8A9",
+      "Name": "ViewAll"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E138",
+      "Name": "ViewAll"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E707",
+      "Name": "MapPin"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E139",
+      "Name": "MapPin"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E717",
+      "Name": "Phone"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E13A",
+      "Name": "Phone"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8AA",
+      "Name": "VideoChat"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E13B",
+      "Name": "VideoChat"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8AB",
+      "Name": "Switch"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E13C",
+      "Name": "Switch"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E77B",
+      "Name": "Contact"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E13D",
+      "Name": "Contact"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8AC",
+      "Name": "Rename"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E13E",
+      "Name": "Rename"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E718",
+      "Name": "Pin"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E141",
+      "Name": "Pin"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E90B",
+      "Name": "MusicInfo"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E142",
+      "Name": "MusicInfo"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8AD",
+      "Name": "Go"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E143",
+      "Name": "Go"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E144",
+      "Name": "Keyboard"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E90C",
+      "Name": "DockLeft"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E145",
+      "Name": "DockLeft"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E90D",
+      "Name": "DockRight"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E146",
+      "Name": "DockRight"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E90E",
+      "Name": "DockBottom"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E147",
+      "Name": "DockBottom"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8AF",
+      "Name": "Remote"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E148",
+      "Name": "Remote"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E72C",
+      "Name": "Refresh"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E149",
+      "Name": "Refresh"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7AD",
+      "Name": "Rotate"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E14A",
+      "Name": "Rotate"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8B1",
+      "Name": "Shuffle"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E14B",
+      "Name": "Shuffle"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "EA37",
+      "Name": "List"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E14C",
+      "Name": "List"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E719",
+      "Name": "Shop"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E14D",
+      "Name": "Shop"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8B3",
+      "Name": "SelectAll"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E14E",
+      "Name": "SelectAll"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8B4",
+      "Name": "Orientation"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E14F",
+      "Name": "Orientation"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8B5",
+      "Name": "Import"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E150",
+      "Name": "Import"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8B6",
+      "Name": "ImportAll"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E151",
+      "Name": "ImportAll"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7C5",
+      "Name": "BrowsePhotos"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E155",
+      "Name": "BrowsePhotos"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8B8",
+      "Name": "Webcam"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E156",
+      "Name": "WebCam"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E158",
+      "Name": "Pictures"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E78C",
+      "Name": "SaveLocal"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E159",
+      "Name": "SaveLocal"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8BA",
+      "Name": "Caption"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E15A",
+      "Name": "Caption"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E71A",
+      "Name": "Stop"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E15B",
+      "Name": "Stop"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8BC",
+      "Name": "ShowResults"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E15C",
+      "Name": "ShowResults"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E767",
+      "Name": "Volume"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E15D",
+      "Name": "Volume"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E90F",
+      "Name": "Repair"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E15E",
+      "Name": "Repair"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8BD",
+      "Name": "Message"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E15F",
+      "Name": "Message"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E160",
+      "Name": "Page2"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8BF",
+      "Name": "CalendarDay"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E161",
+      "Name": "CalendarDay"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8C0",
+      "Name": "CalendarWeek"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E162",
+      "Name": "CalendarWeek"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E787",
+      "Name": "Calendar"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E163",
+      "Name": "Calendar"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E164",
+      "Name": "Character"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8C2",
+      "Name": "MailReplyAll"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E165",
+      "Name": "MailReplyAll"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8C3",
+      "Name": "Read"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E166",
+      "Name": "Read"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E71B",
+      "Name": "Link"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E167",
+      "Name": "Link"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E168",
+      "Name": "Account"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8C4",
+      "Name": "ShowBcc"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E169",
+      "Name": "ShowBcc"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8C5",
+      "Name": "HideBcc"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E16A",
+      "Name": "HideBcc"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8C6",
+      "Name": "Cut"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E16B",
+      "Name": "Cut"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E723",
+      "Name": "Attach"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E16C",
+      "Name": "Attach"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E77F",
+      "Name": "Paste"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E16D",
+      "Name": "Paste"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E71C",
+      "Name": "Filter"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E16E",
+      "Name": "Filter"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8C8",
+      "Name": "Copy"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E16F",
+      "Name": "Copy"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E76E",
+      "Name": "Emoji2"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E170",
+      "Name": "Emoji2"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8C9",
+      "Name": "Important"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E171",
+      "Name": "Important"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8CA",
+      "Name": "MailReply"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E172",
+      "Name": "MailReply"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E786",
+      "Name": "Slideshow"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E173",
+      "Name": "SlideShow"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8CB",
+      "Name": "Sort"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E174",
+      "Name": "Sort"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E912",
+      "Name": "Manage"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E178",
+      "Name": "Manage"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E71D",
+      "Name": "AllApps"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E179",
+      "Name": "AllApps"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8CD",
+      "Name": "DisconnectDrive"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E17A",
+      "Name": "DisconnectDrive"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8CE",
+      "Name": "MapDrive"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E17B",
+      "Name": "MapDrive"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E78B",
+      "Name": "NewWindow"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E17C",
+      "Name": "NewWindow"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7AC",
+      "Name": "OpenWith"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E17D",
+      "Name": "OpenWith"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8CF",
+      "Name": "ContactPresence"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E181",
+      "Name": "ContactPresence"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8D0",
+      "Name": "Priority"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E182",
+      "Name": "Priority"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8D1",
+      "Name": "GotoToday"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E184",
+      "Name": "GoToToday"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8D2",
+      "Name": "Font"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E185",
+      "Name": "Font"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8D3",
+      "Name": "FontColor"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E186",
+      "Name": "FontColor"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8D4",
+      "Name": "Contact2"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E187",
+      "Name": "Contact2"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8B7",
+      "Name": "Folder"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E188",
+      "Name": "Folder"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8D6",
+      "Name": "Audio"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E189",
+      "Name": "Audio"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E18A",
+      "Name": "Placeholder"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E890",
+      "Name": "View"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E18B",
+      "Name": "View"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7B5",
+      "Name": "SetlockScreen"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E18C",
+      "Name": "SetLockScreen"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E97B",
+      "Name": "SetTile"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E18D",
+      "Name": "SetTile"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E190",
+      "Name": "ClosedCaption"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E191",
+      "Name": "StopSlideShow"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8D7",
+      "Name": "Permissions"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E192",
+      "Name": "Permissions"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7E6",
+      "Name": "Highlight"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E193",
+      "Name": "Highlight"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8D8",
+      "Name": "DisableUpdates"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E194",
+      "Name": "DisableUpdates"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8D9",
+      "Name": "Unfavorite"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E195",
+      "Name": "UnFavorite"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E77A",
+      "Name": "Unpin"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E196",
+      "Name": "UnPin"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8DA",
+      "Name": "OpenLocal"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E197",
+      "Name": "OpenLocal"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E74F",
+      "Name": "Mute"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E198",
+      "Name": "Mute"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8DB",
+      "Name": "Italic"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E199",
+      "Name": "Italic"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8DC",
+      "Name": "Underline"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E19A",
+      "Name": "Underline"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8DD",
+      "Name": "Bold"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E19B",
+      "Name": "Bold"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8DE",
+      "Name": "MoveToFolder"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E19C",
+      "Name": "MoveToFolder"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8DF",
+      "Name": "LikeDislike"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E19D",
+      "Name": "LikeDislike"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8E0",
+      "Name": "Dislike"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E19E",
+      "Name": "Dislike"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8E1",
+      "Name": "Like"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E19F",
+      "Name": "Like"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8E2",
+      "Name": "AlignRight"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1A0",
+      "Name": "AlignRight"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8E3",
+      "Name": "AlignCenter"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1A1",
+      "Name": "AlignCenter"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8E4",
+      "Name": "AlignLeft"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1A2",
+      "Name": "AlignLeft"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E71E",
+      "Name": "Zoom"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1A3",
+      "Name": "Zoom"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E71F",
+      "Name": "ZoomOut"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1A4",
+      "Name": "ZoomOut"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8E5",
+      "Name": "OpenFile"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1A5",
+      "Name": "OpenFile"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7EE",
+      "Name": "OtherUser"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1A6",
+      "Name": "OtherUser"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7EF",
+      "Name": "Admin"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1A7",
+      "Name": "Admin"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E913",
+      "Name": "Street"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1C3",
+      "Name": "Street"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1C4",
+      "Name": "Map"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8E6",
+      "Name": "ClearSelection"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1C5",
+      "Name": "ClearSelection"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8E7",
+      "Name": "FontDecrease"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1C6",
+      "Name": "FontDecrease"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8E8",
+      "Name": "FontIncrease"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1C7",
+      "Name": "FontIncrease"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8E9",
+      "Name": "FontSize"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1C8",
+      "Name": "FontSize"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8EA",
+      "Name": "CellPhone"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1C9",
+      "Name": "CellPhone"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8EB",
+      "Name": "Reshare"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1CA",
+      "Name": "ReShare"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8EC",
+      "Name": "Tag"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1CB",
+      "Name": "Tag"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8ED",
+      "Name": "RepeatOne"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1CC",
+      "Name": "RepeatOne"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8EE",
+      "Name": "RepeatAll"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1CD",
+      "Name": "RepeatAll"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1CE",
+      "Name": "OutlineStar"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1CF",
+      "Name": "SolidStar"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8EF",
+      "Name": "Calculator"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1D0",
+      "Name": "Calculator"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8F0",
+      "Name": "Directions"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1D1",
+      "Name": "Directions"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1D2",
+      "Name": "Target"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8F1",
+      "Name": "Library"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1D3",
+      "Name": "Library"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E780",
+      "Name": "PhoneBook"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1D4",
+      "Name": "PhoneBook"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E77C",
+      "Name": "Memo"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1D5",
+      "Name": "Memo"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E720",
+      "Name": "Microphone"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1D6",
+      "Name": "Microphone"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8F3",
+      "Name": "PostUpdate"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1D7",
+      "Name": "PostUpdate"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E73F",
+      "Name": "BackToWindow"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1D8",
+      "Name": "BackToWindow"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E740",
+      "Name": "FullScreen"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1D9",
+      "Name": "FullScreen"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8F4",
+      "Name": "NewFolder"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1DA",
+      "Name": "NewFolder"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8F5",
+      "Name": "CalendarReply"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1DB",
+      "Name": "CalendarReply"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8F6",
+      "Name": "UnsyncFolder"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1DD",
+      "Name": "UnSyncFolder"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E730",
+      "Name": "ReportHacked"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1DE",
+      "Name": "ReportHacked"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8F7",
+      "Name": "SyncFolder"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1DF",
+      "Name": "SyncFolder"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8F8",
+      "Name": "BlockContact"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1E0",
+      "Name": "BlockContact"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8F9",
+      "Name": "SwitchApps"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1E1",
+      "Name": "SwitchApps"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8FA",
+      "Name": "AddFriend"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1E2",
+      "Name": "AddFriend"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7C9",
+      "Name": "TouchPointer"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1E3",
+      "Name": "TouchPointer"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8FC",
+      "Name": "GoToStart"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1E4",
+      "Name": "GoToStart"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E904",
+      "Name": "ZeroBars"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1E5",
+      "Name": "ZeroBars"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E905",
+      "Name": "OneBar"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1E6",
+      "Name": "OneBar"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E906",
+      "Name": "TwoBars"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1E7",
+      "Name": "TwoBars"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E907",
+      "Name": "ThreeBars"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1E8",
+      "Name": "ThreeBars"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E908",
+      "Name": "FourBars"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E1E9",
+      "Name": "FourBars"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8FE",
+      "Name": "Scan"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E294",
+      "Name": "Scan"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  },
+  {
+    "Destination": {
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8FF",
+      "Name": "Preview"
+    },
+    "Source": {
+      "IconSet": "SegoeUISymbol",
+      "UnicodePoint": "E295",
+      "Name": "Preview"
+    },
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": false,
+    "Comments": ""
+  }
+]
