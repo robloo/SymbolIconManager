@@ -829,7 +829,7 @@
     "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": true,
-    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
+    "Comments": ""
   },
   {
     "Destination": {
@@ -1050,24 +1050,24 @@
       "UnicodePoint": "E143",
       "Name": "Go"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
   {
     "Destination": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E765",
+      "Name": "KeyboardClassic"
     },
     "Source": {
       "IconSet": "SegoeUISymbol",
       "UnicodePoint": "E144",
       "Name": "Keyboard"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1082,8 +1082,8 @@
       "UnicodePoint": "E145",
       "Name": "DockLeft"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1098,8 +1098,8 @@
       "UnicodePoint": "E146",
       "Name": "DockRight"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1114,8 +1114,8 @@
       "UnicodePoint": "E147",
       "Name": "DockBottom"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1130,8 +1130,8 @@
       "UnicodePoint": "E148",
       "Name": "Remote"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1146,8 +1146,8 @@
       "UnicodePoint": "E149",
       "Name": "Refresh"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1162,8 +1162,8 @@
       "UnicodePoint": "E14A",
       "Name": "Rotate"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1178,26 +1178,26 @@
       "UnicodePoint": "E14B",
       "Name": "Shuffle"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
   {
     "Destination": {
       "IconSet": "SegoeMDL2Assets",
-      "UnicodePoint": "EA37",
-      "Name": "List"
+      "UnicodePoint": "E8FD",
+      "Name": "BulletedList"
     },
     "Source": {
       "IconSet": "SegoeUISymbol",
       "UnicodePoint": "E14C",
       "Name": "List"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
   },
   {
     "Destination": {
@@ -1210,8 +1210,8 @@
       "UnicodePoint": "E14D",
       "Name": "Shop"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1226,8 +1226,8 @@
       "UnicodePoint": "E14E",
       "Name": "SelectAll"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1242,8 +1242,8 @@
       "UnicodePoint": "E14F",
       "Name": "Orientation"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1258,8 +1258,8 @@
       "UnicodePoint": "E150",
       "Name": "Import"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1274,8 +1274,8 @@
       "UnicodePoint": "E151",
       "Name": "ImportAll"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1290,10 +1290,10 @@
       "UnicodePoint": "E155",
       "Name": "BrowsePhotos"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Design was changed, this is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
   },
   {
     "Destination": {
@@ -1306,26 +1306,26 @@
       "UnicodePoint": "E156",
       "Name": "WebCam"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
   {
     "Destination": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8B9",
+      "Name": "Picture"
     },
     "Source": {
       "IconSet": "SegoeUISymbol",
       "UnicodePoint": "E158",
       "Name": "Pictures"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Design was changed, this is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
   },
   {
     "Destination": {
@@ -1338,8 +1338,8 @@
       "UnicodePoint": "E159",
       "Name": "SaveLocal"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1354,8 +1354,8 @@
       "UnicodePoint": "E15A",
       "Name": "Caption"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1370,10 +1370,10 @@
       "UnicodePoint": "E15B",
       "Name": "Stop"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Keeping non-filled version to match with previous/next. Non-filled version is used in the SegoeMDL2Assets font at this codepoint."
   },
   {
     "Destination": {
@@ -1386,8 +1386,8 @@
       "UnicodePoint": "E15C",
       "Name": "ShowResults"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1402,8 +1402,8 @@
       "UnicodePoint": "E15D",
       "Name": "Volume"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1418,8 +1418,8 @@
       "UnicodePoint": "E15E",
       "Name": "Repair"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1434,24 +1434,24 @@
       "UnicodePoint": "E15F",
       "Name": "Message"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
   {
     "Destination": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E7C3",
+      "Name": "Page"
     },
     "Source": {
       "IconSet": "SegoeUISymbol",
       "UnicodePoint": "E160",
       "Name": "Page2"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1466,8 +1466,8 @@
       "UnicodePoint": "E161",
       "Name": "CalendarDay"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1482,8 +1482,8 @@
       "UnicodePoint": "E162",
       "Name": "CalendarWeek"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1498,24 +1498,24 @@
       "UnicodePoint": "E163",
       "Name": "Calendar"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
   {
     "Destination": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8C1",
+      "Name": "Characters"
     },
     "Source": {
       "IconSet": "SegoeUISymbol",
       "UnicodePoint": "E164",
       "Name": "Character"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1530,10 +1530,10 @@
       "UnicodePoint": "E165",
       "Name": "MailReplyAll"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Design was changed, this is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
   },
   {
     "Destination": {
@@ -1546,8 +1546,8 @@
       "UnicodePoint": "E166",
       "Name": "Read"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1562,24 +1562,24 @@
       "UnicodePoint": "E167",
       "Name": "Link"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
   {
     "Destination": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E910",
+      "Name": "Accounts"
     },
     "Source": {
       "IconSet": "SegoeUISymbol",
       "UnicodePoint": "E168",
       "Name": "Account"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1594,8 +1594,8 @@
       "UnicodePoint": "E169",
       "Name": "ShowBcc"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1610,8 +1610,8 @@
       "UnicodePoint": "E16A",
       "Name": "HideBcc"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1626,8 +1626,8 @@
       "UnicodePoint": "E16B",
       "Name": "Cut"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1642,8 +1642,8 @@
       "UnicodePoint": "E16C",
       "Name": "Attach"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1658,8 +1658,8 @@
       "UnicodePoint": "E16D",
       "Name": "Paste"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1674,8 +1674,8 @@
       "UnicodePoint": "E16E",
       "Name": "Filter"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1690,8 +1690,8 @@
       "UnicodePoint": "E16F",
       "Name": "Copy"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1706,8 +1706,8 @@
       "UnicodePoint": "E170",
       "Name": "Emoji2"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1722,8 +1722,8 @@
       "UnicodePoint": "E171",
       "Name": "Important"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1738,10 +1738,10 @@
       "UnicodePoint": "E172",
       "Name": "MailReply"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Design was changed, this is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
   },
   {
     "Destination": {
@@ -1754,8 +1754,8 @@
       "UnicodePoint": "E173",
       "Name": "SlideShow"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1770,8 +1770,8 @@
       "UnicodePoint": "E174",
       "Name": "Sort"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1786,8 +1786,8 @@
       "UnicodePoint": "E178",
       "Name": "Manage"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1802,8 +1802,8 @@
       "UnicodePoint": "E179",
       "Name": "AllApps"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1818,8 +1818,8 @@
       "UnicodePoint": "E17A",
       "Name": "DisconnectDrive"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1834,8 +1834,8 @@
       "UnicodePoint": "E17B",
       "Name": "MapDrive"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1850,8 +1850,8 @@
       "UnicodePoint": "E17C",
       "Name": "NewWindow"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1866,8 +1866,8 @@
       "UnicodePoint": "E17D",
       "Name": "OpenWith"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1882,8 +1882,8 @@
       "UnicodePoint": "E181",
       "Name": "ContactPresence"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1898,8 +1898,8 @@
       "UnicodePoint": "E182",
       "Name": "Priority"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1914,8 +1914,8 @@
       "UnicodePoint": "E184",
       "Name": "GoToToday"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1930,8 +1930,8 @@
       "UnicodePoint": "E185",
       "Name": "Font"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1946,8 +1946,8 @@
       "UnicodePoint": "E186",
       "Name": "FontColor"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1962,8 +1962,8 @@
       "UnicodePoint": "E187",
       "Name": "Contact2"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
