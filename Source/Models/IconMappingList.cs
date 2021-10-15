@@ -28,7 +28,7 @@ namespace IconManager
         {
             List<IconMapping> result = new List<IconMapping>();
 
-            foreach (var mapping in this)
+            foreach (IconMapping mapping in this)
             {
                 if (ignoreCase &&
                     string.Equals(mapping.Destination.Name, name, StringComparison.OrdinalIgnoreCase))
@@ -53,7 +53,7 @@ namespace IconManager
         {
             List<IconMapping> result = new List<IconMapping>();
 
-            foreach (var mapping in this)
+            foreach (IconMapping mapping in this)
             {
                 if (mapping.Destination.UnicodePoint == unicodePoint)
                 {
@@ -74,7 +74,7 @@ namespace IconManager
         {
             List<IconMapping> result = new List<IconMapping>();
 
-            foreach (var mapping in this)
+            foreach (IconMapping mapping in this)
             {
                 if (ignoreCase &&
                     string.Equals(mapping.Source.Name, name, StringComparison.OrdinalIgnoreCase))
@@ -99,7 +99,7 @@ namespace IconManager
         {
             List<IconMapping> result = new List<IconMapping>();
 
-            foreach (var mapping in this)
+            foreach (IconMapping mapping in this)
             {
                 if (mapping.Source.UnicodePoint == unicodePoint)
                 {
@@ -172,6 +172,48 @@ namespace IconManager
                     return x.Destination.IconSet.CompareTo(y.Destination.IconSet);
                 }
             });
+
+            return;
+        }
+
+        /// <summary>
+        /// Ensures all icon names are updated in the mapping list.
+        /// Any custom names for defined icon sets will be overwritten.
+        /// Undefined icon sets are not modified.
+        /// </summary>
+        public void UpdateNames()
+        {
+            foreach (var mapping in this)
+            {
+                if (mapping.Source.IconSet != IconSet.Undefined)
+                {
+                    mapping.Source.Name = IconSetBase.FindName(
+                        mapping.Source.IconSet,
+                        mapping.Source.UnicodePoint);
+                }
+
+                if (mapping.Destination.IconSet != IconSet.Undefined)
+                {
+                    mapping.Destination.Name = IconSetBase.FindName(
+                        mapping.Destination.IconSet,
+                        mapping.Destination.UnicodePoint);
+                }
+            }
+
+            return;
+        }
+
+        /// <summary>
+        /// Reprocesses the mappings list to repair and standardize each mapping.
+        /// This will ensure names are updated, etc.
+        /// </summary>
+        public void Reprocess()
+        {
+            this.UpdateNames();
+
+            // TODO: Remove duplicates?
+
+            // TODO: For known IconSets, ensure Unicode point is within range
 
             return;
         }
@@ -435,43 +477,6 @@ namespace IconManager
             }
 
             return mappings;
-        }
-
-        /// <summary>
-        /// Reprocesses an existing mappings list to repair and standardize each mapping.
-        /// This will ensure names are updated, entries are sorted, etc.
-        /// Warning: Unicode points are assumed valid.
-        /// </summary>
-        /// <param name="mappings">The mappings to reprocess.</param>
-        public static void ReprocessMappings(IconMappingList mappings)
-        {
-            // Update names, assumes Unicode points are valid
-            foreach (var mapping in mappings)
-            {
-                switch (mapping.Source.IconSet)
-                {
-                    case IconSet.SegoeFluent:
-                        mapping.Source.Name = SegoeFluent.FindName(mapping.Source.UnicodePoint);
-                        break;
-                    case IconSet.SegoeMDL2Assets:
-                        mapping.Source.Name = SegoeMDL2Assets.FindName(mapping.Source.UnicodePoint);
-                        break;
-                }
-
-                switch (mapping.Destination.IconSet)
-                {
-                    case IconSet.SegoeFluent:
-                        mapping.Destination.Name = SegoeFluent.FindName(mapping.Destination.UnicodePoint);
-                        break;
-                    case IconSet.SegoeMDL2Assets:
-                        mapping.Destination.Name = SegoeMDL2Assets.FindName(mapping.Destination.UnicodePoint);
-                        break;
-                }
-            }
-
-            // TODO: Remove duplicates?
-
-            return;
         }
     }
 }

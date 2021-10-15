@@ -382,7 +382,7 @@ namespace IconManager
                             mappings.Add(mapping);
                         }
 
-                        IconMappingList.ReprocessMappings(mappings);
+                        mappings.Reprocess();
                         IconMappingList.Save(mappings, fileStream);
                     }
                 }

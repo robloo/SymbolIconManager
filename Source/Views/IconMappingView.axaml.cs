@@ -182,7 +182,7 @@ namespace IconManager
                         mappings.Add(viewModel.AsIconMapping());
                     }
 
-                    IconMappingList.ReprocessMappings(mappings);
+                    mappings.Reprocess();
                     IconMappingList.Save(mappings, fileStream);
                 }
             }
