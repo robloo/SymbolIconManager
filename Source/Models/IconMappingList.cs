@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using System;
 
 namespace IconManager
 {
@@ -9,6 +10,110 @@ namespace IconManager
     /// </summary>
     public class IconMappingList : List<IconMapping>
     {
+        /***************************************************************************************
+         *
+         * Methods
+         *
+         ***************************************************************************************/
+
+        /// <summary>
+        /// Finds all mappings in the list that match the given destination name.
+        /// </summary>
+        /// <param name="name">The name of the destination icon to search for.</param>
+        /// <param name="ignoreCase">Whether to ignore character case of the name.</param>
+        /// <returns>A list of all matching icons.</returns>
+        public List<IconMapping> FindByDestinationName(string name, bool ignoreCase = true)
+        {
+            List<IconMapping> result = new List<IconMapping>();
+
+            foreach (var mapping in this)
+            {
+                if (ignoreCase &&
+                    string.Equals(mapping.Destination.Name, name, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.Add(mapping);
+                }
+                else if (string.Equals(mapping.Destination.Name, name, StringComparison.Ordinal))
+                {
+                    result.Add(mapping);
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Finds all mappings in the list that match the given destination Unicode point.
+        /// </summary>
+        /// <param name="unicodePoint">The Unicode point of the destination icon to search for..</param>
+        /// <returns>A list of all matching icons.</returns>
+        public List<IconMapping> FindByDestinationUnicode(uint unicodePoint)
+        {
+            List<IconMapping> result = new List<IconMapping>();
+
+            foreach (var mapping in this)
+            {
+                if (mapping.Destination.UnicodePoint == unicodePoint)
+                {
+                    result.Add(mapping);
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Finds all mappings in the list that match the given source name.
+        /// </summary>
+        /// <param name="name">The name of the source icon to search for.</param>
+        /// <param name="ignoreCase">Whether to ignore character case of the name.</param>
+        /// <returns>A list of all matching icons.</returns>
+        public List<IconMapping> FindBySourceName(string name, bool ignoreCase = true)
+        {
+            List<IconMapping> result = new List<IconMapping>();
+
+            foreach (var mapping in this)
+            {
+                if (ignoreCase &&
+                    string.Equals(mapping.Source.Name, name, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.Add(mapping);
+                }
+                else if (string.Equals(mapping.Source.Name, name, StringComparison.Ordinal))
+                {
+                    result.Add(mapping);
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Finds all mappings in the list that match the given source Unicode point.
+        /// </summary>
+        /// <param name="unicodePoint">The Unicode point of the source icon to search for..</param>
+        /// <returns>A list of all matching icons.</returns>
+        public List<IconMapping> FindBySourceUnicode(uint unicodePoint)
+        {
+            List<IconMapping> result = new List<IconMapping>();
+
+            foreach (var mapping in this)
+            {
+                if (mapping.Source.UnicodePoint == unicodePoint)
+                {
+                    result.Add(mapping);
+                }
+            }
+
+            return result;
+        }
+
+        /***************************************************************************************
+         *
+         * Static Methods
+         *
+         ***************************************************************************************/
+
         /// <summary>
         /// Loads a mapping list from the given stream.
         /// </summary>
