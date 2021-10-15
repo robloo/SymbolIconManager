@@ -211,9 +211,13 @@ namespace IconManager
             // Make sure to keep this code similar to IconMapping.IsValid
             // It is similar here because converting to an IconMapping and then
             // throwing it away isn't the best performance
-            if (this.SourceViewModel.IconSet == IconSet.Undefined ||
-                this.SourceViewModel.UnicodePoint == 0 ||
-                this.DestinationViewModel.IconSet == IconSet.Undefined ||
+            // Note that originally IconSet.Undefined was not allowed; however, it is now
+            // allowed for both source and destination icon sets. Undefined is used to build
+            // undefined fonts and undefined sources are used for custom SVG files by name.
+            if ((this.SourceViewModel.IconSet == IconSet.Undefined &&
+                 string.IsNullOrEmpty(this.SourceViewModel.Name)) ||
+                (this.SourceViewModel.IconSet != IconSet.Undefined &&
+                 this.SourceViewModel.UnicodePoint == 0) ||
                 this.DestinationViewModel.UnicodePoint == 0 ||
                 this.IsPlaceholder)
             {
