@@ -45,7 +45,7 @@
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Keeping non-filled version to match with previous/next. Non-filled version is used in the SegoeMDL2Assets font at this codepoint."
+    "Comments": "Keeping non-filled version to match with previous/next. Non-filled version is used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -253,7 +253,7 @@
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Non-filled version is used in the SegoeMDL2Assets font at this codepoint"
+    "Comments": "Non-filled version is used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -317,7 +317,7 @@
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Filled version is used in the SegoeMDL2Assets font at this codepoint"
+    "Comments": "Filled version is used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -365,7 +365,7 @@
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Non-filled version is used in the SegoeMDL2Assets font at this codepoint"
+    "Comments": "Non-filled version is used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -541,7 +541,7 @@
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
+    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -557,7 +557,7 @@
     "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint. The design was changed between SegoeUISymbol and SegoeMDL2Assets fonts."
+    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint. The design was changed between SegoeUISymbol and SegoeMDL2Assets fonts. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -813,7 +813,7 @@
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Non-filled version is used in the SegoeMDL2Assets font at this codepoint"
+    "Comments": "Non-filled version is used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -829,7 +829,7 @@
     "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": true,
-    "Comments": ""
+    "Comments": "Can't seem to locate the correct list that matches with SegoeMDL2Assets. The correct list has two check marks to the left of the list."
   },
   {
     "Destination": {
@@ -861,7 +861,7 @@
     "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
+    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -989,7 +989,7 @@
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Non-filled version is used in the SegoeMDL2Assets font at this codepoint"
+    "Comments": "Non-filled version is used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -1021,7 +1021,7 @@
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Non-filled version is used in the SegoeMDL2Assets font at this codepoint"
+    "Comments": "Non-filled version is used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -1197,7 +1197,7 @@
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
+    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -1293,7 +1293,7 @@
     "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Design was changed, this is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
+    "Comments": "Design was changed, this is the correct glyph used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -1325,7 +1325,7 @@
     "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Design was changed, this is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
+    "Comments": "Design was changed, this is the correct glyph used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -1373,7 +1373,7 @@
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Keeping non-filled version to match with previous/next. Non-filled version is used in the SegoeMDL2Assets font at this codepoint."
+    "Comments": "Keeping non-filled version to match with previous/next. Non-filled version is used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -1533,7 +1533,7 @@
     "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Design was changed, this is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
+    "Comments": "Design was changed, this is the correct glyph used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -1741,7 +1741,7 @@
     "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Design was changed, this is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
+    "Comments": "Design was changed, this is the correct glyph used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -1970,18 +1970,18 @@
   {
     "Destination": {
       "IconSet": "SegoeMDL2Assets",
-      "UnicodePoint": "E8B7",
-      "Name": "Folder"
+      "UnicodePoint": "E8D5",
+      "Name": "FolderFill"
     },
     "Source": {
       "IconSet": "SegoeUISymbol",
       "UnicodePoint": "E188",
       "Name": "Folder"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "Filled version is used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -1994,8 +1994,8 @@
       "UnicodePoint": "E189",
       "Name": "Audio"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -2065,9 +2065,9 @@
   },
   {
     "Destination": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "E8BA",
+      "Name": "Caption"
     },
     "Source": {
       "IconSet": "SegoeUISymbol",
@@ -2075,25 +2075,25 @@
       "Name": "ClosedCaption"
     },
     "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "MetaphorMatchQuality": "Low",
+    "IsPlaceholder": true,
+    "Comments": "This is a placeholder since the correct CC glyph doesn't seem to exist in higher codepoints."
   },
   {
     "Destination": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "SegoeMDL2Assets",
+      "UnicodePoint": "F71D",
+      "Name": "StopPresenting"
     },
     "Source": {
       "IconSet": "SegoeUISymbol",
       "UnicodePoint": "E191",
       "Name": "StopSlideShow"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
+    "IsPlaceholder": true,
+    "Comments": "This is a placeholder as the correct glyph doesn't seem to exist in higher code points."
   },
   {
     "Destination": {
@@ -2125,7 +2125,7 @@
     "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Design was changed, this is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
+    "Comments": "Design was changed, this is the correct glyph used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -2141,7 +2141,7 @@
     "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Design was changed, this is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
+    "Comments": "Design was changed, this is the correct glyph used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -2477,7 +2477,7 @@
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
+    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -2701,7 +2701,7 @@
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
+    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -2765,7 +2765,7 @@
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Non-filled version is used in the SegoeMDL2Assets font at this codepoint"
+    "Comments": "Non-filled version is used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -2797,7 +2797,7 @@
     "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
+    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -2813,7 +2813,7 @@
     "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint."
+    "Comments": "This is the correct glyph used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
@@ -2829,7 +2829,7 @@
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Non-filled version is used in the SegoeMDL2Assets font at this codepoint"
+    "Comments": "Non-filled version is used in the SegoeMDL2Assets font at this codepoint. See: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-22000."
   },
   {
     "Destination": {
