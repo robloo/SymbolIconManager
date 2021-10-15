@@ -64,7 +64,7 @@
         SegoeMDL2Assets,
 
         /// <summary>
-        /// The Windows 7/8 Segoe UI Symbol icons (Windows symbols version 1).
+        /// The Windows 8 Segoe UI Symbol icons (Windows symbols version 1).
         /// </summary>
         SegoeUISymbol,
 

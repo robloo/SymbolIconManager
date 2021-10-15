@@ -39,8 +39,7 @@ namespace IconManager
                 case IconSet.SegoeMDL2Assets:
                     return SegoeMDL2Assets.FindName(unicodePoint);
                 case IconSet.SegoeUISymbol:
-                    // Not currently supported
-                    break;
+                    return SegoeUISymbol.FindName(unicodePoint);
                 case IconSet.WinJSSymbols:
                     return WinJSSymbols.FindName(unicodePoint);
             }
@@ -81,7 +80,7 @@ namespace IconManager
                     icons = SegoeMDL2Assets.Icons;
                     break;
                 case IconSet.SegoeUISymbol:
-                    // Not currently supported
+                    icons = SegoeUISymbol.Icons;
                     break;
                 case IconSet.WinJSSymbols:
                     icons = WinJSSymbols.Icons;

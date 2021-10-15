@@ -23,6 +23,7 @@
     <None Remove="Data\Mappings\SegoeFluent.json" />
     <None Remove="Data\SegoeFluent\SegoeFluentIcons.json" />
     <None Remove="Data\SegoeMDL2Assets\SegoeMDL2Assets.json" />
+    <None Remove="Data\SegoeUISymbol\SegoeUISymbol.json" />
     <None Remove="Data\WinJSSymbols\Symbols.json" />
     <None Remove="Data\WinJSSymbols\Symbols.ttf" />
   </ItemGroup>
@@ -45,6 +46,7 @@
     <AvaloniaResource Include="Data\Mappings\SegoeFluent.json" />
     <AvaloniaResource Include="Data\SegoeFluent\SegoeFluentIcons.json" />
     <AvaloniaResource Include="Data\SegoeMDL2Assets\SegoeMDL2Assets.json" />
+    <AvaloniaResource Include="Data\SegoeUISymbol\SegoeUISymbol.json" />
     <AvaloniaResource Include="Data\WinJSSymbols\Symbols.json" />
     <AvaloniaResource Include="Data\WinJSSymbols\Symbols.ttf" />
   </ItemGroup>

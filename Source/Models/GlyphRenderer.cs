@@ -48,8 +48,7 @@ namespace IconManager
             Bitmap? result = null;
 
             // Quickly return for unsupported icon sets
-            if (iconSet == IconSet.Undefined ||
-                iconSet == IconSet.SegoeUISymbol)
+            if (iconSet == IconSet.Undefined)
             {
                 return null;
             }
@@ -200,7 +199,8 @@ namespace IconManager
                 });
             }
             else if (iconSet == IconSet.SegoeFluent ||
-                     iconSet == IconSet.SegoeMDL2Assets)
+                     iconSet == IconSet.SegoeMDL2Assets ||
+                     iconSet == IconSet.SegoeUISymbol)
             {
                 // These icon sets are Microsoft proprietary and the fonts cannot be used on non-Windows systems
                 // Therefore, the font is not packaged with the application and there is no guarantee it will be on the system either
@@ -210,7 +210,7 @@ namespace IconManager
 
                 using (Stream? imageStream = await GlyphRenderer.GetGlyphSourceStreamAsync(iconSet, unicodePoint))
                 {
-                    return new Bitmap(imageStream);
+                    return (imageStream == null ? null : new Bitmap(imageStream));
                 }
             }
 
@@ -261,10 +261,8 @@ namespace IconManager
                     break;
                 case IconSet.SegoeFluent:
                 case IconSet.SegoeMDL2Assets:
-                    possibleSources.Add(GlyphSource.RemotePngFile);
-                    break;
                 case IconSet.SegoeUISymbol:
-                    // Not available anywhere
+                    possibleSources.Add(GlyphSource.RemotePngFile);
                     break;
                 case IconSet.WinJSSymbols:
                     possibleSources.Add(GlyphSource.LocalFontFile);
@@ -479,6 +477,36 @@ namespace IconManager
                 {
                     string baseUrl = @"https://docs.microsoft.com/en-us/windows/apps/design/style/images/segoe-mdl/";
                     return new Uri(baseUrl + Icon.ToUnicodeHexString(unicodePoint) + ".png");
+                }
+                case IconSet.SegoeUISymbol:
+                {
+                    string name = SegoeUISymbol.FindName(unicodePoint).ToLowerInvariant();
+
+                    // Naming does not match 1-to-1 with the URL and there are some special cases
+                    // Special cases are defined here, separately
+                    switch (name)
+                    {
+                        case "account":
+                            name = "accounts";
+                            break;
+                        case "character":
+                            name = "characters";
+                            break;
+                        case "closedcaption":
+                            name = "cc";
+                            break;
+                        case "mailfilled":
+                            name = "mail2";
+                            break;
+                        case "page":
+                            name = "pageicon";
+                            break;
+                        case "setting":
+                            name = "settings";
+                            break;
+                    }
+
+                    return new Uri(@"https://docs.microsoft.com/en-us/previous-versions/windows/apps/images/jj841127." + name + @"(en-us,win.10).png");
                 }
             }
 
