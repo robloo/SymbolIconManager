@@ -430,25 +430,13 @@ namespace IconManager
             {
                 // To find the numerically closest match in size, simply find the difference from the desired size
                 // to actual size for each item, sort from smallest to largest, then take the first item
-                var closestMatch = matches.OrderBy(icon => Math.Abs(FluentUISystem.ToNumericalSize(desiredSize) - icon.NumericalSize)).First();
+                var closestMatch = matches.OrderBy(icon => Math.Abs((int)desiredSize - icon.NumericalSize)).First();
                         
                 return closestMatch;
             }
 
             return null;
         }
-
-        public static int ToNumericalSize(IconSize size) => size switch
-        {
-            IconSize.Size12 => (int)IconSize.Size12,
-            IconSize.Size16 => (int)IconSize.Size16,
-            IconSize.Size20 => (int)IconSize.Size20,
-            IconSize.Size24 => (int)IconSize.Size24,
-            IconSize.Size28 => (int)IconSize.Size28,
-            IconSize.Size32 => (int)IconSize.Size32,
-            IconSize.Size48 => (int)IconSize.Size48,
-            _ => 0, // Value is outside the defined enum values
-        };
 
         /// <summary>
         /// Rebuilds the given icon to match the desired size (or the next closest size available).
@@ -870,7 +858,7 @@ namespace IconManager
             /// </summary>
             public int NumericalSize
             {
-                get => ToNumericalSize(this.Size);
+                get => (int)this.Size;
             }
 
             /// <summary>
@@ -1117,7 +1105,7 @@ namespace IconManager
 
                             sb.Append(baseName);
                             sb.Append("_");
-                            sb.Append(FluentUISystem.ToNumericalSize(size).ToString(CultureInfo.InvariantCulture));
+                            sb.Append(((int)size).ToString(CultureInfo.InvariantCulture));
                             sb.Append("_");
 
                             switch (theme)
@@ -1138,7 +1126,7 @@ namespace IconManager
                     case NamingFormat.iOS:
                         {
                             sb.Append(baseName);
-                            sb.Append(FluentUISystem.ToNumericalSize(size).ToString(CultureInfo.InvariantCulture));
+                            sb.Append(((int)size).ToString(CultureInfo.InvariantCulture));
 
                             switch (theme)
                             {
