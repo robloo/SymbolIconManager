@@ -243,12 +243,46 @@ namespace IconManager
         }
 
         /// <summary>
+        /// Ensures all icons are updated to the latest versions.
+        /// Any deprecated icons that have a replacement will be overwritten.
+        /// Warning: It is best practice to ensure all names are updated before calling this method.
+        /// </summary>
+        public void UpdateDeprecatedIcons()
+        {
+            foreach (var mapping in this)
+            {
+                // Currently, only deprecated Fluent UI System icons are relevant
+                if (mapping.Source.IconSet == IconSet.FluentUISystemFilled ||
+                    mapping.Source.IconSet == IconSet.FluentUISystemRegular)
+                {
+                    var icon = new FluentUISystem.Icon()
+                    {
+                        Name         = mapping.Source.Name,
+                        UnicodePoint = mapping.Source.UnicodePoint
+                        // IconSet is set automatically with the name
+                    };
+
+                    // Just assume it is deprecated as a search would take just as long
+                    var result = FluentUISystem.UpdateDeprecated(icon);
+
+                    if (result.Item1)
+                    {
+                        mapping.Source = result.Item2.AsIcon();
+                    }
+                }
+            }
+
+            return;
+        }
+
+        /// <summary>
         /// Reprocesses the mappings list to repair and standardize each mapping.
         /// This will ensure names are updated, etc.
         /// </summary>
         public void Reprocess()
         {
             this.UpdateNames();
+            this.UpdateDeprecatedIcons();
 
             // TODO: Remove duplicates?
 

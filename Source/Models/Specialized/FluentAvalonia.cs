@@ -276,6 +276,9 @@ namespace IconManager.Specialized
                 mappings.Add(newMapping);
             }
 
+            // Remove any deprecated icons (this list is known out of date)
+            mappings.Reprocess();
+
             return mappings;
         }
 
