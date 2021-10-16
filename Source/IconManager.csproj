@@ -10,6 +10,7 @@
     <None Remove="Data\FluentUISystem\FluentSystemIcons-Regular.json" />
     <None Remove="Data\FluentUISystem\FluentSystemIcons-Regular.ttf" />
     <None Remove="Data\FluentUISystem\FluentUISystemGlyphSources.json" />
+    <None Remove="Data\FluentUISystem\FluentUISystemRenamedIcons.txt" />
     <None Remove="Data\LineAwesome\la-brands-400.json" />
     <None Remove="Data\LineAwesome\la-brands-400.ttf" />
     <None Remove="Data\LineAwesome\la-regular-400.json" />
@@ -34,6 +35,7 @@
     <AvaloniaResource Include="Data\FluentUISystem\FluentSystemIcons-Regular.json" />
     <AvaloniaResource Include="Data\FluentUISystem\FluentSystemIcons-Regular.ttf" />
     <AvaloniaResource Include="Data\FluentUISystem\FluentUISystemGlyphSources.json" />
+    <AvaloniaResource Include="Data\FluentUISystem\FluentUISystemRenamedIcons.txt" />
     <AvaloniaResource Include="Data\LineAwesome\la-brands-400.json" />
     <AvaloniaResource Include="Data\LineAwesome\la-brands-400.ttf" />
     <AvaloniaResource Include="Data\LineAwesome\la-regular-400.json" />

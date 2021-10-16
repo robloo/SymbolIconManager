@@ -1,0 +1,312 @@
+
+// October 8, 2021
+// Deprecate old files that have been renamed #331
+// https://github.com/microsoft/fluentui-system-icons/pull/331
+// -and-
+// Spnels/2021 06 07 renamed icons #283
+// https://github.com/microsoft/fluentui-system-icons/pull/283
+
+Arrow Growth → Arrow Trending Lines
+AutoFit Content → Arrow Autofit Content
+Calendar Overdue → Calendar Error
+Cellular Unavailable → Cellular Warning
+Circle Subtract Arrow Back → Subtract Circle Arrow Back
+Circle Subtract Arrow Forward → Subtract Circle Arrow Forward
+Cloud Add → Cloud Plus
+Cloud Backup → Cloud Arrow Up
+Cloud Download → Cloud Arrow Down
+Cloud Off → Cloud Dismiss
+Cloud Offline → Cloud Off
+Cloud Sync Complete → Cloud Checkmark
+Convert To Table → Scan Table
+Convert To Text → Scan Text
+Convert To Type → Scan Type
+Dock Panel Left → Panel Left
+Dock Panel Right → Panel Right
+Dock Panel Top → Panel Top
+Document Header Remove → Document Header Dismiss
+Extension → Puzzle Piece
+// Modified to split apart the names
+//iOS Arrow Left & Right → iOS Arrow LTR & RTL
+iOS Arrow Left → iOS Arrow LTR
+iOS Arrow Right → iOS Arrow RTL
+// End of modification
+Mail All → Mail Multiple
+//Office Apps to Grid Dots
+Office Apps → Grid Dots
+// End of modification
+Pane Close → Panel Right Expand
+Pane Open → Panel Right Contract
+Restore → Square Multiple
+Set Top Stack → Stack Star
+Shield Checkmark → Shield Task
+Signed → Checkmark Starburst
+Slide Design → Text More A
+Text Add → Text Add T
+Text → Text T
+Usb Port → USB Plug
+Usb Stick → USB Stick
+WIFI Protected → WIFI Lock
+
+// June 4, 2021
+// Adding new icons for sprint merge. #272
+// https://github.com/microsoft/fluentui-system-icons/pull/272
+
+Text Direction Rotate 270 → Text Direction Rotate 270 LTR
+//All AC icons have been placed in ko sub-folder
+
+// May 28, 2021
+// Hotfix for names with LTR/RTL in them to avoid conflicts in iOS Library #267
+// https://github.com/microsoft/fluentui-system-icons/pull/267
+
+// Unsure how to map this change
+//Removes Text Bullet List (this should have been Text Bullet List Tree and is already in with that name)
+//Renames Text Direction Rotate 90 -> Text Direction Rotate 90 LTR (RTL is already in)
+
+// May 25, 2021
+// Use one imageset instead of two for LTR and RTL icons #262
+// https://github.com/microsoft/fluentui-system-icons/pull/262
+
+// Unsure how to map this change
+//ic_fluent_arrow_export_ltr_20_filled → ic_fluent_arrow_export_20_filled
+//ic_fluent_arrow_export_rtl_20_filled → ic_fluent_arrow_export_20_filled
+
+// January 29, 2021
+// Adding icons for sprint merge. #169
+// https://github.com/microsoft/fluentui-system-icons/pull/169
+
+Calendar → Calendar LTR
+Clipboard Text → Clipboard Text LTR
+Document Unknown → Document Question Mark
+Re Order Dots → Re Order Dots Vertical
+Task List → Task List LTR
+Text Bullet List → Text Bullet List LTR
+Text Strikethrough → Text Strikethrough S
+
+// January 15, 2021
+// Sprint Merge #161
+// https://github.com/microsoft/fluentui-system-icons/pull/161
+
+Attach Arrow Left → Attach Arrow Right
+Contacts → Book Contacts
+Dual Screen Error → Dual Screen Dismiss
+Fast Mode → Animal Rabbit
+Reciept → Receipt
+Slow Mode → Animal Turtle
+Sport General → Sport
+
+// November 19, 2020
+// Adding icons from sprint merge. #135
+// https://github.com/microsoft/fluentui-system-icons/pull/135
+
+Arrow Rotate Right → Rotate Right
+Arrow Rotate Left → Rotate Left
+Checklist → Checkmark
+Send Logging → Pulse Square
+
+// November 6, 2020
+// Adding & updating icons for sprint merge. #118
+// https://github.com/microsoft/fluentui-system-icons/pull/118
+
+Test Call → Video Person Call
+Document Dismiss → Document Dismiss
+Favorites → Star Line Horizontal 3
+Shifts Approve → Shifts Checkmark
+Share Desktop → Desktop Arrow Right
+Table Delete → Table Dismiss
+
+// October 30, 2020
+// Teams icon merge #110
+// https://github.com/microsoft/fluentui-system-icons/pull/110
+
+Assignments → Backpack
+Channel Follow → Channel Arrow Left
+Channel Unfollow → Channel Dismiss
+Channel Notifications → Channel Alert
+Comment Resolve → Comment Checkmark
+Gallery → Table Simple
+
+// October 23, 2020
+// Sprint Merge #104
+// https://github.com/microsoft/fluentui-system-icons/pull/104
+
+Arrow Curve Left → Arrow Hook Down Left
+Arrow Curve Right → Arrow Hook Down Right
+Hand Raise → Hand Left
+Remove → Minimize
+Remove Recent → Clock Dismiss
+Shifts 24H → Shifts Day
+Sports → Sport
+
+// October 9, 2020
+// Jacust/2020 10 09 sprint merge #98
+// https://github.com/microsoft/fluentui-system-icons/pull/98
+
+Activity → Pulse
+Erase → Eraser
+Owner → Ribbon
+Recommended → Ribbon Star
+Subway → Vehicle Subway
+
+// October 6, 2020
+// Small addition for Teams push. #95
+// https://github.com/microsoft/fluentui-system-icons/pull/95
+
+Music → Music Note
+
+// September 25, 2020
+// Sprint merge (Sept 14th - 25th) #90
+// https://github.com/microsoft/fluentui-system-icons/pull/90
+
+Attach Forward → Attach Arrow Right
+Attach With Text → Attach
+Book Formula Compatibility → Book Exclamation Mark
+Book Formula Database → Book Database
+Book Formula Date → Book Clock
+Book Formula Engineering → Book Compass
+Book Formula Financial → Book Coins
+Book Formula Information → Book Information
+Book Formula Logical → Book Question Mark
+Book Formula Lookup → Book Search
+Book Formula Math → Book Theta
+Book Formula Recent → Book Star
+Book Formula Text → Book Letter
+Book Formula → Book Pulse
+Dictionary Add → Book Add
+Dictionary → Book
+Pen Settings → Edit Settings
+Person Block → Person Prohibited
+Proofread Language → Book Open Globe
+Reading Mode → Book Open
+Team Add → People Team Add
+Team Delete → People Team Dismiss
+
+// September 18, 2020
+// Mini merge for Outlook and Teams icons. #86
+// https://github.com/microsoft/fluentui-system-icons/pull/86
+
+Bug Report → Bug
+
+// September 11, 2020
+// Adding icons for biweekly merge. #84
+// https://github.com/microsoft/fluentui-system-icons/pull/84
+
+Arrow Rotate → Arrow Rotate Right
+Bank → Building Bank
+Building 1 → Building
+Building 2 → Building Skyscraper
+//This cannot be automatically updated as 'Building' is still valid
+//Building → Building Multiple
+Manufacturer → Building Factory
+Ship → Vehicle Ship
+Store → Building Shop
+Suggestion → Vote
+Weekend → Couch
+
+// August 14, 2020
+// Bi-weekly merge #69
+// https://github.com/microsoft/fluentui-system-icons/pull/69
+
+ic_fluent_calendar_available → ic_fluent_calendar_checkmark
+ic_fluent_calendar_recurring → ic_fluent_calendar_multiple
+ic_fluent_calendar_starred → ic_fluent_calendar_star
+ic_fluent_mark_read → ic_fluent_glasses
+ic_fluent_mark_unread → ic_fluent_glasses_off
+ic_fluent_none → ic_fluent_prohibited
+ic_fluent_person_tentative → ic_fluent_person_question_mark
+ic_fluent_safe → ic_fluent_shield_keyhole
+ic_fluent_settings_dev → ic_fluent_options
+ic_fluent_shield_none → ic_fluent_shield_prohibited
+ic_fluent_star_none → ic_fluent_star_prohibited
+ic_fluent_upgrade → ic_fluent_cart
+
+// July 31, 2020
+// Adding biweekly merge icons. #65
+// https://github.com/microsoft/fluentui-system-icons/pull/65
+
+ic_fluent_drive_mode → ic_fluent_vehicle_car
+ic_fluent_PSTN_call → ic_fluent_person_call
+ic_fluent_switch_video → ic_fluent_video_switch
+ic_fluent_site_blocked → ic_fluent_shield_dismiss
+ic_fluent_site_warning → ic_fluent_shield_error
+ic_fluent_video_incoming → ic_fluent_video_person
+ic_fluent_video_incoming_off → ic_fluent_video_person_off
+
+// July 17, 2020
+// jacust/2020_07_17_weekly_merge #51
+// https://github.com/microsoft/fluentui-system-icons/pull/51
+
+ic_fluent_help_circle → ic_fluent_question_circle
+ic_fluent_organization_chart → ic_fluent_organization
+
+// July 10, 2020
+// Jacust/2020 06 10 weekly merge #47
+// https://github.com/microsoft/fluentui-system-icons/pull/47
+
+ic_fluent_duo → ic_fluent_dual_screen
+ic_fluent_duo_add → ic_fluent_dual_screen_add
+ic_fluent_duo_desktop → ic_fluent_dual_screen_desktop
+ic_fluent_duo_error → ic_fluent_dual_screen_error
+ic_fluent_duo_group → ic_fluent_dual_screen_group
+ic_fluent_duo_home_lock → ic_fluent_dual_screen_lock
+ic_fluent_duo_link_setup → ic_fluent_dual_screen_settings
+ic_fluent_duo_page_header → ic_fluent_dual_screen_header
+ic_fluent_duo_pagination → ic_fluent_dual_screen_pagination
+ic_fluent_duo_screen_time → ic_fluent_dual_screen_clock
+ic_fluent_duo_status_bar → ic_fluent_dual_screen_status_bar
+ic_fluent_duo_tablet → ic_fluent_dual_screen_tablet
+ic_fluent_duo_to_pc → ic_fluent_dual_screen_arrow_right
+ic_fluent_duo_update → ic_fluent_dual_screen_update
+ic_fluent_duo_vertical Scroll → ic_fluent_dual_screen_vertical_scroll
+ic_fluent_duo_vibrate → ic_fluent_dual_screen_vibrate
+ic_fluent_fit_width → ic_fluent_screen_fit
+ic_fluent_report_warning → ic_fluent_text_bullet_list_square_warning
+
+// July 3, 2020
+// Corrected text_strikethrough_20_fiiled to text_strikethrough_20_filled #42
+// https://github.com/microsoft/fluentui-system-icons/pull/42
+
+text_strikethrough_20_fiiled.pdf -> text_strikethrough_20_filled.pdf
+text_strikethrough_20_fiiled.svg -> text_strikethrough_20_filled.svg
+
+// June 26, 2020
+// jacust/2020_06_26_weeklyMerge #39
+// https://github.com/microsoft/fluentui-system-icons/pull/39
+
+ic_fluent_tab_arrow_clockwise →ic_fluent_tab_desktop_arrow_clockwise
+ic_fluent_tab_image → ic_fluent_tab_desktop
+ic_fluent_track_change_previous → ic_fluent_text_change_previous
+
+// June 18, 2020
+// Net changes 06.18.2020 #22
+// https://github.com/microsoft/fluentui-system-icons/pull/22
+
+Background → Color Background
+Document Page Number → Document Page Number
+Document Top Center → Document Page Top Center
+Document Top Left → Document Page Top Left
+Document Top Right → Document Page Top Right
+Tab New Page → Tab Desktop New Page
+
+// June 5, 2020
+// Net Changes as of 05 June 2020 #17
+// https://github.com/microsoft/fluentui-system-icons/pull/17
+
+ic_fluent_background → ic_fluent_color_background
+ic_fluent_background_effects → ic_fluent_video_color_background
+ic_fluent_incoming_video → ic_fluent_video_incoming
+ic_fluent_incoming_video_off → ic_fluent_video_incoming_off
+ic_fluent_page_view → ic_fluent_globe_search
+
+// June 1, 2020
+// Net Changes as of 29 May 2020 #8
+// https://github.com/microsoft/fluentui-system-icons/pull/8
+
+ic_fluent_triple_column_24_filled -> ic_fluent_column_triple_24_filled
+ic_fluent_triple_column_24_regular -> ic_fluent_column_triple_24_regular
+ic_fluent_hub_24_filled -> ic_fluent_favorites_24_filled
+ic_fluent_hub_24_regular -> ic_fluent_favorites_24_regular
+ic_fluent_hub_20_filled -> ic_fluent_favorites_20_filled
+ic_fluent_hub_20_regular -> ic_fluent_favorites_20_regular
+ic_fluent_unsave_24_filled -> ic_fluent_bookmark_off_24_filled
+ic_fluent_unsave_240_regular -> ic_fluent_bookmark_off_20_regular
