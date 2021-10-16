@@ -33,11 +33,15 @@ namespace IconManager
                 {
                     if (sourceMapping.Destination.IsUnicodeMatch(destMapping.Destination))
                     {
-                        destMapping.Source               = sourceMapping.Source.Clone();
-                        destMapping.GlyphMatchQuality    = sourceMapping.GlyphMatchQuality;
-                        destMapping.MetaphorMatchQuality = sourceMapping.MetaphorMatchQuality;
-                        destMapping.IsPlaceholder        = sourceMapping.IsPlaceholder;
-                        // Exclude comments intentionally
+                        // Only copy over the source if it is valid
+                        if (sourceMapping.Source.IsValidForSource)
+                        {
+                            destMapping.Source               = sourceMapping.Source.Clone();
+                            destMapping.GlyphMatchQuality    = sourceMapping.GlyphMatchQuality;
+                            destMapping.MetaphorMatchQuality = sourceMapping.MetaphorMatchQuality;
+                            destMapping.IsPlaceholder        = sourceMapping.IsPlaceholder;
+                            // Exclude comments intentionally
+                        }
 
                         matchFound = true;
                         // Do not break, update all duplicates (Yes, this is slow)

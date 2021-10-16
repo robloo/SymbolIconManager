@@ -1,4 +1,6 @@
-﻿namespace IconManager
+﻿using Newtonsoft.Json;
+
+namespace IconManager
 {
     /// <summary>
     /// Represents basic, read-only information for an icon.
@@ -36,6 +38,7 @@
         /// Gets the value of the <see cref="UnicodePoint"/> formatted as a hexadecimal string.
         /// This value is intended for display to users and export in mappings files.
         /// </summary>
+        [JsonIgnore]
         string UnicodeHexString { get; }
     }
 }

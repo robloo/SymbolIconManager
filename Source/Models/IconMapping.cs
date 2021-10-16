@@ -108,33 +108,8 @@ namespace IconManager
         [JsonIgnore]
         public bool IsValid
         {
-            get
-            {
-                if (this.Source == null || this.Destination == null)
-                {
-                    return false;
-                }
-
-                // Note that originally IconSet.Undefined was not allowed.
-                // However, it is now allowed for both source and destination icon sets.
-                // Undefined destinations are used to build special fonts and undefined
-                // sources are used for custom SVG files by name.
-
-                if ((this.Source.IconSet == IconSet.Undefined &&
-                     string.IsNullOrEmpty(this.Source.Name)) ||
-                    (this.Source.IconSet != IconSet.Undefined &&
-                     this.Source.UnicodePoint == 0))
-                {
-                    return false;
-                }
-
-                if (this.Destination.UnicodePoint == 0)
-                {
-                    return false;
-                }
-
-                return true;
-            }
+            get => this.Source.IsValidForSource &&
+                   this.Destination.IsValidForDestination;
         }
 
         /// <summary>
@@ -145,10 +120,8 @@ namespace IconManager
         [JsonIgnore]
         public bool IsValidForFont
         {
-            get => this.Source != null &&
-                   this.Source.IconSet != IconSet.Undefined &&
+            get => this.Source.IconSet != IconSet.Undefined &&
                    this.Source.UnicodePoint != 0 &&
-                   this.Destination != null &&
                    // Destination.IconSet may be excluded entirely
                    this.Destination.UnicodePoint != 0;
         }

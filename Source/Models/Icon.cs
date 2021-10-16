@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 namespace IconManager
 {
@@ -34,7 +35,44 @@ namespace IconManager
         // Calculated
         ///////////////////////////////////////////////////////////
 
+        /// <summary>
+        /// Gets a value indicating weather the icon is considered valid as
+        /// a mapping destination.
+        /// </summary>
+        [JsonIgnore]
+        public bool IsValidForDestination
+        {
+            get => this.UnicodePoint != 0;
+        }
+
+        /// <summary>
+        /// Gets a value indicating weather the icon is considered valid as
+        /// a mapping source.
+        /// </summary>
+        [JsonIgnore]
+        public bool IsValidForSource
+        {
+            get
+            {
+                // Note that originally IconSet.Undefined was not allowed.
+                // However, it is now allowed for both source and destination icon sets.
+                // Undefined destinations are used to build special fonts and undefined
+                // sources are used for custom SVG files by name.
+
+                if ((this.IconSet == IconSet.Undefined &&
+                     string.IsNullOrEmpty(this.Name)) ||
+                    (this.IconSet != IconSet.Undefined &&
+                     this.UnicodePoint == 0))
+                {
+                    return false;
+                }
+
+                return true;
+            }
+        }
+
         /// <inheritdoc/>
+        [JsonIgnore]
         public string UnicodeHexString
         {
             get => ToUnicodeHexString(this.UnicodePoint);
