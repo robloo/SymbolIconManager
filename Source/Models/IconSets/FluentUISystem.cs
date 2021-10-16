@@ -63,8 +63,10 @@ namespace IconManager
         private static IReadOnlyList<Icon>? cachedIcons = null;
         private static IReadOnlyDictionary<uint, string>? cachedFilledNames  = null;
         private static IReadOnlyDictionary<uint, string>? cachedRegularNames = null;
+        private static IReadOnlyList<Tuple<string, string>> cachedDeprecatedNames = null;
 
-        private static object cacheMutex = new object();
+        private static object cacheMutex           = new object();
+        private static object deprecatedNamesMutex = new object();
 
         /***************************************************************************************
          *
@@ -136,6 +138,126 @@ namespace IconManager
             return;
         }
 
+        private static void RebuildDeprecatedNamesCache()
+        {
+            var deprecatedNames = new List<Tuple<string, string>>();
+            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
+
+            using (var sourceStream = assets.Open(new Uri("avares://IconManager/Data/FluentUISystem/FluentUISystemRenamedIcons.txt")))
+            using (var reader = new StreamReader(sourceStream))
+            {
+                string? line = reader.ReadLine();
+                while (line != null)
+                {
+                    if (string.IsNullOrEmpty(line) == false &&
+                        line.Trim().StartsWith("//") == false)
+                    {
+                        string[] namePair = line.Split(
+                            new string[] { "→", "->" },
+                            StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+
+                        if (namePair.Length != 2)
+                        {
+                            // Error parsing line, skip it
+                        }
+                        else
+                        {
+                            string originalName = namePair[0];
+                            string updatedName  = namePair[1];
+
+                            // Reduce to an interim base name
+                            originalName = ExtractBaseName(originalName);
+                            updatedName  = ExtractBaseName(updatedName);
+
+                            // Standardize into a universal base name key format
+                            originalName = IconName.ToBaseNameKey(originalName);
+                            updatedName  = IconName.ToBaseNameKey(updatedName);
+
+                            deprecatedNames.Add(Tuple.Create(originalName, updatedName));
+                        }
+                    }
+
+                    line = reader.ReadLine();
+                }
+            }
+
+            // Remove any entries that have the same original and updated names
+            for (int i = (deprecatedNames.Count - 1); i >= 0; i--)
+            {
+                if (string.Equals(deprecatedNames[i].Item1, deprecatedNames[i].Item2, StringComparison.OrdinalIgnoreCase))
+                {
+                    deprecatedNames.RemoveAt(i);
+                }
+            }
+
+            lock (deprecatedNamesMutex)
+            {
+                cachedDeprecatedNames = deprecatedNames;
+            }
+
+            // Local function to extract the base name from a Fluent UI System icon name
+            string ExtractBaseName(string startingString)
+            {
+                string baseName = startingString.ToLowerInvariant();
+
+                // Sometimes a file extension is given, remove it
+                if (baseName.EndsWith(".pdf"))
+                {
+                    baseName = baseName.Replace(".pdf", string.Empty);
+                }
+
+                if (baseName.EndsWith(".svg"))
+                {
+                    baseName = baseName.Replace(".svg", string.Empty);
+                }
+
+                // A spelling error was corrected at one point that throws off all processing
+                // This must be specially removed here for now
+                // As a side-effect, this case is never handled
+                if (baseName.Contains("fiiled"))
+                {
+                    baseName = baseName.Replace("fiiled", "filled");
+                }
+
+                // Android format
+                if (baseName.StartsWith("ic_fluent_"))
+                {
+                    baseName = baseName.Substring("ic_fluent_".Length);
+                }
+
+                if (baseName.EndsWith("_filled") || baseName.EndsWith("_regular"))
+                {
+                    baseName = baseName.Replace("_filled", string.Empty);
+                    baseName = baseName.Replace("_regular", string.Empty);
+
+                    if (baseName.Contains("_"))
+                    {
+                        var sizeStr = baseName.Substring(baseName.LastIndexOf("_") + 1);
+                        bool isSizeGiven = int.TryParse(sizeStr, out int size);
+
+                        if (isSizeGiven)
+                        {
+                            baseName = baseName.Substring(0, baseName.LastIndexOf("_"));
+                        }
+                    }
+                }
+
+                // iOS format
+                if (baseName.EndsWith("filled") || baseName.EndsWith("regular"))
+                {
+                    baseName = baseName.Replace("filled", string.Empty);
+                    baseName = baseName.Replace("regular", string.Empty);
+                }
+
+                return baseName;
+            }
+
+            return;
+        }
+
+        /// <summary>
+        /// The name will be in the Android format: "ic_fluent_panel_right_contract_16_regular"
+        /// </summary>
         public static string FindName(uint unicodePoint, IconTheme theme)
         {
             string? name = null;
@@ -208,7 +330,7 @@ namespace IconManager
         }
 
         public static Icon? FindIcon(
-            string baseName,
+            string baseNameKey,
             IconSize desiredSize,
             IconTheme desiredTheme)
         {
@@ -221,7 +343,7 @@ namespace IconManager
 
                 foreach (Icon icon in cachedIcons!)
                 {
-                    if (string.Equals(icon.BaseName, baseName, StringComparison.OrdinalIgnoreCase) &&
+                    if (string.Equals(icon.BaseNameKey, baseNameKey, StringComparison.OrdinalIgnoreCase) &&
                         icon.Size == desiredSize &&
                         icon.Theme == desiredTheme)
                     {
@@ -234,10 +356,10 @@ namespace IconManager
         }
 
         /// <summary>
-        /// Finds all sizes of icons matching the base name and desired theme.
+        /// Finds all sizes of icons matching the base name key and desired theme.
         /// </summary>
         public static IList<Icon> FindIcons(
-            string baseName,
+            string baseNameKey,
             IconTheme desiredTheme)
         {
             var matchingIcons = new List<Icon>();
@@ -251,7 +373,7 @@ namespace IconManager
 
                 foreach (Icon icon in cachedIcons!)
                 {
-                    if (string.Equals(icon.BaseName, baseName, StringComparison.OrdinalIgnoreCase) &&
+                    if (string.Equals(icon.BaseNameKey, baseNameKey, StringComparison.OrdinalIgnoreCase) &&
                         icon.Theme == desiredTheme)
                     {
                         matchingIcons.Add(icon.Clone());
@@ -263,10 +385,10 @@ namespace IconManager
         }
 
         /// <summary>
-        /// Finds all themes of icons matching the base name and desired size.
+        /// Finds all themes of icons matching the base name key and desired size.
         /// </summary>
         public static IList<Icon> FindIcons(
-            string baseName,
+            string baseNameKey,
             IconSize desiredSize)
         {
             var matchingIcons = new List<Icon>();
@@ -280,7 +402,7 @@ namespace IconManager
 
                 foreach (Icon icon in cachedIcons!)
                 {
-                    if (string.Equals(icon.BaseName, baseName, StringComparison.OrdinalIgnoreCase) &&
+                    if (string.Equals(icon.BaseNameKey, baseNameKey, StringComparison.OrdinalIgnoreCase) &&
                         icon.Size == desiredSize)
                     {
                         matchingIcons.Add(icon.Clone());
@@ -291,11 +413,27 @@ namespace IconManager
             return matchingIcons;
         }
 
+        /// <summary>
+        /// Finds an equivalent icon (same base name key and theme) that is closest to the desired size.
+        /// </summary>
         public static Icon? FindNearestSize(
-            Icon icon,
-            IconSize desiredSize)
+            string baseNameKey,
+            IconSize desiredSize,
+            IconTheme theme)
         {
-            // TODO
+            var matches = FluentUISystem.FindIcons(
+                baseNameKey,
+                theme);
+
+            if (matches != null &&
+                matches.Count > 0)
+            {
+                // To find the numerically closest match in size, simply find the difference from the desired size
+                // to actual size for each item, sort from smallest to largest, then take the first item
+                var closestMatch = matches.OrderBy(icon => Math.Abs(FluentUISystem.ToNumericalSize(desiredSize) - icon.NumericalSize)).First();
+                        
+                return closestMatch;
+            }
 
             return null;
         }
@@ -337,7 +475,7 @@ namespace IconManager
             {
                 // Attempt to find an exact size match
                 FluentUISystem.Icon? match = FluentUISystem.FindIcon(
-                    sourceFluentUIName.BaseName,
+                    sourceFluentUIName.BaseNameKey,
                     desiredSize,
                     sourceFluentUIName.Theme);
 
@@ -348,18 +486,14 @@ namespace IconManager
                 }
                 else if (allowApproximate)
                 {
-                    // Use the nearest numerical size instead
-                    var matches = FluentUISystem.FindIcons(
-                        sourceFluentUIName.BaseName,
+                    FluentUISystem.Icon? closestMatch = FluentUISystem.FindNearestSize(
+                        sourceFluentUIName.BaseNameKey,
+                        desiredSize,
                         sourceFluentUIName.Theme);
 
-                    if (matches != null &&
-                        matches.Count > 0)
+                    if (closestMatch != null)
                     {
-                        // To find the numerically closest match in size simply find the difference from the desired size
-                        // to actual size for each item, sort from smallest to largest, then take the first item
-                        var closestMatch = matches.OrderBy(icon => Math.Abs(FluentUISystem.ToNumericalSize(desiredSize) - icon.NumericalSize)).First();
-                        
+                        // Use the nearest numerical size
                         return closestMatch;
                     }
                     else
@@ -440,6 +574,84 @@ namespace IconManager
             }
 
             return finalMappings;
+        }
+
+        /// <summary>
+        /// Checks if the given icon is deprecated and, if so, finds the update.
+        /// </summary>
+        /// <param name="icon">The icon to check and get the updated version for.</param>
+        /// <returns>Whether the given icon is deprecated along with any updated version.</returns>
+        public static Tuple<bool, FluentUISystem.Icon> UpdateDeprecated(FluentUISystem.Icon icon)
+        {
+            string updatedBaseNameKey = FindUpdatedBaseNameKey(icon.BaseNameKey);
+
+            if (string.IsNullOrEmpty(updatedBaseNameKey) == false)
+            {
+                // Attempt to find an exact match
+                FluentUISystem.Icon? match = FluentUISystem.FindIcon(
+                    updatedBaseNameKey,
+                    icon.Size,
+                    icon.Theme);
+
+                if (match != null)
+                {
+                    // Return the exact match
+                    return Tuple.Create(true, match.Clone());
+                }
+                else
+                {
+                    FluentUISystem.Icon? closestMatch = FluentUISystem.FindNearestSize(
+                        updatedBaseNameKey,
+                        icon.Size,
+                        icon.Theme);
+
+                    if (closestMatch != null)
+                    {
+                        // Use the nearest numerical size
+                        // It is considered better to change the size of the icon than allow
+                        // a deprecated one to remain. However, the chances of this happening are
+                        // extremely rare. Upstream always renames and replaces with the same size.
+                        return Tuple.Create(true, closestMatch.Clone());
+                    }
+                }
+            }
+
+            return Tuple.Create(false, icon.Clone());
+        }
+
+        /// <summary>
+        /// Recursively finds any updated base name key for the given base name key (assumes it is deprecated).
+        /// </summary>
+        /// <param name="baseName">The base name key to find the update for.
+        /// Warning: This must be in the universal key format.</param>
+        /// <returns>The updated base name key; otherwise, an empty string.</returns>
+        private static string FindUpdatedBaseNameKey(string baseNameKey)
+        {
+            if (string.IsNullOrEmpty(baseNameKey) == false)
+            {
+                // Search for an updated name
+                lock (deprecatedNamesMutex)
+                {
+                    if (cachedDeprecatedNames == null)
+                    {
+                        RebuildDeprecatedNamesCache();
+                    }
+
+                    foreach (var entry in cachedDeprecatedNames)
+                    {
+                        if (string.Equals(baseNameKey, entry.Item1, StringComparison.OrdinalIgnoreCase))
+                        {
+                            // Check for another update, these can chain together
+                            string updatedName1 = entry.Item2;
+                            string updatedName2 = FindUpdatedBaseNameKey(updatedName1);
+
+                            return string.IsNullOrEmpty(updatedName2) ? updatedName1 : updatedName2;
+                        }
+                    }
+                }
+            }
+
+            return string.Empty;
         }
 
         /// <summary>
@@ -636,6 +848,15 @@ namespace IconManager
             }
 
             /// <summary>
+            /// Gets the base name in a universal format shared by both Android/iOS named formats.
+            /// This may be used as a universal lookup key.
+            /// </summary>
+            public string BaseNameKey
+            {
+                get => IconName.ToBaseNameKey(this._BaseName);
+            }
+
+            /// <summary>
             /// Gets or sets the size component of the icon name.
             /// </summary>
             public IconSize Size
@@ -671,6 +892,77 @@ namespace IconManager
             }
 
             /// <summary>
+            /// Converts the given base name into a universal format shared by both Android/iOS
+            /// named formats. This may be used as a universal lookup key.
+            /// </summary>
+            /// <param name="baseName">The base name to get the universal formatted key for.</param>
+            /// <returns>The universally formatted base name usable as a lookup key.</returns>
+            public static string ToBaseNameKey(string baseName)
+            {
+                baseName = baseName.ToLowerInvariant();
+
+                if (baseName.StartsWith("ic_fluent_"))
+                {
+                    baseName = baseName.Substring("ic_fluent_".Length);
+                }
+
+                baseName = baseName
+                    .Replace(" ", string.Empty)
+                    .Replace("_", string.Empty);
+
+                return baseName;
+            }
+
+            /// <summary>
+            /// Detects the naming format of the given icon name.
+            /// Only well-formed names will be detected properly; everything else will return null.
+            /// </summary>
+            /// <param name="name">The name to detect the format of.</param>
+            /// <returns>The well-formed naming format; otherwise, null.</returns>
+            public static NamingFormat? DetectFormat(string name)
+            {
+                string workingName = name.ToLowerInvariant().Trim();
+
+                // iOS                  Android
+                // caretUp12Filled      ic_fluent_caret_up_12_filled
+                // callPark48Regular    ic_fluent_call_park_48_regular
+
+                if (workingName.StartsWith("ic_fluent_") &&
+                    (workingName.EndsWith("_filled") || workingName.EndsWith("_regular")))
+                {
+                    workingName = workingName.Substring("ic_fluent_".Length);
+                    workingName = workingName.Replace("_filled", string.Empty);
+                    workingName = workingName.Replace("_regular", string.Empty);
+
+                    if (workingName.Contains("_"))
+                    {
+                        var sizeStr = workingName.Substring(workingName.LastIndexOf("_") + 1);
+                        bool isSizeGiven = int.TryParse(sizeStr, out int size);
+
+                        if (isSizeGiven)
+                        {
+                            if (Enum.IsDefined(typeof(IconSize), size))
+                            {
+                                return NamingFormat.Android;
+                            }
+                            else
+                            {
+                                // Currently allow even undefined icon sizes, just require a number
+                                return NamingFormat.Android;
+                            }
+                        }
+                    }
+                }
+                else if (workingName.EndsWith("filled") || workingName.EndsWith("regular"))
+                {
+                    // Allow anything
+                    return NamingFormat.iOS;
+                }
+
+                return null;
+            }
+
+            /// <summary>
             /// Sets the icon name and extracts all components.
             /// </summary>
             /// <param name="name">The full name of the icon.</param>
@@ -694,13 +986,14 @@ namespace IconManager
                 // callPark48Regular    ic_fluent_call_park_48_regular
 
                 // Extract format
-                if (workingName.StartsWith("ic_fluent_"))
+                var format = DetectFormat(workingName);
+                if (format != null)
                 {
-                    this.Format = NamingFormat.Android;
-                    workingName = workingName.Substring("ic_fluent_".Length);
+                    this.Format = format.Value;
                 }
                 else
                 {
+                    // Default to iOS which is harder to detect
                     this.Format = NamingFormat.iOS;
                 }
 
