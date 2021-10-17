@@ -6502,9 +6502,9 @@
       "Name": "Target"
     },
     "Source": {
-      "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "F64E",
-      "Name": "ic_fluent_radio_button_20_filled"
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F781",
+      "Name": "ic_fluent_target_20_regular"
     },
     "GlyphMatchQuality": "Exact",
     "MetaphorMatchQuality": "Exact",
@@ -6535,8 +6535,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "F79D",
-      "Name": "ic_fluent_target_edit_24_filled"
+      "UnicodePoint": "F79C",
+      "Name": "ic_fluent_target_edit_20_filled"
     },
     "GlyphMatchQuality": "Exact",
     "MetaphorMatchQuality": "Exact",
@@ -6551,8 +6551,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FD14",
-      "Name": "ic_fluent_target_32_filled"
+      "UnicodePoint": "F799",
+      "Name": "ic_fluent_target_20_filled"
     },
     "GlyphMatchQuality": "Exact",
     "MetaphorMatchQuality": "Exact",
