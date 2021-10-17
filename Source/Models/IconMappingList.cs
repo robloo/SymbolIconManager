@@ -282,7 +282,6 @@ namespace IconManager
         public void Reprocess()
         {
             this.UpdateNames();
-            this.UpdateDeprecatedIcons();
 
             // TODO: Remove duplicates?
 
