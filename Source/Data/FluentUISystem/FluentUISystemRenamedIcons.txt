@@ -15,7 +15,8 @@ Circle Subtract Arrow Forward → Subtract Circle Arrow Forward
 Cloud Add → Cloud Plus
 Cloud Backup → Cloud Arrow Up
 Cloud Download → Cloud Arrow Down
-Cloud Off → Cloud Dismiss
+// This cannot be automatically updated as 'Cloud Off' is still valid
+//Cloud Off → Cloud Dismiss
 Cloud Offline → Cloud Off
 Cloud Sync Complete → Cloud Checkmark
 Convert To Table → Scan Table
@@ -195,7 +196,7 @@ Arrow Rotate → Arrow Rotate Right
 Bank → Building Bank
 Building 1 → Building
 Building 2 → Building Skyscraper
-//This cannot be automatically updated as 'Building' is still valid
+// This cannot be automatically updated as 'Building' is still valid
 //Building → Building Multiple
 Manufacturer → Building Factory
 Ship → Vehicle Ship
