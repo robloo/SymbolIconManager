@@ -6950,12 +6950,12 @@
       "Name": "DockLeft"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "1006B",
+      "Name": "ic_fluent_panel_left_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -6966,12 +6966,12 @@
       "Name": "DockRight"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "10070",
+      "Name": "ic_fluent_panel_right_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -6982,12 +6982,12 @@
       "Name": "DockBottom"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "10069",
+      "Name": "ic_fluent_panel_bottom_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -9718,12 +9718,12 @@
       "Name": "DockRightMirrored"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "1006B",
+      "Name": "ic_fluent_panel_left_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -9734,12 +9734,12 @@
       "Name": "DockLeftMirrored"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "10070",
+      "Name": "ic_fluent_panel_right_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
