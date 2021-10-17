@@ -42,7 +42,11 @@ namespace IconManager
         /// An output folder will be created with a script that can be run to generate the font.
         /// </summary>
         /// <param name="mappings">The icon glyph mappings to generate the font with.</param>
-        public void BuildFont(IconMappingList mappings)
+        /// <param name="fontFileName">The name of the output font file.
+        /// This must end in extension '.ttf'.</param>
+        public void BuildFont(
+            IconMappingList mappings,
+            string fontFileName = OutputFontFileName)
         {
             var buildLog = new Log();
 
@@ -51,12 +55,19 @@ namespace IconManager
                 return;
             }
 
+            // Force .ttf extension
+            if (Path.GetExtension(fontFileName).ToLowerInvariant() != ".ttf")
+            {
+                fontFileName = Path.GetFileNameWithoutExtension(fontFileName);
+                fontFileName = fontFileName + ".ttf";
+            }
+
             // Create the directories
             string outputDirectory = this.CreateNewBuildDirectory();
             Directory.CreateDirectory(Path.Combine(outputDirectory, GlyphSubDirectoryName));
 
             // Write the platform-dependent build scripts
-            using (MemoryStream winScript = this.BuildWindowsScript())
+            using (MemoryStream winScript = this.BuildWindowsScript(fontFileName))
             {
                 this.WriteStreamToFile(
                     winScript,
@@ -64,7 +75,7 @@ namespace IconManager
             }
 
             // Write the python script to build the actual font with FontForge
-            using (MemoryStream pythonScript = this.BuildPythonFontScript(mappings, outputDirectory, buildLog))
+            using (MemoryStream pythonScript = this.BuildPythonFontScript(mappings, outputDirectory, fontFileName, buildLog))
             {
                 this.WriteStreamToFile(
                     pythonScript,
@@ -119,6 +130,7 @@ namespace IconManager
         private MemoryStream BuildPythonFontScript(
             IconMappingList mappings,
             string outputDirectory,
+            string fontFileName,
             Log buildLog)
         {
             var sb = new StringBuilder();
@@ -227,19 +239,19 @@ namespace IconManager
                 }
                 else
                 {
-                    buildLog.Error($"Invalid mapping skipped src=0x{mapping.Source.UnicodeHexString}, dst=0x{mapping.Destination.UnicodeHexString}");
+                    buildLog.Error($"Invalid mapping skipped src=0x{mapping.Source.UnicodeHexString}, dst=0x{mapping.Destination.UnicodeHexString} ({mapping.Destination.Name})");
                     continue; // Fatal error
                 }
             }
 
             sb.AppendLine( @"# Export the newly created font");
-            sb.AppendLine($@"font.generate('{OutputFontFileName}')");
+            sb.AppendLine($@"font.generate('{fontFileName}')");
             sb.AppendLine( @"font.close()");
 
             return new MemoryStream(Encoding.UTF8.GetBytes(sb.ToString()));
         }
 
-        private MemoryStream BuildWindowsScript()
+        private MemoryStream BuildWindowsScript(string fontFileName)
         {
             var sb = new StringBuilder();
 
@@ -248,7 +260,7 @@ namespace IconManager
             sb.AppendLine();
             sb.AppendLine($@"""{FontForgeFilePath}"" -script ""%scriptPath%\{PythonScriptFileName}""");
             sb.AppendLine();
-            sb.AppendLine($@"ECHO FontForge has finished building the {OutputFontFileName} font.");
+            sb.AppendLine($@"ECHO FontForge has finished building the {fontFileName} font.");
             sb.AppendLine();
             sb.AppendLine(@"PAUSE");
 
