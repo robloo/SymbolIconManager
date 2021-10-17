@@ -7207,11 +7207,11 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F670",
-      "Name": "ic_fluent_restore_16_regular"
+      "UnicodePoint": "10087",
+      "Name": "ic_fluent_square_multiple_16_regular"
     },
     "GlyphMatchQuality": "High",
-    "MetaphorMatchQuality": "Exact",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
     "Comments": "Size 16 (rather than 12) variant used on purpose to better match line widths. Size 12 doesn't exist."
   },
@@ -16039,11 +16039,11 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "F67A",
-      "Name": "ic_fluent_restore_16_filled"
+      "UnicodePoint": "1008B",
+      "Name": "ic_fluent_square_multiple_16_filled"
     },
     "GlyphMatchQuality": "Medium",
-    "MetaphorMatchQuality": "Exact",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
     "Comments": "Size 16 (rather than 12), filled variant used on purpose to better match line widths. Size 12 doesn't exist. Contrast=Filled"
   },
