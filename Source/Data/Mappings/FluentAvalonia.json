@@ -550,12 +550,12 @@
       "Name": "BlockContact"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F5D4",
+      "Name": "ic_fluent_person_prohibited_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": "WinUI Symbol. "
   },
@@ -7686,13 +7686,13 @@
       "Name": "WebCam"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F254",
+      "Name": "ic_fluent_camera_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
+    "IsPlaceholder": true,
     "Comments": "WinUI Symbol. "
   },
   {
@@ -7943,13 +7943,13 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F72C",
-      "Name": "ic_fluent_storage_24_regular"
+      "UnicodePoint": "F8C2",
+      "Name": "ic_fluent_xbox_console_20_regular"
     },
-    "GlyphMatchQuality": "Low",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": true,
-    "Comments": "WinUI Symbol. The storage icon looks similar to a game console"
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
+    "IsPlaceholder": false,
+    "Comments": "WinUI Symbol."
   },
   {
     "Destination": {
