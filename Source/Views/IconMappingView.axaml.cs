@@ -13,8 +13,6 @@ namespace IconManager
     {
         private string? _FilterText = string.Empty;
 
-        private IconMappingList mappingList = new IconMappingList();
-
         /***************************************************************************************
          *
          * Constructors
@@ -66,8 +64,6 @@ namespace IconManager
 
         private void UpdateMappings(IconMappingList mappings)
         {
-            this.mappingList = mappings;
-
             // Update the UI collection
             this.Mappings.Clear();
             foreach (IconMapping mapping in mappings)
@@ -119,7 +115,7 @@ namespace IconManager
             return;
         }
 
-        private async Task<IconMappingList> SelectAndLoadMappings()
+        private async Task<IconMappingList> OpenMappingsFile()
         {
             var dialog = new OpenFileDialog();
             var paths = await dialog.ShowAsync(App.MainWindow);
@@ -146,6 +142,18 @@ namespace IconManager
             return mappings;
         }
 
+        private IconMappingList ViewToMappings()
+        {
+            var mappings = new IconMappingList();
+
+            foreach (IconMappingViewModel viewModel in this.Mappings)
+            {
+                mappings.Add(viewModel.AsIconMapping());
+            }
+
+            return mappings;
+        }
+
         /***************************************************************************************
          *
          * Event Handling
@@ -157,7 +165,7 @@ namespace IconManager
         /// </summary>
         private async void LoadButton_Click(object sender, RoutedEventArgs e)
         {
-            this.UpdateMappings(await SelectAndLoadMappings());
+            this.UpdateMappings(await OpenMappingsFile());
 
             return;
         }
@@ -185,13 +193,7 @@ namespace IconManager
 
                 using (var fileStream = File.OpenWrite(path))
                 {
-                    var mappings = new IconMappingList();
-
-                    foreach (IconMappingViewModel viewModel in this.Mappings)
-                    {
-                        mappings.Add(viewModel.AsIconMapping());
-                    }
-
+                    var mappings = this.ViewToMappings();
                     mappings.Reprocess();
                     IconMappingList.Save(mappings, fileStream);
                 }
@@ -217,15 +219,8 @@ namespace IconManager
         /// </summary>
         private void BuildFontButton_Click(object sender, RoutedEventArgs e)
         {
-            var mappings = new IconMappingList();
-
-            foreach (IconMappingViewModel viewModel in this.Mappings)
-            {
-                mappings.Add(viewModel.AsIconMapping());
-            }
-
             var fontBuilder = new FontBuilder();
-            fontBuilder.BuildFont(mappings);
+            fontBuilder.BuildFont(this.ViewToMappings());
 
             return;
         }
@@ -235,10 +230,11 @@ namespace IconManager
         /// </summary>
         private async void MergeInButton_Click(object sender, RoutedEventArgs e)
         {
-            IconMappingList newMappings = await SelectAndLoadMappings();
+            IconMappingList mappings = this.ViewToMappings();
+            IconMappingList newMappings = await OpenMappingsFile();
 
-            newMappings.MergeInto(this.mappingList);
-            this.UpdateMappings(this.mappingList);
+            newMappings.MergeInto(mappings);
+            this.UpdateMappings(mappings);
 
             return;
         }
