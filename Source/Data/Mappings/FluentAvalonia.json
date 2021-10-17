@@ -7719,8 +7719,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "F8C5",
-      "Name": "ic_fluent_wifi_1_24_filled"
+      "UnicodePoint": "F8CA",
+      "Name": "ic_fluent_wifi_4_20_filled"
     },
     "GlyphMatchQuality": "Exact",
     "MetaphorMatchQuality": "Exact",
@@ -7751,8 +7751,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "F8C7",
-      "Name": "ic_fluent_wifi_2_24_filled"
+      "UnicodePoint": "F8C8",
+      "Name": "ic_fluent_wifi_3_20_filled"
     },
     "GlyphMatchQuality": "Exact",
     "MetaphorMatchQuality": "Exact",
@@ -7783,8 +7783,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "F8C9",
-      "Name": "ic_fluent_wifi_3_24_filled"
+      "UnicodePoint": "F8C6",
+      "Name": "ic_fluent_wifi_2_20_filled"
     },
     "GlyphMatchQuality": "Exact",
     "MetaphorMatchQuality": "Exact",
@@ -7815,8 +7815,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "F8CB",
-      "Name": "ic_fluent_wifi_4_24_filled"
+      "UnicodePoint": "F8C4",
+      "Name": "ic_fluent_wifi_1_20_filled"
     },
     "GlyphMatchQuality": "Exact",
     "MetaphorMatchQuality": "Exact",
