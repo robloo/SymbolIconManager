@@ -5286,12 +5286,12 @@
       "Name": "PreviewLink"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F625",
+      "Name": "ic_fluent_preview_link_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -5942,14 +5942,14 @@
       "Name": "MailReply"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F177",
+      "Name": "ic_fluent_arrow_reply_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
+    "IsPlaceholder": true,
+    "Comments": "No matching glyph exists in the Fluent UI System."
   },
   {
     "Destination": {
@@ -6086,12 +6086,12 @@
       "Name": "FontColor"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F7BF",
+      "Name": "ic_fluent_text_color_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -6774,14 +6774,14 @@
       "Name": "Scan"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F68B",
+      "Name": "ic_fluent_scan_24_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Exact",
+    "IsPlaceholder": true,
+    "Comments": "Glyph is totally different in the Fluent UI System. No size 20 variant exists."
   },
   {
     "Destination": {
