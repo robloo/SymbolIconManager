@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace IconManager.Specialized
 {
@@ -11,25 +12,32 @@ namespace IconManager.Specialized
     /// </remarks>
     public class FluentAvalonia
     {
-        //GenerateSymbolEnumSource
-
         /// <summary>
-        /// Initializes a new list of mappings to create a specialized Fluent Avalonia font.
-        /// This font is inter-operable with SegoeFluent and the Symbols enum in WinUI.
+        /// Generates Symbol enum values for the given mappings that can be copy-pasted into source code.
         /// </summary>
-        /// <remarks>
-        /// This should really never be used again and serves only to document the initial build
-        /// of the mapping file. It can also serve as an example for initializing future complicated
-        /// mappings.
-        /// 
-        /// To make any changes, the mapping file itself should be edited at Mappings/FluentAvalonia.json.
-        /// </remarks>
-        /// <returns>A new icon mapping list.</returns>
-        public IconMappingList InitNewMappings()
+        public string GenerateSymbolEnumSource(IconMappingList mappings)
         {
-            return this.RebuildMappings(this.LoadInitialRawSource());
+            StringBuilder sb = new StringBuilder();
+
+            foreach (IconMapping mapping in mappings)
+            {
+                if (mapping.Source.IsValidForSource == false)
+                {
+                    sb.AppendLine(@"[Obsolete(""Added for compatibility with WinUI only. No glyph exists for this symbol."")]");
+                }
+
+                sb.AppendLine($"{mapping.Destination.Name} = 0x{mapping.Destination.UnicodeHexString},");
+            }
+
+            return sb.ToString();
         }
 
+        /// <summary>
+        /// Rebuilds FluentAvalonia mappings using the given mappings as a base.
+        /// This will ensure rebuild mappings match with latest SegoeFluent and the WinUI Symbol enum.
+        /// </summary>
+        /// <param name="existingMappings">Existing FluentAvalonia.json mappings to rebuild.</param>
+        /// <returns>The rebuilt mappings.</returns>
         public IconMappingList RebuildMappings(IconMappingList existingMappings)
         {
             IconMappingList mappings = existingMappings;
@@ -48,6 +56,9 @@ namespace IconManager.Specialized
             // Load the SegoeFluent mappings
             var segoeFluentMappings = IconMappingList.Load(IconSet.SegoeFluent);
             var segoeV1toV2 = IconMappingList.Load(IconSet.SegoeUISymbol, IconSet.SegoeMDL2Assets);
+
+            // Ensure latest icons are used
+            mappings.UpdateDeprecatedIcons();
 
             // Raw sources use the 'SegoeFluent' font is some cases
             // This cannot be used to construct a font as it doesn't have SVG sources by itself
@@ -99,49 +110,59 @@ namespace IconManager.Specialized
                 // Unicode matching is much more exact than a name search
                 var matchingSegoeFluentMappings = segoeFluentMappings.FindByDestinationUnicode(unicode);
 
-                if (matchingSegoeFluentMappings.Count != 1)
+                if (matchingSegoeFluentMappings.Count == 1)
                 {
-                    // Should never get here, all values should be defined
-                    throw new Exception("Invalid Symbol enum icon detected.");
-                }
-
-                // Create the exact mapping for this Symbol enum value
-                // This is primary over any mapping defined in the raw Fluent Avalonia sources
-                var symbolEnumMapping = new IconMapping()
-                {
-                    Source      = matchingSegoeFluentMappings[0].Source,
-                    Destination = new Icon()
+                    // Create the exact mapping for this Symbol enum value
+                    // This is primary over any mapping defined in the raw Fluent Avalonia sources
+                    var symbolEnumMapping = new IconMapping()
                     {
-                        IconSet      = IconSet.Undefined, // Fluent Avalonia is not a defined icon set
-                        UnicodePoint = (uint)value,       // Do NOT use the translated Unicode value, keep original
-                        Name         = value.ToString()
-                    },
-                    GlyphMatchQuality    = matchingSegoeFluentMappings[0].GlyphMatchQuality,
-                    MetaphorMatchQuality = matchingSegoeFluentMappings[0].MetaphorMatchQuality,
-                    IsPlaceholder        = matchingSegoeFluentMappings[0].IsPlaceholder,
-                    Comments             = "WinUI Symbol. " + matchingSegoeFluentMappings[0].Comments
-                };
+                        Source      = matchingSegoeFluentMappings[0].Source,
+                        Destination = new Icon()
+                        {
+                            IconSet      = IconSet.Undefined, // Fluent Avalonia is not a defined icon set
+                            UnicodePoint = (uint)value,       // Do NOT use the translated Unicode value, keep original
+                            Name         = value.ToString()
+                        },
+                        GlyphMatchQuality    = matchingSegoeFluentMappings[0].GlyphMatchQuality,
+                        MetaphorMatchQuality = matchingSegoeFluentMappings[0].MetaphorMatchQuality,
+                        IsPlaceholder        = matchingSegoeFluentMappings[0].IsPlaceholder,
+                        Comments             = "WinUI Symbol. " + matchingSegoeFluentMappings[0].Comments
+                    };
 
-                // Check for an existing mapping already (that should be overwritten)
-                IconMapping? existingMapping = null;
-                foreach (IconMapping mapping in mappings)
-                {
-                    // Not checking by Unicode point on purpose. Names should be unique as the output will also be an enum
-                    if (string.Equals(mapping.Destination.Name, symbolEnumMapping.Destination.Name, StringComparison.OrdinalIgnoreCase))
+                    // Check for an existing mapping already (that should be overwritten)
+                    IconMapping? existingMapping = null;
+                    foreach (IconMapping mapping in mappings)
                     {
-                        existingMapping = mapping;
-                        break;
+                        // Not checking by Unicode point on purpose. Names should be unique as the output will also be an enum
+                        if (string.Equals(mapping.Destination.Name, symbolEnumMapping.Destination.Name, StringComparison.OrdinalIgnoreCase))
+                        {
+                            existingMapping = mapping;
+                            break;
+                        }
                     }
-                }
 
-                if (existingMapping != null)
-                {
-                    existingMapping.Destination = symbolEnumMapping.Destination;
-                    existingMapping.Source      = symbolEnumMapping.Source;
+                    if (existingMapping != null)
+                    {
+                        existingMapping.Destination = symbolEnumMapping.Destination;
+                        existingMapping.Source      = symbolEnumMapping.Source;
+                    }
+                    else
+                    {
+                        mappings.Add(symbolEnumMapping);
+                    }
                 }
                 else
                 {
-                    mappings.Add(symbolEnumMapping);
+                    if (value == WinUISymbols.Symbol.Placeholder)
+                    {
+                        // The Placeholder symbol 0xE18A has no equivalent in Segoe MDL2 or Segoe Fluent
+                        // It is the only special case here.
+                    }
+                    else
+                    {
+                        // Should never get here, all other values should be defined
+                        throw new Exception("Invalid Symbol enum icon detected.");
+                    }
                 }
             }
 
@@ -239,6 +260,25 @@ namespace IconManager.Specialized
             return mappings;
         }
 
+        /// <summary>
+        /// Initializes a new list of mappings to create a specialized Fluent Avalonia font.
+        /// This font is inter-operable with SegoeFluent and the Symbols enum in WinUI.
+        /// </summary>
+        /// <remarks>
+        /// This should really never be used again and serves only to document the initial build
+        /// of the mapping file. It can also serve as an example for initializing future complicated
+        /// mappings.
+        /// 
+        /// To make any changes, the mapping file itself should be edited at Mappings/FluentAvalonia.json.
+        /// </remarks>
+        /// <returns>A new icon mapping list.</returns>
+        [Obsolete("This is out of date. Update using the FluentAvalonia.json mapping file.")]
+        public IconMappingList InitNewMappings()
+        {
+            return this.RebuildMappings(this.LoadInitialRawSource());
+        }
+
+        [Obsolete("This is out of date. Update using the FluentAvalonia.json mapping file.")]
         private IconMappingList LoadInitialRawSource()
         {
             IconMappingList mappings = new IconMappingList();
@@ -277,11 +317,12 @@ namespace IconManager.Specialized
             }
 
             // Remove any deprecated icons (this list is known out of date)
-            mappings.Reprocess();
+            mappings.UpdateDeprecatedIcons();
 
             return mappings;
         }
 
+        [Obsolete("This is out of date. Update using the FluentAvalonia.json mapping file.")]
         private static string[,] rawSource = new string[,]
         {
             {"Add", "SegoeFluent:0xE710"},

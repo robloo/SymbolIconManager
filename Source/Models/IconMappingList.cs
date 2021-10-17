@@ -313,17 +313,7 @@ namespace IconManager
                     break;
             }
 
-            if (string.IsNullOrWhiteSpace(resourcePath) == false)
-            {
-                var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-
-                using (var sourceStream = assets.Open(new Uri(resourcePath)))
-                {
-                    return IconMappingList.Load(sourceStream);
-                }
-            }
-
-            return new IconMappingList();
+            return IconMappingList.Load(resourcePath);
         }
 
         /// <summary>
@@ -351,6 +341,16 @@ namespace IconManager
                 resourcePath = "avares://IconManager/Data/Mappings/SegoeUISymbolToSegoeMDL2Assets.json";
             }
 
+            return IconMappingList.Load(resourcePath);
+        }
+
+        /// <summary>
+        /// Loads a mapping list from the given application resource path.
+        /// </summary>
+        /// <param name="jsonStream">The application resource path to load from.</param>
+        /// <returns>A new mapping list.</returns>
+        public static IconMappingList Load(string resourcePath)
+        {
             if (string.IsNullOrWhiteSpace(resourcePath) == false)
             {
                 var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();

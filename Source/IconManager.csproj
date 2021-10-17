@@ -20,6 +20,7 @@
     <None Remove="Data\LineAwesome\line-awesome.css" />
     <None Remove="Data\LineAwesome\LineAwesomeGlyphSources.json" />
     <None Remove="Data\Mappings\Example.json" />
+    <None Remove="Data\Mappings\FluentAvalonia.json" />
     <None Remove="Data\Mappings\FluentUISystemToSegoeMDL2Assets.json" />
     <None Remove="Data\Mappings\SegoeFluent.json" />
     <None Remove="Data\Mappings\SegoeUISymbolToSegoeMDL2Assets.json" />
@@ -45,6 +46,7 @@
     <AvaloniaResource Include="Data\LineAwesome\line-awesome.css" />
     <AvaloniaResource Include="Data\LineAwesome\LineAwesomeGlyphSources.json" />
     <AvaloniaResource Include="Data\Mappings\Example.json" />
+    <AvaloniaResource Include="Data\Mappings\FluentAvalonia.json" />
     <AvaloniaResource Include="Data\Mappings\FluentUISystemToSegoeMDL2Assets.json" />
     <AvaloniaResource Include="Data\Mappings\SegoeFluent.json" />
     <AvaloniaResource Include="Data\Mappings\SegoeUISymbolToSegoeMDL2Assets.json" />
