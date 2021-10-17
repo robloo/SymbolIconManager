@@ -9,13 +9,16 @@ namespace IconManager
     {
         private readonly Brush PoorMappingBrush = new SolidColorBrush(new Color(0xFF, 0xF2, 0xD7, 0xD5));
 
-        private Brush         _Background;
         private IconViewModel _SourceViewModel;
         private IconViewModel _DestinationViewModel;
         private MatchQuality  _GlyphMatchQuality;
         private MatchQuality  _MetaphorMatchQuality;
         private bool          _IsPlaceholder;
         private string        _Comments;
+
+        private Brush _Background;
+        private bool  _IsSourceNameEditable;
+        private bool  _IsDestinationNameEditable;
 
         private ObservableCollection<MatchQuality> _GlyphMatchQualityOptions    = new ObservableCollection<MatchQuality>();
         private ObservableCollection<MatchQuality> _MetaphorMatchQualityOptions = new ObservableCollection<MatchQuality>();
@@ -66,15 +69,9 @@ namespace IconManager
          *
          ***************************************************************************************/
 
-        /// <summary>
-        /// Get the background brush to display in the user-interface for the icon mapping.
-        /// This is set automatically based on the validity of the mapping itself.
-        /// </summary>
-        public Brush Background
-        {
-            get => this._Background;
-            private set => this.SetField(ref this._Background, value);
-        }
+        ///////////////////////////////////////////////////////////
+        // Data
+        ///////////////////////////////////////////////////////////
 
         /// <inheritdoc cref="IconMapping.Source"/>
         public IconViewModel SourceViewModel
@@ -85,6 +82,8 @@ namespace IconManager
                 this._SourceViewModel.PropertyChanged -= IconViewModel_PropertyChanged;
                 this.SetField(ref this._SourceViewModel, value);
                 this._SourceViewModel.PropertyChanged += IconViewModel_PropertyChanged;
+
+                this.UpdateDependentProperties();
             }
         }
 
@@ -97,6 +96,8 @@ namespace IconManager
                 this._DestinationViewModel.PropertyChanged -= IconViewModel_PropertyChanged;
                 this.SetField(ref this._DestinationViewModel, value);
                 this._DestinationViewModel.PropertyChanged += IconViewModel_PropertyChanged;
+
+                this.UpdateDependentProperties();
             }
         }
 
@@ -107,27 +108,11 @@ namespace IconManager
             set => this.SetField(ref this._GlyphMatchQuality, value);
         }
 
-        /// <summary>
-        /// Gets the list of options available to select from for <see cref="GlyphMatchQuality"/>.
-        /// </summary>
-        public ObservableCollection<MatchQuality> GlyphMatchQualityOptions
-        {
-            get => this._GlyphMatchQualityOptions;
-        }
-
         /// <inheritdoc cref="IconMapping.MetaphorMatchQuality"/>
         public MatchQuality MetaphorMatchQuality
         {
             get => this._MetaphorMatchQuality;
             set => this.SetField(ref this._MetaphorMatchQuality, value);
-        }
-
-        /// <summary>
-        /// Gets the list of options available to select from for <see cref="MetaphorMatchQuality"/>.
-        /// </summary>
-        public ObservableCollection<MatchQuality> MetaphorMatchQualityOptions
-        {
-            get => this._MetaphorMatchQualityOptions;
         }
 
         /// <inheritdoc cref="IconMapping.IsPlaceholder"/>
@@ -142,6 +127,56 @@ namespace IconManager
         {
             get => this._Comments;
             set => this.SetField(ref this._Comments, value);
+        }
+
+        ///////////////////////////////////////////////////////////
+        // Calculated
+        ///////////////////////////////////////////////////////////
+
+        /// <summary>
+        /// Get the background brush to display in the user-interface for the icon mapping.
+        /// This is set automatically based on the validity of the mapping itself.
+        /// </summary>
+        public Brush Background
+        {
+            get => this._Background;
+            private set => this.SetField(ref this._Background, value);
+        }
+
+        /// <summary>
+        /// Gets the list of options available to select from for <see cref="GlyphMatchQuality"/>.
+        /// </summary>
+        public ObservableCollection<MatchQuality> GlyphMatchQualityOptions
+        {
+            get => this._GlyphMatchQualityOptions;
+        }
+
+        /// <summary>
+        /// Gets the list of options available to select from for <see cref="MetaphorMatchQuality"/>.
+        /// </summary>
+        public ObservableCollection<MatchQuality> MetaphorMatchQualityOptions
+        {
+            get => this._MetaphorMatchQualityOptions;
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether the source icon name can be edited by the user.
+        /// This is only allowed for undefined icon sets.
+        /// </summary>
+        public bool IsSourceNameEditable
+        {
+            get => this._IsSourceNameEditable;
+            private set => this.SetField(ref this._IsSourceNameEditable, value);
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether the destination icon name can be edited by the user.
+        /// This is only allowed for undefined icon sets.
+        /// </summary>
+        public bool IsDestinationNameEditable
+        {
+            get => this._IsDestinationNameEditable;
+            private set => this.SetField(ref this._IsDestinationNameEditable, value);
         }
 
         /***************************************************************************************
@@ -223,6 +258,15 @@ namespace IconManager
             return;
         }
 
+        /// <summary>
+        /// Updates the values of properties that are calculated depending on other property values.
+        /// </summary>
+        private void UpdateDependentProperties()
+        {
+            this.IsSourceNameEditable      = this._SourceViewModel.IconSet == IconSet.Undefined;
+            this.IsDestinationNameEditable = this._DestinationViewModel.IconSet == IconSet.Undefined;
+        }
+
         /***************************************************************************************
          *
          * Event Handling
@@ -235,6 +279,8 @@ namespace IconManager
         private void IconViewModel_PropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
             this.UpdateBackground();
+            this.UpdateDependentProperties();
+
             return;
         }
     }
