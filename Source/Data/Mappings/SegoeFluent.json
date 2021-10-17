@@ -5654,14 +5654,14 @@
       "Name": "Webcam"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F254",
+      "Name": "ic_fluent_camera_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "High",
+    "IsPlaceholder": true,
+    "Comments": "Doesn't exist yet in the Fluent UI System, however the camera is similar from a user standpoint."
   },
   {
     "Destination": {
@@ -6678,12 +6678,12 @@
       "Name": "BlockContact"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F5D4",
+      "Name": "ic_fluent_person_prohibited_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -8006,14 +8006,14 @@
       "Name": "Webcam2"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F254",
+      "Name": "ic_fluent_camera_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
+    "IsPlaceholder": true,
+    "Comments": "Doesn't exist yet in the Fluent UI System, however the camera is similar from a user standpoint."
   },
   {
     "Destination": {
@@ -8679,13 +8679,13 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F72C",
-      "Name": "ic_fluent_storage_24_regular"
+      "UnicodePoint": "F8C2",
+      "Name": "ic_fluent_xbox_console_20_regular"
     },
-    "GlyphMatchQuality": "Low",
-    "MetaphorMatchQuality": "NoMatch",
-    "IsPlaceholder": true,
-    "Comments": "The storage icon looks similar to a game console"
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
+    "IsPlaceholder": false,
+    "Comments": "Only the XBox Series X Console exists in Fluent UI System. This is by design as the XBoxOne is out of date."
   },
   {
     "Destination": {
@@ -17702,12 +17702,12 @@
       "Name": "StatusCircleBlock"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F617",
+      "Name": "ic_fluent_presence_blocked_12_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -17718,14 +17718,14 @@
       "Name": "StatusCircleBlock2"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F7B0",
+      "Name": "ic_fluent_subtract_circle_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "This is matched more towards metaphor. The glyph here matches Blocked2. An alternative is the subtract icon which looks more similar (but with a longer line)."
   },
   {
     "Destination": {
