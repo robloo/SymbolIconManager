@@ -1494,9 +1494,9 @@
       "Name": "CloudDownload"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "1004A",
+      "Name": "ic_fluent_cloud_arrow_down_20_regular"
     },
     "GlyphMatchQuality": "Exact",
     "MetaphorMatchQuality": "Exact",
@@ -2294,12 +2294,12 @@
       "Name": "DockBottom"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "10069",
+      "Name": "ic_fluent_panel_bottom_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Exact",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": "WinUI Symbol. "
   },
@@ -2310,9 +2310,9 @@
       "Name": "DockLeft"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "1006B",
+      "Name": "ic_fluent_panel_left_20_regular"
     },
     "GlyphMatchQuality": "Exact",
     "MetaphorMatchQuality": "Exact",
@@ -2342,9 +2342,9 @@
       "Name": "DockRight"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "10070",
+      "Name": "ic_fluent_panel_right_20_regular"
     },
     "GlyphMatchQuality": "Exact",
     "MetaphorMatchQuality": "Exact",
@@ -2726,9 +2726,9 @@
       "Name": "FontColor"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F7BF",
+      "Name": "ic_fluent_text_color_20_regular"
     },
     "GlyphMatchQuality": "Exact",
     "MetaphorMatchQuality": "Exact",
@@ -3830,9 +3830,9 @@
       "Name": "MailReply"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F177",
+      "Name": "ic_fluent_arrow_reply_20_regular"
     },
     "GlyphMatchQuality": "Exact",
     "MetaphorMatchQuality": "Exact",
@@ -4918,9 +4918,9 @@
       "Name": "PreviewLink"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F625",
+      "Name": "ic_fluent_preview_link_20_regular"
     },
     "GlyphMatchQuality": "Exact",
     "MetaphorMatchQuality": "Exact",
@@ -5542,9 +5542,9 @@
       "Name": "Scan"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F68B",
+      "Name": "ic_fluent_scan_24_regular"
     },
     "GlyphMatchQuality": "Exact",
     "MetaphorMatchQuality": "Exact",
