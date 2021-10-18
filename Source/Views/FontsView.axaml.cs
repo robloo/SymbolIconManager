@@ -307,6 +307,36 @@ namespace IconManager
             return;
         }
 
+        private void BuildFluentUISystemRegularFont()
+        {
+            // This is an identity mapping
+            var mappings = IconMappingList.InitNewMappings(IconSet.FluentUISystemRegular);
+            foreach (IconMapping mapping in mappings)
+            {
+                mapping.Source = mapping.Destination.Clone();
+            }
+
+            var fontBuilder = new FontBuilder();
+            fontBuilder.BuildFont(mappings, "FluentUISystemRegular.ttf");
+
+            return;
+        }
+
+        private void BuildFluentUISystemFilledFont()
+        {
+            // This is an identity mapping
+            var mappings = IconMappingList.InitNewMappings(IconSet.FluentUISystemFilled);
+            foreach (IconMapping mapping in mappings)
+            {
+                mapping.Source = mapping.Destination.Clone();
+            }
+
+            var fontBuilder = new FontBuilder();
+            fontBuilder.BuildFont(mappings, "FluentUISystemFilled.ttf");
+
+            return;
+        }
+
         /***************************************************************************************
          *
          * Event Handling
