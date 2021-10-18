@@ -63,7 +63,7 @@ namespace IconManager
         private static IReadOnlyList<Icon>? cachedIcons = null;
         private static IReadOnlyDictionary<uint, string>? cachedFilledNames  = null;
         private static IReadOnlyDictionary<uint, string>? cachedRegularNames = null;
-        private static IReadOnlyList<Tuple<string, string>> cachedDeprecatedNames = null;
+        private static IReadOnlyList<Tuple<string, string>>? cachedDeprecatedNames = null;
 
         private static object cacheMutex           = new object();
         private static object deprecatedNamesMutex = new object();
@@ -625,7 +625,7 @@ namespace IconManager
                         RebuildDeprecatedNamesCache();
                     }
 
-                    foreach (var entry in cachedDeprecatedNames)
+                    foreach (var entry in cachedDeprecatedNames!)
                     {
                         if (string.Equals(baseNameKey, entry.Item1, StringComparison.OrdinalIgnoreCase))
                         {
