@@ -24,11 +24,11 @@ The table below provides information for those looking for pre-built, drop-in re
 
 | Font Name & Link  | Microsoft Equivalent | Mapping File |
 |-------------------|----------------------|--------------|
-| **WinSymbols1.ttf** | [Segoe UI Symbol](https://docs.microsoft.com/en-us/previous-versions/windows/apps/jj841127(v=win.10)) | None (Translates to SegoeMDL2Assets Unicode points and then uses the same, backwards-compatible mapping file from SegoeFluent.) |
-| **WinSymbols2.ttf** | [Segoe MDL2 Assets](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-ui-symbol-font) | None (Uses the same, backwards-compatible mapping file from SegoeFluent) |
+| [**WinSymbols1.ttf**](https://github.com/robloo/SymbolIconManager/blob/main/Fonts/WinSymbols1.ttf) | [Segoe UI Symbol](https://docs.microsoft.com/en-us/previous-versions/windows/apps/jj841127(v=win.10)) | None (Translates to SegoeMDL2Assets Unicode points and then uses the same, backwards-compatible mapping file from SegoeFluent.) |
+| [**WinSymbols2.ttf**](https://github.com/robloo/SymbolIconManager/blob/main/Fonts/WinSymbols2.ttf) | [Segoe MDL2 Assets](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-ui-symbol-font) | None (Uses the same, backwards-compatible mapping file from SegoeFluent) |
 | [**WinSymbols3.ttf**](https://github.com/robloo/SymbolIconManager/blob/main/Fonts/WinSymbols3.ttf) | [Segoe Fluent Icons](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-fluent-icons-font) | [`SegoeFluent.json`](https://github.com/robloo/SymbolIconManager/blob/main/Source/Data/Mappings/SegoeFluent.json) |
-| [**FluentUISystemFilled.ttf**](https://github.com/robloo/SymbolIconManager/blob/main/Fonts/FluentUISystemFilled.ttf) | [FluentSystemIcons-Filled.ttf](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Filled.ttf) | Identity (none) |
-| [**FluentUISystemRegular.ttf**](https://github.com/robloo/SymbolIconManager/blob/main/Fonts/FluentUISystemRegular.ttf) | [FluentSystemIcons-Regular.ttf](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.ttf) | Identity (none) |
+| [**FluentUISystemFilled.ttf**](https://github.com/robloo/SymbolIconManager/blob/main/Fonts/FluentUISystemFilled.ttf) | [FluentSystemIcons-Filled.ttf](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Filled.ttf) | None (Identity) |
+| [**FluentUISystemRegular.ttf**](https://github.com/robloo/SymbolIconManager/blob/main/Fonts/FluentUISystemRegular.ttf) | [FluentSystemIcons-Regular.ttf](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.ttf) | None (Identity) |
  
  * Note that `WinSymbols3` is backwards compatible with `WinSymbols2` by Unicode point. However, the glyph design/style will be different.
  * Fluent UI System fonts are included due to missing glyphs with Unicode Point over 0xFFFF in Microsoft provided TrueType Font files. These also serve as good tests for the font build system.
