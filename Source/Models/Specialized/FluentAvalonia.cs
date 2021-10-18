@@ -181,7 +181,7 @@ namespace IconManager.Specialized
             }
 
             // Normalize all FluentUISystem sources to use size 20 where possible
-            FluentUISystem.ConvertToSize(mappings, FluentUISystem.IconSize.Size20);
+            mappings = FluentUISystem.ConvertToSize(mappings, FluentUISystem.IconSize.Size20);
             mappings.Reprocess();
 
             // Double check: ensure that all Symbol enum values are in the mapping list
