@@ -3339,8 +3339,8 @@
       "Name": "ic_fluent_radio_button_20_filled"
     },
     "GlyphMatchQuality": "Medium",
-    "MetaphorMatchQuality": "Low",
-    "IsPlaceholder": false,
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": true,
     "Comments": "The 'location' icon in Fluent UI System is a better metaphor match; however, the glyph doesn't match"
   },
   {
@@ -12971,8 +12971,8 @@
       "Name": "ic_fluent_radio_button_20_filled"
     },
     "GlyphMatchQuality": "Medium",
-    "MetaphorMatchQuality": "Low",
-    "IsPlaceholder": false,
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": true,
     "Comments": "The 'location' icon in Fluent UI System is a better metaphor match; however, the glyph doesn't match"
   },
   {
