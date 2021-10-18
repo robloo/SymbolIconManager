@@ -138,17 +138,27 @@ namespace IconManager
         /// <returns>The cloned <see cref="IconMapping"/>.</returns>
         public IconMapping Clone()
         {
-            IconMapping clone = new IconMapping()
-            {
-                Source               = this.Source.Clone(),
-                Destination          = this.Destination.Clone(),
-                GlyphMatchQuality    = this.GlyphMatchQuality,
-                MetaphorMatchQuality = this.MetaphorMatchQuality,
-                IsPlaceholder        = this.IsPlaceholder,
-                Comments             = this.Comments
-            };
+            var clone = new IconMapping();
+            this.CopyTo(clone);
 
             return clone;
+        }
+
+        /// <summary>
+        /// Copies each property value from this <see cref="IconMapping"/> instance into
+        /// the destination. This will create an exact copy of values in the destination.
+        /// </summary>
+        /// <param name="destination"></param>
+        public void CopyTo(IconMapping destination)
+        {
+            destination.Source               = this.Source.Clone();
+            destination.Destination          = this.Destination.Clone();
+            destination.GlyphMatchQuality    = this.GlyphMatchQuality;
+            destination.MetaphorMatchQuality = this.MetaphorMatchQuality;
+            destination.IsPlaceholder        = this.IsPlaceholder;
+            destination.Comments             = this.Comments;
+
+            return;
         }
     }
 }
