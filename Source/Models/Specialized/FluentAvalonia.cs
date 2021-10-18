@@ -40,6 +40,7 @@ namespace IconManager.Specialized
         /// <returns>The rebuilt mappings.</returns>
         public IconMappingList RebuildMappings(IconMappingList existingMappings)
         {
+            string symbolEnumCommentPrefix = "WinUI Symbol.";
             IconMappingList mappings = existingMappings;
 
             // Initialize the starting value of all new symbols Unicode points here.
@@ -126,25 +127,30 @@ namespace IconManager.Specialized
                         GlyphMatchQuality    = matchingSegoeFluentMappings[0].GlyphMatchQuality,
                         MetaphorMatchQuality = matchingSegoeFluentMappings[0].MetaphorMatchQuality,
                         IsPlaceholder        = matchingSegoeFluentMappings[0].IsPlaceholder,
-                        Comments             = "WinUI Symbol. " + matchingSegoeFluentMappings[0].Comments
+                        Comments             = symbolEnumCommentPrefix + " " + matchingSegoeFluentMappings[0].Comments
                     };
 
                     // Check for an existing mapping already (that should be overwritten)
-                    IconMapping? existingMapping = null;
-                    foreach (IconMapping mapping in mappings)
+                    // Importantly, matches are identified by name only
+                    var existing = mappings.FindByDestinationName(symbolEnumMapping.Destination.Name);
+                    if (existing.Count > 0)
                     {
-                        // Not checking by Unicode point on purpose. Names should be unique as the output will also be an enum
-                        if (string.Equals(mapping.Destination.Name, symbolEnumMapping.Destination.Name, StringComparison.OrdinalIgnoreCase))
-                        {
-                            existingMapping = mapping;
-                            break;
-                        }
-                    }
+                        // Only use the first match
+                        var existingComments = existing[0].Comments;
+                        symbolEnumMapping.CopyTo(existing[0]);
 
-                    if (existingMapping != null)
-                    {
-                        existingMapping.Destination = symbolEnumMapping.Destination;
-                        existingMapping.Source      = symbolEnumMapping.Source;
+                        // Preserve any existing customized comments from the mapping file
+                        if (string.IsNullOrEmpty(existingComments) == false)
+                        {
+                            if (existingComments.StartsWith(symbolEnumCommentPrefix))
+                            {
+                                existing[0].Comments = existingComments;
+                            }
+                            else
+                            {
+                                existing[0].Comments = symbolEnumCommentPrefix + " " + existingComments;
+                            }
+                        }
                     }
                     else
                     {
@@ -185,6 +191,7 @@ namespace IconManager.Specialized
             mappings.Reprocess();
 
             // Double check: ensure that all Symbol enum values are in the mapping list
+            // This also requires that comments start with "WinUI Symbol" so they can be differentiated
             foreach (WinUISymbols.Symbol value in enumValues)
             {
                 bool existsByName = false;
@@ -202,6 +209,12 @@ namespace IconManager.Specialized
                         mapping.Destination.UnicodePoint == (uint)value)
                     {
                         existsByUnicode = true;
+
+                        // Unicode matching is more precise, therefore check comments here
+                        if (mapping.Comments.StartsWith(symbolEnumCommentPrefix) == false)
+                        {
+                            throw new Exception("Symbol enum mapping comments must start with the same prefix.");
+                        }
                     }
 
                     if (existsByName && existsByUnicode)

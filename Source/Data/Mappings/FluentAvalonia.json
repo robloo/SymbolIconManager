@@ -42,10 +42,10 @@
       "UnicodePoint": "F109",
       "Name": "ic_fluent_add_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
-    "MetaphorMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -266,10 +266,10 @@
       "UnicodePoint": "F799",
       "Name": "ic_fluent_text_align_center_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -362,10 +362,10 @@
       "UnicodePoint": "F79F",
       "Name": "ic_fluent_text_align_left_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -394,10 +394,10 @@
       "UnicodePoint": "F7A1",
       "Name": "ic_fluent_text_align_right_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -442,10 +442,10 @@
       "UnicodePoint": "F1A9",
       "Name": "ic_fluent_attach_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -506,10 +506,10 @@
       "UnicodePoint": "F15B",
       "Name": "ic_fluent_arrow_left_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
-    "MetaphorMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. Doesn't exist, same as left arrow"
   },
   {
     "Destination": {
@@ -555,7 +555,7 @@
       "Name": "ic_fluent_person_prohibited_20_regular"
     },
     "GlyphMatchQuality": "High",
-    "MetaphorMatchQuality": "Exact",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": "WinUI Symbol. "
   },
@@ -570,10 +570,10 @@
       "UnicodePoint": "F7A4",
       "Name": "ic_fluent_text_bold_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -714,10 +714,10 @@
       "UnicodePoint": "F20A",
       "Name": "ic_fluent_calculator_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -746,10 +746,10 @@
       "UnicodePoint": "FD1D",
       "Name": "ic_fluent_calendar_ltr_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -762,10 +762,10 @@
       "UnicodePoint": "F222",
       "Name": "ic_fluent_calendar_day_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -874,10 +874,10 @@
       "UnicodePoint": "F232",
       "Name": "ic_fluent_calendar_reply_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. No variant with days marked on the calendar"
   },
   {
     "Destination": {
@@ -986,10 +986,10 @@
       "UnicodePoint": "F254",
       "Name": "ic_fluent_camera_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -1370,10 +1370,10 @@
       "UnicodePoint": "F2DD",
       "Name": "ic_fluent_clock_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
-    "MetaphorMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -1402,10 +1402,10 @@
       "UnicodePoint": "F971",
       "Name": "ic_fluent_closed_caption_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -1802,10 +1802,10 @@
       "UnicodePoint": "F2FF",
       "Name": "ic_fluent_comment_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -1962,10 +1962,10 @@
       "UnicodePoint": "100E6",
       "Name": "ic_fluent_person_info_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
-    "MetaphorMatchQuality": "Exact",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2010,10 +2010,10 @@
       "UnicodePoint": "F380",
       "Name": "ic_fluent_document_copy_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
-    "MetaphorMatchQuality": "Exact",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. Document copy matches icon, ic_fluent_copy_20_regular alternate"
   },
   {
     "Destination": {
@@ -2042,10 +2042,10 @@
       "UnicodePoint": "F9A6",
       "Name": "ic_fluent_crop_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2074,10 +2074,10 @@
       "UnicodePoint": "F33A",
       "Name": "ic_fluent_cut_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2138,10 +2138,10 @@
       "UnicodePoint": "F34C",
       "Name": "ic_fluent_delete_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2170,10 +2170,10 @@
       "UnicodePoint": "F365",
       "Name": "ic_fluent_directions_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2234,10 +2234,10 @@
       "UnicodePoint": "F81D",
       "Name": "ic_fluent_thumb_dislike_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. Flipped vertically"
   },
   {
     "Destination": {
@@ -2298,7 +2298,7 @@
       "UnicodePoint": "10069",
       "Name": "ic_fluent_panel_bottom_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": "WinUI Symbol. "
@@ -2314,10 +2314,10 @@
       "UnicodePoint": "1006B",
       "Name": "ic_fluent_panel_left_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2346,10 +2346,10 @@
       "UnicodePoint": "10070",
       "Name": "ic_fluent_panel_right_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2378,10 +2378,10 @@
       "UnicodePoint": "F378",
       "Name": "ic_fluent_document_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2410,10 +2410,10 @@
       "UnicodePoint": "F150",
       "Name": "ic_fluent_arrow_download_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2474,10 +2474,10 @@
       "UnicodePoint": "F3DD",
       "Name": "ic_fluent_edit_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2506,10 +2506,10 @@
       "UnicodePoint": "F3E5",
       "Name": "ic_fluent_emoji_laugh_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2570,10 +2570,10 @@
       "UnicodePoint": "F406",
       "Name": "ic_fluent_filter_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. 'funnel' is an alternate. LineAwesomeSolid has a better matching glyph but poor line thickness."
   },
   {
     "Destination": {
@@ -2618,10 +2618,10 @@
       "UnicodePoint": "F40B",
       "Name": "ic_fluent_flag_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2650,10 +2650,10 @@
       "UnicodePoint": "F41C",
       "Name": "ic_fluent_folder_20_filled"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2714,10 +2714,10 @@
       "UnicodePoint": "F7E4",
       "Name": "ic_fluent_text_font_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2730,10 +2730,10 @@
       "UnicodePoint": "F7BF",
       "Name": "ic_fluent_text_color_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2762,10 +2762,10 @@
       "UnicodePoint": "F437",
       "Name": "ic_fluent_font_decrease_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2810,10 +2810,10 @@
       "UnicodePoint": "F439",
       "Name": "ic_fluent_font_increase_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2842,10 +2842,10 @@
       "UnicodePoint": "F7E4",
       "Name": "ic_fluent_text_font_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -2874,10 +2874,10 @@
       "UnicodePoint": "F181",
       "Name": "ic_fluent_arrow_right_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
-    "MetaphorMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. Doesn't exist, same as right arrow"
   },
   {
     "Destination": {
@@ -3050,10 +3050,10 @@
       "UnicodePoint": "F45A",
       "Name": "ic_fluent_globe_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -3146,10 +3146,10 @@
       "UnicodePoint": "F638",
       "Name": "ic_fluent_question_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
-    "MetaphorMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -3194,10 +3194,10 @@
       "UnicodePoint": "F47C",
       "Name": "ic_fluent_highlight_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -3226,10 +3226,10 @@
       "UnicodePoint": "F480",
       "Name": "ic_fluent_home_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -3418,10 +3418,10 @@
       "UnicodePoint": "F159",
       "Name": "ic_fluent_arrow_import_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. Arrow direction is reversed"
   },
   {
     "Destination": {
@@ -3450,10 +3450,10 @@
       "UnicodePoint": "F49F",
       "Name": "ic_fluent_important_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -3498,10 +3498,10 @@
       "UnicodePoint": "F7F4",
       "Name": "ic_fluent_text_italic_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -3530,10 +3530,10 @@
       "UnicodePoint": "F4B8",
       "Name": "ic_fluent_keyboard_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -3578,10 +3578,10 @@
       "UnicodePoint": "FE78",
       "Name": "ic_fluent_library_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -3610,10 +3610,10 @@
       "UnicodePoint": "F81F",
       "Name": "ic_fluent_thumb_like_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -3658,10 +3658,10 @@
       "UnicodePoint": "F4E4",
       "Name": "ic_fluent_link_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -3690,10 +3690,10 @@
       "UnicodePoint": "FD80",
       "Name": "ic_fluent_text_bullet_list_ltr_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -3722,10 +3722,10 @@
       "UnicodePoint": "F506",
       "Name": "ic_fluent_mail_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -3738,10 +3738,10 @@
       "UnicodePoint": "F510",
       "Name": "ic_fluent_mail_20_filled"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -3834,10 +3834,10 @@
       "UnicodePoint": "F177",
       "Name": "ic_fluent_arrow_reply_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
-    "MetaphorMatchQuality": "Exact",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
+    "IsPlaceholder": true,
+    "Comments": "WinUI Symbol. No matching glyph exists in the Fluent UI System."
   },
   {
     "Destination": {
@@ -3850,10 +3850,10 @@
       "UnicodePoint": "10017",
       "Name": "ic_fluent_mail_arrow_double_back_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
-    "MetaphorMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -3978,10 +3978,10 @@
       "UnicodePoint": "F4F8",
       "Name": "ic_fluent_location_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
-    "MetaphorMatchQuality": "Exact",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. Visually different and MapPin is not equal to Location"
   },
   {
     "Destination": {
@@ -3994,10 +3994,10 @@
       "UnicodePoint": "F530",
       "Name": "ic_fluent_map_drive_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -4042,10 +4042,10 @@
       "UnicodePoint": "F276",
       "Name": "map-pin"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. No good match exists in Fluent UI System"
   },
   {
     "Destination": {
@@ -4330,10 +4330,10 @@
       "UnicodePoint": "FC57",
       "Name": "ic_fluent_share_screen_start_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
-    "MetaphorMatchQuality": "Exact",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. 'window_new' glyph exists but looks completely different."
   },
   {
     "Destination": {
@@ -4362,10 +4362,10 @@
       "UnicodePoint": "F569",
       "Name": "ic_fluent_next_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -4538,10 +4538,10 @@
       "UnicodePoint": "FCEB",
       "Name": "ic_fluent_orientation_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -4602,10 +4602,10 @@
       "UnicodePoint": "F378",
       "Name": "ic_fluent_document_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
-    "MetaphorMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -4650,10 +4650,10 @@
       "UnicodePoint": "F2D5",
       "Name": "ic_fluent_clipboard_paste_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -4682,10 +4682,10 @@
       "UnicodePoint": "F5A1",
       "Name": "ic_fluent_pause_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -4714,10 +4714,10 @@
       "UnicodePoint": "F5A8",
       "Name": "ic_fluent_people_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -4762,10 +4762,10 @@
       "UnicodePoint": "FBD7",
       "Name": "ic_fluent_call_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
-    "MetaphorMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -4858,10 +4858,10 @@
       "UnicodePoint": "F605",
       "Name": "ic_fluent_play_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -4922,10 +4922,10 @@
       "UnicodePoint": "F625",
       "Name": "ic_fluent_preview_link_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -4954,10 +4954,10 @@
       "UnicodePoint": "F628",
       "Name": "ic_fluent_previous_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -4986,10 +4986,10 @@
       "UnicodePoint": "F62A",
       "Name": "ic_fluent_print_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -5098,10 +5098,10 @@
       "UnicodePoint": "F16E",
       "Name": "ic_fluent_arrow_redo_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -5130,10 +5130,10 @@
       "UnicodePoint": "F13D",
       "Name": "ic_fluent_arrow_clockwise_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -5226,10 +5226,10 @@
       "UnicodePoint": "F171",
       "Name": "ic_fluent_arrow_repeat_all_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -5466,10 +5466,10 @@
       "UnicodePoint": "F67F",
       "Name": "ic_fluent_save_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -5546,10 +5546,10 @@
       "UnicodePoint": "F68B",
       "Name": "ic_fluent_scan_24_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "Exact",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "IsPlaceholder": true,
+    "Comments": "WinUI Symbol. Glyph is totally different in the Fluent UI System. No size 20 variant exists."
   },
   {
     "Destination": {
@@ -5578,10 +5578,10 @@
       "UnicodePoint": "FC56",
       "Name": "ic_fluent_select_all_on_24_regular"
     },
-    "GlyphMatchQuality": "Exact",
-    "MetaphorMatchQuality": "Exact",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "Medium",
+    "IsPlaceholder": true,
+    "Comments": "WinUI Symbol. Doesn't exist, visually similar doesn't exist, using similar purpose icon. Size 20 missing"
   },
   {
     "Destination": {
@@ -5610,10 +5610,10 @@
       "UnicodePoint": "F699",
       "Name": "ic_fluent_send_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -5722,10 +5722,10 @@
       "UnicodePoint": "F6AF",
       "Name": "ic_fluent_share_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -5946,10 +5946,10 @@
       "UnicodePoint": "F18A",
       "Name": "ic_fluent_arrow_sort_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -6330,10 +6330,10 @@
       "UnicodePoint": "F72A",
       "Name": "ic_fluent_stop_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -6426,10 +6426,10 @@
       "UnicodePoint": "F190",
       "Name": "ic_fluent_arrow_sync_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -6474,10 +6474,10 @@
       "UnicodePoint": "F77C",
       "Name": "ic_fluent_tag_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -6506,10 +6506,10 @@
       "UnicodePoint": "F64E",
       "Name": "ic_fluent_radio_button_20_filled"
     },
-    "GlyphMatchQuality": "Exact",
-    "MetaphorMatchQuality": "Exact",
-    "IsPlaceholder": false,
-    "Comments": ""
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "NoMatch",
+    "IsPlaceholder": true,
+    "Comments": "WinUI Symbol. The 'location' icon in Fluent UI System is a better metaphor match; however, the glyph doesn't match"
   },
   {
     "Destination": {
@@ -6650,10 +6650,10 @@
       "UnicodePoint": "F80A",
       "Name": "ic_fluent_text_underline_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -6682,10 +6682,10 @@
       "UnicodePoint": "F199",
       "Name": "ic_fluent_arrow_undo_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -6762,10 +6762,10 @@
       "UnicodePoint": "F19B",
       "Name": "ic_fluent_arrow_up_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -6794,10 +6794,10 @@
       "UnicodePoint": "F1A4",
       "Name": "ic_fluent_arrow_upload_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -6826,10 +6826,10 @@
       "UnicodePoint": "F84C",
       "Name": "ic_fluent_video_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -7690,7 +7690,7 @@
       "UnicodePoint": "F254",
       "Name": "ic_fluent_camera_20_regular"
     },
-    "GlyphMatchQuality": "Medium",
+    "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "High",
     "IsPlaceholder": true,
     "Comments": "WinUI Symbol. "
@@ -7946,8 +7946,8 @@
       "UnicodePoint": "F8C2",
       "Name": "ic_fluent_xbox_console_20_regular"
     },
-    "GlyphMatchQuality": "High",
-    "MetaphorMatchQuality": "Exact",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": "WinUI Symbol."
   },
@@ -8026,10 +8026,10 @@
       "UnicodePoint": "F8C4",
       "Name": "ic_fluent_zoom_in_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
@@ -8058,10 +8058,10 @@
       "UnicodePoint": "F8C6",
       "Name": "ic_fluent_zoom_out_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "WinUI Symbol. "
   },
   {
     "Destination": {
