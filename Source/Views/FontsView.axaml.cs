@@ -126,7 +126,7 @@ namespace IconManager
             return segoeV1Mappings;
         }
 
-        private IconMappingList GetWinSymbols2Mappings()
+        private IconMappingList GetWinSymbols2Mappings(bool includeLegacyGlyphs = true)
         {
             var log = new Log();
             var segoeV3Mappings = IconMappingList.Load(IconSet.SegoeFluent);
@@ -145,6 +145,14 @@ namespace IconManager
             // Warning: Doing this means the graphical design language is not maintained.
             // SegoeMDL2Assets glyphs visually differ from SegoeFluent.
             // This is considered acceptable for now.
+            //
+            // In addition, the initial/default mapping file does not include legacy
+            // (obsolete) code-points from earlier SegoeUISymbol (V1) which are still used in
+            // the Symbols enum and some in-box controls.
+            //
+            // In order to ensure complete compatibility with the SegoeMDL2Assets font provided
+            // by Microsoft, and ensure full backwards-compatibility, mappings are also
+            // automatically added for earlier SegoeUISymbol (V1) glyphs.
 
             // Initialize a brand-new, empty mapping list that will eventually be used to build the font
             var segoeV2Mappings = IconMappingList.InitNewMappings(IconSet.SegoeMDL2Assets);
@@ -167,16 +175,29 @@ namespace IconManager
                 }
             }
 
-            return segoeV2Mappings;
+            if (includeLegacyGlyphs)
+            {
+                var segoeV1Mappings = this.GetWinSymbols1Mappings();
+
+                // Merge order ensures V2 overwrites any conflict with V1
+                var finalSegoeV2Mappings = segoeV1Mappings;
+                segoeV2Mappings.MergeInto(finalSegoeV2Mappings);
+
+                return finalSegoeV2Mappings;
+            }
+            else
+            {
+                return segoeV2Mappings;
+            }
         }
 
-        private IconMappingList GetWinSymbols3Mappings()
+        private IconMappingList GetWinSymbols3Mappings(bool includeLegacyGlyphs = true)
         {
             // WinSymbols3 is an equivalent font for SegoeFluent icons.
             //
             // This font has it's own mapping file 'SegoeFluent.json'.
             // However, this mapping file does not include legacy (obsolete) code-points
-            // from earlier SegoeUISymbol and SegoeMDL2Assets which are still used
+            // from earlier SegoeUISymbol (V1) and SegoeMDL2Assets (V2) which are still used
             // in the Symbols enum and some in-box controls.
             //
             //   https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-fluent-icons-font#icon-list
@@ -184,21 +205,29 @@ namespace IconManager
             //   currently marked as legacy and are therefore deprecated.
             //
             // This mapping file DOES include the Unicode points starting at 0xE700
-            // and later which makes it a drop-in replacement for SegoeMDL2Assets as well
+            // and later which makes it a drop-in replacement for SegoeMDL2Assets (V2) as well
             // (the glyph names are the same).
             //
             // In order to ensure complete compatibility with the SegoeFluent font provided
             // by Microsoft, and ensure full backwards-compatibility, mappings are also
             // automatically added for earlier SegoeUISymbol (V1) glyphs.
 
-            var segoeV1Mappings = this.GetWinSymbols1Mappings();
             var segoeV3Mappings = IconMappingList.Load(IconSet.SegoeFluent);
 
-            // Merge order ensures V3 overwrites any conflict with V1
-            var finalSegoeV3Mappings = segoeV1Mappings;
-            segoeV3Mappings.MergeInto(finalSegoeV3Mappings);
+            if (includeLegacyGlyphs)
+            {
+                var segoeV1Mappings = this.GetWinSymbols1Mappings();
 
-            return finalSegoeV3Mappings;
+                // Merge order ensures V3 overwrites any conflict with V1
+                var finalSegoeV3Mappings = segoeV1Mappings;
+                segoeV3Mappings.MergeInto(finalSegoeV3Mappings);
+
+                return finalSegoeV3Mappings;
+            }
+            else
+            {
+                return segoeV3Mappings;
+            }
         }
 
         private void BuildWinSymbols1Font()
