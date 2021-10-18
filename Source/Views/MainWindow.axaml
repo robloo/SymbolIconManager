@@ -22,5 +22,9 @@
         <TabItem Header="App Tools">
             <local:AppToolsView />
         </TabItem>
+        <!-- Font Management -->
+        <TabItem Header="Fonts">
+            <local:FontsView />
+        </TabItem>
     </TabControl>
 </Window>
