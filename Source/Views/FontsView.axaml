@@ -11,7 +11,7 @@
           RowDefinitions="Auto,Auto">
         <Grid
             Grid.Row="0"
-            Grid.ColumnDefinitions="Auto,Auto"
+            Grid.ColumnDefinitions="Auto,Auto,Auto"
             Grid.RowDefinitions="Auto,Auto"
             Margin="0">
             <TextBlock
@@ -27,7 +27,35 @@
                 Grid.Row="1"
                 Width="200"
                 HorizontalContentAlignment="Center"
-                Command="{Binding BuildWinSymbols3Font}">
+                Command="{Binding BuildWinSymbols1Font}">
+                <Button.Content>
+                    <TextBlock
+                        Text="Build WinSymbols1 (SegoeUISymbol) Font"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
+                </Button.Content>
+            </Button>
+            <Button
+                Grid.Column="1"
+                Grid.Row="1"
+                Width="200"
+                HorizontalContentAlignment="Center"
+                Command="{Binding BuildWinSymbols2Font}"
+                Margin="5,0,0,0">
+                <Button.Content>
+                    <TextBlock
+                        Text="Build WinSymbols2 (SegoeMDL2Assets) Font"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
+                </Button.Content>
+            </Button>
+            <Button
+                Grid.Column="2"
+                Grid.Row="1"
+                Width="200"
+                HorizontalContentAlignment="Center"
+                Command="{Binding BuildWinSymbols3Font}"
+                Margin="5,0,0,0">
                 <Button.Content>
                     <TextBlock
                         Text="Build WinSymbols3 (SegoeFluent) Font"
