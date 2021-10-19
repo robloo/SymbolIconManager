@@ -55,7 +55,7 @@ namespace IconManager.Specialized
             uint nextAvailableUnicodePoint = newUnicodePointStart;
 
             // Load the SegoeFluent mappings
-            var segoeFluentMappings = IconMappingList.Load(IconSet.SegoeFluent);
+            var segoeV3Mappings = IconMappingList.Load(IconSet.SegoeFluent);
             var segoeV1toV2 = IconMappingList.Load(IconSet.SegoeUISymbol, IconSet.SegoeMDL2Assets);
 
             // Ensure latest icons are used
@@ -68,7 +68,7 @@ namespace IconManager.Specialized
             {
                 if (mapping.Source.IconSet == IconSet.SegoeFluent)
                 {
-                    var matchingSegoeFluentMappings = segoeFluentMappings.FindByDestinationUnicode(mapping.Source.UnicodePoint);
+                    var matchingSegoeFluentMappings = segoeV3Mappings.FindByDestinationUnicode(mapping.Source.UnicodePoint);
 
                     if (matchingSegoeFluentMappings.Count != 1)
                     {
@@ -76,8 +76,11 @@ namespace IconManager.Specialized
                     }
                     else
                     {
-                        mapping.Source = matchingSegoeFluentMappings[0].Source.Clone();
-                        // Update other properties?
+                        mapping.Source               = matchingSegoeFluentMappings[0].Source.Clone();
+                        mapping.GlyphMatchQuality    = matchingSegoeFluentMappings[0].GlyphMatchQuality;
+                        mapping.MetaphorMatchQuality = matchingSegoeFluentMappings[0].MetaphorMatchQuality;
+                        mapping.IsPlaceholder        = matchingSegoeFluentMappings[0].IsPlaceholder;
+                        mapping.Comments             = matchingSegoeFluentMappings[0].Comments;
                     }
                 }
             }
@@ -109,7 +112,7 @@ namespace IconManager.Specialized
                 }
 
                 // Unicode matching is much more exact than a name search
-                var matchingSegoeFluentMappings = segoeFluentMappings.FindByDestinationUnicode(unicode);
+                var matchingSegoeFluentMappings = segoeV3Mappings.FindByDestinationUnicode(unicode);
 
                 if (matchingSegoeFluentMappings.Count == 1)
                 {
@@ -169,6 +172,49 @@ namespace IconManager.Specialized
                         // Should never get here, all other values should be defined
                         throw new Exception("Invalid Symbol enum icon detected.");
                     }
+                }
+            }
+
+            // Detect any matching names between the provided FluentAvalonia.json and the SegoeFluent font.
+            // Any destination name that matches with a SegoeFluent destination name should be overwritten
+            // with the official Unicode point value from the SegoeFluent mappings.
+            // Remember the FluentAvalonia mappings are actually used to construct named symbols.
+            // So name is the primary identifier instead of Unicode point. We don't want to confuse things
+            // by having different Unicode points for the same name between FluentAvalonia and WinUI.
+            // This is just unnecessary duplication in the output font as well.
+            foreach (IconMapping mapping in mappings)
+            {
+                // Check if the mapping is from the Symbol enum
+                // Symbol enum values (from Segoe V1) have the same name but different Unicode points as SegoeFluent (V3)
+                // These icons should be excluded from this check
+                bool existsInSymbolEnum = Enum.IsDefined(typeof(WinUISymbols.Symbol), (int)mapping.Destination.UnicodePoint);
+
+                if (existsInSymbolEnum == false)
+                {
+                    var matchingSegoeFluentMappings = segoeV3Mappings.FindByDestinationName(mapping.Destination.Name);
+
+                    if (matchingSegoeFluentMappings.Count > 0)
+                    {
+                        // Only use the first match as a replacement
+                        mapping.Destination.UnicodePoint = matchingSegoeFluentMappings[0].Destination.UnicodePoint;
+                    }
+                }
+            }
+
+            // Make sure all symbol icons also defined in SegoeFluent use SegoeFluent's mapping and source
+            foreach (IconMapping mapping in mappings)
+            {
+                var matchingSegoeFluentMappings = segoeV3Mappings.FindByDestinationUnicode(mapping.Destination.UnicodePoint);
+
+                if (matchingSegoeFluentMappings.Count > 0 &&
+                    matchingSegoeFluentMappings[0].Source.IsValidForSource)
+                {
+                    // Only use the first match as a replacement
+                    mapping.Source               = matchingSegoeFluentMappings[0].Source.Clone();
+                    mapping.GlyphMatchQuality    = matchingSegoeFluentMappings[0].GlyphMatchQuality;
+                    mapping.MetaphorMatchQuality = matchingSegoeFluentMappings[0].MetaphorMatchQuality;
+                    mapping.IsPlaceholder        = matchingSegoeFluentMappings[0].IsPlaceholder;
+                    // Comments are not modified here to preserve any special notes written above
                 }
             }
 

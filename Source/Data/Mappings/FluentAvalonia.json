@@ -1074,7 +1074,7 @@
   {
     "Destination": {
       "IconSet": "Undefined",
-      "UnicodePoint": "F8026",
+      "UnicodePoint": "E73E",
       "Name": "Checkmark"
     },
     "Source": {
@@ -1082,7 +1082,7 @@
       "UnicodePoint": "F294",
       "Name": "ic_fluent_checkmark_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
@@ -1106,7 +1106,7 @@
   {
     "Destination": {
       "IconSet": "Undefined",
-      "UnicodePoint": "F8028",
+      "UnicodePoint": "E70D",
       "Name": "ChevronDown"
     },
     "Source": {
@@ -1114,7 +1114,7 @@
       "UnicodePoint": "F2A3",
       "Name": "ic_fluent_chevron_down_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
@@ -1138,7 +1138,7 @@
   {
     "Destination": {
       "IconSet": "Undefined",
-      "UnicodePoint": "F802A",
+      "UnicodePoint": "E76B",
       "Name": "ChevronLeft"
     },
     "Source": {
@@ -1146,7 +1146,7 @@
       "UnicodePoint": "F2AA",
       "Name": "ic_fluent_chevron_left_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
@@ -1170,7 +1170,7 @@
   {
     "Destination": {
       "IconSet": "Undefined",
-      "UnicodePoint": "F802C",
+      "UnicodePoint": "E76C",
       "Name": "ChevronRight"
     },
     "Source": {
@@ -1178,7 +1178,7 @@
       "UnicodePoint": "F2B0",
       "Name": "ic_fluent_chevron_right_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
@@ -1202,7 +1202,7 @@
   {
     "Destination": {
       "IconSet": "Undefined",
-      "UnicodePoint": "F802E",
+      "UnicodePoint": "E70E",
       "Name": "ChevronUp"
     },
     "Source": {
@@ -1210,7 +1210,7 @@
       "UnicodePoint": "F2B6",
       "Name": "ic_fluent_chevron_up_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
@@ -1442,7 +1442,7 @@
   {
     "Destination": {
       "IconSet": "Undefined",
-      "UnicodePoint": "F8038",
+      "UnicodePoint": "E753",
       "Name": "Cloud"
     },
     "Source": {
@@ -1450,7 +1450,7 @@
       "UnicodePoint": "F2E4",
       "Name": "ic_fluent_cloud_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
@@ -1490,7 +1490,7 @@
   {
     "Destination": {
       "IconSet": "Undefined",
-      "UnicodePoint": "F803B",
+      "UnicodePoint": "EBD3",
       "Name": "CloudDownload"
     },
     "Source": {
@@ -1498,8 +1498,8 @@
       "UnicodePoint": "1004A",
       "Name": "ic_fluent_cloud_arrow_down_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
-    "MetaphorMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -1666,16 +1666,16 @@
   {
     "Destination": {
       "IconSet": "Undefined",
-      "UnicodePoint": "F8046",
+      "UnicodePoint": "E943",
       "Name": "Code"
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F2EF",
-      "Name": "ic_fluent_code_20_regular"
+      "UnicodePoint": "100B1",
+      "Name": "ic_fluent_braces_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
-    "MetaphorMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -5426,7 +5426,7 @@
   {
     "Destination": {
       "IconSet": "Undefined",
-      "UnicodePoint": "F80BF",
+      "UnicodePoint": "ED5E",
       "Name": "Ruler"
     },
     "Source": {
@@ -5434,7 +5434,7 @@
       "UnicodePoint": "F67C",
       "Name": "ic_fluent_ruler_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
@@ -5474,7 +5474,7 @@
   {
     "Destination": {
       "IconSet": "Undefined",
-      "UnicodePoint": "F80C1",
+      "UnicodePoint": "E792",
       "Name": "SaveAs"
     },
     "Source": {
@@ -5482,7 +5482,7 @@
       "UnicodePoint": "FC51",
       "Name": "ic_fluent_save_edit_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
@@ -5682,7 +5682,7 @@
   {
     "Destination": {
       "IconSet": "Undefined",
-      "UnicodePoint": "F80C7",
+      "UnicodePoint": "E713",
       "Name": "Settings"
     },
     "Source": {
@@ -5690,7 +5690,7 @@
       "UnicodePoint": "F6A9",
       "Name": "ic_fluent_settings_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
@@ -7698,7 +7698,7 @@
   {
     "Destination": {
       "IconSet": "Undefined",
-      "UnicodePoint": "F8122",
+      "UnicodePoint": "E872",
       "Name": "Wifi1"
     },
     "Source": {
@@ -7706,7 +7706,7 @@
       "UnicodePoint": "F8B2",
       "Name": "ic_fluent_wifi_4_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
@@ -7730,7 +7730,7 @@
   {
     "Destination": {
       "IconSet": "Undefined",
-      "UnicodePoint": "F8124",
+      "UnicodePoint": "E873",
       "Name": "Wifi2"
     },
     "Source": {
@@ -7738,7 +7738,7 @@
       "UnicodePoint": "F8B0",
       "Name": "ic_fluent_wifi_3_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
@@ -7762,7 +7762,7 @@
   {
     "Destination": {
       "IconSet": "Undefined",
-      "UnicodePoint": "F8126",
+      "UnicodePoint": "E874",
       "Name": "Wifi3"
     },
     "Source": {
@@ -7770,7 +7770,7 @@
       "UnicodePoint": "F8AE",
       "Name": "ic_fluent_wifi_2_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
@@ -7970,7 +7970,7 @@
   {
     "Destination": {
       "IconSet": "Undefined",
-      "UnicodePoint": "F8130",
+      "UnicodePoint": "F012",
       "Name": "ZipFolder"
     },
     "Source": {
@@ -7978,7 +7978,7 @@
       "UnicodePoint": "F435",
       "Name": "ic_fluent_folder_zip_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
