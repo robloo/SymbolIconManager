@@ -7794,7 +7794,7 @@
   {
     "Destination": {
       "IconSet": "Undefined",
-      "UnicodePoint": "F8128",
+      "UnicodePoint": "E701",
       "Name": "Wifi4"
     },
     "Source": {
@@ -7805,7 +7805,7 @@
     "GlyphMatchQuality": "Exact",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "'Wifi4' corresponds with 'Wifi' in SegoeFluent"
   },
   {
     "Destination": {
