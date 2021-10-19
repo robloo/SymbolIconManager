@@ -7802,7 +7802,7 @@
       "UnicodePoint": "F8AC",
       "Name": "ic_fluent_wifi_1_20_regular"
     },
-    "GlyphMatchQuality": "Exact",
+    "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": "'Wifi4' corresponds with 'Wifi' in SegoeFluent"
