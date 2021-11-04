@@ -13,11 +13,13 @@ namespace IconManager
         private const string BuildRootDirectoryName = @"BuildFont";
         private const string GlyphSubDirectoryName  = @"glyph_sources";
         private const string PythonScriptFileName   = @"build_font.py";
+        private const string MacOSScriptFileName    = @"build_macOS.command";
         private const string WindowsScriptFileName  = @"build_win.bat";
         private const string OutputFontFileName     = @"output_font.ttf";
 
         // File paths
-        private const string FontForgeFilePath = @"C:\Program Files (x86)\FontForgeBuilds\run_fontforge.exe";
+        private const string DefaultFontForgeFilePathWindows = @"C:\Program Files (x86)\FontForgeBuilds\run_fontforge.exe";
+        private const string DefaultFontForgeFilePathMacOS   = @"/Applications/FontForge.app";
 
         private static object directoryMutex = new object();
 
@@ -67,6 +69,13 @@ namespace IconManager
             Directory.CreateDirectory(Path.Combine(outputDirectory, GlyphSubDirectoryName));
 
             // Write the platform-dependent build scripts
+            using (MemoryStream macScript = this.BuildMacOSScript(fontFileName))
+            {
+                this.WriteStreamToFile(
+                    macScript,
+                    Path.Combine(outputDirectory, MacOSScriptFileName));
+            }
+
             using (MemoryStream winScript = this.BuildWindowsScript(fontFileName))
             {
                 this.WriteStreamToFile(
@@ -92,11 +101,22 @@ namespace IconManager
             // This currently only works on Windows
             try
             {
-                Process.Start(new ProcessStartInfo
+                if (System.OperatingSystem.IsWindows())
                 {
-                    Arguments = outputDirectory,
-                    FileName = "explorer.exe"
-                });
+                    Process.Start(new ProcessStartInfo
+                    {
+                        Arguments = outputDirectory,
+                        FileName = "explorer.exe"
+                    });
+                }
+                else if (System.OperatingSystem.IsMacOS())
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        Arguments = $"-R {outputDirectory}",
+                        FileName = "open"
+                    });
+                }
             }
             catch { }
 
@@ -226,6 +246,7 @@ namespace IconManager
                     }
 
                     sb.AppendLine($@"glyph = font.createChar(0x{mapping.Destination.UnicodeHexString})");
+                    // TODO: '\' usage here only works on Windows, need to use '/' or path methods
                     sb.AppendLine($@"glyph.importOutlines('{GlyphSubDirectoryName}\{svgFileName}')");
                     sb.AppendLine($@"glyph.width = 1000");
 
@@ -251,6 +272,27 @@ namespace IconManager
             return new MemoryStream(Encoding.UTF8.GetBytes(sb.ToString()));
         }
 
+        private MemoryStream BuildMacOSScript(string fontFileName)
+        {
+            var sb = new StringBuilder();
+            
+            // This script does not currently work
+            //  1. It requires special permissions to run on modern macOS versions
+            //  2. FontForge has a bug on macOS where attempting to import an SVG outline gives
+            //     "I'm sorry this file is too complex for me to understand (or is erroneous)"
+            //     This can be verified using [File]->[Execute Script...] in FontForge directly
+            //     The same Python that works on Windows does not work on macOS
+            //  3. The Python script needs to be modified to use Unix paths '/' instead of '\'
+            
+            sb.AppendLine(@"cd -- ""$(dirname ""$BASH_SOURCE"")""");
+            sb.AppendLine();
+            sb.AppendLine($@"open -a {DefaultFontForgeFilePathMacOS} --args -script ""$cd/{PythonScriptFileName}""");
+            sb.AppendLine();
+            sb.AppendLine($@"echo ""FontForge has finished building the {fontFileName} font.""");
+
+            return new MemoryStream(Encoding.UTF8.GetBytes(sb.ToString()));
+        }
+
         private MemoryStream BuildWindowsScript(string fontFileName)
         {
             var sb = new StringBuilder();
@@ -258,7 +300,7 @@ namespace IconManager
             sb.AppendLine(@"@ECHO OFF");
             sb.AppendLine(@"SET scriptPath=%cd%");
             sb.AppendLine();
-            sb.AppendLine($@"""{FontForgeFilePath}"" -script ""%scriptPath%\{PythonScriptFileName}""");
+            sb.AppendLine($@"""{DefaultFontForgeFilePathWindows}"" -script ""%scriptPath%\{PythonScriptFileName}""");
             sb.AppendLine();
             sb.AppendLine($@"ECHO FontForge has finished building the {fontFileName} font.");
             sb.AppendLine();
