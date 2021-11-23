@@ -94,11 +94,11 @@ namespace IconManager
                 if (iconSet == IconSet.SegoeMDL2Assets)
                 {
                     // Help build the mapping table
-                    System.Diagnostics.Debug.WriteLine("{\"" + entry.UnicodePoint + "\", \"" + entry.Name + "\", \"\", \"\"},");
+                    //System.Diagnostics.Debug.WriteLine("{\"" + entry.UnicodePoint + "\", \"" + entry.Name + "\", \"\", \"\"},");
                 }
                 else
                 {
-                    System.Diagnostics.Debug.WriteLine(entry.UnicodePoint);
+                    //System.Diagnostics.Debug.WriteLine(entry.UnicodePoint);
                 }
             }
 #endif
@@ -133,19 +133,20 @@ namespace IconManager
                             {
                                 includeIcon = true;
                             }
-                            else if (iconSet == IconSet.SegoeMDL2Assets)
+                            else
                             {
-                                bool iconExistsInTable = false;
-                                for (int i = 0; i < SegoeMDL2Assets.Icons.Count; i++)
+                                var iconList = IconSetBase.GetIcons(iconSet);
+                                bool existsInIconSet = false;
+                                for (int i = 0; i < iconList.Count; i++)
                                 {
-                                    if (entry.UnicodePoint == SegoeMDL2Assets.Icons[i].UnicodePoint)
+                                    if (entry.UnicodePoint == iconList[i].UnicodePoint)
                                     {
-                                        iconExistsInTable = true;
+                                        existsInIconSet = true;
                                         break;
                                     }
                                 }
 
-                                includeIcon = iconExistsInTable;
+                                includeIcon = existsInIconSet;
                             }
 
                             // Only add new icons
@@ -189,6 +190,8 @@ namespace IconManager
                 bool allMappingsExist = true;
                 var usedIcons = this.ListUsedIcons(originalIconSet);
 
+                // Functionality is currently disabled
+                /*
                 foreach (var entry in usedIcons)
                 {
                     bool mappingExists = false;
@@ -207,6 +210,7 @@ namespace IconManager
                         break;
                     }
                 }
+                */
 
                 if (allMappingsExist)
                 {
@@ -233,16 +237,26 @@ namespace IconManager
 
                         if (endIndex >= 0)
                         {
-                            var unicode = Convert.ToUInt32(
+                            uint unicode = Convert.ToUInt32(
                                 fileText.Substring(
                                     index + startPattern.Length,
                                     endIndex - (index + startPattern.Length)),
                                 16);
+                            string unicodeHex = fileText.Substring(
+                                index + startPattern.Length,
+                                endIndex - (index + startPattern.Length));
 
                             int mappingIndex = -1;
                             for (int i = 0; i < mappings.Count; i++)
                             {
-                                if (unicode == mappings[i].Source.UnicodePoint)
+                                if (originalIconSet == IconSet.Undefined &&
+                                    unicode == mappings[i].Source.UnicodePoint)
+                                {
+                                    mappingIndex = i;
+                                    break;
+                                }
+                                else if (originalIconSet == mappings[i].Source.IconSet &&
+                                         unicode == mappings[i].Source.UnicodePoint)
                                 {
                                     mappingIndex = i;
                                     break;
@@ -255,18 +269,18 @@ namespace IconManager
 
                                 // Original case
                                 fileText = fileText.Replace(
-                                    startPattern + unicode,
-                                    startPattern + mappings[mappingIndex].Destination.UnicodePoint);
+                                    startPattern + unicodeHex,
+                                    startPattern + mappings[mappingIndex].Destination.UnicodeHexString);
 
                                 // Lowercase
                                 fileText = fileText.Replace(
-                                    startPattern.Substring(0, startPattern.Length - 1) + startPattern.Substring(startPattern.Length - 1, 1).ToLowerInvariant() + unicode,
-                                    startPattern + mappings[mappingIndex].Destination.UnicodePoint);
+                                    startPattern.Substring(0, startPattern.Length - 1) + startPattern.Substring(startPattern.Length - 1, 1).ToLowerInvariant() + unicodeHex.ToLowerInvariant(),
+                                    startPattern + mappings[mappingIndex].Destination.UnicodeHexString);
 
                                 // Uppercase
                                 fileText = fileText.Replace(
-                                    startPattern.Substring(0, startPattern.Length - 1) + startPattern.Substring(startPattern.Length - 1, 1).ToUpperInvariant() + unicode,
-                                    startPattern + mappings[mappingIndex].Destination.UnicodePoint);
+                                    startPattern.Substring(0, startPattern.Length - 1) + startPattern.Substring(startPattern.Length - 1, 1).ToUpperInvariant() + unicodeHex.ToUpperInvariant(),
+                                    startPattern + mappings[mappingIndex].Destination.UnicodeHexString);
 
                                 fileModified = true;
                             }
@@ -334,11 +348,11 @@ namespace IconManager
         /// </summary>
         private void RemapIconsButton_Click(object sender, RoutedEventArgs e)
         {
-            /*
             // Not currently general purpose, code must be modified here for use
+            /*
             this.RemapIcons(
-                SegoeMDL2AssetsToFluentUISystem.BuildMapping(FluentUISystem.IconSize.Size20),
-                IconSet.SegoeMDL2Assets);
+                IconMappingList.Load(IconSet.SegoeFluent),
+                IconSet.FluentUISystemRegular);
             */
             return;
         }
