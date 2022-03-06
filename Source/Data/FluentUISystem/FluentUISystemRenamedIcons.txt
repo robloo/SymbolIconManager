@@ -61,6 +61,10 @@ TextBox Vertical -> TextBox Rotate 90 // to follow the naming patterns
 
 //Updates
 //Multiselect -> Correct RTL/LTR in naming
+ic_fluent_multiselect_16_regular -> ic_fluent_multiselect_ltr_16_regular
+ic_fluent_multiselect_20_regular -> ic_fluent_multiselect_ltr_20_regular
+ic_fluent_multiselect_24_regular -> ic_fluent_multiselect_ltr_24_regular
+ic_fluent_multiselect_rlt_20_regular -> ic_fluent_multiselect_rtl_20_regular
 //Panel Left/Right Expand/Contract - Correcting to match designs/names
 //Text Edit Style
 //Text Footnote

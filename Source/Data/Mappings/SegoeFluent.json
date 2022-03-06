@@ -519,8 +519,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F544",
-      "Name": "ic_fluent_mic_on_20_regular"
+      "UnicodePoint": "104C1",
+      "Name": "ic_fluent_mic_20_regular"
     },
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
@@ -1495,8 +1495,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F55B",
-      "Name": "ic_fluent_multiselect_20_regular"
+      "UnicodePoint": "104C7",
+      "Name": "ic_fluent_multiselect_ltr_20_regular"
     },
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
@@ -2311,8 +2311,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F3FB",
-      "Name": "ic_fluent_eye_show_20_regular"
+      "UnicodePoint": "104B6",
+      "Name": "ic_fluent_eye_20_regular"
     },
     "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Medium",
@@ -3735,8 +3735,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F1D1",
-      "Name": "ic_fluent_battery_full_20_regular"
+      "UnicodePoint": "1030A",
+      "Name": "ic_fluent_battery_10_20_regular"
     },
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
@@ -4535,8 +4535,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FBE4",
-      "Name": "ic_fluent_cellular_data_cellular_off_24_regular"
+      "UnicodePoint": "104B3",
+      "Name": "ic_fluent_cellular_off_24_regular"
     },
     "GlyphMatchQuality": "NoMatch",
     "MetaphorMatchQuality": "Low",
@@ -5031,8 +5031,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F3FB",
-      "Name": "ic_fluent_eye_show_20_regular"
+      "UnicodePoint": "104B6",
+      "Name": "ic_fluent_eye_20_regular"
     },
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "High",
@@ -11655,8 +11655,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F1D1",
-      "Name": "ic_fluent_battery_full_20_regular"
+      "UnicodePoint": "1030A",
+      "Name": "ic_fluent_battery_10_20_regular"
     },
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
@@ -13383,8 +13383,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "F54E",
-      "Name": "ic_fluent_mic_on_20_filled"
+      "UnicodePoint": "104CD",
+      "Name": "ic_fluent_mic_20_filled"
     },
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
@@ -13831,8 +13831,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F1D1",
-      "Name": "ic_fluent_battery_full_20_regular"
+      "UnicodePoint": "1030A",
+      "Name": "ic_fluent_battery_10_20_regular"
     },
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
@@ -14215,8 +14215,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F3F7",
-      "Name": "ic_fluent_eye_hide_20_regular"
+      "UnicodePoint": "104B8",
+      "Name": "ic_fluent_eye_off_20_regular"
     },
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
@@ -17479,8 +17479,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F544",
-      "Name": "ic_fluent_mic_on_20_regular"
+      "UnicodePoint": "104C1",
+      "Name": "ic_fluent_mic_20_regular"
     },
     "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
@@ -21815,8 +21815,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F3FB",
-      "Name": "ic_fluent_eye_show_20_regular"
+      "UnicodePoint": "104B6",
+      "Name": "ic_fluent_eye_20_regular"
     },
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
@@ -22423,8 +22423,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "F54E",
-      "Name": "ic_fluent_mic_on_20_filled"
+      "UnicodePoint": "104CD",
+      "Name": "ic_fluent_mic_20_filled"
     },
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
