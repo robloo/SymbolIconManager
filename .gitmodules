@@ -1,0 +1,3 @@
+[submodule "LineAwesome"]
+	path = Resources/LineAwesome
+	url = https://github.com/icons8/line-awesome
