@@ -4103,8 +4103,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F544",
-      "Name": "ic_fluent_mic_on_20_regular"
+      "UnicodePoint": "104C1",
+      "Name": "ic_fluent_mic_20_regular"
     },
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
@@ -6871,8 +6871,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F3FB",
-      "Name": "ic_fluent_eye_show_20_regular"
+      "UnicodePoint": "104B6",
+      "Name": "ic_fluent_eye_20_regular"
     },
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "High",
