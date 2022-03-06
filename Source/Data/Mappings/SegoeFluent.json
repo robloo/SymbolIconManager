@@ -22246,12 +22246,12 @@
       "Name": "SpellingChinese"
     },
     "Source": {
-      "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FF16",
-      "Name": "ic_fluent_text_proofing_tools_zi_24_regular"
+      "IconSet": "Undefined",
+      "UnicodePoint": "0000",
+      "Name": ""
     },
-    "GlyphMatchQuality": "High",
-    "MetaphorMatchQuality": "Exact",
+    "GlyphMatchQuality": "NoMatch",
+    "MetaphorMatchQuality": "NoMatch",
     "IsPlaceholder": false,
     "Comments": ""
   },
