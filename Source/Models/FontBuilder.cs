@@ -323,9 +323,11 @@ namespace IconManager
                     File.Delete(filePath);
                 }
 
-                if (Directory.Exists(Path.GetDirectoryName(filePath)) == false)
+                string? directoryName = Path.GetDirectoryName(filePath);
+                if (directoryName != null &&
+                    Directory.Exists(directoryName) == false)
                 {
-                    Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+                    Directory.CreateDirectory(directoryName);
                 }
 
                 using (var fileStream = File.OpenWrite(filePath))
