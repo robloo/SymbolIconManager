@@ -171,6 +171,38 @@ namespace IconManager
         }
 
         /// <summary>
+        /// Event handler for when a known mapping file is clicked in the load button flyout.
+        /// </summary>
+        private void LoadMappingItem_Click(object sender, RoutedEventArgs e)
+        {
+            var menuItem = sender as MenuItem;
+            IconMappingList? loadedMappings = null;
+
+            switch (menuItem?.Header?.ToString()?.ToUpperInvariant())
+            {
+                case "SEGOEFLUENT.JSON":
+                    loadedMappings = IconMappingList.Load(IconSet.SegoeFluent);
+                    break;
+                case "FLUENTAVALONIA.JSON":
+                    loadedMappings = IconMappingList.Load("avares://IconManager/Data/Mappings/FluentAvalonia.json");
+                    break;
+                case "FLUENTUISYSTEMTOSEGOEMDL2ASSETS.JSON":
+                    loadedMappings = IconMappingList.Load(IconSet.FluentUISystemRegular, IconSet.SegoeMDL2Assets);
+                    break;
+                case "SEGOEUISYMBOLTOSEGOEMDL2ASSETS.JSON":
+                    loadedMappings = IconMappingList.Load(IconSet.SegoeUISymbol, IconSet.SegoeMDL2Assets);
+                    break;
+            }
+
+            if (loadedMappings != null)
+            {
+                this.UpdateMappings(loadedMappings);
+            }
+
+            return;
+        }
+
+        /// <summary>
         /// Event handler for when the save button is clicked.
         /// </summary>
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -215,26 +247,32 @@ namespace IconManager
         }
 
         /// <summary>
-        /// Event handler for when the build font button is clicked.
+        /// Event handler for when a mapping list action is clicked.
         /// </summary>
-        private void BuildFontButton_Click(object sender, RoutedEventArgs e)
+        private async void ActionItem_Click(object sender, RoutedEventArgs e)
         {
-            var fontBuilder = new FontBuilder();
-            fontBuilder.BuildFont(this.ViewToMappings());
+            var menuItem = sender as MenuItem;
 
-            return;
-        }
+            switch (menuItem?.Name)
+            {
+                case "MergeInMenuItem":
+                    {
+                        IconMappingList mappings = this.ViewToMappings();
+                        IconMappingList newMappings = await OpenMappingsFile();
 
-        /// <summary>
-        /// Event handler for when the merge in mappings button is clicked.
-        /// </summary>
-        private async void MergeInButton_Click(object sender, RoutedEventArgs e)
-        {
-            IconMappingList mappings = this.ViewToMappings();
-            IconMappingList newMappings = await OpenMappingsFile();
+                        newMappings.MergeInto(mappings);
+                        this.UpdateMappings(mappings);
 
-            newMappings.MergeInto(mappings);
-            this.UpdateMappings(mappings);
+                        break;
+                    }
+                case "BuildFontMenuItem":
+                    {
+                        var fontBuilder = new FontBuilder();
+                        fontBuilder.BuildFont(this.ViewToMappings());
+
+                        break;
+                    }
+            }
 
             return;
         }

@@ -15,11 +15,25 @@
           RowDefinitions="Auto,*">
         <StackPanel Grid.Row="0"
                     Orientation="Horizontal">
-            <Button x:Name="LoadButton"
-                    HorizontalContentAlignment="Center"
-                    Content="Load"
-                    MinWidth="100"
-                    Click="LoadButton_Click" />
+            <SplitButton x:Name="LoadButton"
+                         HorizontalContentAlignment="Center"
+                         Content="Load"
+                         MinWidth="100"
+                         Click="LoadButton_Click">
+                <SplitButton.Flyout>
+                    <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                        <MenuItem Header="SegoeFluent.json"
+                                  Click="LoadMappingItem_Click" />
+                        <MenuItem Header="FluentAvalonia.json"
+                                  Click="LoadMappingItem_Click" />
+                        <MenuItem Header="-" />
+                        <MenuItem Header="FluentUISystemToSegoeMDL2Assets.json"
+                                  Click="LoadMappingItem_Click" />
+                        <MenuItem Header="SegoeUISymbolToSegoeMDL2Assets.json"
+                                  Click="LoadMappingItem_Click" />
+                    </MenuFlyout>
+                </SplitButton.Flyout>
+            </SplitButton>
             <Button x:Name="SaveButton"
                     HorizontalContentAlignment="Center"
                     Content="Save"
@@ -32,18 +46,22 @@
                     MinWidth="100"
                     Click="ClearButton_Click"
                     Margin="20,0,0,0" />
-            <Button x:Name="MergeInButton"
+            <Button x:Name="ActionsButton"
                     HorizontalContentAlignment="Center"
-                    Content="Merge In"
+                    Content="Actions..."
                     MinWidth="100"
-                    Click="MergeInButton_Click"
-                    Margin="5,0,0,0" />
-            <Button x:Name="BuildFontButton"
-                    HorizontalContentAlignment="Center"
-                    Content="Build Font"
-                    MinWidth="100"
-                    Click="BuildFontButton_Click"
-                    Margin="20,0,0,0" />
+                    Margin="20,0,0,0">
+                <Button.Flyout>
+                    <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                        <MenuItem x:Name="MergeInMenuItem"
+                                  Header="Merge In"
+                                  Click="ActionItem_Click" />
+                        <MenuItem x:Name="BuildFontMenuItem"
+                                  Header="Build Font"
+                                  Click="ActionItem_Click" />
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal"
                     Grid.Row="0"
