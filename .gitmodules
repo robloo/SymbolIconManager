@@ -4,3 +4,6 @@
 [submodule "Resources/LineAwesome"]
 	path = Resources/LineAwesome
 	url = https://github.com/icons8/line-awesome
+[submodule "Resources/WinJSSymbols"]
+	path = Resources/WinJSSymbols
+	url = https://github.com/winjs/winjs/
