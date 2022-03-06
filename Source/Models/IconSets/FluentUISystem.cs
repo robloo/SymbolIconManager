@@ -149,10 +149,19 @@ namespace IconManager
                 string? line = reader.ReadLine();
                 while (line != null)
                 {
-                    if (string.IsNullOrEmpty(line) == false &&
-                        line.Trim().StartsWith("//") == false)
+                    string processedLine = line.Trim();
+
+                    if (processedLine.Length > 0 &&
+                        processedLine.StartsWith("//") == false)
                     {
-                        string[] namePair = line.Split(
+                        // Remove any end-of-line comments
+                        int index = processedLine.IndexOf("//", StringComparison.OrdinalIgnoreCase);
+                        if (index >= 0)
+                        {
+                            processedLine = processedLine.Substring(0, index);
+                        }
+
+                        string[] namePair = processedLine.Split(
                             new string[] { "→", "->" },
                             StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 

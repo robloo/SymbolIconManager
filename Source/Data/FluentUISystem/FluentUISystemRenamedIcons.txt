@@ -1,3 +1,71 @@
+// Current as of March 6, 2022
+//---------------------------------------------------------------------------------------------
+
+// January 14, 2022
+// Update repo to match main Figma/Design file #381
+// https://github.com/microsoft/fluentui-system-icons/pull/381
+
+//Removed
+Battery -> Battery 0 // (remove dupes)
+Battery Full -> Battery 10 // (remove dupes)
+Block -> Subtract Circle // remove dupes
+Calendar Patterns -> Calendar Pattern // remove size 16 dupe
+Caret Down Left -> Caret Down Right // It was redundantly named, should have been Caret Down Right
+Cellular Data Unavailable -> Cellular Warning // (removing dupe)
+Convert to Type Off -> Scan Type Off // (remove dupe)
+Data Line -> Data Trending // Size 20 (dupe)
+Drawer Download -> Drawer Arrow Download // (remove dupe)
+Flash On -> Flash // (removing duplicate)
+//Local Language / Zi - Remove duplicate (it's in Local Language/zh)
+//Page - It was added erroneously
+//Strikethrough Ga Na - Localized files are now subdirectories (with lang code) of the root name
+//Text Align - Remove the 'Rotate x' for vertical and horizontal (as they are more clearly descriptive)
+//Text Bold / NN, NB - They are covered by metalanguage NO
+//Text Clear Formatting Ga - Localized files are now subdirectories (with lang code) of the root name
+//Text Color Accent / Regular - There should only be a "Filled" version of this
+//Text Color Ga - Localized files are now subdirectories (with lang code) of the root name
+//Text Edit Style Ga - Localized files are now subdirectories (with lang code) of the root name
+//Text Effects Ga - Localized files are now subdirectories (with lang code) of the root name
+//Text Footnote Ga Na - Localized files are now subdirectories (with lang code) of the root name
+//Text Italic / NN, NB - They are covered by metalanguage NO
+//Text Number Format Ga Na Da - Localized files are now subdirectories (with lang code) of the root name
+//Text Proofing Tools Ga Na Da - Localized files are now subdirectories (with lang code) of the root name
+//Text Proofing Tools Zi - Localized files are now subdirectories (with lang code) of the root name
+//Text Strikethrough S - Localized files are now subdirectories (with lang code) of the root name
+//Text Underline Redundant lang-locale
+
+//Rename
+Approval App -> Approvals App // (32)
+Arrow Sort Down Line -> Arrow Sort Down Lines // (20)
+Arrow Step In Default -> Arrow Step In // (Default was an error)
+Bezier Curve -> Bezier Curve Square // (20)
+Border -> Border None // (16, Consolidating with other sizes)
+Caret -> Caret Down Right
+Cellular Data Cellular Off -> Cellular Off
+Document Footer Remove -> Document Header Dismiss
+Eye Hide -> Eye Off
+Eye Show -> Eye
+Eye Tracking On -> Eye Tracking
+Mic On -> Mic
+Screen Share Start -> Share Screen Start // (48)
+Shield Video -> Shield Lock
+Skip Backward -> Skip Back
+Table Stack Down -> Table Stack Below
+Text Box -> Textbox // alignment Size (16)
+Text Direction Horizontal LTR -> Text Direction Horizontal Right
+Text Direction Horizontal RTL -> Text Direction Horizontal Left
+Text Direction Rotate 270 LTR -> Text Direction Rotate 270 Right
+Text Direction Rotate 90 LTR -> Text Direction Rotate 90 Right
+Text Direction Rotate 90 RTL -> Text Direction Rotate 90 Left
+TextBox Vertical -> TextBox Rotate 90 // to follow the naming patterns
+
+//Updates
+//Multiselect -> Correct RTL/LTR in naming
+//Panel Left/Right Expand/Contract - Correcting to match designs/names
+//Text Edit Style
+//Text Footnote
+//Text Number Format
+//Various files for minor precision and performance updates
 
 // October 8, 2021
 // Deprecate old files that have been renamed #331
