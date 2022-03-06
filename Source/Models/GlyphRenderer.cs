@@ -90,7 +90,7 @@ namespace IconManager
                         // Load the SKFont (and internally the SKTypeface)
                         if (cachedFonts.TryGetValue(iconSet, out textFont) == false)
                         {
-                            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
+                            var assets = AvaloniaLocator.Current.GetRequiredService<IAssetLoader>();
                             Uri? fontPath = GlyphRenderer.GetFontSourceUri(iconSet);
 
                             using (var sourceStream = assets.Open(fontPath))
@@ -397,13 +397,28 @@ namespace IconManager
                         return null;
                     }
 
+                    // Naming does not match 1-to-1 with the URL and there are some special cases
+                    // Special cases are defined here, separately
+                    switch (nameBase)
+                    {
+                        case "alternate-square-root":
+                            nameBase = "square-root-alt-solid";
+                            break;
+                        case "i-beam-cursor":
+                            nameBase = "i-cursor-solid";
+                            break;
+                        case "lightning-bolt":
+                            nameBase = "bolt-solid";
+                            break;
+                    }
+
                     lock (glyphSourcesCacheMutex)
                     {
                         if (cachedLineAwesomeGlyphSources == null)
                         {
                             // Rebuild the cache
                             var sources = new List<string>();
-                            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
+                            var assets = AvaloniaLocator.Current.GetRequiredService<IAssetLoader>();
                             string sourceDataPath = "avares://IconManager/Data/LineAwesome/LineAwesomeGlyphSources.json";
 
                             using (var sourceStream = assets.Open(new Uri(sourceDataPath)))
