@@ -253,27 +253,26 @@ namespace IconManager
         /// </summary>
         private async void ActionItem_Click(object sender, RoutedEventArgs e)
         {
-            var menuItem = sender as MenuItem;
-
-            switch (menuItem?.Name)
+            if (object.ReferenceEquals(sender, this.MergeInMenuItem))
             {
-                case "MergeInMenuItem":
-                    {
-                        IconMappingList mappings = this.ViewToMappings();
-                        IconMappingList newMappings = await OpenMappingsFile();
+                IconMappingList mappings = this.ViewToMappings();
+                IconMappingList newMappings = await OpenMappingsFile();
 
-                        newMappings.MergeInto(mappings);
-                        this.UpdateMappings(mappings);
+                newMappings.MergeInto(mappings);
+                this.UpdateMappings(mappings);
+            }
+            else if (object.ReferenceEquals(sender, this.UpdateDeprecatedIconsMenuItem))
+            {
+                IconMappingList mappings = this.ViewToMappings();
 
-                        break;
-                    }
-                case "BuildFontMenuItem":
-                    {
-                        var fontBuilder = new FontBuilder();
-                        fontBuilder.BuildFont(this.ViewToMappings());
+                mappings.UpdateDeprecatedIcons();
 
-                        break;
-                    }
+                this.UpdateMappings(mappings);
+            }
+            else if (object.ReferenceEquals(sender, this.BuildFontMenuItem))
+            {
+                var fontBuilder = new FontBuilder();
+                fontBuilder.BuildFont(this.ViewToMappings());
             }
 
             return;

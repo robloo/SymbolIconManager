@@ -56,6 +56,10 @@
                         <MenuItem x:Name="MergeInMenuItem"
                                   Header="Merge In"
                                   Click="ActionItem_Click" />
+                        <MenuItem x:Name="UpdateDeprecatedIconsMenuItem"
+                                  Header="Update Deprecated Icons"
+                                  Click="ActionItem_Click" />
+                        <MenuItem Header="-" />
                         <MenuItem x:Name="BuildFontMenuItem"
                                   Header="Build Font"
                                   Click="ActionItem_Click" />
