@@ -147,6 +147,10 @@ namespace IconManager
             return directory;
         }
 
+        /// <summary>
+        /// Authors the python script that is used by FontForge to build the font.
+        /// </summary>
+        /// <returns>The python script stream that builds the font.</returns>
         private MemoryStream BuildPythonFontScript(
             IconMappingList mappings,
             string outputDirectory,
@@ -157,22 +161,68 @@ namespace IconManager
             var props = new FontProperties(); // May be passed in the future
             TextInfo textInfo = CultureInfo.InvariantCulture.TextInfo;
 
+            // Most of the instructions and notes for building the font are embedded in the script itself.
+            // However, it is also useful to mention two existing fonts that were used as a guideline.
+            // Properties for these fonts are listed below:
+            //
+            // FluentSystemIcons-Regular.ttf
+            //        Ascent: 500
+            //       Descent: 0
+            //       Em-Size: 500
+            // Underline Pos: 5
+            //        Height: 0
+            //         Notes: Each glyph has a margin and isn't stretched to fill the entire bounding box.
+            //                This makes symbols appear smaller in usage.
+            //
+            // Segoe Fluent Icons.ttf
+            //        Ascent: 2048
+            //       Descent: 0
+            //       Em-Size: 2048
+            // Underline Pos: -100
+            //        Height: 50
+            //         Notes: Almost every glyph is stretched to fill the entire bounding box.
+            //                This makes symbols appear larger in usage.
+            //
+            // Also, according to FontForge, with the "FluentSystemIcons-Regular.ttf" font:
+            //
+            //    "The convention is that TrueType fonts should have an
+            //     Em-Size which is a power of 2. But this font has a size of
+            //     500. This is not an error, but you might consider altering
+            //     the Em-Size with the Element->Font Info->General dialog."
+            //
+            // This means "Segoe Fluent Icons.ttf" is better authored.
+
             sb.AppendLine(@"import fontforge");
+            sb.AppendLine(@"import psMat");
             sb.AppendLine();
             sb.AppendLine( @"# Create a new, empty font");
             sb.AppendLine( @"font = fontforge.font()");
             sb.AppendLine($@"font.copyright  = '{props.Copyright}'");
             sb.AppendLine($@"font.familyname = '{props.FamilyName}'");
             sb.AppendLine($@"font.fontname   = '{props.Name}'");
+            sb.AppendLine($@"font.fullname   = '{props.Name}' # Name for humans");
             sb.AppendLine();
             sb.AppendLine(@"# Each character's glyph is created and added to the font below.");
             sb.AppendLine(@"# Glyphs are created by automatically importing from an SVG source when possible.");
             sb.AppendLine(@"# FontForge uses the following metrics automatically when importing from SVG:");
-            sb.AppendLine(@"#   - Assumes the SVG is 1000px-by-1000px and will scale an SVG of a different size");
-            sb.AppendLine(@"#   - Sets the baseline at 200px from the bottom");
-            sb.AppendLine(@"# The width of the glyph is not automatically set when automatically importing an SVG.");
-            sb.AppendLine(@"# This is true even though the SVG width is scaled to 1000px.");
-            sb.AppendLine(@"# To work-around this, the glyph width is set for all characters as well.");
+            sb.AppendLine(@"#   - Assumes the SVG is 1000-by-1000 EM and will scale an SVG of a different size");
+            sb.AppendLine(@"#   - Sets the font ascent to 800 and descent to 200");
+            sb.AppendLine(@"#   - Sets the baseline at 200 above the descent");
+            sb.AppendLine(@"#   - Following 1000-by-1000 glyphs, the font EM-Size is set to 1000");
+            sb.AppendLine(@"#");
+            sb.AppendLine(@"# The width of each glyph is not automatically set when importing an SVG.");
+            sb.AppendLine(@"# This is true even though the SVG width is scaled to 1000 EM.");
+            sb.AppendLine(@"# To work-around this, the glyph width is set for all characters after importing SVGs.");
+            sb.AppendLine(@"#");
+            sb.AppendLine(@"# After each glyph is imported into the font, the font must be scaled correctly.");
+            sb.AppendLine(@"# This means the final step is to move the baseline to the botton and then set the");
+            sb.AppendLine(@"# Em-Size to a power of two matching Window's Symbols Fonts.");
+            sb.AppendLine(@"# This is done by making the following adjustments:");
+            sb.AppendLine(@"#   - Ascent changed to 1000");
+            sb.AppendLine(@"#   - Descent changed to 0");
+            sb.AppendLine(@"#   - Glyphs translated up by 200 to account for new baseline");
+            sb.AppendLine(@"#   - Em-Size changed to 2048 (which then changes ascent to 2048)");
+            sb.AppendLine(@"#     FontForge will automatically scale the glyphs to fit the new size.");
             sb.AppendLine(@"#");
             sb.AppendLine(@"# Further information about scripting FontForge can be found at the below links:");
             sb.AppendLine(@"#   1. https://fontforge.org/docs/scripting/python.html");
@@ -248,7 +298,6 @@ namespace IconManager
                     sb.AppendLine($@"glyph = font.createChar(0x{mapping.Destination.UnicodeHexString})");
                     // TODO: '\' usage here only works on Windows, need to use '/' or path methods
                     sb.AppendLine($@"glyph.importOutlines('{GlyphSubDirectoryName}\{svgFileName}')");
-                    sb.AppendLine($@"glyph.width = 1000");
 
                     // Only override the default FontForge name if one is provided
                     if (string.IsNullOrWhiteSpace(mapping.Destination.Name) == false)
@@ -264,6 +313,37 @@ namespace IconManager
                     continue; // Fatal error
                 }
             }
+
+            sb.AppendLine(@"# Adjust each glyph's width to match the import default 1000x1000.");
+            sb.AppendLine(@"for glyph in font.glyphs():");
+            sb.AppendLine(@"    glyph.width = 1000");
+            sb.AppendLine();
+
+            sb.AppendLine(@"# Move the baseline from the default 200 to 0.");
+            sb.AppendLine(@"# This is done indirectly by setting both the ascent and descent.");
+            sb.AppendLine(@"# Remember FontForge will by default import with size 1000x1000 and 200 baseline.");
+            sb.AppendLine(@"font.ascent = 1000 # From 800");
+            sb.AppendLine(@"font.descent = 0   # From 200");
+            sb.AppendLine();
+
+            sb.AppendLine(@"# Translate each glyph's position after moving the baseline.");
+            sb.AppendLine(@"translate_matrix = psMat.translate(0, 200)");
+            sb.AppendLine();
+            sb.AppendLine(@"for glyph in font.glyphs():");
+            sb.AppendLine(@"    glyph.transform(translate_matrix)");
+            sb.AppendLine();
+
+            sb.AppendLine(@"# Change the Em-Size of the font to match other symbol fonts.");
+            sb.AppendLine(@"# The convention is that TrueType fonts should have an Em-Size which is a power of 2.");
+            sb.AppendLine(@"# Setting this will scale the entire font (each glyph) to the new size.");
+            sb.AppendLine(@"font.em = 2048 ");
+            sb.AppendLine();
+
+            /* This code may be enabled in the future
+            sb.AppendLine(@"# Set remaining font properties");
+            sb.AppendLine(@"font.upos = -100 # Underline position");
+            sb.AppendLine();
+            */
 
             sb.AppendLine( @"# Export the newly created font");
             sb.AppendLine($@"font.generate('{fontFileName}')");
