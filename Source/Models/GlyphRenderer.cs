@@ -404,6 +404,9 @@ namespace IconManager
                         case "alternate-square-root":
                             nameBase = "square-root-alt-solid";
                             break;
+                        case "at":
+                            nameBase = "at-solid";
+                            break;
                         case "i-beam-cursor":
                             nameBase = "i-cursor-solid";
                             break;
