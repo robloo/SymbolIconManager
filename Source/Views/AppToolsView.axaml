@@ -54,6 +54,12 @@
             <Button x:Name="ExportToMappingsButton"
                     Content="Export to Mappings"
                     Click="ExportToMappingsButton_Click" />
+            <Button x:Name="ExportToImagesButton"
+                    Content="Export to Images"
+                    Click="ExportToImagesButton_Click" />
+            <Button x:Name="ExportFileToImagesButton"
+                    Content="Export File to Images"
+                    Click="ExportFileToImagesButton_Click" />
             <Button x:Name="BuildFontButton"
                     IsEnabled="False"
                     Content="Build Font"

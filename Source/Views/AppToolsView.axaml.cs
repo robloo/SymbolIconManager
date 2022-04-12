@@ -1,10 +1,14 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 
 namespace IconManager
@@ -354,6 +358,149 @@ namespace IconManager
                 IconMappingList.Load(IconSet.SegoeFluent),
                 IconSet.FluentUISystemRegular);
             */
+            return;
+        }
+
+        private async void ExportToImagesButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.ListedIcons.Count > 0)
+            {
+                var dialog = new OpenFolderDialog();
+                var path = await dialog.ShowAsync(App.MainWindow);
+
+                if (path != null)
+                {
+                    string? directoryName = Path.GetDirectoryName(path);
+                    if (directoryName != null &&
+                        Directory.Exists(directoryName) == false)
+                    {
+                        Directory.CreateDirectory(directoryName);
+                    }
+
+                    foreach (IconViewModel viewModel in this.ListedIcons)
+                    {
+                        string filePath = Path.Combine(path, viewModel.UnicodeHexString.ToLowerInvariant() + ".png");
+
+                        if (File.Exists(filePath))
+                        {
+                            // Delete the existing file, it will be replaced
+                            File.Delete(filePath);
+                        }
+
+                        Bitmap? bitmap = await GlyphRenderer.GetBitmapAsync(viewModel.IconSet, viewModel.UnicodePoint);
+                        bitmap?.Save(filePath);
+                    }
+                }
+            }
+
+            return;
+        }
+
+        private async void ExportFileToImagesButton_Click(object sender, RoutedEventArgs e)
+        {
+            var openDialog = new OpenFileDialog();
+            var paths = await openDialog.ShowAsync(App.MainWindow);
+            var glyphs = new List<Tuple<string, string, string>>();
+
+            // Load the glyphs directly from a CSV file
+            // Format is "Font, UnicodePoint, ImageFileName"
+            if (paths != null &&
+                paths.Length > 0 &&
+                File.Exists(paths[0]))
+            {
+                using (var fileStream = File.OpenRead(paths[0]))
+                {
+                    using (var reader = new StreamReader(fileStream))
+                    {
+                        while (reader.EndOfStream == false)
+                        {
+                            string? line = reader.ReadLine();
+                            string[] columns = line?.Split(',') ?? new string[0];
+
+                            if (columns.Length == 3)
+                            {
+                                glyphs.Add(Tuple.Create(
+                                    columns[0].Trim(),
+                                    columns[1].Trim(),
+                                    columns[2].Trim()));
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (glyphs.Count > 0)
+            {
+                string outputDirectory;
+                int currSuffix = -1;
+
+                // Create a temp directory
+                do
+                {
+                    currSuffix++;
+
+                    // Start from the directory of the running application
+                    outputDirectory = Path.Combine(
+                        Directory.GetCurrentDirectory(),
+                        "Glyphs" + currSuffix.ToString(CultureInfo.InvariantCulture));
+
+                } while (Directory.Exists(outputDirectory));
+
+                if (outputDirectory != null &&
+                    Directory.Exists(outputDirectory) == false)
+                {
+                    Directory.CreateDirectory(outputDirectory);
+                }
+
+                // Create and export a bitmap for each glyph
+                foreach (var glyph in glyphs)
+                {
+                    string filePath = Path.Combine(outputDirectory!, glyph.Item3);
+
+                    if (File.Exists(filePath))
+                    {
+                        // Delete the existing file, it will be replaced
+                        File.Delete(filePath);
+                    }
+
+                    uint unicodePoint = 0;
+                    try
+                    {
+                        if (glyph.Item2.StartsWith("0x"))
+                        {
+                            unicodePoint = Convert.ToUInt32(glyph.Item2.Substring(2), 16);
+                        }
+                        else
+                        {
+                            unicodePoint = Convert.ToUInt32(glyph.Item2, 16);
+                        }
+                    }
+                    catch { }
+
+                    var font = GlyphRenderer.LoadFont(glyph.Item1);
+
+                    if (font != null)
+                    {
+                        var bitmap = await GlyphRenderer.RenderGlyph(font, glyph.Item1, unicodePoint);
+                        bitmap?.Save(filePath);
+                    }
+                }
+
+                // Open the output location for the end-user
+                try
+                {
+                    if (System.OperatingSystem.IsWindows())
+                    {
+                        Process.Start(new ProcessStartInfo
+                        {
+                            Arguments = outputDirectory!,
+                            FileName = "explorer.exe"
+                        });
+                    }
+                }
+                catch { }
+            }
+
             return;
         }
 
