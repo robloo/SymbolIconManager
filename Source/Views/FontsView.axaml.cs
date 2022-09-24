@@ -232,7 +232,7 @@ namespace IconManager
             }
         }
 
-        private void BuildWinSymbols1Font()
+        internal void BuildWinSymbols1Font()
         {
             var fontBuilder = new FontBuilder();
             fontBuilder.BuildFont(this.GetWinSymbols1Mappings(), "WinSymbols1.ttf");
@@ -240,7 +240,7 @@ namespace IconManager
             return;
         }
 
-        private void BuildWinSymbols2Font()
+        internal void BuildWinSymbols2Font()
         {
             var fontBuilder = new FontBuilder();
             fontBuilder.BuildFont(this.GetWinSymbols2Mappings(), "WinSymbols2.ttf");
@@ -248,7 +248,7 @@ namespace IconManager
             return;
         }
 
-        private void BuildWinSymbols3Font()
+        internal void BuildWinSymbols3Font()
         {
             var fontBuilder = new FontBuilder();
             fontBuilder.BuildFont(this.GetWinSymbols3Mappings(), "WinSymbols3.ttf");
@@ -256,7 +256,7 @@ namespace IconManager
             return;
         }
 
-        private void BuildFluentAvaloniaFont()
+        internal void BuildFluentAvaloniaFont()
         {
             var fluentAvaloniaMappings = IconMappingList.Load(FluentAvaloniaMappingsPath);
             var segoeFluentMappings = IconMappingList.Load(IconSet.SegoeFluent);
@@ -282,7 +282,7 @@ namespace IconManager
             return;
         }
 
-        private async void RebuildFluentAvaloniaMappings()
+        internal async void RebuildFluentAvaloniaMappings()
         {
             string path = await this.GetSaveFilePath();
 
@@ -309,7 +309,7 @@ namespace IconManager
             return;
         }
 
-        private void BuildFluentUISystemRegularFont()
+        internal void BuildFluentUISystemRegularFont()
         {
             // This is an identity mapping
             var mappings = IconMappingList.InitNewMappings(IconSet.FluentUISystemRegular);
@@ -324,7 +324,7 @@ namespace IconManager
             return;
         }
 
-        private void BuildFluentUISystemFilledFont()
+        internal void BuildFluentUISystemFilledFont()
         {
             // This is an identity mapping
             var mappings = IconMappingList.InitNewMappings(IconSet.FluentUISystemFilled);
