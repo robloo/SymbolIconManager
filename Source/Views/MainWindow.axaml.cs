@@ -1,9 +1,10 @@
 using Avalonia;
 using Avalonia.Controls;
+using FluentAvalonia.UI.Controls;
 
 namespace IconManager
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow : CoreWindow
     {
         /***************************************************************************************
          *
