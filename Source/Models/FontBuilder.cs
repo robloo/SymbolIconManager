@@ -223,6 +223,7 @@ namespace IconManager
             sb.AppendLine(@"#   - Glyphs translated up by 200 to account for new baseline");
             sb.AppendLine(@"#   - Em-Size changed to 2048 (which then changes ascent to 2048)");
             sb.AppendLine(@"#     FontForge will automatically scale the glyphs to fit the new size.");
+            sb.AppendLine(@"#   - The OS/2 table metrics are set matching the above");
             sb.AppendLine(@"#");
             sb.AppendLine(@"# Further information about scripting FontForge can be found at the below links:");
             sb.AppendLine(@"#   1. https://fontforge.org/docs/scripting/python.html");
@@ -322,8 +323,8 @@ namespace IconManager
             sb.AppendLine(@"# Move the baseline from the default 200 to 0.");
             sb.AppendLine(@"# This is done indirectly by setting both the ascent and descent.");
             sb.AppendLine(@"# Remember FontForge will by default import with size 1000x1000 and 200 baseline.");
-            sb.AppendLine(@"font.ascent = 1000 # From 800");
-            sb.AppendLine(@"font.descent = 0   # From 200");
+            sb.AppendLine(@"font.ascent  = 1000 # From 800");
+            sb.AppendLine(@"font.descent = 0    # From 200");
             sb.AppendLine();
 
             sb.AppendLine(@"# Translate each glyph's position after moving the baseline.");
@@ -338,6 +339,33 @@ namespace IconManager
             sb.AppendLine(@"# Setting this will scale the entire font (each glyph) to the new size.");
             sb.AppendLine(@"font.em = 2048 ");
             sb.AppendLine();
+
+            // The following code was intended to set the table metrics which is necessary in several scenarios:
+            //   https://github.com/robloo/SymbolIconManager/issues/1
+            // However, FontForge has bugs when attempting to do this from python through the scripting API.
+            //   https://github.com/fontforge/fontforge/discussions/4931
+            // Therefore it must be set manually after the font is built, below is reference for now.
+            /*
+            sb.AppendLine(@"# Set the OS/2 and hhea Table metrics.");
+            sb.AppendLine(@"# These are important for most platforms and must be set separately from the above.");
+            sb.AppendLine(@"font.os2_use_typo_metrics = 0     # 0 means false");
+
+            sb.AppendLine(@"font.os2_typolinegap      = 0     # Typo Line Gap");
+            sb.AppendLine(@"font.hhea_linegap         = 0     # HHead Line Gap");
+
+            sb.AppendLine(@"font.os2_windescent       = 0     # Win Descent");
+            sb.AppendLine(@"font.os2_typodescent      = 0     # Typo Descent");
+            sb.AppendLine(@"font.hhea_descent         = 0     # HHead Descent");
+            sb.AppendLine(@"font.os2_winascent        = 2048  # Win Ascent");
+            sb.AppendLine(@"font.os2_typoascent       = 2048  # Typo Ascent");
+            sb.AppendLine(@"font.hhea_ascent          = 2048  # HHead Ascent");
+            sb.AppendLine(@"font.ascent  = 2048");
+            sb.AppendLine(@"font.descent = 0");
+            // The following properties are currently read-only and cannot be set
+            // font.capHeight = 2048 # Capital Height (read-only)
+            // font.xHeight   = 1024 # X Height (read-only)
+            sb.AppendLine();
+            */
 
             /* This code may be enabled in the future
             sb.AppendLine(@"# Set remaining font properties");
