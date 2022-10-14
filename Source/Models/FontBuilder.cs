@@ -215,7 +215,7 @@ namespace IconManager
             sb.AppendLine(@"# To work-around this, the glyph width is set for all characters after importing SVGs.");
             sb.AppendLine(@"#");
             sb.AppendLine(@"# After each glyph is imported into the font, the font must be scaled correctly.");
-            sb.AppendLine(@"# This means the final step is to move the baseline to the botton and then set the");
+            sb.AppendLine(@"# This means the final step is to move the baseline to the bottom and then set the");
             sb.AppendLine(@"# Em-Size to a power of two matching Window's Symbols Fonts.");
             sb.AppendLine(@"# This is done by making the following adjustments:");
             sb.AppendLine(@"#   - Ascent changed to 1000");
