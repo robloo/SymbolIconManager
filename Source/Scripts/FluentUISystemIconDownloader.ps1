@@ -1,60 +1,74 @@
-# Define the repository owner and name
 $repoOwner = "microsoft"
 $repoName = "fluentui-system-icons"
 $targetDirectory = "assets"
-$downloadDirectory = "$($env:USERPROFILE)\Desktop"
+$repoDirectory = "$($env:USERPROFILE)\Desktop\$repoName"
+$outputDirectory = "$($env:USERPROFILE)\Desktop\$repoName-svg-output"
+$maxFileCount = 1000000
 
-# Get all commit hashes for the repository
-$commits = Invoke-WebRequest -Uri "https://api.github.com/repos/$repoOwner/$repoName/commits" -UseBasicParsing |
-           ConvertFrom-Json
+# Clone the repository if it doesn't already exist
+if (!(Test-Path $repoDirectory))
+{
+    git clone "https://github.com/$repoOwner/$repoName.git" $repoDirectory
+}
 
 # Create a dictionary to store the latest version of each file
-$files = [System.Collections.Generic.Dictionary[string, object]]::new()
+$files = [System.Collections.Generic.Dictionary[string, string]]::new()
+
+# Get all commits for the repository
+$commitHashes = git -C $repoDirectory log --pretty=format:"%h"
 
 # Loop through each commit
-foreach ($commit in $commits)
+foreach ($commitHash in $commitHashes)
 {
-    # Get the SHA hash of the commit
-    $commitSHA = $commit.sha
-
     # Get all files in the commit
-	$commitFiles = Invoke-WebRequest -Uri "https://api.github.com/repos/$repoOwner/$repoName/commits/$commitSHA" -UseBasicParsing | 
-                   ConvertFrom-Json | 
-                   Select-Object -ExpandProperty files
+	$commitFiles = git -C $repoDirectory show --pretty="" --name-only $commitHash
 
     # Loop through each file in the commit
     foreach ($commitFile in $commitFiles)
     {
 		# Check if the file is in the target directory and is a .SVG file
-		if ($commitFile.filename.StartsWith($targetDirectory) -and $commitFile.filename -like "*.svg")
-		{
-            if ($files.ContainsKey($commitFile.filename))
+        if ($commitFile.StartsWith($targetDirectory) -and $commitFile -like "*.svg")
+        {
+            if ($files.ContainsKey($commitFile))
             {
+                # Get the Unix timestamp for both versions of the file (seconds since January 1, 1970)
+                $existingTimestamp = git -C $repoDirectory log -1 --pretty=format:"%ct" $files[$commitFile]
+                $newTimestamp = git -C $repoDirectory log -1 --pretty=format:"%ct" $commitHash -- $commitFile
+
                 # Check if the file in the dictionary is older than the current file
-                if ($files[$commitFile.filename].commit_date -lt $commitFile.commit_date)
+                if ($existingTimestamp -lt $newTimestamp)
                 {
                     # Replace the file in the dictionary with the newer version
-                    $files[$commitFile.filename] = $commitFile
+                    $files[$commitFile] = $commitHash
                 }
             }
             else
             {
-                # Add the file to the dictionary
-                $files.Add($commitFile.filename, $commitFile)
+                $files.Add($commitFile, $commitHash)
             }
         }
+
+        if ($files.Count -ge $maxFileCount)
+        {
+            break;
+        }
+    }
+
+    if ($files.Count -ge $maxFileCount)
+    {
+        break;
     }
 }
 
-# Download each file
-foreach ($file in $files.Values)
+# Create the final output SVG files
+foreach ($file in $files.Keys)
 {
     # Get the subdirectories in the file path
-    $filePath = $file.filename
+    $filePath = $file
     $subDirs = $filePath.Split("/")[0..($filePath.Split("/").Length - 2)]
 
-    # Create the subdirectories in the local file system
-    $dir = $downloadDirectory
+    # Create the subdirectories in the output destination
+    $dir = $outputDirectory
     foreach ($subDir in $subDirs)
     {
         $dir = Join-Path $dir $subDir
@@ -64,6 +78,12 @@ foreach ($file in $files.Values)
         }
     }
 
-    # Download the file
-    Invoke-WebRequest -Uri $file.download_url -OutFile (Join-Path $dir $file.filename.Split("/")[-1])
+    $sourcePath = Join-Path $repoDirectory $file
+    $destPath = Join-Path $outputDirectory $file
+
+    # Checkout the file
+    git -C $repoDirectory checkout $files[$file] -- $file
+
+    # Copy the file to the output destination (or replaces an existing file)
+    Copy-Item -Path $sourcePath -Destination $destPath
 }
