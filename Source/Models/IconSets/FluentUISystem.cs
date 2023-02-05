@@ -94,13 +94,34 @@ namespace IconManager
             };
 
             // Load all data from JSON source files
+            //
+            // The original JSON format was similar to:
+            //
+            //  {
+            //      "ic_fluent_access_time_24_regular": "0xf101",
+            //      "ic_fluent_accessibility_16_regular": "0xf102",
+            //  }
+            //
+            // However, between versions 1.1.162 and 1.1.193 is was changed to:
+            //
+            //  {
+            //    "ic_fluent_access_time_24_regular": 61697,
+            //    "ic_fluent_accessibility_16_regular": 61698,
+            //  }
+            //
+            //  * Indent spacing reduced from 4 to 2
+            //  * Unicode point value changed from a hex string to an int
+            //
+            // This required changing how the files are parsed here and it isn't
+            // backwards compatible. All files must use the latest format.
+
             foreach (var entry in sourceDataPaths)
             {
                 using (var sourceStream = assets.Open(new Uri(entry.Item3)))
                 using (var reader = new StreamReader(sourceStream))
                 {
                     string jsonString = reader.ReadToEnd();
-                    var rawIcons = JsonSerializer.Deserialize<Dictionary<string, string>>(jsonString);
+                    var rawIcons = JsonSerializer.Deserialize<Dictionary<string, int>>(jsonString);
 
                     if (rawIcons != null)
                     {
@@ -110,7 +131,7 @@ namespace IconManager
                             {
                                 RawName      = rawIcon.Key,
                                 Name         = rawIcon.Key, // Automatically parses into components
-                                UnicodePoint = Convert.ToUInt32(rawIcon.Value.Substring(2), 16) // Remove '0x'
+                                UnicodePoint = (uint)rawIcon.Value
                             };
 
                             icons.Add(icon);
