@@ -1,5 +1,13 @@
-// Current as of March 6, 2022
+// Current as of February 4, 2022
+// New or Updated Icons are not included in this list
 //---------------------------------------------------------------------------------------------
+
+// June 17, 2022
+// Adding new & updated icons from sprint merge. #462 
+// https://github.com/microsoft/fluentui-system-icons/pull/462
+
+//What's been fixed
+//Text Paragraph locale specific variants have been fixed + new icons added
 
 // January 14, 2022
 // Update repo to match main Figma/Design file #381
