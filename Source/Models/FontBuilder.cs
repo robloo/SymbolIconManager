@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IconManager.Models;
+using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -235,14 +236,14 @@ namespace IconManager
 
             foreach (IconMapping mapping in mappings)
             {
-                var possibleGlyphSources = GlyphRenderer.GetPossibleGlyphSources(
+                var possibleGlyphSources = GlyphProvider.GetPossibleGlyphSources(
                     mapping.Source.IconSet,
                     mapping.Source.UnicodePoint);
 
                 if (mapping.IsValidForFont &&
                     possibleGlyphSources.Contains(GlyphSource.RemoteSvgFile))
                 {
-                    var svgUrl = GlyphRenderer.GetGlyphSourceUrl(
+                    var svgUrl = GlyphProvider.GetGlyphSourceUrl(
                         mapping.Source.IconSet,
                         mapping.Source.UnicodePoint);
 
@@ -269,7 +270,7 @@ namespace IconManager
                     {
                         if (svgUrl != null)
                         {
-                            using (var stream = await GlyphRenderer.GetGlyphSourceStreamAsync(svgUrl!))
+                            using (var stream = await GlyphProvider.GetGlyphSourceStreamAsync(svgUrl!))
                             {
                                 if (stream != null)
                                 {

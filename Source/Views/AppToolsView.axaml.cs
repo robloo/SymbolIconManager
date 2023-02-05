@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+using IconManager.Models;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
@@ -477,7 +478,7 @@ namespace IconManager
                     }
                     catch { }
 
-                    var font = GlyphRenderer.LoadFont(glyph.Item1);
+                    var font = GlyphProvider.LoadFont(glyph.Item1);
 
                     if (font != null)
                     {

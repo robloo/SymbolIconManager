@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IconManager.Models;
+using System;
 using System.Text;
 
 namespace IconManager.Specialized
@@ -298,7 +299,7 @@ namespace IconManager.Specialized
             // Double check: ensure all source icon sets have a real glyph source that can be used for font construction
             foreach (IconMapping mapping in mappings)
             {
-                var possibleGlyphSources = GlyphRenderer.GetPossibleGlyphSources(
+                var possibleGlyphSources = GlyphProvider.GetPossibleGlyphSources(
                     mapping.Source.IconSet,
                     mapping.Source.UnicodePoint);
 
