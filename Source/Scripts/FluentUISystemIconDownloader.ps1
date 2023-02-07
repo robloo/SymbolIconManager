@@ -21,12 +21,12 @@ $commitHashes = git -C $repoDirectory log --pretty=format:"%h"
 foreach ($commitHash in $commitHashes)
 {
     # Get all files in the commit
-	$commitFiles = git -C $repoDirectory show --pretty="" --name-only $commitHash
+    $commitFiles = git -C $repoDirectory show --pretty="" --name-only $commitHash
 
     # Loop through each file in the commit
     foreach ($commitFile in $commitFiles)
     {
-		# Check if the file is in the target directory and is a .SVG file
+        # Check if the file is in the target directory and is a .SVG file
         if ($commitFile.StartsWith($targetDirectory) -and $commitFile -like "*.svg")
         {
             if ($files.ContainsKey($commitFile))
