@@ -31,7 +31,7 @@ namespace IconManager
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 desktop.MainWindow = new MainWindow();
-                App.MainWindow = desktop.MainWindow as MainWindow;
+                App.MainWindow = (MainWindow)desktop.MainWindow;
             }
 
             base.OnFrameworkInitializationCompleted();
