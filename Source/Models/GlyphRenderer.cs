@@ -62,7 +62,7 @@ namespace IconManager
                     // Rendering glyphs is fastest using the embedded font itself
                     // Note that FluentSystemIcons fonts have a bug and any glyph over 0xFFFF simply does not exist
                     // See: https://github.com/microsoft/fluentui-system-icons/issues/299
-                    // A work-around for this case is required using the online SVG file sources
+                    // A work-around for this case is required using the local or remote SVG file sources
 
                     var font = GlyphProvider.LoadFont(iconSet.ToString());
                     var bitmap = await GlyphRenderer.RenderGlyph(font, iconSet.ToString(), unicodePoint);
@@ -174,7 +174,12 @@ namespace IconManager
 
                     // Measure the rendered text
                     // This also checks if the glyph exists in the font before continuing
-                    string text = char.ConvertFromUtf32((int)unicodePoint).ToString();
+                    string text = string.Empty;
+                    try
+                    {
+                        text = char.ConvertFromUtf32((int)unicodePoint).ToString();
+                    }
+                    catch { }
                     textPaint.MeasureText(text, ref textBounds);
 
                     if (textBounds.Width == 0 ||
