@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Avalonia.Platform.Storage;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -29,11 +30,19 @@ namespace IconManager
 
         private async Task<string> GetSaveFilePath()
         {
-            var dialog = new SaveFileDialog();
-            var path = await dialog.ShowAsync(App.MainWindow);
+            string path = string.Empty;
 
-            if (path != null)
+            var options = new FilePickerSaveOptions()
             {
+                SuggestedFileName = "FluentAvalonia.json",
+                ShowOverwritePrompt = true,
+            };
+            var file = await TopLevel.GetTopLevel(this)!.StorageProvider.SaveFilePickerAsync(options);
+
+            if (file != null)
+            {
+                path = file.Path.AbsolutePath;
+
                 if (File.Exists(path))
                 {
                     // Delete the existing file, it will be replaced
@@ -48,7 +57,7 @@ namespace IconManager
                 }
             }
 
-            return path ?? string.Empty;
+            return path;
         }
 
         private IconMappingList GetWinSymbols1Mappings()

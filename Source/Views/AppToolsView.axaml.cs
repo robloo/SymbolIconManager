@@ -1,10 +1,8 @@
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Media.Imaging;
-using Avalonia.Platform;
+using Avalonia.Platform.Storage;
 using IconManager.Models;
-using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -318,10 +316,22 @@ namespace IconManager
         /// </summary>
         private async void SourceDirectoryButton_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new OpenFolderDialog();
-            var result = await dialog.ShowAsync(App.MainWindow);
+            var options = new FolderPickerOpenOptions()
+            {
+                AllowMultiple = false,
+            };
+            var folders = await TopLevel.GetTopLevel(this)!.StorageProvider.OpenFolderPickerAsync(options);
 
-            this.SourcePath = result;
+            if (folders != null &&
+                folders.Count > 0)
+            {
+                this.SourcePath = folders[0].Path.AbsolutePath;
+            }
+            else
+            {
+                this.SourcePath = string.Empty;
+            }
+
             this.SourcePathTextBlock.Text = this.SourcePath;
 
             return;
@@ -364,33 +374,41 @@ namespace IconManager
 
         private async void ExportToImagesButton_Click(object sender, RoutedEventArgs e)
         {
-            if (this.ListedIcons.Count > 0)
+            if (this.ListedIcons.Count <= 0)
             {
-                var dialog = new OpenFolderDialog();
-                var path = await dialog.ShowAsync(App.MainWindow);
+                return;
+            }
 
-                if (path != null)
+            var options = new FolderPickerOpenOptions()
+            {
+                AllowMultiple = false,
+            };
+            var folders = await TopLevel.GetTopLevel(this)!.StorageProvider.OpenFolderPickerAsync(options);
+
+            if (folders != null &&
+                folders.Count > 0)
+            {
+                string path = folders[0].Path.AbsolutePath;
+                string? directoryName = Path.GetDirectoryName(path);
+
+                if (directoryName != null &&
+                    Directory.Exists(directoryName) == false)
                 {
-                    string? directoryName = Path.GetDirectoryName(path);
-                    if (directoryName != null &&
-                        Directory.Exists(directoryName) == false)
+                    Directory.CreateDirectory(directoryName);
+                }
+
+                foreach (IconViewModel viewModel in this.ListedIcons)
+                {
+                    string filePath = Path.Combine(path, viewModel.UnicodeHexString.ToLowerInvariant() + ".png");
+
+                    if (File.Exists(filePath))
                     {
-                        Directory.CreateDirectory(directoryName);
+                        // Delete the existing file, it will be replaced
+                        File.Delete(filePath);
                     }
 
-                    foreach (IconViewModel viewModel in this.ListedIcons)
-                    {
-                        string filePath = Path.Combine(path, viewModel.UnicodeHexString.ToLowerInvariant() + ".png");
-
-                        if (File.Exists(filePath))
-                        {
-                            // Delete the existing file, it will be replaced
-                            File.Delete(filePath);
-                        }
-
-                        Bitmap? bitmap = await GlyphRenderer.GetBitmapAsync(viewModel.IconSet, viewModel.UnicodePoint);
-                        bitmap?.Save(filePath);
-                    }
+                    Bitmap? bitmap = await GlyphRenderer.GetBitmapAsync(viewModel.IconSet, viewModel.UnicodePoint);
+                    bitmap?.Save(filePath);
                 }
             }
 
@@ -399,31 +417,49 @@ namespace IconManager
 
         private async void ExportFileToImagesButton_Click(object sender, RoutedEventArgs e)
         {
-            var openDialog = new OpenFileDialog();
-            var paths = await openDialog.ShowAsync(App.MainWindow);
+            var options = new FilePickerOpenOptions()
+            {
+                AllowMultiple  = false,
+                FileTypeFilter = new List<FilePickerFileType>()
+                {
+                    new FilePickerFileType("Comma-separated values files")
+                    {
+                        Patterns = new string[] { "*.csv" },
+                    },
+                    new FilePickerFileType("All files")
+                    {
+                        Patterns = new string[] { "*" },
+                    },
+                },
+            };
+            var files = await TopLevel.GetTopLevel(this)!.StorageProvider.OpenFilePickerAsync(options);
             var glyphs = new List<Tuple<string, string, string>>();
 
             // Load the glyphs directly from a CSV file
             // Format is "Font, UnicodePoint, ImageFileName"
-            if (paths != null &&
-                paths.Length > 0 &&
-                File.Exists(paths[0]))
+            if (files != null &&
+                files.Count > 0)
             {
-                using (var fileStream = File.OpenRead(paths[0]))
-                {
-                    using (var reader = new StreamReader(fileStream))
-                    {
-                        while (reader.EndOfStream == false)
-                        {
-                            string? line = reader.ReadLine();
-                            string[] columns = line?.Split(',') ?? new string[0];
+                string path = files[0].Path.AbsolutePath;
 
-                            if (columns.Length == 3)
+                if (File.Exists(path))
+                {
+                    using (var fileStream = File.OpenRead(path))
+                    {
+                        using (var reader = new StreamReader(fileStream))
+                        {
+                            while (reader.EndOfStream == false)
                             {
-                                glyphs.Add(Tuple.Create(
-                                    columns[0].Trim(),
-                                    columns[1].Trim(),
-                                    columns[2].Trim()));
+                                string? line = reader.ReadLine();
+                                string[] columns = line?.Split(',') ?? new string[0];
+
+                                if (columns.Length == 3)
+                                {
+                                    glyphs.Add(Tuple.Create(
+                                        columns[0].Trim(),
+                                        columns[1].Trim(),
+                                        columns[2].Trim()));
+                                }
                             }
                         }
                     }
@@ -507,48 +543,56 @@ namespace IconManager
 
         private async void ExportToMappingsButton_Click(object sender, RoutedEventArgs e)
         {
-            if (this.ListedIcons.Count > 0)
+            if (this.ListedIcons.Count <= 0)
             {
-                var dialog = new SaveFileDialog();
-                var path = await dialog.ShowAsync(App.MainWindow);
+                return;
+            }
 
-                if (path != null)
+            var options = new FilePickerSaveOptions()
+            {
+                SuggestedFileName = "Mappings.json",
+                ShowOverwritePrompt = true,
+            };
+            var file = await TopLevel.GetTopLevel(this)!.StorageProvider.SaveFilePickerAsync(options);
+
+            if (file != null)
+            {
+                string path = file.Path.AbsolutePath;
+
+                if (File.Exists(path))
                 {
-                    if (File.Exists(path))
-                    {
-                        // Delete the existing file, it will be replaced
-                        File.Delete(path);
-                    }
+                    // Delete the existing file, it will be replaced
+                    File.Delete(path);
+                }
 
-                    string? directoryName = Path.GetDirectoryName(path);
-                    if (directoryName != null &&
-                        Directory.Exists(directoryName) == false)
-                    {
-                        Directory.CreateDirectory(directoryName);
-                    }
+                string? directoryName = Path.GetDirectoryName(path);
+                if (directoryName != null &&
+                    Directory.Exists(directoryName) == false)
+                {
+                    Directory.CreateDirectory(directoryName);
+                }
 
-                    using (var fileStream = File.OpenWrite(path))
-                    {
-                        var mappings = new IconMappingList();
+                using (var fileStream = File.OpenWrite(path))
+                {
+                    var mappings = new IconMappingList();
 
-                        foreach (IconViewModel viewModel in this.ListedIcons)
+                    foreach (IconViewModel viewModel in this.ListedIcons)
+                    {
+                        var mapping = new IconMapping()
                         {
-                            var mapping = new IconMapping()
-                            {
-                                Source               = new Icon(),
-                                Destination          = viewModel.AsIcon(),
-                                GlyphMatchQuality    = MatchQuality.NoMatch,
-                                MetaphorMatchQuality = MatchQuality.NoMatch,
-                                IsPlaceholder        = false,
-                                Comments             = string.Empty
-                            };
+                            Source               = new Icon(),
+                            Destination          = viewModel.AsIcon(),
+                            GlyphMatchQuality    = MatchQuality.NoMatch,
+                            MetaphorMatchQuality = MatchQuality.NoMatch,
+                            IsPlaceholder        = false,
+                            Comments             = string.Empty
+                        };
 
-                            mappings.Add(mapping);
-                        }
-
-                        mappings.Reprocess();
-                        IconMappingList.Save(mappings, fileStream);
+                        mappings.Add(mapping);
                     }
+
+                    mappings.Reprocess();
+                    IconMappingList.Save(mappings, fileStream);
                 }
             }
 

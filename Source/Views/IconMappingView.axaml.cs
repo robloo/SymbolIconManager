@@ -1,6 +1,8 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Avalonia.Platform.Storage;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
@@ -117,24 +119,42 @@ namespace IconManager
 
         private async Task<IconMappingList> OpenMappingsFile()
         {
-            var dialog = new OpenFileDialog();
-            var paths = await dialog.ShowAsync(App.MainWindow);
+            var options = new FilePickerOpenOptions()
+            {
+                AllowMultiple  = false,
+                FileTypeFilter = new List<FilePickerFileType>()
+                {
+                    new FilePickerFileType("JSON files")
+                    {
+                        Patterns = new string[] { "*.json" },
+                    },
+                    new FilePickerFileType("All files")
+                    {
+                        Patterns = new string[] { "*" },
+                    },
+                },
+            };
+            var files = await TopLevel.GetTopLevel(this)!.StorageProvider.OpenFilePickerAsync(options);
             IconMappingList mappings = new IconMappingList();
 
             // Load the mappings file
-            if (paths != null &&
-                paths.Length > 0 &&
-                File.Exists(paths[0]))
+            if (files != null &&
+                files.Count > 0)
             {
-                using (var fileStream = File.OpenRead(paths[0]))
+                string path = files[0].Path.AbsolutePath;
+
+                if (File.Exists(path))
                 {
-                    try
+                    using (var fileStream = File.OpenRead(path))
                     {
-                        mappings = IconMappingList.Load(fileStream);
-                    }
-                    catch
-                    {
-                        // Unable to open file
+                        try
+                        {
+                            mappings = IconMappingList.Load(fileStream);
+                        }
+                        catch
+                        {
+                            // Unable to open file
+                        }
                     }
                 }
             }
@@ -207,11 +227,17 @@ namespace IconManager
         /// </summary>
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new SaveFileDialog();
-            var path = await dialog.ShowAsync(App.MainWindow);
-
-            if (path != null)
+            var options = new FilePickerSaveOptions()
             {
+                SuggestedFileName = "Mappings.json",
+                ShowOverwritePrompt = true,
+            };
+            var file = await TopLevel.GetTopLevel(this)!.StorageProvider.SaveFilePickerAsync(options);
+
+            if (file != null)
+            {
+                string path = file.Path.AbsolutePath;
+
                 if (File.Exists(path))
                 {
                     // Delete the existing file, it will be replaced
