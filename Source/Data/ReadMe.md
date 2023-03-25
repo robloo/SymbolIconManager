@@ -8,10 +8,10 @@ This folder contains raw icon set data files used by the application. Data is co
 
 | Icon Set Family | Data File | Last Update | Last Version | Source |
 |-----------------|-----------|-------------|--------------|--------|
-| Fluent UI System   | `FluentSystemIcons-Filled.json`  | 2022-Feb-05 | 1.1.193 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Filled.json) |
-| Fluent UI System   | `FluentSystemIcons-Filled.ttf`   | 2022-Feb-05 | 1.1.193 | [GitHub Rego](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Filled.ttf) |
-| Fluent UI System   | `FluentSystemIcons-Regular.json` | 2022-Feb-05 | 1.1.193 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.json) |
-| Fluent UI System   | `FluentSystemIcons-Regular.ttf`  | 2022-Feb-05 | 1.1.193 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.ttf) |
+| Fluent UI System   | `FluentSystemIcons-Filled.json`  | 2023-Feb-05 | 1.1.193 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Filled.json) |
+| Fluent UI System   | `FluentSystemIcons-Filled.ttf`   | 2023-Feb-05 | 1.1.193 | [GitHub Rego](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Filled.ttf) |
+| Fluent UI System   | `FluentSystemIcons-Regular.json` | 2023-Feb-05 | 1.1.193 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.json) |
+| Fluent UI System   | `FluentSystemIcons-Regular.ttf`  | 2023-Feb-05 | 1.1.193 | [GitHub Repo](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.ttf) |
 | Line Awesome       | `la-brands-400.ttf`              | 2021-Sep-16 | 1.3.0   | [GitHub Repo](https://github.com/icons8/line-awesome/blob/master/dist/line-awesome/fonts/la-brands-400.ttf) |
 | Line Awesome       | `la-regular-400.ttf`             | 2021-Sep-16 | 1.3.0   | [GitHub Repo](https://github.com/icons8/line-awesome/blob/master/dist/line-awesome/fonts/la-regular-400.ttf) |
 | Line Awesome       | `la-solid-900.ttf`               | 2021-Sep-16 | 1.3.0   | [GitHub Repo](https://github.com/icons8/line-awesome/blob/master/dist/line-awesome/fonts/la-solid-900.ttf) |
