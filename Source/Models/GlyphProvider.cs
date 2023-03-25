@@ -249,7 +249,7 @@ namespace IconManager.Models
                         {
                             // Rebuild the cache
                             var sources = new List<string>();
-                            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
+                            var assets = AvaloniaLocator.Current.GetRequiredService<IAssetLoader>();
                             string sourceDataPath = "avares://IconManager/Data/FluentUISystem/FluentUISystemGlyphSources.json";
 
                             using (var sourceStream = assets.Open(new Uri(sourceDataPath)))

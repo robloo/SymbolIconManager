@@ -27,7 +27,7 @@ namespace IconManager
         {
             var icons = new List<Icon>();
             var names = new Dictionary<uint, string>();
-            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
+            var assets = AvaloniaLocator.Current.GetRequiredService<IAssetLoader>();
             string sourceDataPath = "avares://IconManager/Data/SegoeUISymbol/SegoeUISymbol.json";
 
             using (var sourceStream = assets.Open(new Uri(sourceDataPath)))
