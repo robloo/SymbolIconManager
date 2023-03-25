@@ -999,12 +999,12 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FD9F",
+      "UnicodePoint": "E0BB",
       "Name": "ic_fluent_arrow_down_left_20_regular"
     },
     "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "Low",
-    "IsPlaceholder": false,
+    "IsPlaceholder": true,
     "Comments": "Flipped vertically. 'arrow_down_right' variant doesn't exist"
   },
   {
@@ -1015,7 +1015,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FB70",
+      "UnicodePoint": "E12C",
       "Name": "ic_fluent_arrow_up_left_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -1223,7 +1223,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FC68",
+      "UnicodePoint": "EB4A",
       "Name": "ic_fluent_speaker_mute_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -1255,7 +1255,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FBC6",
+      "UnicodePoint": "E0C0",
       "Name": "ic_fluent_arrow_enter_left_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -1303,7 +1303,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FF8B",
+      "UnicodePoint": "E629",
       "Name": "ic_fluent_flashlight_20_regular"
     },
     "GlyphMatchQuality": "Medium",
@@ -1463,7 +1463,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "10121",
+      "UnicodePoint": "E094",
       "Name": "ic_fluent_arrow_circle_left_20_regular"
     },
     "GlyphMatchQuality": "Medium",
@@ -1479,7 +1479,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "10126",
+      "UnicodePoint": "E09B",
       "Name": "ic_fluent_arrow_circle_right_20_regular"
     },
     "GlyphMatchQuality": "Medium",
@@ -1495,7 +1495,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "104C7",
+      "UnicodePoint": "E84C",
       "Name": "ic_fluent_multiselect_ltr_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -1575,7 +1575,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FC63",
+      "UnicodePoint": "EB42",
       "Name": "ic_fluent_speaker_2_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -1847,7 +1847,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "100E6",
+      "UnicodePoint": "E932",
       "Name": "ic_fluent_person_info_20_regular"
     },
     "GlyphMatchQuality": "Medium",
@@ -1911,7 +1911,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F940",
+      "UnicodePoint": "E280",
       "Name": "ic_fluent_call_inbound_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -1943,7 +1943,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FCC3",
+      "UnicodePoint": "E16A",
       "Name": "ic_fluent_book_contacts_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -2007,7 +2007,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FC24",
+      "UnicodePoint": "E795",
       "Name": "ic_fluent_lock_open_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -2023,12 +2023,12 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "101E5",
+      "UnicodePoint": "E9D5",
       "Name": "ic_fluent_projection_screen_20_regular"
     },
     "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "Medium",
-    "IsPlaceholder": false,
+    "IsPlaceholder": true,
     "Comments": ""
   },
   {
@@ -2039,7 +2039,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FD1D",
+      "UnicodePoint": "E24E",
       "Name": "ic_fluent_calendar_ltr_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -2103,7 +2103,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FC57",
+      "UnicodePoint": "EABA",
       "Name": "ic_fluent_share_screen_start_20_regular"
     },
     "GlyphMatchQuality": "Medium",
@@ -2119,7 +2119,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "101ED",
+      "UnicodePoint": "EA45",
       "Name": "ic_fluent_save_arrow_right_20_regular"
     },
     "GlyphMatchQuality": "Medium",
