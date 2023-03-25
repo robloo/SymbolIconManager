@@ -103,7 +103,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FC2D",
+      "UnicodePoint": "E824",
       "Name": "ic_fluent_more_horizontal_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -135,7 +135,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FE26",
+      "UnicodePoint": "E777",
       "Name": "ic_fluent_link_square_20_regular"
     },
     "GlyphMatchQuality": "Medium",
@@ -173,7 +173,7 @@
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "There is no mirrored version"
   },
   {
     "Destination": {
@@ -215,10 +215,10 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FC22",
+      "UnicodePoint": "E78F",
       "Name": "ic_fluent_lock_closed_20_regular"
     },
-    "GlyphMatchQuality": "High",
+    "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
@@ -231,7 +231,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FC72",
+      "UnicodePoint": "EBD0",
       "Name": "ic_fluent_subtract_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -327,7 +327,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FBC6",
+      "UnicodePoint": "E0C0",
       "Name": "ic_fluent_arrow_enter_left_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -407,7 +407,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FD1D",
+      "UnicodePoint": "E24E",
       "Name": "ic_fluent_calendar_ltr_20_regular"
     },
     "GlyphMatchQuality": "Medium",
@@ -439,8 +439,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F3FB",
-      "Name": "ic_fluent_eye_show_20_regular"
+      "UnicodePoint": "E5F2",
+      "Name": "ic_fluent_eye_20_regular"
     },
     "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "Medium",
@@ -551,7 +551,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F925",
+      "UnicodePoint": "E20D",
       "Name": "ic_fluent_building_bank_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -679,7 +679,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "100B0",
+      "UnicodePoint": "E19C",
       "Name": "ic_fluent_border_all_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -727,8 +727,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FC56",
-      "Name": "ic_fluent_select_all_on_24_regular"
+      "UnicodePoint": "EA86",
+      "Name": "ic_fluent_select_all_on_20_regular"
     },
     "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "Medium",
@@ -759,7 +759,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FD80",
+      "UnicodePoint": "ECD9",
       "Name": "ic_fluent_text_bullet_list_ltr_20_regular"
     },
     "GlyphMatchQuality": "Low",
@@ -807,7 +807,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "10008",
+      "UnicodePoint": "E4E8",
       "Name": "ic_fluent_document_arrow_up_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -823,13 +823,13 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F696",
-      "Name": "ic_fluent_select_all_off_24_regular"
+      "UnicodePoint": "EA85",
+      "Name": "ic_fluent_select_all_off_20_regular"
     },
     "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "Medium",
     "IsPlaceholder": true,
-    "Comments": "Doesn't exist, visually similar doesn't exist, using similar purpose icon. Size 20 missing"
+    "Comments": "Doesn't exist, visually similar doesn't exist, using similar purpose icon."
   },
   {
     "Destination": {
@@ -871,7 +871,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FE78",
+      "UnicodePoint": "E762",
       "Name": "ic_fluent_library_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -1015,7 +1015,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FAE9",
+      "UnicodePoint": "ED88",
       "Name": "ic_fluent_timer_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -1143,13 +1143,13 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F33D",
-      "Name": "ic_fluent_data_area_24_regular"
+      "UnicodePoint": "E453",
+      "Name": "ic_fluent_data_area_20_regular"
     },
     "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": "Size 20 missing"
+    "Comments": ""
   },
   {
     "Destination": {
@@ -1159,13 +1159,13 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FBA0",
-      "Name": "ic_fluent_pulse_square_24_regular"
+      "UnicodePoint": "E9E0",
+      "Name": "ic_fluent_pulse_square_20_regular"
     },
     "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": "Size 20 missing"
+    "Comments": ""
   },
   {
     "Destination": {
@@ -1223,7 +1223,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FD82",
+      "UnicodePoint": "ECE0",
       "Name": "ic_fluent_text_bullet_list_rtl_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -1239,13 +1239,13 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "100A9",
-      "Name": "ic_fluent_arrow_step_in_right_16_regular"
+      "UnicodePoint": "E106",
+      "Name": "ic_fluent_arrow_step_in_right_20_regular"
     },
     "GlyphMatchQuality": "Medium",
     "MetaphorMatchQuality": "NoMatch",
     "IsPlaceholder": true,
-    "Comments": "Doesn't exist, using visually similar icon (purpose not the same), Size 20 missing"
+    "Comments": "Doesn't exist, using visually similar icon (purpose not the same)"
   },
   {
     "Destination": {
@@ -1351,7 +1351,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "100D9",
+      "UnicodePoint": "E6A7",
       "Name": "ic_fluent_glance_horizontal_20_regular"
     },
     "GlyphMatchQuality": "Medium",
@@ -1415,7 +1415,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "10030",
+      "UnicodePoint": "EB75",
       "Name": "ic_fluent_square_20_regular"
     },
     "GlyphMatchQuality": "Low",
@@ -1431,13 +1431,13 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FBC8",
+      "UnicodePoint": "E0C7",
       "Name": "ic_fluent_arrow_export_ltr_20_regular"
     },
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Arrow direction is reversed"
+    "Comments": ""
   },
   {
     "Destination": {
@@ -1495,7 +1495,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FF53",
+      "UnicodePoint": "E348",
       "Name": "ic_fluent_clipboard_bullet_list_ltr_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -1575,8 +1575,8 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FBF1",
-      "Name": "ic_fluent_copy_arrow_right_24_regular"
+      "UnicodePoint": "E422",
+      "Name": "ic_fluent_copy_arrow_right_20_regular"
     },
     "GlyphMatchQuality": "Low",
     "MetaphorMatchQuality": "Low",
