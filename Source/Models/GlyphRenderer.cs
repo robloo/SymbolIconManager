@@ -27,7 +27,7 @@ namespace IconManager
         /// </summary>
         /// <param name="iconSet">The icon set containing the Unicode point.</param>
         /// <param name="unicodePoint">The Unicode point of the glyph.</param>
-        /// <returns>A 50px-by-50px preview bitmap of the glyph.</returns>
+        /// <returns>A preview bitmap of the glyph.</returns>
         public static async Task<Bitmap?> GetBitmapAsync(IconSet iconSet, uint unicodePoint)
         {
             string iconSetKey = iconSet.ToString();
@@ -144,83 +144,86 @@ namespace IconManager
             int renderWidth = GlyphRenderer.RenderWidth,
             int renderHeight = GlyphRenderer.RenderHeight)
         {
-            var textBounds = new SKRect();
-            bool glyphExistsInFont;
-            SKPaint? textPaint = null;
-            SKBitmap bitmap = new SKBitmap(renderWidth, renderHeight);
-
-            lock (cacheMutex)
+            return await Task.Run(() =>
             {
-                // Load all SKPaint objects
-                if (cachedBackgroundPaint == null)
+                var textBounds = new SKRect();
+                bool glyphExistsInFont;
+                SKPaint? textPaint = null;
+                SKBitmap bitmap = new SKBitmap(renderWidth, renderHeight);
+
+                lock (cacheMutex)
                 {
-                    cachedBackgroundPaint = new SKPaint()
+                    // Load all SKPaint objects
+                    if (cachedBackgroundPaint == null)
                     {
-                        Color = SKColors.White
-                    };
-                }
+                        cachedBackgroundPaint = new SKPaint()
+                        {
+                            Color = SKColors.White
+                        };
+                    }
 
-                if (cachedTextPaints.TryGetValue(fontKey, out textPaint) == false)
-                {
-                    textPaint = new SKPaint(font)
+                    if (cachedTextPaints.TryGetValue(fontKey, out textPaint) == false)
                     {
-                        Color = SKColors.Black
-                    };
+                        textPaint = new SKPaint(font)
+                        {
+                            Color = SKColors.Black
+                        };
 
-                    cachedTextPaints.Add(fontKey, textPaint);
-                }
+                        cachedTextPaints.Add(fontKey, textPaint);
+                    }
 
-                // Measure the rendered text
-                // This also checks if the glyph exists in the font before continuing
-                string text = char.ConvertFromUtf32((int)unicodePoint).ToString();
-                textPaint.MeasureText(text, ref textBounds);
+                    // Measure the rendered text
+                    // This also checks if the glyph exists in the font before continuing
+                    string text = char.ConvertFromUtf32((int)unicodePoint).ToString();
+                    textPaint.MeasureText(text, ref textBounds);
 
-                if (textBounds.Width == 0 ||
-                    textBounds.Height == 0)
-                {
-                    glyphExistsInFont = false;
-                }
-                else
-                {
-                    glyphExistsInFont = true;
-                }
-
-                // Render the glyph using SkiaSharp
-                if (glyphExistsInFont)
-                {
-                    using (SKCanvas canvas = new SKCanvas(bitmap))
+                    if (textBounds.Width == 0 ||
+                        textBounds.Height == 0)
                     {
-                        canvas.DrawRect(
-                            x: 0,
-                            y: 0,
-                            w: renderWidth,
-                            h: renderHeight,
-                            cachedBackgroundPaint);
+                        glyphExistsInFont = false;
+                    }
+                    else
+                    {
+                        glyphExistsInFont = true;
+                    }
 
-                        canvas.DrawText(
-                            text,
-                            // No need to consider baseline, just center the glyph
-                            x: (renderWidth / 2f) - textBounds.MidX,
-                            y: (renderHeight / 2f) - textBounds.MidY,
-                            font,
-                            textPaint);
+                    // Render the glyph using SkiaSharp
+                    if (glyphExistsInFont)
+                    {
+                        using (SKCanvas canvas = new SKCanvas(bitmap))
+                        {
+                            canvas.DrawRect(
+                                x: 0,
+                                y: 0,
+                                w: renderWidth,
+                                h: renderHeight,
+                                cachedBackgroundPaint);
+
+                            canvas.DrawText(
+                                text,
+                                // No need to consider baseline, just center the glyph
+                                x: (renderWidth / 2f) - textBounds.MidX,
+                                y: (renderHeight / 2f) - textBounds.MidY,
+                                font,
+                                textPaint);
+                        }
                     }
                 }
-            }
 
-            if (glyphExistsInFont)
-            {
-                // Use the Skia font-rendered glyph
-                // Note that the default SKImage encoding format is .png
-                using (SKImage image = SKImage.FromBitmap(bitmap))
-                using (SKData encoded = image.Encode())
-                using (Stream stream = encoded.AsStream())
+                if (glyphExistsInFont)
                 {
-                    return new Bitmap(stream);
+                    // Use the Skia font-rendered glyph
+                    // Note that the default SKImage encoding format is .png
+                    using (SKImage image = SKImage.FromBitmap(bitmap))
+                    using (SKData encoded = image.Encode())
+                    using (Stream stream = encoded.AsStream())
+                    {
+                        return new Bitmap(stream);
+                    }
                 }
-            }
 
-            return null;
+                return null;
+            });
         }
     }
 }

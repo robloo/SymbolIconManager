@@ -20,6 +20,14 @@
         LocalFontFile,
 
         /// <summary>
+        /// The glyph is locally available as an SVG image file.
+        /// </summary>
+        /// <remarks>
+        /// This is generally suitable for use when building a font.
+        /// </remarks>
+        LocalSvgFile,
+
+        /// <summary>
         /// The glyph is downloadable as a PNG image file from an online location.
         /// </summary>
         /// <remarks>

@@ -680,7 +680,7 @@ namespace IconManager
         /// This method is NOT intended for general-purpose use.
         /// It should only be used by those who know what they are doing to re-build the glyph sources.
         /// </remarks>
-        public static void BuildGlyphSources()
+        public static void BuildRemoteGlyphSourcePaths()
         {
             List<string> glyphSources = new List<string>();
             List<string> searchDirectories = new List<string>();

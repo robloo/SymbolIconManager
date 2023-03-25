@@ -4,7 +4,11 @@ using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net;
+using System.IO.Pipes;
+using System.Net.Http;
+using System.Net.NetworkInformation;
+using System.Reflection;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -17,11 +21,14 @@ namespace IconManager.Models
     {
         private static Dictionary<string, SKFont> cachedFonts = new Dictionary<string, SKFont>();  // IconSet/file name is key
 
-        private static List<string>? cachedFluentUISystemGlyphSources = null;
-        private static List<string>? cachedLineAwesomeGlyphSources    = null;
+        private static List<string>? cachedLocalFluentUISystemGlyphSourcePaths  = null;
+        private static List<string>? cachedLocalLineAwesomeGlyphSourcePaths     = null;
+        private static List<string>? cachedRemoteFluentUISystemGlyphSourcePaths = null;
+        private static List<string>? cachedRemoteLineAwesomeGlyphSourcePaths    = null;
 
-        private static object cacheMutex             = new object();
-        private static object glyphSourcesCacheMutex = new object();
+        private static object cacheMutex                    = new object();
+        private static object cachedLocalGlyphSourcesMutex  = new object();
+        private static object cachedRemoteGlyphSourcesMutex = new object();
 
         /// <summary>
         /// Gets all possible glyph sources for the given icon set and Unicode point.
@@ -42,12 +49,14 @@ namespace IconManager.Models
                 case IconSet.FluentUISystemFilled:
                 case IconSet.FluentUISystemRegular:
                     possibleSources.Add(GlyphSource.LocalFontFile);
+                    possibleSources.Add(GlyphSource.LocalSvgFile);
                     possibleSources.Add(GlyphSource.RemoteSvgFile);
                     break;
                 case IconSet.LineAwesomeBrand:
                 case IconSet.LineAwesomeRegular:
                 case IconSet.LineAwesomeSolid:
                     possibleSources.Add(GlyphSource.LocalFontFile);
+                    possibleSources.Add(GlyphSource.LocalSvgFile);
                     possibleSources.Add(GlyphSource.RemoteSvgFile);
                     break;
                 case IconSet.SegoeFluent:
@@ -118,16 +127,8 @@ namespace IconManager.Models
                     if (Enum.TryParse(typeof(IconSet), fontKey, out object? parsedIconSet) &&
                         parsedIconSet is IconSet iconSet)
                     {
-                        // Only the following IconSet's have available font files
-                        if (iconSet == IconSet.FluentUISystemFilled ||
-                            iconSet == IconSet.FluentUISystemRegular ||
-                            iconSet == IconSet.LineAwesomeBrand ||
-                            iconSet == IconSet.LineAwesomeRegular ||
-                            iconSet == IconSet.LineAwesomeSolid ||
-                            iconSet == IconSet.WinJSSymbols)
-                        {
-                            fontUri = GlyphProvider.GetFontSourceUri(iconSet);
-                        }
+                        // Only some IconSet's have available font files
+                        fontUri = GlyphProvider.GetFontSourceUri(iconSet);
                     }
 
                     // Search directories for a font by name
@@ -218,18 +219,25 @@ namespace IconManager.Models
         }
 
         /// <summary>
-        /// Gets the image data source URL of the defined glyph.
+        /// Gets the local image data source URI of the defined glyph.
+        /// This currently only supports SVG format.
         /// </summary>
         /// <param name="iconSet">The icon set containing the glyph.</param>
         /// <param name="unicodePoint">The Unicode point of the glyph.</param>
-        /// <returns>The URL of the glyph's image data source.</returns>
-        public static Uri? GetGlyphSourceUrl(
+        /// <returns>The local URI of the glyph's image data source.</returns>
+        public static Uri? GetLocalGlyphSourceUri(
             IconSet iconSet,
             uint unicodePoint)
         {
             string nameBase;
-            string relativeGlyphUrl = string.Empty;
-            List<string>? relativeGlyphUrls = null;
+            string finalGlyphFilePath = string.Empty;
+            List<string>? glyphFilePaths = null;
+
+            var possibleGlyphSources = GlyphProvider.GetPossibleGlyphSources(iconSet, unicodePoint);
+            if (possibleGlyphSources.Contains(GlyphSource.LocalSvgFile) == false)
+            {
+                return null;
+            }
 
             switch (iconSet)
             {
@@ -243,9 +251,158 @@ namespace IconManager.Models
                         return null;
                     }
 
-                    lock (glyphSourcesCacheMutex)
+                    if (cachedLocalFluentUISystemGlyphSourcePaths == null)
                     {
-                        if (cachedFluentUISystemGlyphSources == null)
+                        GlyphProvider.BuildLocalGlyphSourcePathsCache(IconSetFamily.FluentUISystem);
+                    }
+
+                    lock (cachedLocalGlyphSourcesMutex)
+                    {
+                        glyphFilePaths = cachedLocalFluentUISystemGlyphSourcePaths!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
+                    }
+
+                    // Use the relativeGlyphUrl with the smallest directory structure
+                    // There are sometimes many variants with the exact same file name -- some for other cultures
+                    // Each culture is usually placed in it's own folder
+                    // We want the invariant culture (smallest directory structure), as best as possible
+                    if (glyphFilePaths != null &&
+                        glyphFilePaths.Count > 0)
+                    {
+                        finalGlyphFilePath = glyphFilePaths[0];
+
+                        for (int i = 1; i < glyphFilePaths.Count; i++)
+                        {
+                            // Not the most efficient to keep splitting, but it's easiest
+                            if (glyphFilePaths[i].Split('\\').Length < finalGlyphFilePath.Split('\\').Length)
+                            {
+                                finalGlyphFilePath = glyphFilePaths[i];
+                            }
+                        }
+                    }
+
+                    if (string.IsNullOrWhiteSpace(finalGlyphFilePath) == false)
+                    {
+                        return new Uri(finalGlyphFilePath);
+                    }
+
+                    break;
+                }
+                case IconSet.LineAwesomeBrand:
+                case IconSet.LineAwesomeRegular:
+                case IconSet.LineAwesomeSolid:
+                {
+                    nameBase = IconSetBase.FindName(iconSet, unicodePoint);
+
+                    if (string.IsNullOrWhiteSpace(nameBase))
+                    {
+                        return null;
+                    }
+
+                    // Naming does not match 1-to-1 with the URL and there are some special cases
+                    // Special cases are defined here, separately
+                    switch (nameBase)
+                    {
+                        case "alternate-square-root":
+                            nameBase = "square-root-alt-solid";
+                            break;
+                        case "at":
+                            nameBase = "at-solid";
+                            break;
+                        case "i-beam-cursor":
+                            nameBase = "i-cursor-solid";
+                            break;
+                        case "lightning-bolt":
+                            nameBase = "bolt-solid";
+                            break;
+                    }
+
+                    if (cachedLocalLineAwesomeGlyphSourcePaths == null)
+                    {
+                        GlyphProvider.BuildLocalGlyphSourcePathsCache(IconSetFamily.LineAwesome);
+                    }
+
+                    lock (cachedLocalGlyphSourcesMutex)
+                    {
+                        glyphFilePaths = cachedLocalLineAwesomeGlyphSourcePaths!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
+
+                        if (glyphFilePaths.Count == 0)
+                        {
+                            // Only SVG sources are available for Line Awesome so the search can remove the extension
+                            // This is necessary for the Line Awesome font family because exact names are not enforced
+                            // There is often some slight variation such as 'unlink' name with 'unlink-solid.svg' file
+                            // In this example some file names have the style added to the end
+                            glyphFilePaths = cachedLocalLineAwesomeGlyphSourcePaths!.FindAll(s => s.Contains(nameBase));
+                        }
+                    }
+
+                    // Use the relativeGlyphUrl with the smallest directory structure
+                    // There are sometimes many variants with the exact same file name -- some for other cultures
+                    // Each culture is usually placed in it's own folder
+                    // We want the invariant culture (smallest directory structure), as best as possible
+                    if (glyphFilePaths != null &&
+                        glyphFilePaths.Count > 0)
+                    {
+                        finalGlyphFilePath = glyphFilePaths[0];
+
+                        for (int i = 1; i < glyphFilePaths.Count; i++)
+                        {
+                            // Not the most efficient to keep splitting, but it's easiest
+                            if (glyphFilePaths[i].Split('\\').Length < finalGlyphFilePath.Split('\\').Length)
+                            {
+                                finalGlyphFilePath = glyphFilePaths[i];
+                            }
+                        }
+                    }
+
+                    if (string.IsNullOrWhiteSpace(finalGlyphFilePath) == false)
+                    {
+                        return new Uri(finalGlyphFilePath);
+                    }
+
+                    break;
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Gets the remote image data source URI of the defined glyph.
+        /// This may be an SVG or bitmap.
+        /// </summary>
+        /// <param name="iconSet">The icon set containing the glyph.</param>
+        /// <param name="unicodePoint">The Unicode point of the glyph.</param>
+        /// <returns>The remote URI of the glyph's image data source.</returns>
+        public static Uri? GetRemoteGlyphSourceUri(
+            IconSet iconSet,
+            uint unicodePoint)
+        {
+            string nameBase;
+            string relativeGlyphUrl = string.Empty;
+            List<string>? relativeGlyphUrls = null;
+
+            var possibleGlyphSources = GlyphProvider.GetPossibleGlyphSources(iconSet, unicodePoint);
+            if (possibleGlyphSources.Contains(GlyphSource.RemotePngFile) == false &&
+                possibleGlyphSources.Contains(GlyphSource.RemoteSvgFile) == false)
+            {
+                return null;
+            }
+
+            switch (iconSet)
+            {
+                case IconSet.FluentUISystemFilled:
+                case IconSet.FluentUISystemRegular:
+                {
+                    nameBase = IconSetBase.FindName(iconSet, unicodePoint);
+
+                    if (string.IsNullOrWhiteSpace(nameBase))
+                    {
+                        return null;
+                    }
+
+                    lock (cachedRemoteGlyphSourcesMutex)
+                    {
+                        if (cachedRemoteFluentUISystemGlyphSourcePaths == null)
                         {
                             // Rebuild the cache
                             var sources = new List<string>();
@@ -267,10 +424,10 @@ namespace IconManager.Models
                                 }
                             }
 
-                            cachedFluentUISystemGlyphSources = sources;
+                            cachedRemoteFluentUISystemGlyphSourcePaths = sources;
                         }
 
-                        relativeGlyphUrls = cachedFluentUISystemGlyphSources!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
+                        relativeGlyphUrls = cachedRemoteFluentUISystemGlyphSourcePaths!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
                     }
 
                     // Use the relativeGlyphUrl with the smallest directory structure
@@ -334,9 +491,9 @@ namespace IconManager.Models
                             break;
                     }
 
-                    lock (glyphSourcesCacheMutex)
+                    lock (cachedRemoteGlyphSourcesMutex)
                     {
-                        if (cachedLineAwesomeGlyphSources == null)
+                        if (cachedRemoteLineAwesomeGlyphSourcePaths == null)
                         {
                             // Rebuild the cache
                             var sources = new List<string>();
@@ -358,10 +515,10 @@ namespace IconManager.Models
                                 }
                             }
 
-                            cachedLineAwesomeGlyphSources = sources;
+                            cachedRemoteLineAwesomeGlyphSourcePaths = sources;
                         }
 
-                        relativeGlyphUrls = cachedLineAwesomeGlyphSources!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
+                        relativeGlyphUrls = cachedRemoteLineAwesomeGlyphSourcePaths!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
 
                         if (relativeGlyphUrls.Count == 0)
                         {
@@ -369,7 +526,7 @@ namespace IconManager.Models
                             // This is necessary for the Line Awesome font family because exact names are not enforced
                             // There is often some slight variation such as 'unlink' name with 'unlink-solid.svg' file
                             // In this example some file names have the style added to the end
-                            relativeGlyphUrls = cachedLineAwesomeGlyphSources!.FindAll(s => s.Contains(nameBase));
+                            relativeGlyphUrls = cachedRemoteLineAwesomeGlyphSourcePaths!.FindAll(s => s.Contains(nameBase));
                         }
                     }
 
@@ -462,11 +619,26 @@ namespace IconManager.Models
             IconSet iconSet,
             uint unicodePoint)
         {
-            Uri? glyphUrl = GlyphProvider.GetGlyphSourceUrl(iconSet, unicodePoint);
+            Uri? glyphUri = null;
+            var possibleGlyphSources = GlyphProvider.GetPossibleGlyphSources(iconSet, unicodePoint);
 
-            if (glyphUrl != null)
+            // Always prioritize any local glyph sources
+            if (glyphUri == null &&
+                possibleGlyphSources.Contains(GlyphSource.LocalSvgFile))
             {
-                return await GlyphProvider.GetGlyphSourceStreamAsync(glyphUrl!);
+                glyphUri = GlyphProvider.GetLocalGlyphSourceUri(iconSet, unicodePoint);
+            }
+
+            if (glyphUri == null &&
+                possibleGlyphSources.Contains(GlyphSource.RemotePngFile) ||
+                possibleGlyphSources.Contains(GlyphSource.RemoteSvgFile))
+            {
+                glyphUri = GlyphProvider.GetRemoteGlyphSourceUri(iconSet, unicodePoint);
+            }
+
+            if (glyphUri != null)
+            {
+                return await GlyphProvider.GetGlyphSourceStreamAsync(glyphUri!);
             }
 
             return null;
@@ -481,47 +653,84 @@ namespace IconManager.Models
         /// <returns>The glyph source image data stream.</returns>
         public static async Task<MemoryStream?> GetGlyphSourceStreamAsync(Uri uri)
         {
-            if (uri != null)
+            try
             {
-                // Always creating a new WebClient is poor performance
-                // This needs to be updated in the future
-                using (WebClient client = new WebClient())
+                if (uri != null)
                 {
-                    var downloadTaskResult = new TaskCompletionSource<MemoryStream?>();
-
-                    DownloadDataCompletedEventHandler? eventHandler = null;
-                    eventHandler = (sender, e) =>
+                    // Note: LocalPath MUST be used (AbsolutePath doesn't work in all cases)
+                    if (uri.IsFile &&
+                        File.Exists(uri.LocalPath))
                     {
-                        try
+                        using (FileStream fileStream = File.OpenRead(uri.LocalPath))
                         {
-                            downloadTaskResult.SetResult(new MemoryStream(e.Result));
-                        }
-                        catch
-                        {
-                            // In the future, retries could be allowed
-                            downloadTaskResult.SetResult(null);
-                        }
-                        finally
-                        {
-                            client.DownloadDataCompleted -= eventHandler;
-                        }
-                    };
+                            var memoryStream = new MemoryStream(); 
+                            fileStream.CopyTo(memoryStream);
 
-                    try
-                    {
-                        client.DownloadDataCompleted += eventHandler;
-                        client.DownloadDataAsync(uri);
-
-                        return await downloadTaskResult.Task;
+                            return memoryStream;
+                        }
                     }
-                    catch
+                    else
                     {
-                        return null;
+                        using (var client = new HttpClient())
+                        {
+                            var data = await client.GetByteArrayAsync(uri);
+                            return new MemoryStream(data);
+                        }
+                    }
+                }
+            }
+            catch { }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Builds the full list of local glyph source paths for the given icon set family.
+        /// </summary>
+        /// <param name="iconSetFamily">The icon set family to build glyph source paths for.</param>
+        private static void BuildLocalGlyphSourcePathsCache(IconSetFamily iconSetFamily)
+        {
+            lock (cachedLocalGlyphSourcesMutex)
+            {
+                List<string> glyphSourcePaths = new List<string>();
+                List<string> searchDirectories = new List<string>();
+
+                string exePath = Assembly.GetExecutingAssembly().Location;
+                string sourcePath = new DirectoryInfo(exePath).Parent!.Parent!.Parent!.Parent!.FullName;
+
+                if (iconSetFamily == IconSetFamily.FluentUISystem)
+                {
+                    searchDirectories.Add(Path.Combine(sourcePath, "Data", "FluentUISystem", "GlyphSources"));
+                    EnumerateGlyphSources();
+                    cachedLocalFluentUISystemGlyphSourcePaths = glyphSourcePaths;
+                }
+                else if (iconSetFamily == IconSetFamily.LineAwesome)
+                {
+                    searchDirectories.Add(Path.Combine(sourcePath, "Data", "LineAwesome", "GlyphSources"));
+                    EnumerateGlyphSources();
+                    cachedLocalLineAwesomeGlyphSourcePaths = glyphSourcePaths;
+                }
+
+                // Local function to scan the file system and enumerate all matching file paths
+                void EnumerateGlyphSources()
+                {
+                    foreach (string searchDirectory in searchDirectories)
+                    {
+                        foreach (string filePath in Directory.EnumerateFiles(searchDirectory, "*.*", SearchOption.AllDirectories))
+                        {
+                            if (Path.GetExtension(filePath).ToUpperInvariant() == ".PDF" ||
+                                Path.GetExtension(filePath).ToUpperInvariant() == ".SVG")
+                            {
+                                // Do NOT remove the search directory making relative paths
+                                // Keep the full system file path
+                                glyphSourcePaths.Add(filePath);
+                            }
+                        }
                     }
                 }
             }
 
-            return null;
+            return;
         }
     }
 }

@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace IconManager
 {
+    /// <summary>
+    /// Contains methods to build a font or generate a script that can build a font.
+    /// </summary>
     public class FontBuilder
     {
         // File & directory names
@@ -241,21 +244,37 @@ namespace IconManager
                     mapping.Source.UnicodePoint);
 
                 if (mapping.IsValidForFont &&
-                    possibleGlyphSources.Contains(GlyphSource.RemoteSvgFile))
+                    (possibleGlyphSources.Contains(GlyphSource.LocalSvgFile) ||
+                     possibleGlyphSources.Contains(GlyphSource.RemoteSvgFile)))
                 {
-                    var svgUrl = GlyphProvider.GetGlyphSourceUrl(
-                        mapping.Source.IconSet,
-                        mapping.Source.UnicodePoint);
+                    Uri? svgUri = null;
 
-                    if (svgUrl == null)
+                    // Always prioritize any local glyph sources
+                    if (svgUri == null &&
+                        possibleGlyphSources.Contains(GlyphSource.LocalSvgFile))
                     {
-                        buildLog.Error($"Missing SVG source URL, mapping skipped src=0x{mapping.Source.UnicodeHexString}, dst=0x{mapping.Destination.UnicodeHexString} ({mapping.Source.Name})");
+                        svgUri = GlyphProvider.GetLocalGlyphSourceUri(
+                            mapping.Source.IconSet,
+                            mapping.Source.UnicodePoint);
+                    }
+
+                    if (svgUri == null &&
+                        possibleGlyphSources.Contains(GlyphSource.RemoteSvgFile))
+                    {
+                        svgUri = GlyphProvider.GetRemoteGlyphSourceUri(
+                            mapping.Source.IconSet,
+                            mapping.Source.UnicodePoint);
+                    }
+
+                    if (svgUri == null)
+                    {
+                        buildLog.Error($"Missing SVG source URI, mapping skipped src=0x{mapping.Source.UnicodeHexString}, dst=0x{mapping.Destination.UnicodeHexString} ({mapping.Source.Name})");
                         continue; // Fatal error
                     }
 
-                    // Calculate the initial SVG file name from the URL itself (instead of with Icon name)
-                    // This ensures the name calculation is done only once inside the URL calculation
-                    string svgFileName = Path.GetFileName(svgUrl?.LocalPath ?? string.Empty);
+                    // Calculate the initial SVG file name from the URI itself (instead of with Icon name)
+                    // This ensures the name calculation is done only once inside the URI calculation
+                    string svgFileName = Path.GetFileName(svgUri?.AbsolutePath ?? string.Empty);
 
                     // Transform the SVG file name to:
                     //  1. Remove illegal Python characters such as '-'
@@ -263,14 +282,14 @@ namespace IconManager
                     svgFileName = svgFileName.Replace('-', '_');
                     svgFileName = mapping.Source.IconSet.ToString() + "_" + svgFileName;
 
-                    // Download the SVG image file
+                    // Open or download the source SVG image file
                     // This can be done totally async with no need to await
                     // The file is just being added to the file system for external use later
                     Task.Run(async () =>
                     {
-                        if (svgUrl != null)
+                        if (svgUri != null)
                         {
-                            using (var stream = await GlyphProvider.GetGlyphSourceStreamAsync(svgUrl!))
+                            using (var stream = await GlyphProvider.GetGlyphSourceStreamAsync(svgUri!))
                             {
                                 if (stream != null)
                                 {
@@ -286,7 +305,7 @@ namespace IconManager
                                 }
                                 else
                                 {
-                                    buildLog.Error($"Missing source glyph data for {svgUrl}");
+                                    buildLog.Error($"Missing source glyph data for {svgUri}");
                                 }
                             }
                         }
