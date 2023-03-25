@@ -36,7 +36,7 @@ namespace IconManager
                     Tag     = value
                 });
             }
-            this.SourceIconSetComboBox.Items = iconSets;
+            this.SourceIconSetComboBox.ItemsSource = iconSets;
             this.SourceIconSetComboBox.SelectedIndex = 0; // Should be Undefined
 
             this.DataContext = this;
