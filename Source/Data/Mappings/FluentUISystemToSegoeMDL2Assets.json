@@ -1543,13 +1543,13 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F8CA",
-      "Name": "ic_fluent_add_square_24_regular"
+      "UnicodePoint": "E007",
+      "Name": "ic_fluent_add_square_20_regular"
     },
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "NoMatch",
     "IsPlaceholder": false,
-    "Comments": "Size 20 missing"
+    "Comments": ""
   },
   {
     "Destination": {
@@ -1559,13 +1559,13 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F467",
-      "Name": "ic_fluent_group_list_24_regular"
+      "UnicodePoint": "E6CA",
+      "Name": "ic_fluent_group_list_20_regular"
     },
     "GlyphMatchQuality": "High",
     "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
-    "Comments": "Size 20 missing"
+    "Comments": ""
   },
   {
     "Destination": {
