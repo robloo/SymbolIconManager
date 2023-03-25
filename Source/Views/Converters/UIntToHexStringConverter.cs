@@ -12,9 +12,9 @@ namespace IconManager
     {
         /// <inheritdoc/>
         public object Convert(
-            object value,
+            object? value,
             Type targetType,
-            object parameter,
+            object? parameter,
             CultureInfo culture)
         {
             if (value is uint unsignedInt)
@@ -38,9 +38,9 @@ namespace IconManager
 
         /// <inheritdoc/>
         public object ConvertBack(
-            object value,
+            object? value,
             Type targetType,
-            object parameter,
+            object? parameter,
             CultureInfo culture)
         {
             if (value is string str)

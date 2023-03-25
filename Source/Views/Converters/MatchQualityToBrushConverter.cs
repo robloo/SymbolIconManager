@@ -13,9 +13,9 @@ namespace IconManager
     {
         /// <inheritdoc/>
         public object Convert(
-            object value,
+            object? value,
             Type targetType,
-            object parameter,
+            object? parameter,
             CultureInfo culture)
         {
             if (value is MatchQuality matchQuality)
@@ -41,9 +41,9 @@ namespace IconManager
 
         /// <inheritdoc/>
         public object ConvertBack(
-            object value,
+            object? value,
             Type targetType,
-            object parameter,
+            object? parameter,
             CultureInfo culture)
         {
             return AvaloniaProperty.UnsetValue;
