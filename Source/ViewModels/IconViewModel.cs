@@ -144,7 +144,7 @@ namespace IconManager
         /// </summary>
         public async void UpdateGlyphAsync()
         {
-            this.Glyph = await GlyphRenderer.GetBitmapAsync(this.IconSet, this.UnicodePoint);
+            this.Glyph = await GlyphRenderer.GetPreviewBitmapAsync(this.IconSet, this.UnicodePoint);
             return;
         }
 

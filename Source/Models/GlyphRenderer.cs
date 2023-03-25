@@ -28,7 +28,7 @@ namespace IconManager
         /// <param name="iconSet">The icon set containing the Unicode point.</param>
         /// <param name="unicodePoint">The Unicode point of the glyph.</param>
         /// <returns>A preview bitmap of the glyph.</returns>
-        public static async Task<Bitmap?> GetBitmapAsync(IconSet iconSet, uint unicodePoint)
+        public static async Task<Bitmap?> GetPreviewBitmapAsync(IconSet iconSet, uint unicodePoint)
         {
             string iconSetKey = iconSet.ToString();
             string glyphKey = iconSetKey + "_" + Icon.ToUnicodeHexString(unicodePoint);

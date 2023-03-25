@@ -407,7 +407,7 @@ namespace IconManager
                         File.Delete(filePath);
                     }
 
-                    Bitmap? bitmap = await GlyphRenderer.GetBitmapAsync(viewModel.IconSet, viewModel.UnicodePoint);
+                    Bitmap? bitmap = await GlyphRenderer.GetPreviewBitmapAsync(viewModel.IconSet, viewModel.UnicodePoint);
                     bitmap?.Save(filePath);
                 }
             }
