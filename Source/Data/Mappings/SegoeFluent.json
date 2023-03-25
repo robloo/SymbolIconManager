@@ -295,7 +295,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FC2D",
+      "UnicodePoint": "E824",
       "Name": "ic_fluent_more_horizontal_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -375,7 +375,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FBD7",
+      "UnicodePoint": "E270",
       "Name": "ic_fluent_call_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -519,7 +519,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "104C1",
+      "UnicodePoint": "E7F9",
       "Name": "ic_fluent_mic_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -647,7 +647,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FB51",
+      "UnicodePoint": "EBB2",
       "Name": "ic_fluent_star_line_horizontal_3_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -743,7 +743,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FC22",
+      "UnicodePoint": "E78F",
       "Name": "ic_fluent_lock_closed_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -775,7 +775,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FB2C",
+      "UnicodePoint": "E20B",
       "Name": "ic_fluent_building_20_regular"
     },
     "GlyphMatchQuality": "High",
@@ -823,7 +823,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F908",
+      "UnicodePoint": "E178",
       "Name": "ic_fluent_book_open_20_regular"
     },
     "GlyphMatchQuality": "Medium",
@@ -855,7 +855,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FC72",
+      "UnicodePoint": "EBD0",
       "Name": "ic_fluent_subtract_20_regular"
     },
     "GlyphMatchQuality": "High",
