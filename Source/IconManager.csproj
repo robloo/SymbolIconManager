@@ -61,7 +61,6 @@
     <PackageReference Include="Avalonia.Controls.ColorPicker" Version="11.0.0-preview6" />
     <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview6" />
     <PackageReference Include="Avalonia.Diagnostics" Version="11.0.0-preview6" />
-    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0-preview6" />
     <PackageReference Include="FluentAvaloniaUI" Version="2.0.0-preview6" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="SkiaSharp" Version="2.88.3" />
