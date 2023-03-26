@@ -1,5 +1,6 @@
 ﻿using IconManager.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace IconManager.Utilities
 {
@@ -16,7 +17,7 @@ namespace IconManager.Utilities
         /// This is a slow process as all source glyphs will attempt to be loaded.
         /// </remarks>
         /// <param name="mappings">The mapping list to repair.</param>
-        public static async void RepairMappingListSourceUnicodePoints(IconMappingList mappings)
+        public static async Task RepairMappingListSourceUnicodePoints(IconMappingList mappings)
         {
             var filled = IconSetBase.GetIcons(IconSet.FluentUISystemFilled);
             var regular = IconSetBase.GetIcons(IconSet.FluentUISystemRegular);
@@ -59,6 +60,7 @@ namespace IconManager.Utilities
                                     icon.UnicodePoint != mapping.Source.UnicodePoint)
                                 {
                                     mapping.Source.UnicodePoint = icon.UnicodePoint;
+                                    break;
                                 }
                             }
                         }
