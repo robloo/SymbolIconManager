@@ -663,7 +663,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FD80",
+      "UnicodePoint": "ECD9",
       "Name": "ic_fluent_text_bullet_list_ltr_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -679,7 +679,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FD89",
+      "UnicodePoint": "ECD7",
       "Name": "ic_fluent_text_bullet_list_ltr_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -823,7 +823,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FD26",
+      "UnicodePoint": "E262",
       "Name": "ic_fluent_calendar_ltr_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -1415,7 +1415,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "F989",
+      "UnicodePoint": "E38E",
       "Name": "ic_fluent_closed_caption_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -1463,7 +1463,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "10050",
+      "UnicodePoint": "E393",
       "Name": "ic_fluent_cloud_arrow_up_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -1479,7 +1479,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "10054",
+      "UnicodePoint": "E3A8",
       "Name": "ic_fluent_cloud_arrow_up_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -1511,7 +1511,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "1004E",
+      "UnicodePoint": "E3A2",
       "Name": "ic_fluent_cloud_arrow_down_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -1543,7 +1543,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "1005C",
+      "UnicodePoint": "E39F",
       "Name": "ic_fluent_cloud_dismiss_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -1559,7 +1559,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "10060",
+      "UnicodePoint": "E3B4",
       "Name": "ic_fluent_cloud_dismiss_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -1575,7 +1575,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FEC7",
+      "UnicodePoint": "E3A8",
       "Name": "ic_fluent_cloud_off_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -1591,7 +1591,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FECB",
+      "UnicodePoint": "E3BD",
       "Name": "ic_fluent_cloud_off_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -1607,7 +1607,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FB7E",
+      "UnicodePoint": "E3AE",
       "Name": "ic_fluent_cloud_sync_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -1623,7 +1623,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "10056",
+      "UnicodePoint": "E399",
       "Name": "ic_fluent_cloud_checkmark_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -1639,7 +1639,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "1005A",
+      "UnicodePoint": "E3AE",
       "Name": "ic_fluent_cloud_checkmark_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -1655,7 +1655,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FB86",
+      "UnicodePoint": "E3C3",
       "Name": "ic_fluent_cloud_sync_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -1815,7 +1815,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "F983",
+      "UnicodePoint": "E3D8",
       "Name": "ic_fluent_comment_add_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -1831,7 +1831,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "F994",
+      "UnicodePoint": "E3E4",
       "Name": "ic_fluent_comment_add_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -2055,7 +2055,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "F9B7",
+      "UnicodePoint": "E437",
       "Name": "ic_fluent_crop_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -2327,7 +2327,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "1006F",
+      "UnicodePoint": "E8BE",
       "Name": "ic_fluent_panel_left_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -2359,7 +2359,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "10074",
+      "UnicodePoint": "E8CF",
       "Name": "ic_fluent_panel_right_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -2935,7 +2935,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FF96",
+      "UnicodePoint": "E684",
       "Name": "ic_fluent_full_screen_maximize_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -2951,7 +2951,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FF9A",
+      "UnicodePoint": "E691",
       "Name": "ic_fluent_full_screen_maximize_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -2999,7 +2999,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "10222",
+      "UnicodePoint": "E68A",
       "Name": "ic_fluent_games_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -3015,7 +3015,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "1022E",
+      "UnicodePoint": "E697",
       "Name": "ic_fluent_games_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -3591,7 +3591,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FE7C",
+      "UnicodePoint": "E770",
       "Name": "ic_fluent_library_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -4023,7 +4023,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FE82",
+      "UnicodePoint": "E7E8",
       "Name": "ic_fluent_map_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -4135,7 +4135,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FC2D",
+      "UnicodePoint": "E824",
       "Name": "ic_fluent_more_horizontal_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -4151,7 +4151,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FC36",
+      "UnicodePoint": "E832",
       "Name": "ic_fluent_more_horizontal_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -4551,7 +4551,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FCF4",
+      "UnicodePoint": "E8AD",
       "Name": "ic_fluent_orientation_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -5303,7 +5303,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FBA6",
+      "UnicodePoint": "EB96",
       "Name": "ic_fluent_square_multiple_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -5319,7 +5319,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FBAE",
+      "UnicodePoint": "EB9F",
       "Name": "ic_fluent_square_multiple_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -5495,7 +5495,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FC5A",
+      "UnicodePoint": "EA50",
       "Name": "ic_fluent_save_edit_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -5815,7 +5815,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FC57",
+      "UnicodePoint": "EABA",
       "Name": "ic_fluent_share_screen_start_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -5831,7 +5831,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FC61",
+      "UnicodePoint": "EAC3",
       "Name": "ic_fluent_share_screen_start_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -5975,7 +5975,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FA9E",
+      "UnicodePoint": "EB38",
       "Name": "ic_fluent_speaker_0_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -5991,7 +5991,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FA9E",
+      "UnicodePoint": "EB38",
       "Name": "ic_fluent_speaker_0_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -6007,7 +6007,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FAA2",
+      "UnicodePoint": "EB3D",
       "Name": "ic_fluent_speaker_1_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -6023,7 +6023,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FAAD",
+      "UnicodePoint": "EB46",
       "Name": "ic_fluent_speaker_1_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -6039,7 +6039,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FC63",
+      "UnicodePoint": "EB42",
       "Name": "ic_fluent_speaker_2_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -6055,7 +6055,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FC6D",
+      "UnicodePoint": "EB4B",
       "Name": "ic_fluent_speaker_2_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -6103,7 +6103,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FC68",
+      "UnicodePoint": "EB4A",
       "Name": "ic_fluent_speaker_mute_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -6119,7 +6119,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FC72",
+      "UnicodePoint": "EB53",
       "Name": "ic_fluent_speaker_mute_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -6135,7 +6135,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FAAA",
+      "UnicodePoint": "EB4F",
       "Name": "ic_fluent_speaker_off_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -6151,7 +6151,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FAB5",
+      "UnicodePoint": "EB58",
       "Name": "ic_fluent_speaker_off_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -6215,7 +6215,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FBA7",
+      "UnicodePoint": "EBAA",
       "Name": "ic_fluent_star_emphasis_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -6231,7 +6231,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FBAF",
+      "UnicodePoint": "EBB3",
       "Name": "ic_fluent_star_emphasis_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -6983,7 +6983,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FB07",
+      "UnicodePoint": "EE3E",
       "Name": "ic_fluent_weather_drizzle_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -6999,7 +6999,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FB0F",
+      "UnicodePoint": "EE3E",
       "Name": "ic_fluent_weather_drizzle_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -7143,7 +7143,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FB0A",
+      "UnicodePoint": "EE41",
       "Name": "ic_fluent_weather_haze_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -7159,7 +7159,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FB12",
+      "UnicodePoint": "EE41",
       "Name": "ic_fluent_weather_haze_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -7591,7 +7591,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FB14",
+      "UnicodePoint": "EE4F",
       "Name": "ic_fluent_weather_sunny_high_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -7607,7 +7607,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FB1C",
+      "UnicodePoint": "EE4F",
       "Name": "ic_fluent_weather_sunny_high_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -7623,7 +7623,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FB17",
+      "UnicodePoint": "EE52",
       "Name": "ic_fluent_weather_sunny_low_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -7639,7 +7639,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FB1F",
+      "UnicodePoint": "EE52",
       "Name": "ic_fluent_weather_sunny_low_20_filled"
     },
     "GlyphMatchQuality": "Exact",
@@ -7863,7 +7863,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemRegular",
-      "UnicodePoint": "FB69",
+      "UnicodePoint": "EE5C",
       "Name": "ic_fluent_wifi_warning_20_regular"
     },
     "GlyphMatchQuality": "Exact",
@@ -7879,7 +7879,7 @@
     },
     "Source": {
       "IconSet": "FluentUISystemFilled",
-      "UnicodePoint": "FB71",
+      "UnicodePoint": "EE5C",
       "Name": "ic_fluent_wifi_warning_20_filled"
     },
     "GlyphMatchQuality": "Exact",
