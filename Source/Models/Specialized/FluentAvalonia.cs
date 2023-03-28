@@ -55,6 +55,18 @@ namespace IconManager.Specialized
             uint newUnicodePointStart = 0xF8000;
             uint nextAvailableUnicodePoint = newUnicodePointStart;
 
+            // Check for the max 0xF8xxx range UnicodePoint
+            // This will be the actual next available UnicodePoint
+            // The assumption here is that 0xF7FFF is the maximum possible UnicodePoint in any other icon set
+            // FluentAvalonia-specific mappings are the only icons in and above this range
+            foreach (var mapping in mappings)
+            {
+                if (mapping.Destination.UnicodePoint >= nextAvailableUnicodePoint)
+                {
+                    nextAvailableUnicodePoint = mapping.Destination.UnicodePoint + 1;
+                }
+            }
+
             // Load the SegoeFluent mappings
             var segoeV3Mappings = IconMappingList.Load(IconSet.SegoeFluent);
             var segoeV1toV2 = IconMappingList.Load(IconSet.SegoeUISymbol, IconSet.SegoeMDL2Assets);
