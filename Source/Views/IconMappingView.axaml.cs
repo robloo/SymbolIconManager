@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Platform.Storage;
+using IconManager.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -254,7 +255,7 @@ namespace IconManager
                 using (var fileStream = File.OpenWrite(path))
                 {
                     var mappings = this.ViewToMappings();
-                    mappings.Reprocess();
+                    IconMappingUtilities.Reprocess(mappings);
                     IconMappingList.Save(mappings, fileStream);
                 }
             }
@@ -291,7 +292,7 @@ namespace IconManager
             {
                 IconMappingList mappings = this.ViewToMappings();
 
-                mappings.UpdateDeprecatedIcons();
+                IconMappingUtilities.UpdateDeprecatedIcons(mappings);
 
                 this.UpdateMappings(mappings);
             }

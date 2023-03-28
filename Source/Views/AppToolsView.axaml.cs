@@ -3,6 +3,7 @@ using Avalonia.Interactivity;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform.Storage;
 using IconManager.Models;
+using IconManager.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -591,7 +592,7 @@ namespace IconManager
                         mappings.Add(mapping);
                     }
 
-                    mappings.Reprocess();
+                    IconMappingUtilities.Reprocess(mappings);
                     IconMappingList.Save(mappings, fileStream);
                 }
             }

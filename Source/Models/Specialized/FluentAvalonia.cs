@@ -1,4 +1,5 @@
 ﻿using IconManager.Models;
+using IconManager.Utilities;
 using System;
 using System.Text;
 
@@ -72,7 +73,7 @@ namespace IconManager.Specialized
             var segoeV1toV2 = IconMappingList.Load(IconSet.SegoeUISymbol, IconSet.SegoeMDL2Assets);
 
             // Ensure latest icons are used
-            mappings.UpdateDeprecatedIcons();
+            IconMappingUtilities.UpdateDeprecatedIcons(mappings);
 
             // Raw sources use the 'SegoeFluent' font is some cases
             // This cannot be used to construct a font as it doesn't have SVG sources by itself
@@ -247,7 +248,7 @@ namespace IconManager.Specialized
 
             // Normalize all FluentUISystem sources to use size 20 where possible
             mappings = FluentUISystem.ConvertToSize(mappings, FluentUISystem.IconSize.Size20);
-            mappings.Reprocess();
+            IconMappingUtilities.Reprocess(mappings);
 
             // Double check: ensure that all Symbol enum values are in the mapping list
             // This also requires that comments start with "WinUI Symbol" so they can be differentiated
@@ -389,7 +390,7 @@ namespace IconManager.Specialized
             }
 
             // Remove any deprecated icons (this list is known out of date)
-            mappings.UpdateDeprecatedIcons();
+            IconMappingUtilities.UpdateDeprecatedIcons(mappings);
 
             return mappings;
         }

@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Platform.Storage;
+using IconManager.Utilities;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -93,7 +94,7 @@ namespace IconManager
             // This is considered acceptable for now.
 
             // Initialize a brand-new, empty mapping list that will eventually be used to build the font
-            var segoeV1Mappings = IconMappingList.InitNewMappings(IconSet.SegoeUISymbol);
+            var segoeV1Mappings = IconMappingUtilities.InitNewMappings(IconSet.SegoeUISymbol);
 
             // Add source information for each mapping
             foreach (IconMapping mapping in segoeV1Mappings)
@@ -166,7 +167,7 @@ namespace IconManager
             // automatically added for earlier SegoeUISymbol (V1) glyphs.
 
             // Initialize a brand-new, empty mapping list that will eventually be used to build the font
-            var segoeV2Mappings = IconMappingList.InitNewMappings(IconSet.SegoeMDL2Assets);
+            var segoeV2Mappings = IconMappingUtilities.InitNewMappings(IconSet.SegoeMDL2Assets);
 
             // Add source information for each mapping
             foreach (IconMapping mapping in segoeV2Mappings)
@@ -321,7 +322,7 @@ namespace IconManager
         internal void BuildFluentUISystemRegularFont()
         {
             // This is an identity mapping
-            var mappings = IconMappingList.InitNewMappings(IconSet.FluentUISystemRegular);
+            var mappings = IconMappingUtilities.InitNewMappings(IconSet.FluentUISystemRegular);
             foreach (IconMapping mapping in mappings)
             {
                 mapping.Source = mapping.Destination.Clone();
@@ -336,7 +337,7 @@ namespace IconManager
         internal void BuildFluentUISystemFilledFont()
         {
             // This is an identity mapping
-            var mappings = IconMappingList.InitNewMappings(IconSet.FluentUISystemFilled);
+            var mappings = IconMappingUtilities.InitNewMappings(IconSet.FluentUISystemFilled);
             foreach (IconMapping mapping in mappings)
             {
                 mapping.Source = mapping.Destination.Clone();
