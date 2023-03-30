@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IconManager
+﻿namespace IconManager
 {
     /// <summary>
     /// Contains data and information for the WinUI/UWP Symbol enum.
