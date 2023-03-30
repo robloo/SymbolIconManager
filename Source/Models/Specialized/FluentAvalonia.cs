@@ -329,7 +329,8 @@ namespace IconManager.Specialized
                     mapping.Source.UnicodePoint);
 
                 if (mapping.IsValidForFont == false ||
-                    possibleGlyphSources.Contains(GlyphSource.RemoteSvgFile) == false)
+                    (possibleGlyphSources.Contains(GlyphSource.LocalSvgFile) == false &&
+                     possibleGlyphSources.Contains(GlyphSource.RemoteSvgFile) == false))
                 {
                     if (mapping.Source.IconSet == IconSet.Undefined)
                     {
