@@ -2,17 +2,42 @@
 
 This document helps explain common workflows when using the Symbol Icon Manager.
 
-## Build a Font from the Icon Mapping View
+## Build a Font from a Mapping File
 
 Before starting, note that the font building scripts are setup for Windows right now. Building a font requires FontForge to be installed to the default path (with its own Python plugin as well). This should be very easy to get working on other systems though as the build script is in Python and the Windows script only launches the Python script.
 
- 1. Go to the `Icon Mapping` tab and then press [Load]
- 1. Select a `.json` mapping file and open it, all mappings should now be visible in the view
- 1. Press [Build Font] and the application will generate a FontForge Python script and download all source SVG files that can be used to build a new font. The script and glyph SVG files will be added to a new directory within the application's executable directory. This output directory should automatically open for you.
- 1. Run `build_win.bat` (on Windows) to build the font and watch `output_font.ttf` be created automatically -- that's it!
+### Method 1 : From a Known Maping File
+
+ 1. Start the application and go to the `Fonts` tab
+ 1. Find the section for the font you wish to build and click the corresponding `[Build ... Font]` button.
+ 1. The application will generate a FontForge Python script and download or copy all source SVG files that can be used to build a new font. The script and glyph SVG files will be added to a new directory within the application's executable directory. This output directory should automatically open for you.
+ 1. Run `build_win.bat` (on Windows) to build the font and watch `output_font.ttf` be created automatically.
       * Note that if the script fails the first time, wait 30 seconds and try again. It's possible glyph SVGs are still being downloaded.
- 3. Rename the font file to whatever you like.
+
+### Method 2 : From an Undefined Mapping File
+
+ 1. Start the application and go to the `Icon Mapping` tab and then press `[Load]`
+ 1. Select a `.json` mapping file in the file picker or drop-down and open it, all mappings should now be visible in the view
+ 1. Press [Build Font] and the application will generate a FontForge Python script and download or copy all source SVG files that can be used to build a new font. The script and glyph SVG files will be added to a new directory within the application's executable directory. This output directory should automatically open for you.
+ 1. Run `build_win.bat` (on Windows) to build the font and watch `output_font.ttf` be created automatically.
+      * Note that if the script fails the first time, wait 30 seconds and try again. It's possible glyph SVGs are still being downloaded.
+ 1. Rename the font file to whatever you like.
       * Note that internally the font name will be 'Symbols' but can be renamed using FontForge.
+
+### Special Font Metric Step
+
+A special step is needed after the .ttf file is generated to ensure the OS/2 table metrics are correct. This is mandatory for some applications. Unfortunately, there is an upstream bug in FontForge that prevents the Python script from being able to do this automatically (see [here]().
+
+To set these metrics:
+ 1. Open the font .ttf in FontForge
+ 1. Navigate to the Font Information by clicking `[Element]` -> `[Font Info...]`
+ 1. Then click on the `[OS/2]` side tab and the `[Metrics]` tab
+ 1. Set all metrics as shown below. These follow the SegoeFluent standard metrics.
+
+    
+
+ 1. Click `[Save]` to close the metrics window
+ 1. Finally, save the changes to the .ttf file by clicking `[File]` -> `[Generate Fonts...]` and then `[Generate]`. Use default settings and only select the destination location. It is safe to ignore any warnings or errors during this process (Click `[Generate]` again).
 
 ## Font Usage in XAML
 
