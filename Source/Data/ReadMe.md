@@ -2,6 +2,10 @@
 
 For information on icon mapping files see [Icon Mapping](https://github.com/robloo/SymbolIconManager/blob/main/Docs/IconMapping.md).
 
+Note that the most important glyph sources (Fluent UI System and Line Awesome) are copied directly into this repository. This was not always the case; however, it became necessary due to the high number of breaking changes upstream. It was only possible to rebuild fonts for a short period of time until the build process would break and all source glyph data links and mappings would have to be updated to build fonts again.
+
+This was not only unstable, but unmaintanable long-term. Therefore, all important glyph sources (SVG files) are now part of this repository. This ensures this repository alone can be cloned and fonts built exactly as they were before using local files reguardless of changes upstream. In sort, the font build process is now stable and fonts can still be built even if the source repositories go dark.
+
 ---
 
 This folder contains raw icon set data files used by the application. Data is commonly gathered from third party sources. A list of individual data files is given in the below table.
