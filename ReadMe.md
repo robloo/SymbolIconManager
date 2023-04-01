@@ -1,3 +1,17 @@
+<table>
+  <tr>
+    <td>
+      <a href="https://github.com/robloo/SymbolIconManager/blob/main/Docs/UserGuide.md">User Guide</a>
+    </td>
+    <td>
+      <a href="https://github.com/robloo/SymbolIconManager/blob/main/Docs/IconMapping.md">Icon Mapping Details</a>
+    </td>
+    <td>
+      <a href="https://github.com/robloo/SymbolIconManager/blob/main/Source/Data/ReadMe.md">Icon Set Data ReadMe</a>
+    </td>
+  </tr>
+<table>
+
 # Symbol Icon Manager
 
 The Symbol Icon Manager is an application written to facilitate working with Microsoft's various symbol icon fonts. Its most widely-useful tool is a font builder that allows mapping glyphs from a source icon set into a destination icon set (by Unicode point). In practice this means it is possible to build a free and open source variant of Microsoft's proprietary fonts (*Segoe MDL2 Assets* and *Segoe Fluent Icons*) that can be used as a drop-in replacement for apps that need it cross-platform. Using Microsoft's fonts in cross-platform projects directly is not possible due to licensing.
