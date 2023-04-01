@@ -6,7 +6,7 @@ This document helps explain common workflows when using the Symbol Icon Manager.
 
 Before starting, note that the font building scripts are setup for Windows right now. Building a font requires FontForge to be installed to the default path (with its own Python plugin as well). This should be very easy to get working on other systems though as the build script is in Python and the Windows script only launches the Python script.
 
-### Method 1 : From a Known Maping File
+### Method 1 : From a Known Mapping File
 
  1. Start the application and go to the `Fonts` tab
  1. Find the section for the font you wish to build and click the corresponding `[Build ... Font]` button.
@@ -26,7 +26,7 @@ Before starting, note that the font building scripts are setup for Windows right
 
 ### Special Font Metric Step
 
-A special step is needed after the .ttf file is generated to ensure the OS/2 table metrics are correct. This is mandatory for some applications. Unfortunately, there is an upstream bug in FontForge that prevents the Python script from being able to do this automatically (see [here]().
+A special step is needed after the .ttf file is generated to ensure the OS/2 table metrics are correct. This is mandatory for some applications. Unfortunately, there is an upstream bug in FontForge that prevents the Python script from being able to do this automatically (see [here](https://github.com/robloo/SymbolIconManager/blob/8f98ca32eadc113db03b4d081913e2f1bd3af650/Source/Models/FontBuilder.cs#L363-L387)).
 
 To set these metrics:
  1. Open the font .ttf in FontForge
