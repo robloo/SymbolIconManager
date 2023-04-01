@@ -33,9 +33,9 @@ To set these metrics:
  1. Navigate to the Font Information by clicking `[Element]` -> `[Font Info...]`
  1. Then click on the `[OS/2]` side tab and the `[Metrics]` tab
  1. Set all metrics as shown below. These follow the SegoeFluent standard metrics.
-
-    
-
+    <p align="left">
+      <img src="https://github.com/robloo/SymbolIconManager/raw/main/Docs/Images/FontForgeOS2Metrics.png" height="350px">
+    </p>
  1. Click `[Save]` to close the metrics window
  1. Finally, save the changes to the .ttf file by clicking `[File]` -> `[Generate Fonts...]` and then `[Generate]`. Use default settings and only select the destination location. It is safe to ignore any warnings or errors during this process (Click `[Generate]` again).
 
