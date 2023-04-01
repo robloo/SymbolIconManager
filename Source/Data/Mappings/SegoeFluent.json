@@ -902,12 +902,12 @@
       "Name": "CheckboxFill"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F742",
+      "Name": "ic_fluent_stop_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -918,14 +918,14 @@
       "Name": "CheckboxIndeterminate"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "E2FE",
+      "Name": "ic_fluent_checkbox_indeterminate_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "The design is completely different but the metaphor is a strong enough match to justify the mapping."
   },
   {
     "Destination": {
@@ -934,12 +934,12 @@
       "Name": "CheckboxCompositeReversed"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F28D",
+      "Name": "ic_fluent_checkbox_checked_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -7526,12 +7526,12 @@
       "Name": "FeedbackApp"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F5D2",
+      "Name": "ic_fluent_person_feedback_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -7638,14 +7638,14 @@
       "Name": "CalculatorMultiply"
     },
     "Source": {
-      "IconSet": "LineAwesomeSolid",
-      "UnicodePoint": "F00D",
-      "Name": "times"
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F369",
+      "Name": "ic_fluent_dismiss_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
-    "Comments": "Doens't exist in the Fluent UI System; however, dismiss/cancel is an alternate. Line Awesome variant differs in style from add/subtract that do exist in Fluent UI."
+    "Comments": "Doens't exist in the Fluent UI System; however, dismiss/cancel is an alternate"
   },
   {
     "Destination": {
@@ -10742,12 +10742,12 @@
       "Name": "AirplaneSolid"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemFilled",
+      "UnicodePoint": "F10F",
+      "Name": "ic_fluent_airplane_20_filled"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -12214,12 +12214,12 @@
       "Name": "Family"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F5B0",
+      "Name": "ic_fluent_people_community_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -13702,12 +13702,12 @@
       "Name": "Calories"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "EF69",
+      "Name": "ic_fluent_fire_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Low",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -15526,12 +15526,12 @@
       "Name": "CalligraphyPen"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F252",
+      "Name": "ic_fluent_calligraphy_pen_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -18246,12 +18246,12 @@
       "Name": "Checkbox14"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F291",
+      "Name": "ic_fluent_checkbox_unchecked_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -18262,12 +18262,12 @@
       "Name": "CheckboxComposite14"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F28D",
+      "Name": "ic_fluent_checkbox_checked_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -18278,14 +18278,14 @@
       "Name": "CheckboxIndeterminateCombo14"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "E2FE",
+      "Name": "ic_fluent_checkbox_indeterminate_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "The design is completely different but the metaphor is a strong enough match to justify the mapping."
   },
   {
     "Destination": {
@@ -18294,14 +18294,14 @@
       "Name": "CheckboxIndeterminateCombo"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "E2FE",
+      "Name": "ic_fluent_checkbox_indeterminate_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Low",
+    "MetaphorMatchQuality": "High",
     "IsPlaceholder": false,
-    "Comments": ""
+    "Comments": "The design is completely different but the metaphor is a strong enough match to justify the mapping."
   },
   {
     "Destination": {
@@ -18822,12 +18822,12 @@
       "Name": "DocumentApproval"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "E4F1",
+      "Name": "ic_fluent_document_checkmark_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -19398,12 +19398,12 @@
       "Name": "GIF"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F453",
+      "Name": "ic_fluent_gif_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "High",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
@@ -19462,12 +19462,12 @@
       "Name": "Earbud"
     },
     "Source": {
-      "IconSet": "Undefined",
-      "UnicodePoint": "0000",
-      "Name": ""
+      "IconSet": "FluentUISystemRegular",
+      "UnicodePoint": "F738",
+      "Name": "ic_fluent_surface_earbuds_20_regular"
     },
-    "GlyphMatchQuality": "NoMatch",
-    "MetaphorMatchQuality": "NoMatch",
+    "GlyphMatchQuality": "Medium",
+    "MetaphorMatchQuality": "Exact",
     "IsPlaceholder": false,
     "Comments": ""
   },
