@@ -76,7 +76,7 @@
                        Margin="0,0,5,0" />
             <TextBox x:Name="FilterTextBox"
                      Text="{Binding FilterText, Mode=TwoWay}"
-                     Watermark="Filter"
+                     PlaceholderText="Filter"
                      Width="200" />
         </StackPanel>
         <ListBox Grid.Row="1"
@@ -234,7 +234,7 @@
                                      Text="{Binding Comments, Mode=TwoWay}"
                                      TextWrapping="Wrap"
                                      AcceptsReturn="True"
-                                     Watermark="Comments"
+                                     PlaceholderText="Comments"
                                      Margin="0,2,0,0" />
                         </Grid>
                     </Grid>

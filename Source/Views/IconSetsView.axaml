@@ -21,7 +21,7 @@
                        Margin="0,0,5,0" />
             <TextBox x:Name="FilterTextBox"
                      Text="{Binding FilterText, Mode=TwoWay}"
-                     Watermark="Filter"
+                     PlaceholderText="Filter"
                      Width="200" />
         </StackPanel>
         <ListBox Grid.Row="2"
