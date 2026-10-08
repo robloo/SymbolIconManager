@@ -80,7 +80,7 @@
                      Width="200" />
         </StackPanel>
         <ListBox Grid.Row="1"
-                 Items="{Binding FilteredMappings}"
+                 ItemsSource="{Binding FilteredMappings}"
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch">
             <ListBox.ItemTemplate>
@@ -110,7 +110,7 @@
                                       Grid.Row="0"
                                       HorizontalAlignment="Stretch"
                                       SelectedItem="{Binding SourceViewModel.IconSet, Mode=TwoWay}"
-                                      Items="{Binding SourceViewModel.IconSetOptions}" />
+                                      ItemsSource="{Binding SourceViewModel.IconSetOptions}" />
                             <TextBox Grid.Column="2"
                                      Grid.Row="0"
                                      Text="{Binding SourceViewModel.UnicodePoint, Mode=TwoWay, Converter={StaticResource UIntToHexString}}"
@@ -153,7 +153,7 @@
                                       Grid.Row="0"
                                       HorizontalAlignment="Stretch"
                                       SelectedItem="{Binding DestinationViewModel.IconSet, Mode=TwoWay}"
-                                      Items="{Binding DestinationViewModel.IconSetOptions}" />
+                                      ItemsSource="{Binding DestinationViewModel.IconSetOptions}" />
                             <TextBox Grid.Column="2"
                                      Grid.Row="0"
                                      Text="{Binding DestinationViewModel.UnicodePoint, Mode=TwoWay, Converter={StaticResource UIntToHexString}}"
@@ -189,7 +189,7 @@
                                       HorizontalAlignment="Stretch"
                                       Background="{Binding GlyphMatchQuality, Mode=OneWay, Converter={StaticResource MatchQualityToBrush}}"
                                       SelectedItem="{Binding GlyphMatchQuality, Mode=TwoWay}"
-                                      Items="{Binding GlyphMatchQualityOptions}" />
+                                      ItemsSource="{Binding GlyphMatchQualityOptions}" />
                             <TextBlock Grid.Column="1"
                                        Grid.Row="0"
                                        Text="MetaphorMatchQuality"
@@ -199,7 +199,7 @@
                                       HorizontalAlignment="Stretch"
                                       Background="{Binding MetaphorMatchQuality, Mode=OneWay, Converter={StaticResource MatchQualityToBrush}}"
                                       SelectedItem="{Binding MetaphorMatchQuality, Mode=TwoWay}"
-                                      Items="{Binding MetaphorMatchQualityOptions}"
+                                      ItemsSource="{Binding MetaphorMatchQualityOptions}"
                                       Margin="5,0,0,0" />
                             <CheckBox Grid.Column="2"
                                       Grid.Row="0"

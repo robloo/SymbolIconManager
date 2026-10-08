@@ -67,7 +67,7 @@
         </StackPanel>
         <ListBox x:Name="ListBox"
                  Grid.Row="1"
-                 Items="{Binding ListedIcons}"
+                 ItemsSource="{Binding ListedIcons}"
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch">
             <ListBox.ItemTemplate>

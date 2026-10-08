@@ -25,7 +25,7 @@
                      Width="200" />
         </StackPanel>
         <ListBox Grid.Row="2"
-                 Items="{Binding FilteredIcons}"
+                 ItemsSource="{Binding FilteredIcons}"
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch">
             <ListBox.ItemTemplate>
