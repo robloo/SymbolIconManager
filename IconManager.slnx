@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Source/IconManager.Core/IconManager.Core/IconManager.Core.csproj" />
+  <Project Path="Source/IconManager.IconSets/IconManager.IconSets.csproj" />
+  <Project Path="Source/IconManager/IconManager.csproj" />
+</Solution>
