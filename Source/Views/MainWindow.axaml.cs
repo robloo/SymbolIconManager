@@ -5,7 +5,7 @@ using FluentAvalonia.UI.Windowing;
 
 namespace IconManager
 {
-    public partial class MainWindow : AppWindow
+    public partial class MainWindow : Window
     {
         /***************************************************************************************
          *
