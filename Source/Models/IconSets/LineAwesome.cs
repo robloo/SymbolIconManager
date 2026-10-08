@@ -62,7 +62,6 @@ namespace IconManager
             var brandNames = new Dictionary<uint, string>();
             var regularNames = new Dictionary<uint, string>();
             var solidNames = new Dictionary<uint, string>();
-            var assets = AvaloniaLocator.Current.GetRequiredService<IAssetLoader>();
             var sourceDataPaths = new Tuple<IconSet, IconStyle, string>[]
             {
                 Tuple.Create(
@@ -82,7 +81,7 @@ namespace IconManager
             // Load all data from JSON source files
             foreach (var entry in sourceDataPaths)
             {
-                using (var sourceStream = assets.Open(new Uri(entry.Item3)))
+                using (var sourceStream = AssetLoader.Open(new Uri(entry.Item3)))
                 using (var reader = new StreamReader(sourceStream))
                 {
                     string jsonString = reader.ReadToEnd();

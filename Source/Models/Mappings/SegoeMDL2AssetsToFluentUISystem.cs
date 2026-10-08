@@ -12,10 +12,9 @@ namespace IconManager
             IconMappingList finalMappings = new IconMappingList();
 
             // Load the mappings table
-            var assets = AvaloniaLocator.Current.GetRequiredService<IAssetLoader>();
             string sourceDataPath = "avares://IconManager/Data/Mappings/FluentUISystemToSegoeMDL2Assets.json";
 
-            using (var sourceStream = assets.Open(new Uri(sourceDataPath)))
+            using (var sourceStream = AssetLoader.Open(new Uri(sourceDataPath)))
             {
                 mappings = IconMappingList.Load(sourceStream);
             }

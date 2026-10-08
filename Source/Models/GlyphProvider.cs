@@ -178,8 +178,7 @@ namespace IconManager.Models
                         if (string.Equals(fontUri.Scheme, "avares", StringComparison.OrdinalIgnoreCase))
                         {
                             // Load from Avalonia assets
-                            var assets = AvaloniaLocator.Current.GetRequiredService<IAssetLoader>();
-                            using (var sourceStream = assets.Open(fontUri))
+                            using (var sourceStream = AssetLoader.Open(fontUri))
                             {
                                 var typeface = SKTypeface.FromStream(sourceStream);
                                 font = new SKFont()
@@ -403,10 +402,9 @@ namespace IconManager.Models
                         {
                             // Rebuild the cache
                             var sources = new List<string>();
-                            var assets = AvaloniaLocator.Current.GetRequiredService<IAssetLoader>();
                             string sourceDataPath = "avares://IconManager/Data/FluentUISystem/FluentUISystemGlyphSources.json";
 
-                            using (var sourceStream = assets.Open(new Uri(sourceDataPath)))
+                            using (var sourceStream = AssetLoader.Open(new Uri(sourceDataPath)))
                             using (var reader = new StreamReader(sourceStream))
                             {
                                 string jsonString = reader.ReadToEnd();
@@ -494,10 +492,9 @@ namespace IconManager.Models
                         {
                             // Rebuild the cache
                             var sources = new List<string>();
-                            var assets = AvaloniaLocator.Current.GetRequiredService<IAssetLoader>();
                             string sourceDataPath = "avares://IconManager/Data/LineAwesome/LineAwesomeGlyphSources.json";
 
-                            using (var sourceStream = assets.Open(new Uri(sourceDataPath)))
+                            using (var sourceStream = AssetLoader.Open(new Uri(sourceDataPath)))
                             using (var reader = new StreamReader(sourceStream))
                             {
                                 string jsonString = reader.ReadToEnd();

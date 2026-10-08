@@ -278,9 +278,7 @@ namespace IconManager
         {
             if (string.IsNullOrWhiteSpace(resourcePath) == false)
             {
-                var assets = AvaloniaLocator.Current.GetRequiredService<IAssetLoader>();
-
-                using (var sourceStream = assets.Open(new Uri(resourcePath)))
+                using (var sourceStream = AssetLoader.Open(new Uri(resourcePath)))
                 {
                     return IconMappingList.Load(sourceStream);
                 }

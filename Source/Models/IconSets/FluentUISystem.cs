@@ -79,7 +79,6 @@ namespace IconManager
             var icons = new List<Icon>();
             var filledNames = new Dictionary<uint, string>();
             var regularNames = new Dictionary<uint, string>();
-            var assets = AvaloniaLocator.Current.GetRequiredService<IAssetLoader>();
             var sourceDataPaths = new Tuple<IconSet, IconTheme, string>[]
             {
                 Tuple.Create(
@@ -117,7 +116,7 @@ namespace IconManager
 
             foreach (var entry in sourceDataPaths)
             {
-                using (var sourceStream = assets.Open(new Uri(entry.Item3)))
+                using (var sourceStream = AssetLoader.Open(new Uri(entry.Item3)))
                 using (var reader = new StreamReader(sourceStream))
                 {
                     string jsonString = reader.ReadToEnd();
@@ -162,9 +161,8 @@ namespace IconManager
         private static void RebuildDeprecatedNamesCache()
         {
             var deprecatedNames = new List<Tuple<string, string>>();
-            var assets = AvaloniaLocator.Current.GetRequiredService<IAssetLoader>();
 
-            using (var sourceStream = assets.Open(new Uri("avares://IconManager/Data/FluentUISystem/FluentUISystemRenamedIcons.txt")))
+            using (var sourceStream = AssetLoader.Open(new Uri("avares://IconManager/Data/FluentUISystem/FluentUISystemRenamedIcons.txt")))
             using (var reader = new StreamReader(sourceStream))
             {
                 string? line = reader.ReadLine();
