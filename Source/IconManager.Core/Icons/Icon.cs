@@ -2,7 +2,7 @@
 using System.Text;
 using Newtonsoft.Json;
 
-namespace IconManager
+namespace IconManager.Core.Icons
 {
     /// <summary>
     /// Represents a single, generic icon.

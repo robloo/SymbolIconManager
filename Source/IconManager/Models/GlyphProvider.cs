@@ -1,4 +1,5 @@
 ﻿using Avalonia.Platform;
+using IconManager.Core.Icons;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;

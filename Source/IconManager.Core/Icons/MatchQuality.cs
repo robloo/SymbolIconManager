@@ -1,4 +1,4 @@
-﻿namespace IconManager
+﻿namespace IconManager.Core.Icons
 {
     /// <summary>
     /// Defines the quality of a metaphor or glyph match between two icons.

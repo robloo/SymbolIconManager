@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Platform.Storage;
+using IconManager.Core.Icons;
 using IconManager.Utilities;
 using System;
 using System.Collections.Generic;

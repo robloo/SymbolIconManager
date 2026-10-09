@@ -2,6 +2,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform.Storage;
+using IconManager.Core.Icons;
 using IconManager.Models;
 using IconManager.Utilities;
 using System;

@@ -1,12 +1,13 @@
 ﻿using System;
+using IconManager.Core.Icons;
 using Newtonsoft.Json;
 
-namespace IconManager.Models.Serialization
+namespace IconManager.Core.Serialization
 {
     /// <summary>
-    /// Converts a nullable <see cref="MatchQuality"/> to/from a JSON string.
+    /// Converts a nullable <see cref="IconSet"/> to/from a JSON string.
     /// </summary>
-    public class MatchQualityConverter : JsonConverter
+    public class IconSetConverter : JsonConverter
     {
         /// <inheritdoc/>
         public override void WriteJson(
@@ -16,9 +17,9 @@ namespace IconManager.Models.Serialization
         {
             string text = string.Empty;
 
-            if (value is MatchQuality matchQuality)
+            if (value is IconSet iconSet)
             {
-                text = matchQuality.ToString();
+                text = iconSet.ToString();
             }
 
             writer.WriteValue(text);
@@ -35,7 +36,7 @@ namespace IconManager.Models.Serialization
         {
             try
             {
-                return Enum.Parse(typeof(MatchQuality), reader.Value?.ToString() ?? string.Empty);
+                return Enum.Parse(typeof(IconSet), reader.Value?.ToString() ?? string.Empty);
             }
             catch
             {

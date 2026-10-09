@@ -1,4 +1,5 @@
-﻿using IconManager.Models;
+﻿using IconManager.Core.Icons;
+using IconManager.Models;
 using IconManager.Utilities;
 using System;
 using System.Text;

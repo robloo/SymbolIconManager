@@ -1,4 +1,5 @@
 ﻿using Avalonia.Platform;
+using IconManager.Core.Icons;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -304,7 +305,7 @@ namespace IconManager
             /// <inheritdoc/>
             public string UnicodeHexString
             {
-                get => IconManager.Icon.ToUnicodeHexString(this.UnicodePoint);
+                get => IconManager.Core.Icons.Icon.ToUnicodeHexString(this.UnicodePoint);
             }
 
             /***************************************************************************************
@@ -335,9 +336,9 @@ namespace IconManager
             /// <see cref="IconManager.Icon"/> like most other icons do. It only implements the interface.
             /// </summary>
             /// <returns>A new <see cref="IconManager.Icon"/>.</returns>
-            public IconManager.Icon AsIcon()
+            public IconManager.Core.Icons.Icon AsIcon()
             {
-                return new IconManager.Icon()
+                return new IconManager.Core.Icons.Icon()
                 {
                     IconSet      = this.IconSet,
                     Name         = this.Name,

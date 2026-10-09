@@ -1,12 +1,13 @@
 ﻿using System;
+using IconManager.Core.Icons;
 using Newtonsoft.Json;
 
-namespace IconManager.Models.Serialization
+namespace IconManager.Core.Serialization
 {
     /// <summary>
-    /// Converts a nullable <see cref="IconSet"/> to/from a JSON string.
+    /// Converts a nullable <see cref="uint"/> to/from a hexadecimal formatted JSON string.
     /// </summary>
-    public class IconSetConverter : JsonConverter
+    public class HexStringConverter : JsonConverter
     {
         /// <inheritdoc/>
         public override void WriteJson(
@@ -16,9 +17,9 @@ namespace IconManager.Models.Serialization
         {
             string text = string.Empty;
 
-            if (value is IconSet iconSet)
+            if (value is uint integer)
             {
-                text = iconSet.ToString();
+                text = Icon.ToUnicodeHexString(integer);
             }
 
             writer.WriteValue(text);
@@ -35,7 +36,16 @@ namespace IconManager.Models.Serialization
         {
             try
             {
-                return Enum.Parse(typeof(IconSet), reader.Value?.ToString() ?? string.Empty);
+                string value = reader.Value?.ToString() ?? string.Empty;
+
+                if (value.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
+                {
+                    return Convert.ToUInt32(value.Substring(2), 16);
+                }
+                else
+                {
+                    return Convert.ToUInt32(value, 16);
+                }
             }
             catch
             {

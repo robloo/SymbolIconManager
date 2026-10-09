@@ -18,6 +18,7 @@
     <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IconManager.Core\IconManager.Core.csproj" />
     <ProjectReference Include="..\IconManager.IconSets\IconManager.IconSets.csproj" />
   </ItemGroup>
 </Project>

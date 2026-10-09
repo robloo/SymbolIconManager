@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using IconManager.Core.Icons;
+using System.Collections.Generic;
 
 namespace IconManager
 {

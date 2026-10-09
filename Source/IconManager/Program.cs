@@ -1,7 +1,10 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Metadata;
 using System;
+
+[assembly: XmlnsDefinition("https://github.com/avaloniaui", "IconManager")]
 
 namespace IconManager
 {

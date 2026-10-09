@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace IconManager
+namespace IconManager.Core.Icons
 {
     /// <summary>
     /// Represents basic, read-only information for an icon.

@@ -1,4 +1,5 @@
 ﻿using Avalonia.Platform;
+using IconManager.Core.Icons;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -103,7 +104,7 @@ namespace IconManager
         /// <summary>
         /// Represents a single icon in Segoe UI Symbols.
         /// </summary>
-        public class Icon : IconManager.Icon, IIcon
+        public class Icon : IconManager.Core.Icons.Icon, IIcon
         {
             public Icon() : base()
             {

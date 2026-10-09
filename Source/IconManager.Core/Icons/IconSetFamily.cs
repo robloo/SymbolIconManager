@@ -1,4 +1,4 @@
-﻿namespace IconManager
+﻿namespace IconManager.Core.Icons
 {
     /// <summary>
     /// Defines a named family of icon sets.

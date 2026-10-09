@@ -4,6 +4,7 @@ using System.IO;
 using System;
 using Avalonia;
 using Avalonia.Platform;
+using IconManager.Core.Icons;
 
 namespace IconManager
 {

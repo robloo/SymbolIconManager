@@ -1,4 +1,5 @@
 ﻿using Avalonia.Platform;
+using IconManager.Core.Icons;
 using System;
 
 namespace IconManager

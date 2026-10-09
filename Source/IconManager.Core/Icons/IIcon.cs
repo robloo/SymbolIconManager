@@ -1,7 +1,7 @@
-﻿using IconManager.Models.Serialization;
+﻿using IconManager.Core.Serialization;
 using Newtonsoft.Json;
 
-namespace IconManager
+namespace IconManager.Core.Icons
 {
     /// <summary>
     /// Represents basic information for an icon.

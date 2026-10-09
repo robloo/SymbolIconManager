@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Data.Converters;
 using Avalonia.Media;
+using IconManager.Core.Icons;
 using System;
 using System.Globalization;
 

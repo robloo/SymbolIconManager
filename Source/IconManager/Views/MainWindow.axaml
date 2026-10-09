@@ -2,7 +2,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:IconManager"
         mc:Ignorable="d"
         d:DesignWidth="800"
         d:DesignHeight="450"
@@ -12,19 +11,19 @@
         <!-- Icon Sets -->
         <TabItem Header="Icon Sets"
                  IsSelected="True">
-            <local:IconSetsView />
+            <IconSetsView />
         </TabItem>
         <!-- Icon Mapping -->
         <TabItem Header="Icon Mapping">
-            <local:IconMappingView />
+            <IconMappingView />
         </TabItem>
         <!-- Application Tools -->
         <TabItem Header="App Tools">
-            <local:AppToolsView />
+            <AppToolsView />
         </TabItem>
         <!-- Font Management -->
         <TabItem Header="Fonts">
-            <local:FontsView />
+            <FontsView />
         </TabItem>
     </TabControl>
 </Window>
