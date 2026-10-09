@@ -6,26 +6,22 @@ using IconManager.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.IO;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
-namespace IconManager
+namespace IconManager.Views
 {
-    public partial class IconMappingView : UserControl
+    public partial class MappingView : UserControl
     {
-        private string? _FilterText = string.Empty;
-
         /***************************************************************************************
          *
          * Constructors
          *
          ***************************************************************************************/
 
-        public IconMappingView()
+        public MappingView()
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
             this.DataContext = this;
         }
@@ -52,10 +48,10 @@ namespace IconManager
         /// </summary>
         public string? FilterText
         {
-            get => this._FilterText;
+            get => field;
             set
             {
-                this._FilterText = value;
+                field = value;
                 this.UpdateFilteredMappings();
             }
         }

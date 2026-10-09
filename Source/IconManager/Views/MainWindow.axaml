@@ -25,7 +25,7 @@
         <!-- Icon Mapping -->
         <TabItem
             Header="Icon Mapping">
-            <IconMappingView />
+            <MappingView />
         </TabItem>
 
         <!-- Application Tools -->
