@@ -45,11 +45,7 @@ namespace IconManager.ViewModels
         public string? FilterText
         {
             get => field;
-            set
-            {
-                this.SetField(ref field, value);
-                this.UpdateFilteredIcons();
-            }
+            set => this.SetField(ref field, value);
         }
 
         /// <summary>
@@ -82,10 +78,17 @@ namespace IconManager.ViewModels
         {
             base.OnPropertyChanged(propertyName);
 
-            if (propertyName == nameof(this.SelectedIconSet))
+            switch (propertyName)
             {
-                this.UpdateIcons();
+                case nameof(this.FilterText):
+                    this.UpdateFilteredIcons();
+                    break;
+                case nameof(this.SelectedIconSet):
+                    this.UpdateIcons();
+                    break;
             }
+
+            return;
         }
 
         /// <summary>
@@ -131,7 +134,7 @@ namespace IconManager.ViewModels
         }
 
         /// <summary>
-        /// Updates the filtered icons applying the current <see cref="FilterText"/>.
+        /// Updates the filtered icons by applying the current <see cref="FilterText"/>.
         /// </summary>
         private void UpdateFilteredIcons()
         {

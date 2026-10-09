@@ -4,19 +4,22 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="clr-namespace:IconManager"
     mc:Ignorable="d"
+    x:DataType="MappingViewModel"
     d:DesignHeight="450"
     d:DesignWidth="800">
+
     <UserControl.Resources>
-        <local:MatchQualityToBrushConverter
+        <MatchQualityToBrushConverter
             x:Key="MatchQualityToBrush" />
-        <local:UIntToHexStringConverter
+        <UIntToHexStringConverter
             x:Key="UIntToHexString" />
     </UserControl.Resources>
+
     <Grid
         RowDefinitions="Auto,*"
         Margin="10">
+
         <StackPanel
             Grid.Row="0"
             Orientation="Horizontal">
@@ -25,24 +28,28 @@
                 MinWidth="100"
                 HorizontalContentAlignment="Center"
                 Content="Load"
-                Click="LoadButton_Click">
+                Command="{Binding OpenMappingsCommand}">
                 <SplitButton.Flyout>
                     <MenuFlyout
                         Placement="BottomEdgeAlignedLeft">
                         <MenuItem
                             Header="SegoeFluent.json"
-                            Click="LoadMappingItem_Click" />
+                            Command="{Binding LoadMappingsCommand}"
+                            CommandParameter="SegoeFluent.json" />
                         <MenuItem
                             Header="FluentAvalonia.json"
-                            Click="LoadMappingItem_Click" />
+                            Command="{Binding LoadMappingsCommand}"
+                            CommandParameter="FluentAvalonia.json" />
                         <MenuItem
                             Header="-" />
                         <MenuItem
                             Header="FluentUISystemToSegoeMDL2Assets.json"
-                            Click="LoadMappingItem_Click" />
+                            Command="{Binding LoadMappingsCommand}"
+                            CommandParameter="FluentUISystemToSegoeMDL2Assets.json" />
                         <MenuItem
                             Header="SegoeUISymbolToSegoeMDL2Assets.json"
-                            Click="LoadMappingItem_Click" />
+                            Command="{Binding LoadMappingsCommand}"
+                            CommandParameter="SegoeUISymbolToSegoeMDL2Assets.json" />
                     </MenuFlyout>
                 </SplitButton.Flyout>
             </SplitButton>
@@ -52,14 +59,14 @@
                 Margin="5,0,0,0"
                 HorizontalContentAlignment="Center"
                 Content="Save"
-                Click="SaveButton_Click" />
+                Command="{Binding SaveMappingsCommand}" />
             <Button
                 x:Name="ClearButton"
                 MinWidth="100"
                 Margin="20,0,0,0"
                 HorizontalContentAlignment="Center"
                 Content="Clear"
-                Click="ClearButton_Click" />
+                Command="{Binding ClearMappingsCommand}" />
             <Button
                 x:Name="ActionsButton"
                 MinWidth="100"
@@ -72,21 +79,22 @@
                         <MenuItem
                             x:Name="MergeInMenuItem"
                             Header="Merge In"
-                            Click="ActionItem_Click" />
+                            Command="{Binding MergeInMappingsCommand}" />
                         <MenuItem
                             x:Name="UpdateDeprecatedIconsMenuItem"
                             Header="Update Deprecated Icons"
-                            Click="ActionItem_Click" />
+                            Command="{Binding UpdateDeprecatedIconsCommand}" />
                         <MenuItem
                             Header="-" />
                         <MenuItem
                             x:Name="BuildFontMenuItem"
                             Header="Build Font"
-                            Click="ActionItem_Click" />
+                            Command="{Binding BuildFontCommand}" />
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>
         </StackPanel>
+
         <StackPanel
             Grid.Row="0"
             Orientation="Horizontal"
@@ -100,8 +108,9 @@
                 x:Name="FilterTextBox"
                 Width="200"
                 PlaceholderText="Filter"
-                Text="{Binding FilterText, Mode=TwoWay}" />
+                Text="{Binding FilterText, Mode=TwoWay, Delay=200}" />
         </StackPanel>
+
         <ListBox
             Grid.Row="1"
             HorizontalAlignment="Stretch"
@@ -109,7 +118,7 @@
             ItemsSource="{Binding FilteredMappings}">
             <ListBox.ItemTemplate>
                 <DataTemplate
-                    DataType="local:IconMappingViewModel">
+                    DataType="IconMappingViewModel">
                     <Grid
                         RowDefinitions="Auto,Auto"
                         ColumnDefinitions="Auto,*"
