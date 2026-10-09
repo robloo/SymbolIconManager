@@ -87,7 +87,7 @@ namespace IconManager
                     string jsonString = reader.ReadToEnd();
                     var rawIcons = JsonSerializer.Deserialize<Dictionary<string, string>>(jsonString);
 
-                    if (rawIcons != null)
+                    if (rawIcons is not null)
                     {
                         foreach (var rawIcon in rawIcons)
                         {
@@ -135,9 +135,9 @@ namespace IconManager
 
             lock (cacheMutex)
             {
-                if (cachedBrandNames == null ||
-                    cachedRegularNames == null ||
-                    cachedSolidNames == null)
+                if (cachedBrandNames is null ||
+                    cachedRegularNames is null ||
+                    cachedSolidNames is null)
                 {
                     RebuildCache();
                 }
@@ -169,7 +169,7 @@ namespace IconManager
             {
                 lock (cacheMutex)
                 {
-                    if (cachedIcons == null)
+                    if (cachedIcons is null)
                     {
                         RebuildCache();
                     }
@@ -188,7 +188,7 @@ namespace IconManager
 
             lock (cacheMutex)
             {
-                if (cachedIcons == null)
+                if (cachedIcons is null)
                 {
                     RebuildCache();
                 }

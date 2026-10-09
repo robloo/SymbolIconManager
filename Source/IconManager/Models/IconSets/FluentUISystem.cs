@@ -122,7 +122,7 @@ namespace IconManager
                     string jsonString = reader.ReadToEnd();
                     var rawIcons = JsonSerializer.Deserialize<Dictionary<string, int>>(jsonString);
 
-                    if (rawIcons != null)
+                    if (rawIcons is not null)
                     {
                         foreach (var rawIcon in rawIcons)
                         {
@@ -166,7 +166,7 @@ namespace IconManager
             using (var reader = new StreamReader(sourceStream))
             {
                 string? line = reader.ReadLine();
-                while (line != null)
+                while (line is not null)
                 {
                     string processedLine = line.Trim();
 
@@ -292,8 +292,8 @@ namespace IconManager
 
             lock (cacheMutex)
             {
-                if (cachedFilledNames == null ||
-                    cachedRegularNames == null)
+                if (cachedFilledNames is null ||
+                    cachedRegularNames is null)
                 {
                     RebuildCache();
                 }
@@ -321,7 +321,7 @@ namespace IconManager
             {
                 lock (cacheMutex)
                 {
-                    if (cachedIcons == null)
+                    if (cachedIcons is null)
                     {
                         RebuildCache();
                     }
@@ -340,7 +340,7 @@ namespace IconManager
 
             lock (cacheMutex)
             {
-                if (cachedIcons == null)
+                if (cachedIcons is null)
                 {
                     RebuildCache();
                 }
@@ -364,7 +364,7 @@ namespace IconManager
         {
             lock (cacheMutex)
             {
-                if (cachedIcons == null)
+                if (cachedIcons is null)
                 {
                     RebuildCache();
                 }
@@ -394,7 +394,7 @@ namespace IconManager
 
             lock (cacheMutex)
             {
-                if (cachedIcons == null)
+                if (cachedIcons is null)
                 {
                     RebuildCache();
                 }
@@ -423,7 +423,7 @@ namespace IconManager
 
             lock (cacheMutex)
             {
-                if (cachedIcons == null)
+                if (cachedIcons is null)
                 {
                     RebuildCache();
                 }
@@ -453,7 +453,7 @@ namespace IconManager
                 baseNameKey,
                 theme);
 
-            if (matches != null &&
+            if (matches is not null &&
                 matches.Count > 0)
             {
                 // To find the numerically closest match in size, simply find the difference from the desired size
@@ -495,7 +495,7 @@ namespace IconManager
                     desiredSize,
                     sourceFluentUIName.Theme);
 
-                if (match != null)
+                if (match is not null)
                 {
                     // Return the exact match
                     return match;
@@ -507,7 +507,7 @@ namespace IconManager
                         desiredSize,
                         sourceFluentUIName.Theme);
 
-                    if (closestMatch != null)
+                    if (closestMatch is not null)
                     {
                         // Use the nearest numerical size
                         return closestMatch;
@@ -566,7 +566,7 @@ namespace IconManager
                         desiredSize,
                         allowApproximate: true);
 
-                    if (convertedSourceIcon == null)
+                    if (convertedSourceIcon is null)
                     {
                         missingMappings++;
                     }
@@ -609,7 +609,7 @@ namespace IconManager
                     icon.Size,
                     icon.Theme);
 
-                if (match != null)
+                if (match is not null)
                 {
                     // Return the exact match
                     return Tuple.Create(true, match.Clone());
@@ -621,7 +621,7 @@ namespace IconManager
                         icon.Size,
                         icon.Theme);
 
-                    if (closestMatch != null)
+                    if (closestMatch is not null)
                     {
                         // Use the nearest numerical size
                         // It is considered better to change the size of the icon than allow
@@ -648,7 +648,7 @@ namespace IconManager
                 // Search for an updated name
                 lock (deprecatedNamesMutex)
                 {
-                    if (cachedDeprecatedNames == null)
+                    if (cachedDeprecatedNames is null)
                     {
                         RebuildDeprecatedNamesCache();
                     }
@@ -1003,7 +1003,7 @@ namespace IconManager
 
                 // Extract format
                 var format = DetectFormat(workingName);
-                if (format != null)
+                if (format is not null)
                 {
                     this.Format = format.Value;
                 }

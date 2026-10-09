@@ -111,7 +111,7 @@ namespace IconManager.Utilities
                         mapping.Source.UnicodePoint);
 
                     bool isGlyphValid = true;
-                    if (glyph == null ||
+                    if (glyph is null ||
                         glyph.Length == 0)
                     {
                         isGlyphValid = false;
@@ -131,7 +131,7 @@ namespace IconManager.Utilities
                             newestIcons = regular;
                         }
 
-                        if (newestIcons != null)
+                        if (newestIcons is not null)
                         {
                             foreach (var icon in newestIcons)
                             {
@@ -198,7 +198,7 @@ namespace IconManager.Utilities
 
                 // Attempt to find a matching base mapping
                 // Only the first match is used, order of lists is important
-                if (baseMappings != null)
+                if (baseMappings is not null)
                 {
                     for (int j = 0; j < baseMappings.Count; j++)
                     {
@@ -217,7 +217,7 @@ namespace IconManager.Utilities
                             }
                         }
 
-                        if (baseMapping != null)
+                        if (baseMapping is not null)
                         {
                             break;
                         }
@@ -225,7 +225,7 @@ namespace IconManager.Utilities
                 }
 
                 // Copy over information from the base mapping
-                if (baseMapping != null)
+                if (baseMapping is not null)
                 {
                     // Copy everything but the Destination
                     // Even the destination name isn't copied as the new name

@@ -188,7 +188,7 @@ namespace IconManager
             IconMappingList mappings,
             IconSet originalIconSet)
         {
-            if (mappings != null)
+            if (mappings is not null)
             {
                 // Confirm all mappings exist before continuing
                 // This avoids a partial/corrupt conversion that cannot be easily reversed
@@ -324,7 +324,7 @@ namespace IconManager
             };
             var folders = await TopLevel.GetTopLevel(this)!.StorageProvider.OpenFolderPickerAsync(options);
 
-            if (folders != null &&
+            if (folders is not null &&
                 folders.Count > 0)
             {
                 this.SourcePath = folders[0].Path.AbsolutePath;
@@ -387,13 +387,13 @@ namespace IconManager
             };
             var folders = await TopLevel.GetTopLevel(this)!.StorageProvider.OpenFolderPickerAsync(options);
 
-            if (folders != null &&
+            if (folders is not null &&
                 folders.Count > 0)
             {
                 string path = folders[0].Path.AbsolutePath;
                 string? directoryName = Path.GetDirectoryName(path);
 
-                if (directoryName != null &&
+                if (directoryName is not null &&
                     Directory.Exists(directoryName) == false)
                 {
                     Directory.CreateDirectory(directoryName);
@@ -439,7 +439,7 @@ namespace IconManager
 
             // Load the glyphs directly from a CSV file
             // Format is "Font, UnicodePoint, ImageFileName"
-            if (files != null &&
+            if (files is not null &&
                 files.Count > 0)
             {
                 string path = files[0].Path.AbsolutePath;
@@ -485,7 +485,7 @@ namespace IconManager
 
                 } while (Directory.Exists(outputDirectory));
 
-                if (outputDirectory != null &&
+                if (outputDirectory is not null &&
                     Directory.Exists(outputDirectory) == false)
                 {
                     Directory.CreateDirectory(outputDirectory);
@@ -518,7 +518,7 @@ namespace IconManager
 
                     var font = GlyphProvider.LoadFont(glyph.Item1);
 
-                    if (font != null)
+                    if (font is not null)
                     {
                         var bitmap = await GlyphRenderer.RenderGlyph(font, glyph.Item1, unicodePoint);
                         bitmap?.Save(filePath);
@@ -557,7 +557,7 @@ namespace IconManager
             };
             var file = await TopLevel.GetTopLevel(this)!.StorageProvider.SaveFilePickerAsync(options);
 
-            if (file != null)
+            if (file is not null)
             {
                 string path = file.Path.AbsolutePath;
 
@@ -568,7 +568,7 @@ namespace IconManager
                 }
 
                 string? directoryName = Path.GetDirectoryName(path);
-                if (directoryName != null &&
+                if (directoryName is not null &&
                     Directory.Exists(directoryName) == false)
                 {
                     Directory.CreateDirectory(directoryName);

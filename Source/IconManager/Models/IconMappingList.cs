@@ -302,7 +302,7 @@ namespace IconManager
                 string jsonString = reader.ReadToEnd();
                 var rawMappings = JsonConvert.DeserializeObject<IconMappingList>(jsonString);
 
-                if (rawMappings != null)
+                if (rawMappings is not null)
                 {
                     mappings = rawMappings;
                 }

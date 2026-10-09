@@ -190,7 +190,7 @@ namespace IconManager.ViewModels
                 }
 
                 string? directoryName = Path.GetDirectoryName(path);
-                if (directoryName != null &&
+                if (directoryName is not null &&
                     Directory.Exists(directoryName) == false)
                 {
                     Directory.CreateDirectory(directoryName);
@@ -256,7 +256,7 @@ namespace IconManager.ViewModels
 
                 // Look for a mapping to the translated icon in SegoeFluent (V3) mappings
                 // Remember, this is backwards compatible with SegoeMDL2Assets (V2)
-                if (translatedDestination != null)
+                if (translatedDestination is not null)
                 {
                     var matches = segoeV3Mappings.FindByDestinationUnicode(translatedDestination.UnicodePoint);
 

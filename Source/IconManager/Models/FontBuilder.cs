@@ -252,7 +252,7 @@ namespace IconManager
                     Uri? svgUri = null;
 
                     // Always prioritize any local glyph sources
-                    if (svgUri == null &&
+                    if (svgUri is null &&
                         possibleGlyphSources.Contains(GlyphSource.LocalSvgFile))
                     {
                         svgUri = GlyphProvider.GetLocalGlyphSourceUri(
@@ -260,7 +260,7 @@ namespace IconManager
                             mapping.Source.UnicodePoint);
                     }
 
-                    if (svgUri == null &&
+                    if (svgUri is null &&
                         possibleGlyphSources.Contains(GlyphSource.RemoteSvgFile))
                     {
                         svgUri = GlyphProvider.GetRemoteGlyphSourceUri(
@@ -268,7 +268,7 @@ namespace IconManager
                             mapping.Source.UnicodePoint);
                     }
 
-                    if (svgUri == null)
+                    if (svgUri is null)
                     {
                         buildLog.Error($"Missing SVG source URI, mapping skipped src=0x{mapping.Source.UnicodeHexString}, dst=0x{mapping.Destination.UnicodeHexString} ({mapping.Source.Name})");
                         continue; // Fatal error
@@ -289,11 +289,11 @@ namespace IconManager
                     // The file is just being added to the file system for external use later
                     Task.Run(async () =>
                     {
-                        if (svgUri != null)
+                        if (svgUri is not null)
                         {
                             using (var stream = await GlyphProvider.GetGlyphSourceStreamAsync(svgUri!))
                             {
-                                if (stream != null)
+                                if (stream is not null)
                                 {
                                     var filePath = Path.Combine(
                                         outputDirectory,
@@ -454,7 +454,7 @@ namespace IconManager
                 }
 
                 string? directoryName = Path.GetDirectoryName(filePath);
-                if (directoryName != null &&
+                if (directoryName is not null &&
                     Directory.Exists(directoryName) == false)
                 {
                     Directory.CreateDirectory(directoryName);

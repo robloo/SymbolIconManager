@@ -68,7 +68,7 @@ namespace IconManager
                     var font = GlyphProvider.LoadFont(iconSet.ToString());
                     var bitmap = await GlyphRenderer.RenderGlyph(font, iconSet.ToString(), unicodePoint);
 
-                    if (bitmap != null)
+                    if (bitmap is not null)
                     {
                         // Use the Skia font-rendered glyph
                         return bitmap;
@@ -79,7 +79,7 @@ namespace IconManager
                         // Note that the icon set determines that the format will be SVG
                         var svgStream = await GlyphProvider.GetGlyphSourceStreamAsync(iconSet, unicodePoint);
 
-                        if (svgStream != null)
+                        if (svgStream is not null)
                         {
                             // The size here (and above) isn't taking into account device DPI
                             // It probably should in the future
@@ -113,7 +113,7 @@ namespace IconManager
 
                 using (Stream? imageStream = await GlyphProvider.GetGlyphSourceStreamAsync(iconSet, unicodePoint))
                 {
-                    return (imageStream == null ? null : new Bitmap(imageStream));
+                    return (imageStream is null ? null : new Bitmap(imageStream));
                 }
             }
 
@@ -121,7 +121,7 @@ namespace IconManager
             // In order to get this far a new glyph bitmap was generated (or at least an attempt was made)
             // It is possible that two renderers for the same glyph are running simultaneously on differing threads
             // Therefore, within the lock, a check must be made to ensure a glyph was not already added
-            if (result != null)
+            if (result is not null)
             {
                 lock (cacheMutex)
                 {
@@ -155,7 +155,7 @@ namespace IconManager
                 lock (cacheMutex)
                 {
                     // Load all SKPaint objects
-                    if (cachedBackgroundPaint == null)
+                    if (cachedBackgroundPaint is null)
                     {
                         cachedBackgroundPaint = new SKPaint()
                         {

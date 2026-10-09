@@ -96,7 +96,7 @@ namespace IconManager.ViewModels
                     break;
             }
 
-            if (loadedMappings != null)
+            if (loadedMappings is not null)
             {
                 this.UpdateMappings(loadedMappings);
             }
@@ -122,7 +122,7 @@ namespace IconManager.ViewModels
             };
             var file = await App.Current!.TopLevel!.StorageProvider.SaveFilePickerAsync(options);
 
-            if (file != null)
+            if (file is not null)
             {
                 string path = file.Path.AbsolutePath;
 
@@ -133,7 +133,7 @@ namespace IconManager.ViewModels
                 }
 
                 string? directoryName = Path.GetDirectoryName(path);
-                if (directoryName != null &&
+                if (directoryName is not null &&
                     Directory.Exists(directoryName) == false)
                 {
                     Directory.CreateDirectory(directoryName);
@@ -313,7 +313,7 @@ namespace IconManager.ViewModels
             IconMappingList mappings = new IconMappingList();
 
             // Load the mappings file
-            if (files != null &&
+            if (files is not null &&
                 files.Count > 0)
             {
                 string path = files[0].Path.AbsolutePath;

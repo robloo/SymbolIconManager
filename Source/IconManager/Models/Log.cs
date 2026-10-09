@@ -82,7 +82,7 @@ namespace IconManager
                 }
 
                 string? directoryName = Path.GetDirectoryName(filePath);
-                if (directoryName != null &&
+                if (directoryName is not null &&
                     Directory.Exists(directoryName) == false)
                 {
                     Directory.CreateDirectory(directoryName);

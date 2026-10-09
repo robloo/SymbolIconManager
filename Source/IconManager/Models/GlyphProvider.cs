@@ -130,7 +130,7 @@ namespace IconManager.Models
                     }
 
                     // Search directories for a font by name
-                    if (fontUri == null)
+                    if (fontUri is null)
                     {
                         // The app should be running in debug/release mode within the bin directory
                         // Locate this folder as the root
@@ -166,14 +166,14 @@ namespace IconManager.Models
                                 }
                             }
 
-                            if (fontUri != null)
+                            if (fontUri is not null)
                             {
                                 break;
                             }
                         }
                     }
 
-                    if (fontUri != null)
+                    if (fontUri is not null)
                     {
                         // Load the SKFont (and internally the SKTypeface)
                         if (string.Equals(fontUri.Scheme, "avares", StringComparison.OrdinalIgnoreCase))
@@ -248,7 +248,7 @@ namespace IconManager.Models
                         return null;
                     }
 
-                    if (cachedLocalFluentUISystemGlyphSourcePaths == null)
+                    if (cachedLocalFluentUISystemGlyphSourcePaths is null)
                     {
                         GlyphProvider.BuildLocalGlyphSourcePathsCache(IconSetFamily.FluentUISystem);
                     }
@@ -262,7 +262,7 @@ namespace IconManager.Models
                     // There are sometimes many variants with the exact same file name -- some for other cultures
                     // Each culture is usually placed in it's own folder
                     // We want the invariant culture (smallest directory structure), as best as possible
-                    if (glyphFilePaths != null &&
+                    if (glyphFilePaths is not null &&
                         glyphFilePaths.Count > 0)
                     {
                         finalGlyphFilePath = glyphFilePaths[0];
@@ -313,7 +313,7 @@ namespace IconManager.Models
                             break;
                     }
 
-                    if (cachedLocalLineAwesomeGlyphSourcePaths == null)
+                    if (cachedLocalLineAwesomeGlyphSourcePaths is null)
                     {
                         GlyphProvider.BuildLocalGlyphSourcePathsCache(IconSetFamily.LineAwesome);
                     }
@@ -336,7 +336,7 @@ namespace IconManager.Models
                     // There are sometimes many variants with the exact same file name -- some for other cultures
                     // Each culture is usually placed in it's own folder
                     // We want the invariant culture (smallest directory structure), as best as possible
-                    if (glyphFilePaths != null &&
+                    if (glyphFilePaths is not null &&
                         glyphFilePaths.Count > 0)
                     {
                         finalGlyphFilePath = glyphFilePaths[0];
@@ -399,7 +399,7 @@ namespace IconManager.Models
 
                     lock (cachedRemoteGlyphSourcesMutex)
                     {
-                        if (cachedRemoteFluentUISystemGlyphSourcePaths == null)
+                        if (cachedRemoteFluentUISystemGlyphSourcePaths is null)
                         {
                             // Rebuild the cache
                             var sources = new List<string>();
@@ -410,7 +410,7 @@ namespace IconManager.Models
                                 string jsonString = reader.ReadToEnd();
                                 var rawGlyphSources = JsonSerializer.Deserialize<string[]>(jsonString);
 
-                                if (rawGlyphSources != null)
+                                if (rawGlyphSources is not null)
                                 {
                                     foreach (var entry in rawGlyphSources)
                                     {
@@ -429,7 +429,7 @@ namespace IconManager.Models
                     // There are sometimes many variants with the exact same file name -- some for other cultures
                     // Each culture is usually placed in it's own folder
                     // We want the invariant culture (smallest directory structure), as best as possible
-                    if (relativeGlyphUrls != null &&
+                    if (relativeGlyphUrls is not null &&
                         relativeGlyphUrls.Count > 0)
                     {
                         relativeGlyphUrl = relativeGlyphUrls[0];
@@ -488,7 +488,7 @@ namespace IconManager.Models
 
                     lock (cachedRemoteGlyphSourcesMutex)
                     {
-                        if (cachedRemoteLineAwesomeGlyphSourcePaths == null)
+                        if (cachedRemoteLineAwesomeGlyphSourcePaths is null)
                         {
                             // Rebuild the cache
                             var sources = new List<string>();
@@ -499,7 +499,7 @@ namespace IconManager.Models
                                 string jsonString = reader.ReadToEnd();
                                 var rawGlyphSources = JsonSerializer.Deserialize<string[]>(jsonString);
 
-                                if (rawGlyphSources != null)
+                                if (rawGlyphSources is not null)
                                 {
                                     foreach (var entry in rawGlyphSources)
                                     {
@@ -527,7 +527,7 @@ namespace IconManager.Models
                     // There are sometimes many variants with the exact same file name -- some for other cultures
                     // Each culture is usually placed in it's own folder
                     // We want the invariant culture (smallest directory structure), as best as possible
-                    if (relativeGlyphUrls != null &&
+                    if (relativeGlyphUrls is not null &&
                         relativeGlyphUrls.Count > 0)
                     {
                         relativeGlyphUrl = relativeGlyphUrls[0];
@@ -616,20 +616,20 @@ namespace IconManager.Models
             var possibleGlyphSources = GlyphProvider.GetPossibleGlyphSources(iconSet, unicodePoint);
 
             // Always prioritize any local glyph sources
-            if (glyphUri == null &&
+            if (glyphUri is null &&
                 possibleGlyphSources.Contains(GlyphSource.LocalSvgFile))
             {
                 glyphUri = GlyphProvider.GetLocalGlyphSourceUri(iconSet, unicodePoint);
             }
 
-            if (glyphUri == null &&
+            if (glyphUri is null &&
                 possibleGlyphSources.Contains(GlyphSource.RemotePngFile) ||
                 possibleGlyphSources.Contains(GlyphSource.RemoteSvgFile))
             {
                 glyphUri = GlyphProvider.GetRemoteGlyphSourceUri(iconSet, unicodePoint);
             }
 
-            if (glyphUri != null)
+            if (glyphUri is not null)
             {
                 return await GlyphProvider.GetGlyphSourceStreamAsync(glyphUri!);
             }
@@ -648,7 +648,7 @@ namespace IconManager.Models
         {
             try
             {
-                if (uri != null)
+                if (uri is not null)
                 {
                     // Note: LocalPath MUST be used (AbsolutePath doesn't work in all cases)
                     if (uri.IsFile &&

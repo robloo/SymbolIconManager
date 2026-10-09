@@ -88,7 +88,7 @@ namespace IconManager
                     break;
             }
 
-            if (icons != null)
+            if (icons is not null)
             {
                 return icons;
             }
