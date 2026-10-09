@@ -1,18 +1,20 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        d:DesignWidth="800"
-        d:DesignHeight="450"
-        x:Class="IconManager.MainWindow"
-        Title="Symbol Icon Manager">
+﻿<Window
+    x:Class="IconManager.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Symbol Icon Manager"
+    d:DesignHeight="450"
+    d:DesignWidth="800">
 
     <TabControl>
 
         <!-- Icon Sets -->
-        <TabItem Header="Icon Sets"
-                 IsSelected="True">
+        <TabItem
+            Header="Icon Sets"
+            IsSelected="True">
             <IconSetsView>
                 <IconSetsView.DataContext>
                     <IconSetsViewModel />
@@ -21,17 +23,20 @@
         </TabItem>
 
         <!-- Icon Mapping -->
-        <TabItem Header="Icon Mapping">
+        <TabItem
+            Header="Icon Mapping">
             <IconMappingView />
         </TabItem>
 
         <!-- Application Tools -->
-        <TabItem Header="App Tools">
+        <TabItem
+            Header="App Tools">
             <AppToolsView />
         </TabItem>
 
         <!-- Font Management -->
-        <TabItem Header="Fonts">
+        <TabItem
+            Header="Fonts">
             <FontsView>
                 <FontsView.DataContext>
                     <FontsViewModel />

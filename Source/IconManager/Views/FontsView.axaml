@@ -1,24 +1,26 @@
-<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:IconManager"
-             mc:Ignorable="d"
-             d:DesignWidth="800"
-             d:DesignHeight="450"
-             x:Class="IconManager.Views.FontsView"
-             x:DataType="FontsViewModel">
+﻿<UserControl
+    x:Class="IconManager.Views.FontsView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:IconManager"
+    mc:Ignorable="d"
+    x:DataType="FontsViewModel"
+    d:DesignHeight="450"
+    d:DesignWidth="800">
 
     <UserControl.Styles>
         <Style Selector="TextBlock.group-header">
-          <Setter Property="FontSize" Value="16" />
-          <Setter Property="FontWeight" Value="Bold" />
-          <Setter Property="TextWrapping" Value="NoWrap" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="TextWrapping" Value="NoWrap" />
         </Style>
     </UserControl.Styles>
 
-    <Grid Margin="10"
-          RowDefinitions="Auto,Auto,Auto">
+    <Grid
+        RowDefinitions="Auto,Auto,Auto"
+        Margin="10">
 
         <GroupBox
             Grid.Row="0"
@@ -45,9 +47,9 @@
                 <Button
                     Grid.Column="1"
                     Width="200"
+                    Margin="5,0,0,0"
                     HorizontalContentAlignment="Center"
-                    Command="{Binding BuildWinSymbols2FontCommand}"
-                    Margin="5,0,0,0">
+                    Command="{Binding BuildWinSymbols2FontCommand}">
                     <Button.Content>
                         <TextBlock
                             Text="Build WinSymbols2 (SegoeMDL2Assets) Font"
@@ -58,9 +60,9 @@
                 <Button
                     Grid.Column="2"
                     Width="200"
+                    Margin="5,0,0,0"
                     HorizontalContentAlignment="Center"
-                    Command="{Binding BuildWinSymbols3FontCommand}"
-                    Margin="5,0,0,0">
+                    Command="{Binding BuildWinSymbols3FontCommand}">
                     <Button.Content>
                         <TextBlock
                             Text="Build WinSymbols3 (SegoeFluent) Font"
@@ -83,8 +85,8 @@
                 Grid.ColumnDefinitions="Auto,Auto"
                 Grid.RowDefinitions="Auto,Auto">
                 <Button
-                    Grid.Column="0"
                     Grid.Row="0"
+                    Grid.Column="0"
                     Width="200"
                     HorizontalContentAlignment="Center"
                     Command="{Binding BuildFluentAvaloniaFontCommand}">
@@ -96,12 +98,12 @@
                     </Button.Content>
                 </Button>
                 <Button
-                    Grid.Column="0"
                     Grid.Row="1"
+                    Grid.Column="0"
                     Width="200"
+                    Margin="0,10,0,0"
                     HorizontalContentAlignment="Center"
-                    Command="{Binding RebuildFluentAvaloniaMappingsCommand}"
-                    Margin="0,10,0,0">
+                    Command="{Binding RebuildFluentAvaloniaMappingsCommand}">
                     <Button.Content>
                         <TextBlock
                             Text="Rebuild FluentAvalonia Mappings"
@@ -111,11 +113,11 @@
                 </Button>
                 <CheckBox
                     x:Name="IncludeFluentAvaloniaEnumCheckBox"
-                    Grid.Column="1"
                     Grid.Row="1"
-                    IsThreeState="False"
+                    Grid.Column="1"
+                    Margin="5,10,0,0"
                     IsChecked="{Binding IncludeFluentAvaloniaEnum}"
-                    Margin="5,10,0,0">
+                    IsThreeState="False">
                     <CheckBox.Content>
                         <TextBlock
                             Text="Include Enum Values"
@@ -134,7 +136,8 @@
                     Classes="group-header"
                     Text="Fluent UI System Fonts" />
             </GroupBox.Header>
-            <Grid Grid.ColumnDefinitions="Auto,Auto">
+            <Grid
+                Grid.ColumnDefinitions="Auto,Auto">
                 <Button
                     Grid.Column="0"
                     Width="200"
@@ -150,9 +153,9 @@
                 <Button
                     Grid.Column="1"
                     Width="200"
+                    Margin="5,0,0,0"
                     HorizontalContentAlignment="Center"
-                    Command="{Binding BuildFluentUISystemFilledFontCommand}"
-                    Margin="5,0,0,0">
+                    Command="{Binding BuildFluentUISystemFilledFontCommand}">
                     <Button.Content>
                         <TextBlock
                             Text="Build Fluent UI System Filled Font"

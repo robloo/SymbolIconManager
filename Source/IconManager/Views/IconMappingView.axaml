@@ -1,241 +1,291 @@
-<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:IconManager"
-             mc:Ignorable="d"
-             d:DesignWidth="800"
-             d:DesignHeight="450"
-             x:Class="IconManager.IconMappingView">
+﻿<UserControl
+    x:Class="IconManager.IconMappingView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:IconManager"
+    mc:Ignorable="d"
+    d:DesignHeight="450"
+    d:DesignWidth="800">
     <UserControl.Resources>
-        <local:MatchQualityToBrushConverter x:Key="MatchQualityToBrush" />
-        <local:UIntToHexStringConverter x:Key="UIntToHexString" />
+        <local:MatchQualityToBrushConverter
+            x:Key="MatchQualityToBrush" />
+        <local:UIntToHexStringConverter
+            x:Key="UIntToHexString" />
     </UserControl.Resources>
-    <Grid Margin="10"
-          RowDefinitions="Auto,*">
-        <StackPanel Grid.Row="0"
-                    Orientation="Horizontal">
-            <SplitButton x:Name="LoadButton"
-                         HorizontalContentAlignment="Center"
-                         Content="Load"
-                         MinWidth="100"
-                         Click="LoadButton_Click">
+    <Grid
+        RowDefinitions="Auto,*"
+        Margin="10">
+        <StackPanel
+            Grid.Row="0"
+            Orientation="Horizontal">
+            <SplitButton
+                x:Name="LoadButton"
+                MinWidth="100"
+                HorizontalContentAlignment="Center"
+                Content="Load"
+                Click="LoadButton_Click">
                 <SplitButton.Flyout>
-                    <MenuFlyout Placement="BottomEdgeAlignedLeft">
-                        <MenuItem Header="SegoeFluent.json"
-                                  Click="LoadMappingItem_Click" />
-                        <MenuItem Header="FluentAvalonia.json"
-                                  Click="LoadMappingItem_Click" />
-                        <MenuItem Header="-" />
-                        <MenuItem Header="FluentUISystemToSegoeMDL2Assets.json"
-                                  Click="LoadMappingItem_Click" />
-                        <MenuItem Header="SegoeUISymbolToSegoeMDL2Assets.json"
-                                  Click="LoadMappingItem_Click" />
+                    <MenuFlyout
+                        Placement="BottomEdgeAlignedLeft">
+                        <MenuItem
+                            Header="SegoeFluent.json"
+                            Click="LoadMappingItem_Click" />
+                        <MenuItem
+                            Header="FluentAvalonia.json"
+                            Click="LoadMappingItem_Click" />
+                        <MenuItem
+                            Header="-" />
+                        <MenuItem
+                            Header="FluentUISystemToSegoeMDL2Assets.json"
+                            Click="LoadMappingItem_Click" />
+                        <MenuItem
+                            Header="SegoeUISymbolToSegoeMDL2Assets.json"
+                            Click="LoadMappingItem_Click" />
                     </MenuFlyout>
                 </SplitButton.Flyout>
             </SplitButton>
-            <Button x:Name="SaveButton"
-                    HorizontalContentAlignment="Center"
-                    Content="Save"
-                    MinWidth="100"
-                    Click="SaveButton_Click"
-                    Margin="5,0,0,0" />
-            <Button x:Name="ClearButton"
-                    HorizontalContentAlignment="Center"
-                    Content="Clear"
-                    MinWidth="100"
-                    Click="ClearButton_Click"
-                    Margin="20,0,0,0" />
-            <Button x:Name="ActionsButton"
-                    HorizontalContentAlignment="Center"
-                    Content="Actions..."
-                    MinWidth="100"
-                    Margin="20,0,0,0">
+            <Button
+                x:Name="SaveButton"
+                MinWidth="100"
+                Margin="5,0,0,0"
+                HorizontalContentAlignment="Center"
+                Content="Save"
+                Click="SaveButton_Click" />
+            <Button
+                x:Name="ClearButton"
+                MinWidth="100"
+                Margin="20,0,0,0"
+                HorizontalContentAlignment="Center"
+                Content="Clear"
+                Click="ClearButton_Click" />
+            <Button
+                x:Name="ActionsButton"
+                MinWidth="100"
+                Margin="20,0,0,0"
+                HorizontalContentAlignment="Center"
+                Content="Actions...">
                 <Button.Flyout>
-                    <MenuFlyout Placement="BottomEdgeAlignedLeft">
-                        <MenuItem x:Name="MergeInMenuItem"
-                                  Header="Merge In"
-                                  Click="ActionItem_Click" />
-                        <MenuItem x:Name="UpdateDeprecatedIconsMenuItem"
-                                  Header="Update Deprecated Icons"
-                                  Click="ActionItem_Click" />
-                        <MenuItem Header="-" />
-                        <MenuItem x:Name="BuildFontMenuItem"
-                                  Header="Build Font"
-                                  Click="ActionItem_Click" />
+                    <MenuFlyout
+                        Placement="BottomEdgeAlignedLeft">
+                        <MenuItem
+                            x:Name="MergeInMenuItem"
+                            Header="Merge In"
+                            Click="ActionItem_Click" />
+                        <MenuItem
+                            x:Name="UpdateDeprecatedIconsMenuItem"
+                            Header="Update Deprecated Icons"
+                            Click="ActionItem_Click" />
+                        <MenuItem
+                            Header="-" />
+                        <MenuItem
+                            x:Name="BuildFontMenuItem"
+                            Header="Build Font"
+                            Click="ActionItem_Click" />
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>
         </StackPanel>
-        <StackPanel Orientation="Horizontal"
-                    Grid.Row="0"
-                    HorizontalAlignment="Right">
-            <TextBlock Text="{Binding FilteredMappings.Count, StringFormat='Count: {0}'}"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       Margin="0,0,5,0" />
-            <TextBox x:Name="FilterTextBox"
-                     Text="{Binding FilterText, Mode=TwoWay}"
-                     PlaceholderText="Filter"
-                     Width="200" />
+        <StackPanel
+            Grid.Row="0"
+            Orientation="Horizontal"
+            HorizontalAlignment="Right">
+            <TextBlock
+                Margin="0,0,5,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="{Binding FilteredMappings.Count, StringFormat='Count: {0}'}" />
+            <TextBox
+                x:Name="FilterTextBox"
+                Width="200"
+                PlaceholderText="Filter"
+                Text="{Binding FilterText, Mode=TwoWay}" />
         </StackPanel>
-        <ListBox Grid.Row="1"
-                 ItemsSource="{Binding FilteredMappings}"
-                 HorizontalAlignment="Stretch"
-                 VerticalAlignment="Stretch">
+        <ListBox
+            Grid.Row="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            ItemsSource="{Binding FilteredMappings}">
             <ListBox.ItemTemplate>
-                <DataTemplate DataType="local:IconMappingViewModel">
-                    <Grid ColumnDefinitions="Auto,*"
-                          RowDefinitions="Auto,Auto,Auto,Auto"
-                          Background="{Binding Background, Mode=OneWay}">
+                <DataTemplate
+                    DataType="local:IconMappingViewModel">
+                    <Grid
+                        RowDefinitions="Auto,Auto,Auto,Auto"
+                        ColumnDefinitions="Auto,*"
+                        Background="{Binding Background, Mode=OneWay}">
                         <!-- Source Icon -->
-                        <TextBlock Grid.Column="0"
-                                   Grid.Row="0"
-                                   Text="Source"
-                                   FontWeight="Bold" />
-                        <Grid Grid.Column="0"
-                              Grid.Row="1"
-                              ColumnDefinitions="Auto,300,100"
-                              RowDefinitions="1*,32">
-                            <Image Grid.Column="0"
-                                   Grid.Row="0"
-                                   Grid.RowSpan="2"
-                                   Width="50"
-                                   Height="50"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"
-                                   Margin="3"
-                                   Source="{Binding SourceViewModel.Glyph}" />
-                            <ComboBox Grid.Column="1"
-                                      Grid.Row="0"
-                                      HorizontalAlignment="Stretch"
-                                      SelectedItem="{Binding SourceViewModel.IconSet, Mode=TwoWay}"
-                                      ItemsSource="{Binding SourceViewModel.IconSetOptions}" />
-                            <TextBox Grid.Column="2"
-                                     Grid.Row="0"
-                                     Text="{Binding SourceViewModel.UnicodePoint, Mode=TwoWay, Converter={StaticResource UIntToHexString}}"
-                                     HorizontalAlignment="Stretch" />
-                            <TextBlock Grid.Column="1"
-                                       Grid.ColumnSpan="2"
-                                       Grid.Row="1"
-                                       Text="{Binding SourceViewModel.Name}"
-                                       HorizontalAlignment="Stretch"
-                                       VerticalAlignment="Center"
-                                       Margin="5,0,0,0"
-                                       IsVisible="{Binding !IsSourceNameEditable}" />
-                            <TextBox Grid.Column="1"
-                                     Grid.ColumnSpan="2"
-                                     Grid.Row="1"
-                                     Text="{Binding SourceViewModel.Name, Mode=TwoWay}"
-                                     HorizontalAlignment="Stretch"
-                                     IsVisible="{Binding IsSourceNameEditable}"
-                                     Margin="0,2,0,0" />
+                        <TextBlock
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontWeight="Bold"
+                            Text="Source" />
+                        <Grid
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            RowDefinitions="1*,32"
+                            ColumnDefinitions="Auto,300,100">
+                            <Image
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Width="50"
+                                Height="50"
+                                Margin="3"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Source="{Binding SourceViewModel.Glyph}" />
+                            <ComboBox
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                ItemsSource="{Binding SourceViewModel.IconSetOptions}"
+                                SelectedItem="{Binding SourceViewModel.IconSet, Mode=TwoWay}" />
+                            <TextBox
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                HorizontalAlignment="Stretch"
+                                Text="{Binding SourceViewModel.UnicodePoint, Mode=TwoWay, Converter={StaticResource UIntToHexString}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                Margin="5,0,0,0"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                IsVisible="{Binding !IsSourceNameEditable}"
+                                Text="{Binding SourceViewModel.Name}" />
+                            <TextBox
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                Margin="0,2,0,0"
+                                HorizontalAlignment="Stretch"
+                                IsVisible="{Binding IsSourceNameEditable}"
+                                Text="{Binding SourceViewModel.Name, Mode=TwoWay}" />
                         </Grid>
                         <!-- Destination Icon -->
-                        <TextBlock Grid.Column="0"
-                                   Grid.Row="2"
-                                   Text="Destination"
-                                   FontWeight="Bold" />
-                        <Grid Grid.Column="0"
-                              Grid.Row="3"
-                              ColumnDefinitions="Auto,300,100"
-                              RowDefinitions="1*,32">
-                            <Image Grid.Column="0"
-                                   Grid.Row="0"
-                                   Grid.RowSpan="2"
-                                   Width="50"
-                                   Height="50"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"
-                                   Margin="3"
-                                   Source="{Binding DestinationViewModel.Glyph}" />
-                            <ComboBox Grid.Column="1"
-                                      Grid.Row="0"
-                                      HorizontalAlignment="Stretch"
-                                      SelectedItem="{Binding DestinationViewModel.IconSet, Mode=TwoWay}"
-                                      ItemsSource="{Binding DestinationViewModel.IconSetOptions}" />
-                            <TextBox Grid.Column="2"
-                                     Grid.Row="0"
-                                     Text="{Binding DestinationViewModel.UnicodePoint, Mode=TwoWay, Converter={StaticResource UIntToHexString}}"
-                                     HorizontalAlignment="Stretch" />
-                            <TextBlock Grid.Column="1"
-                                       Grid.ColumnSpan="2"
-                                       Grid.Row="1"
-                                       Text="{Binding DestinationViewModel.Name}"
-                                       HorizontalAlignment="Stretch"
-                                       VerticalAlignment="Center"
-                                       Margin="5,0,0,0"
-                                       IsVisible="{Binding !IsDestinationNameEditable}" />
-                            <TextBox Grid.Column="1"
-                                     Grid.ColumnSpan="2"
-                                     Grid.Row="1"
-                                     Text="{Binding DestinationViewModel.Name, Mode=TwoWay}"
-                                     HorizontalAlignment="Stretch"
-                                     IsVisible="{Binding IsDestinationNameEditable}"
-                                     Margin="0,2,0,0" />
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            FontWeight="Bold"
+                            Text="Destination" />
+                        <Grid
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            RowDefinitions="1*,32"
+                            ColumnDefinitions="Auto,300,100">
+                            <Image
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Width="50"
+                                Height="50"
+                                Margin="3"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Source="{Binding DestinationViewModel.Glyph}" />
+                            <ComboBox
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                ItemsSource="{Binding DestinationViewModel.IconSetOptions}"
+                                SelectedItem="{Binding DestinationViewModel.IconSet, Mode=TwoWay}" />
+                            <TextBox
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                HorizontalAlignment="Stretch"
+                                Text="{Binding DestinationViewModel.UnicodePoint, Mode=TwoWay, Converter={StaticResource UIntToHexString}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                Margin="5,0,0,0"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                IsVisible="{Binding !IsDestinationNameEditable}"
+                                Text="{Binding DestinationViewModel.Name}" />
+                            <TextBox
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                Margin="0,2,0,0"
+                                HorizontalAlignment="Stretch"
+                                IsVisible="{Binding IsDestinationNameEditable}"
+                                Text="{Binding DestinationViewModel.Name, Mode=TwoWay}" />
                         </Grid>
                         <!-- Metadata -->
-                        <Grid Grid.Column="1"
-                              Grid.Row="0"
-                              Grid.RowSpan="4"
-                              Grid.ColumnDefinitions="175,175,175"
-                              Grid.RowDefinitions="Auto,Auto,Auto,*"
-                              Margin="10,0,0,0">
-                            <TextBlock Grid.Column="0"
-                                       Grid.Row="0"
-                                       Text="GlyphMatchQuality" />
-                            <ComboBox Grid.Column="0"
-                                      Grid.Row="1"
-                                      HorizontalAlignment="Stretch"
-                                      Background="{Binding GlyphMatchQuality, Mode=OneWay, Converter={StaticResource MatchQualityToBrush}}"
-                                      SelectedItem="{Binding GlyphMatchQuality, Mode=TwoWay}"
-                                      ItemsSource="{Binding GlyphMatchQualityOptions}" />
-                            <TextBlock Grid.Column="1"
-                                       Grid.Row="0"
-                                       Text="MetaphorMatchQuality"
-                                       Margin="5,0,0,0" />
-                            <ComboBox Grid.Column="1"
-                                      Grid.Row="1"
-                                      HorizontalAlignment="Stretch"
-                                      Background="{Binding MetaphorMatchQuality, Mode=OneWay, Converter={StaticResource MatchQualityToBrush}}"
-                                      SelectedItem="{Binding MetaphorMatchQuality, Mode=TwoWay}"
-                                      ItemsSource="{Binding MetaphorMatchQualityOptions}"
-                                      Margin="5,0,0,0" />
-                            <CheckBox Grid.Column="2"
-                                      Grid.Row="0"
-                                      Grid.RowSpan="3"
-                                      Content="IsPlaceholder"
-                                      IsChecked="{Binding IsPlaceholder, Mode=TwoWay}"
-                                      HorizontalAlignment="Center"
-                                      VerticalAlignment="Center" />
-                            <Button x:Name="MatchQualityHelpButton"
-                                    Grid.Column="0"
-                                    Grid.ColumnSpan="2"
-                                    Grid.Row="2"
-                                    Height="15"
-                                    Background="Transparent"
-                                    Padding="0"
-                                    BorderThickness="0"
-                                    HorizontalAlignment="Stretch"
-                                    HorizontalContentAlignment="Left"
-                                    Click="MatchQualityHelpButton_Click">
+                        <Grid
+                            Grid.Row="0"
+                            Grid.RowSpan="4"
+                            Grid.Column="1"
+                            Margin="10,0,0,0"
+                            Grid.ColumnDefinitions="175,175,175"
+                            Grid.RowDefinitions="Auto,Auto,Auto,*">
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Text="GlyphMatchQuality" />
+                            <ComboBox
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                HorizontalAlignment="Stretch"
+                                Background="{Binding GlyphMatchQuality, Mode=OneWay, Converter={StaticResource MatchQualityToBrush}}"
+                                ItemsSource="{Binding GlyphMatchQualityOptions}"
+                                SelectedItem="{Binding GlyphMatchQuality, Mode=TwoWay}" />
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Margin="5,0,0,0"
+                                Text="MetaphorMatchQuality" />
+                            <ComboBox
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="5,0,0,0"
+                                HorizontalAlignment="Stretch"
+                                Background="{Binding MetaphorMatchQuality, Mode=OneWay, Converter={StaticResource MatchQualityToBrush}}"
+                                ItemsSource="{Binding MetaphorMatchQualityOptions}"
+                                SelectedItem="{Binding MetaphorMatchQuality, Mode=TwoWay}" />
+                            <CheckBox
+                                Grid.Row="0"
+                                Grid.RowSpan="3"
+                                Grid.Column="2"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="IsPlaceholder"
+                                IsChecked="{Binding IsPlaceholder, Mode=TwoWay}" />
+                            <Button
+                                x:Name="MatchQualityHelpButton"
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Height="15"
+                                Padding="0"
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Click="MatchQualityHelpButton_Click">
                                 <Button.Content>
-                                    <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="Help with MatchQuality"
-                                                   Foreground="Blue" />
+                                    <Viewbox
+                                        Stretch="Uniform">
+                                        <TextBlock
+                                            Foreground="Blue"
+                                            Text="Help with MatchQuality" />
                                     </Viewbox>
                                 </Button.Content>
                             </Button>
-                            <TextBox Grid.Column="0"
-                                     Grid.ColumnSpan="3"
-                                     Grid.Row="3"
-                                     HorizontalAlignment="Stretch"
-                                     VerticalAlignment="Stretch"
-                                     Text="{Binding Comments, Mode=TwoWay}"
-                                     TextWrapping="Wrap"
-                                     AcceptsReturn="True"
-                                     PlaceholderText="Comments"
-                                     Margin="0,2,0,0" />
+                            <TextBox
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="3"
+                                Margin="0,2,0,0"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                AcceptsReturn="True"
+                                PlaceholderText="Comments"
+                                Text="{Binding Comments, Mode=TwoWay}"
+                                TextWrapping="Wrap" />
                         </Grid>
                     </Grid>
                 </DataTemplate>
