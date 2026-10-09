@@ -2,16 +2,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:IconManager"
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
-             x:Class="IconManager.IconSetsView">
+             x:Class="IconManager.Views.IconSetsView"
+             x:DataType="IconSetsViewModel">
+
     <Grid Margin="10"
           RowDefinitions="Auto,*">
-        <ComboBox x:Name="SelectedIconSetComboBox"
-                  Grid.Row="0"
-                  SelectionChanged="SelectedIconSetComboBox_SelectionChanged" />
+
+        <ComboBox Grid.Row="0"
+                  ItemsSource="{Binding IconSets}"
+                  SelectedItem="{Binding SelectedIconSet}" />
+
         <StackPanel Orientation="Horizontal"
                     Grid.Row="0"
                     HorizontalAlignment="Right">
@@ -20,16 +23,17 @@
                        VerticalAlignment="Center"
                        Margin="0,0,5,0" />
             <TextBox x:Name="FilterTextBox"
-                     Text="{Binding FilterText, Mode=TwoWay}"
+                     Text="{Binding FilterText, Mode=TwoWay, Delay=200}"
                      PlaceholderText="Filter"
                      Width="200" />
         </StackPanel>
+
         <ListBox Grid.Row="2"
                  ItemsSource="{Binding FilteredIcons}"
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch">
             <ListBox.ItemTemplate>
-                <DataTemplate DataType="local:IconViewModel">
+                <DataTemplate x:DataType="IconViewModel">
                     <Grid ColumnDefinitions="Auto,Auto,*">
                         <Image Grid.Column="0"
                                Width="50"

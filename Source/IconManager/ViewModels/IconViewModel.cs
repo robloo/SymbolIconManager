@@ -5,6 +5,9 @@ using System.Collections.ObjectModel;
 
 namespace IconManager
 {
+    /// <summary>
+    /// Represents an <see cref="Icon"/>.
+    /// </summary>
     public class IconViewModel : ViewModelBase, IIcon
     {
         private bool    _AutoUpdate;
@@ -21,6 +24,9 @@ namespace IconManager
          *
          ***************************************************************************************/
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IconViewModel"/> class.
+        /// </summary>
         public IconViewModel()
         {
             this._AutoUpdate   = false;
@@ -32,6 +38,9 @@ namespace IconManager
             this.InitOptions();
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IconViewModel"/> class.
+        /// </summary>
         public IconViewModel(IReadOnlyIcon icon)
         {
             this._AutoUpdate   = false;

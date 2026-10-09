@@ -8,19 +8,27 @@
         x:Class="IconManager.MainWindow"
         Title="Symbol Icon Manager">
     <TabControl>
+
         <!-- Icon Sets -->
         <TabItem Header="Icon Sets"
                  IsSelected="True">
-            <IconSetsView />
+            <IconSetsView>
+                <IconSetsView.DataContext>
+                    <IconSetsViewModel />
+                </IconSetsView.DataContext>
+            </IconSetsView>
         </TabItem>
+
         <!-- Icon Mapping -->
         <TabItem Header="Icon Mapping">
             <IconMappingView />
         </TabItem>
+
         <!-- Application Tools -->
         <TabItem Header="App Tools">
             <AppToolsView />
         </TabItem>
+
         <!-- Font Management -->
         <TabItem Header="Fonts">
             <FontsView />
