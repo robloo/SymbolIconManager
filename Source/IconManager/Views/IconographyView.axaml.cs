@@ -5,7 +5,7 @@ namespace IconManager.Views
     /// <summary>
     /// Presents all icons in the selected icon set to the user for search and filtering.
     /// </summary>
-    public partial class IconSetsView : UserControl
+    public partial class IconographyView : UserControl
     {
         /***************************************************************************************
          *
@@ -14,9 +14,9 @@ namespace IconManager.Views
          ***************************************************************************************/
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="IconSetsView"/> class.
+        /// Initializes a new instance of the <see cref="IconographyView"/> class.
         /// </summary>
-        public IconSetsView()
+        public IconographyView()
         {
             this.InitializeComponent();
         }

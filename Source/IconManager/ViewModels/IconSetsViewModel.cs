@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 namespace IconManager.ViewModels
 {
     /// <summary>
-    /// The primary view model for the <see cref="IconSetsView"/>
+    /// The primary view model for the <see cref="IconographyView"/>
     /// </summary>
     public partial class IconSetsViewModel : ViewModelBase
     {

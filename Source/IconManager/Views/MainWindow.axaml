@@ -15,11 +15,11 @@
         <TabItem
             Header="Icon Sets"
             IsSelected="True">
-            <IconSetsView>
-                <IconSetsView.DataContext>
+            <IconographyView>
+                <IconographyView.DataContext>
                     <IconSetsViewModel />
-                </IconSetsView.DataContext>
-            </IconSetsView>
+                </IconographyView.DataContext>
+            </IconographyView>
         </TabItem>
 
         <!-- Icon Mapping -->
