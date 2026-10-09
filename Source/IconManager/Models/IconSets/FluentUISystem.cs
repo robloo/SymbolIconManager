@@ -1,5 +1,4 @@
-﻿using Avalonia;
-using Avalonia.Platform;
+﻿using Avalonia.Platform;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -84,11 +83,11 @@ namespace IconManager
                 Tuple.Create(
                     IconSet.FluentUISystemFilled,
                     IconTheme.Filled,
-                    "avares://IconManager/Data/FluentUISystem/FluentSystemIcons-Filled.json"),
+                    IconSets.Paths.FluentUISystemFilled),
                 Tuple.Create(
                     IconSet.FluentUISystemRegular,
                     IconTheme.Regular,
-                    "avares://IconManager/Data/FluentUISystem/FluentSystemIcons-Regular.json"
+                    IconSets.Paths.FluentUISystemRegular
                 )
             };
 
@@ -162,7 +161,7 @@ namespace IconManager
         {
             var deprecatedNames = new List<Tuple<string, string>>();
 
-            using (var sourceStream = AssetLoader.Open(new Uri("avares://IconManager/Data/FluentUISystem/FluentUISystemRenamedIcons.txt")))
+            using (var sourceStream = AssetLoader.Open(new Uri(IconSets.Paths.FluentUISystemRenamedIcons)))
             using (var reader = new StreamReader(sourceStream))
             {
                 string? line = reader.ReadLine();

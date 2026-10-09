@@ -1,5 +1,4 @@
-﻿using Avalonia;
-using Avalonia.Platform;
+﻿using Avalonia.Platform;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
@@ -79,17 +78,17 @@ namespace IconManager.Models
             switch (iconSet)
             {
                 case IconSet.FluentUISystemFilled:
-                    return new Uri("avares://IconManager/Data/FluentUISystem/FluentSystemIcons-Filled.ttf");
+                    return new Uri(IconSets.Paths.FluentUISystemFilledFont);
                 case IconSet.FluentUISystemRegular:
-                    return new Uri("avares://IconManager/Data/FluentUISystem/FluentSystemIcons-Regular.ttf");
+                    return new Uri(IconSets.Paths.FluentUISystemRegularFont);
                 case IconSet.LineAwesomeBrand:
-                    return new Uri("avares://IconManager/Data/LineAwesome/la-brands-400.ttf");
+                    return new Uri(IconSets.Paths.LineAwesomeBrandsFont);
                 case IconSet.LineAwesomeRegular:
-                    return new Uri("avares://IconManager/Data/LineAwesome/la-regular-400.ttf");
+                    return new Uri(IconSets.Paths.LineAwesomeRegularFont);
                 case IconSet.LineAwesomeSolid:
-                    return new Uri("avares://IconManager/Data/LineAwesome/la-solid-900.ttf");
+                    return new Uri(IconSets.Paths.LineAwesomeSolidFont);
                 case IconSet.WinJSSymbols:
-                    return new Uri("avares://IconManager/Data/WinJSSymbols/Symbols.ttf");
+                    return new Uri(IconSets.Paths.WinJSSymbolsFont);
             }
 
             return null;
@@ -402,9 +401,8 @@ namespace IconManager.Models
                         {
                             // Rebuild the cache
                             var sources = new List<string>();
-                            string sourceDataPath = "avares://IconManager/Data/FluentUISystem/FluentUISystemGlyphSources.json";
 
-                            using (var sourceStream = AssetLoader.Open(new Uri(sourceDataPath)))
+                            using (var sourceStream = AssetLoader.Open(new Uri(IconSets.Paths.FluentUISystemGlyphSources)))
                             using (var reader = new StreamReader(sourceStream))
                             {
                                 string jsonString = reader.ReadToEnd();
@@ -492,9 +490,8 @@ namespace IconManager.Models
                         {
                             // Rebuild the cache
                             var sources = new List<string>();
-                            string sourceDataPath = "avares://IconManager/Data/LineAwesome/LineAwesomeGlyphSources.json";
 
-                            using (var sourceStream = AssetLoader.Open(new Uri(sourceDataPath)))
+                            using (var sourceStream = AssetLoader.Open(new Uri(IconSets.Paths.LineAwesomeGlyphSources)))
                             using (var reader = new StreamReader(sourceStream))
                             {
                                 string jsonString = reader.ReadToEnd();

@@ -205,7 +205,7 @@ namespace IconManager
                     loadedMappings = IconMappingList.Load(IconSet.SegoeFluent);
                     break;
                 case "FLUENTAVALONIA.JSON":
-                    loadedMappings = IconMappingList.Load("avares://IconManager/Data/Mappings/FluentAvalonia.json");
+                    loadedMappings = IconMappingList.Load(IconSets.Paths.FluentAvaloniaMappings);
                     break;
                 case "FLUENTUISYSTEMTOSEGOEMDL2ASSETS.JSON":
                     loadedMappings = IconMappingList.Load(IconSet.FluentUISystemRegular, IconSet.SegoeMDL2Assets);

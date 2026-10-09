@@ -234,7 +234,7 @@ namespace IconManager
             switch (iconSet)
             {
                 case IconSet.SegoeFluent:
-                    resourcePath = "avares://IconManager/Data/Mappings/SegoeFluent.json";
+                    resourcePath = IconSets.Paths.SegoeFluentMappings;
                     break;
             }
 
@@ -258,12 +258,12 @@ namespace IconManager
                  sourceIconSet == IconSet.FluentUISystemRegular) &&
                 destIconSet == IconSet.SegoeMDL2Assets)
             {
-                resourcePath = "avares://IconManager/Data/Mappings/FluentUISystemToSegoeMDL2Assets.json";
+                resourcePath = IconSets.Paths.FluentUISystemToSegoeMDL2AssetsMappings;
             }
             else if (sourceIconSet == IconSet.SegoeUISymbol &&
                      destIconSet == IconSet.SegoeMDL2Assets)
             {
-                resourcePath = "avares://IconManager/Data/Mappings/SegoeUISymbolToSegoeMDL2Assets.json";
+                resourcePath = IconSets.Paths.SegoeUISymbolToSegoeMDL2AssetsMappings;
             }
 
             return IconMappingList.Load(resourcePath);

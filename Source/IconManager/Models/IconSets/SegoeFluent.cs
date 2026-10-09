@@ -1,5 +1,4 @@
-﻿using Avalonia;
-using Avalonia.Platform;
+﻿using Avalonia.Platform;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,9 +26,8 @@ namespace IconManager
         {
             var icons = new List<Icon>();
             var names = new Dictionary<uint, string>();
-            string sourceDataPath = "avares://IconManager/Data/SegoeFluent/SegoeFluentIcons.json";
 
-            using (var sourceStream = AssetLoader.Open(new Uri(sourceDataPath)))
+            using (var sourceStream = AssetLoader.Open(new Uri(IconSets.Paths.SegoeFluent)))
             using (var reader = new StreamReader(sourceStream))
             {
                 string jsonString = reader.ReadToEnd();

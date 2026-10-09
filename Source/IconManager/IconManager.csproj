@@ -16,7 +16,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="SkiaSharp" Version="3.119.4" />
     <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
-   </ItemGroup>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IconManager.IconSets\IconManager.IconSets.csproj" />
   </ItemGroup>

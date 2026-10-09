@@ -8,8 +8,6 @@ namespace IconManager
 {
     public partial class FontsView : UserControl
     {
-        private const string FluentAvaloniaMappingsPath = "avares://IconManager/Data/Mappings/FluentAvalonia.json";
-
         /***************************************************************************************
          *
          * Constructors
@@ -268,7 +266,7 @@ namespace IconManager
 
         internal void BuildFluentAvaloniaFont()
         {
-            var fluentAvaloniaMappings = IconMappingList.Load(FluentAvaloniaMappingsPath);
+            var fluentAvaloniaMappings = IconMappingList.Load(IconSets.Paths.FluentAvaloniaMappings);
             var segoeFluentMappings = IconMappingList.Load(IconSet.SegoeFluent);
 
             // The Fluent Avalonia font must meet 3 requirements:
@@ -299,7 +297,7 @@ namespace IconManager
             if (string.IsNullOrEmpty(path) == false)
             {
                 var fluentAvalonia = new Specialized.FluentAvalonia();
-                var mappings = fluentAvalonia.RebuildMappings(IconMappingList.Load(FluentAvaloniaMappingsPath));
+                var mappings = fluentAvalonia.RebuildMappings(IconMappingList.Load(IconSets.Paths.FluentAvaloniaMappings));
 
                 using (var fileStream = File.OpenWrite(path))
                 {

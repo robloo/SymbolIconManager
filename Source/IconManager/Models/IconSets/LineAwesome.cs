@@ -1,5 +1,4 @@
-﻿using Avalonia;
-using Avalonia.Platform;
+﻿using Avalonia.Platform;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -67,15 +66,15 @@ namespace IconManager
                 Tuple.Create(
                     IconSet.LineAwesomeBrand,
                     IconStyle.Brand,
-                    "avares://IconManager/Data/LineAwesome/la-brands-400.json"),
+                    IconSets.Paths.LineAwesomeBrands),
                 Tuple.Create(
                     IconSet.LineAwesomeRegular,
                     IconStyle.Regular,
-                    "avares://IconManager/Data/LineAwesome/la-regular-400.json"),
+                    IconSets.Paths.LineAwesomeRegular),
                 Tuple.Create(
                     IconSet.LineAwesomeSolid,
                     IconStyle.Solid,
-                    "avares://IconManager/Data/LineAwesome/la-solid-900.json")
+                    IconSets.Paths.LineAwesomeSolid)
             };
 
             // Load all data from JSON source files
