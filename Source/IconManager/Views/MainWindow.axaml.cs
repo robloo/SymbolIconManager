@@ -1,7 +1,4 @@
-using Avalonia;
 using Avalonia.Controls;
-using FluentAvalonia.UI.Controls;
-using FluentAvalonia.UI.Windowing;
 
 namespace IconManager
 {
@@ -15,9 +12,7 @@ namespace IconManager
 
         public MainWindow()
         {
-            InitializeComponent();
-
-            this.DataContext = this;
+            this.InitializeComponent();
         }
     }
 }

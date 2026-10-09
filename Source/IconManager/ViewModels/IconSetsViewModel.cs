@@ -9,7 +9,7 @@ namespace IconManager.ViewModels
     /// <summary>
     /// The primary view model for the <see cref="IconSetsView"/>
     /// </summary>
-    public class IconSetsViewModel : ViewModelBase
+    public partial class IconSetsViewModel : ViewModelBase
     {
         private Dictionary<IconSet, List<IconViewModel>> _cachedIconSets = [];
 

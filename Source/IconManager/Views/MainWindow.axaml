@@ -7,6 +7,7 @@
         d:DesignHeight="450"
         x:Class="IconManager.MainWindow"
         Title="Symbol Icon Manager">
+
     <TabControl>
 
         <!-- Icon Sets -->
@@ -31,7 +32,11 @@
 
         <!-- Font Management -->
         <TabItem Header="Fonts">
-            <FontsView />
+            <FontsView>
+                <FontsView.DataContext>
+                    <FontsViewModel />
+                </FontsView.DataContext>
+            </FontsView>
         </TabItem>
     </TabControl>
 </Window>

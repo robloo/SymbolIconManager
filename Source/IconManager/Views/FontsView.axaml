@@ -6,158 +6,162 @@
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
-             x:Class="IconManager.FontsView">
+             x:Class="IconManager.Views.FontsView"
+             x:DataType="FontsViewModel">
+
+    <UserControl.Styles>
+        <Style Selector="TextBlock.group-header">
+          <Setter Property="FontSize" Value="16" />
+          <Setter Property="FontWeight" Value="Bold" />
+          <Setter Property="TextWrapping" Value="NoWrap" />
+        </Style>
+    </UserControl.Styles>
+
     <Grid Margin="10"
           RowDefinitions="Auto,Auto,Auto">
-        <Grid
+
+        <GroupBox
             Grid.Row="0"
-            Grid.ColumnDefinitions="Auto,Auto,Auto"
-            Grid.RowDefinitions="Auto,Auto"
             Margin="0">
-            <TextBlock
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                Grid.Row="0"
-                Text="Segoe Fonts"
-                FontSize="16"
-                FontWeight="Bold"
-                Margin="0,0,0,20" />
-            <Button
-                Grid.Column="0"
-                Grid.Row="1"
-                Width="200"
-                HorizontalContentAlignment="Center"
-                Command="{Binding BuildWinSymbols1Font}">
-                <Button.Content>
-                    <TextBlock
-                        Text="Build WinSymbols1 (SegoeUISymbol) Font"
-                        TextAlignment="Center"
-                        TextWrapping="Wrap" />
-                </Button.Content>
-            </Button>
-            <Button
-                Grid.Column="1"
-                Grid.Row="1"
-                Width="200"
-                HorizontalContentAlignment="Center"
-                Command="{Binding BuildWinSymbols2Font}"
-                Margin="5,0,0,0">
-                <Button.Content>
-                    <TextBlock
-                        Text="Build WinSymbols2 (SegoeMDL2Assets) Font"
-                        TextAlignment="Center"
-                        TextWrapping="Wrap" />
-                </Button.Content>
-            </Button>
-            <Button
-                Grid.Column="2"
-                Grid.Row="1"
-                Width="200"
-                HorizontalContentAlignment="Center"
-                Command="{Binding BuildWinSymbols3Font}"
-                Margin="5,0,0,0">
-                <Button.Content>
-                    <TextBlock
-                        Text="Build WinSymbols3 (SegoeFluent) Font"
-                        TextAlignment="Center"
-                        TextWrapping="Wrap" />
-                </Button.Content>
-            </Button>
-        </Grid>
-        <Grid
+            <GroupBox.Header>
+                <TextBlock
+                    Classes="group-header"
+                    Text="Segoe Fonts" />
+            </GroupBox.Header>
+            <Grid
+                Grid.ColumnDefinitions="Auto,Auto,Auto">
+                <Button
+                    Grid.Column="0"
+                    Width="200"
+                    HorizontalContentAlignment="Center"
+                    Command="{Binding BuildWinSymbols1FontCommand}">
+                    <Button.Content>
+                        <TextBlock
+                            Text="Build WinSymbols1 (SegoeUISymbol) Font"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap" />
+                    </Button.Content>
+                </Button>
+                <Button
+                    Grid.Column="1"
+                    Width="200"
+                    HorizontalContentAlignment="Center"
+                    Command="{Binding BuildWinSymbols2FontCommand}"
+                    Margin="5,0,0,0">
+                    <Button.Content>
+                        <TextBlock
+                            Text="Build WinSymbols2 (SegoeMDL2Assets) Font"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap" />
+                    </Button.Content>
+                </Button>
+                <Button
+                    Grid.Column="2"
+                    Width="200"
+                    HorizontalContentAlignment="Center"
+                    Command="{Binding BuildWinSymbols3FontCommand}"
+                    Margin="5,0,0,0">
+                    <Button.Content>
+                        <TextBlock
+                            Text="Build WinSymbols3 (SegoeFluent) Font"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap" />
+                    </Button.Content>
+                </Button>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox
             Grid.Row="1"
-            Grid.ColumnDefinitions="Auto,Auto"
-            Grid.RowDefinitions="Auto,Auto,Auto"
             Margin="0,20,0,0">
-            <TextBlock
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                Grid.Row="0"
-                Text="Fluent Avalonia Font"
-                FontSize="16"
-                FontWeight="Bold"
-                Margin="0,0,0,20" />
-            <Button
-                Grid.Column="0"
-                Grid.Row="1"
-                Width="200"
-                HorizontalContentAlignment="Center"
-                Command="{Binding BuildFluentAvaloniaFont}">
-                <Button.Content>
-                    <TextBlock
-                        Text="Build FluentAvalonia Font"
-                        TextAlignment="Center"
-                        TextWrapping="Wrap" />
-                </Button.Content>
-            </Button>
-            <Button
-                Grid.Column="0"
-                Grid.Row="2"
-                Width="200"
-                HorizontalContentAlignment="Center"
-                Command="{Binding RebuildFluentAvaloniaMappings}"
-                Margin="0,10,0,0">
-                <Button.Content>
-                    <TextBlock
-                        Text="Rebuild FluentAvalonia Mappings"
-                        TextAlignment="Center"
-                        TextWrapping="Wrap" />
-                </Button.Content>
-            </Button>
-            <CheckBox
-                x:Name="IncludeFluentAvaloniaEnumCheckBox"
-                Grid.Column="1"
-                Grid.Row="2"
-                IsChecked="True"
-                Margin="5,10,0,0">
-                <CheckBox.Content>
-                    <TextBlock
-                        Text="Include Enum Values"
-                        TextAlignment="Center"
-                        TextWrapping="Wrap" />
-                </CheckBox.Content>
-            </CheckBox>
-        </Grid>
-        <Grid
+            <GroupBox.Header>
+                <TextBlock
+                    Classes="group-header"
+                    Text="Fluent Avalonia Font" />
+            </GroupBox.Header>
+            <Grid
+                Grid.ColumnDefinitions="Auto,Auto"
+                Grid.RowDefinitions="Auto,Auto">
+                <Button
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Width="200"
+                    HorizontalContentAlignment="Center"
+                    Command="{Binding BuildFluentAvaloniaFontCommand}">
+                    <Button.Content>
+                        <TextBlock
+                            Text="Build FluentAvalonia Font"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap" />
+                    </Button.Content>
+                </Button>
+                <Button
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Width="200"
+                    HorizontalContentAlignment="Center"
+                    Command="{Binding RebuildFluentAvaloniaMappingsCommand}"
+                    Margin="0,10,0,0">
+                    <Button.Content>
+                        <TextBlock
+                            Text="Rebuild FluentAvalonia Mappings"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap" />
+                    </Button.Content>
+                </Button>
+                <CheckBox
+                    x:Name="IncludeFluentAvaloniaEnumCheckBox"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    IsThreeState="False"
+                    IsChecked="{Binding IncludeFluentAvaloniaEnum}"
+                    Margin="5,10,0,0">
+                    <CheckBox.Content>
+                        <TextBlock
+                            Text="Include Enum Values"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap" />
+                    </CheckBox.Content>
+                </CheckBox>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox
             Grid.Row="2"
-            Grid.ColumnDefinitions="Auto,Auto"
-            Grid.RowDefinitions="Auto,Auto"
             Margin="0,20,0,0">
-            <TextBlock
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                Grid.Row="0"
-                Text="Fluent UI System Fonts"
-                FontSize="16"
-                FontWeight="Bold"
-                Margin="0,0,0,20" />
-            <Button
-                Grid.Column="0"
-                Grid.Row="1"
-                Width="200"
-                HorizontalContentAlignment="Center"
-                Command="{Binding BuildFluentUISystemRegularFont}">
-                <Button.Content>
-                    <TextBlock
-                        Text="Build Fluent UI System Regular Font"
-                        TextAlignment="Center"
-                        TextWrapping="Wrap" />
-                </Button.Content>
-            </Button>
-            <Button
-                Grid.Column="1"
-                Grid.Row="1"
-                Width="200"
-                HorizontalContentAlignment="Center"
-                Command="{Binding BuildFluentUISystemFilledFont}"
-                Margin="5,0,0,0">
-                <Button.Content>
-                    <TextBlock
-                        Text="Build Fluent UI System Filled Font"
-                        TextAlignment="Center"
-                        TextWrapping="Wrap" />
-                </Button.Content>
-            </Button>
-        </Grid>
+            <GroupBox.Header>
+                <TextBlock
+                    Classes="group-header"
+                    Text="Fluent UI System Fonts" />
+            </GroupBox.Header>
+            <Grid Grid.ColumnDefinitions="Auto,Auto">
+                <Button
+                    Grid.Column="0"
+                    Width="200"
+                    HorizontalContentAlignment="Center"
+                    Command="{Binding BuildFluentUISystemRegularFontCommand}">
+                    <Button.Content>
+                        <TextBlock
+                            Text="Build Fluent UI System Regular Font"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap" />
+                    </Button.Content>
+                </Button>
+                <Button
+                    Grid.Column="1"
+                    Width="200"
+                    HorizontalContentAlignment="Center"
+                    Command="{Binding BuildFluentUISystemFilledFontCommand}"
+                    Margin="5,0,0,0">
+                    <Button.Content>
+                        <TextBlock
+                            Text="Build Fluent UI System Filled Font"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap" />
+                    </Button.Content>
+                </Button>
+            </Grid>
+        </GroupBox>
+
     </Grid>
 </UserControl>
