@@ -1,0 +1,14 @@
+<Project>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14.0</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- Custom Properties -->
+  <PropertyGroup>
+    <AvaloniaVersion>12.1.2</AvaloniaVersion>
+  </PropertyGroup>
+
+</Project>
