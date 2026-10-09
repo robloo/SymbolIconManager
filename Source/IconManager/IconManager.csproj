@@ -3,6 +3,11 @@
     <OutputType>WinExe</OutputType>
     <AvaloniaUseCompiledBindingsByDefault>false</AvaloniaUseCompiledBindingsByDefault>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="XamlStylerConfig.json" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Avalonia" />
     <PackageReference Include="Avalonia.Controls.ColorPicker" />
@@ -14,6 +19,7 @@
     <PackageReference Include="SkiaSharp" />
     <PackageReference Include="SkiaSharp.Svg" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\IconManager.Core\IconManager.Core.csproj" />
     <ProjectReference Include="..\IconManager.IconSets\IconManager.IconSets.csproj" />
