@@ -111,113 +111,116 @@
                 <DataTemplate
                     DataType="local:IconMappingViewModel">
                     <Grid
-                        RowDefinitions="Auto,Auto,Auto,Auto"
+                        RowDefinitions="Auto,Auto"
                         ColumnDefinitions="Auto,*"
                         Background="{Binding Background, Mode=OneWay}">
+
                         <!-- Source Icon -->
-                        <TextBlock
+                        <GroupBox
                             Grid.Row="0"
                             Grid.Column="0"
-                            FontWeight="Bold"
-                            Text="Source" />
-                        <Grid
+                            Header="Source">
+                            <Grid
+                                RowDefinitions="1*,32"
+                                ColumnDefinitions="Auto,10,300,100">
+                                <Image
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2"
+                                    Grid.Column="0"
+                                    Width="50"
+                                    Height="50"
+                                    Margin="3"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{Binding SourceViewModel.Glyph}" />
+                                <ComboBox
+                                    Grid.Row="0"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Stretch"
+                                    CornerRadius="4,0,0,4"
+                                    ItemsSource="{Binding SourceViewModel.IconSetOptions}"
+                                    SelectedItem="{Binding SourceViewModel.IconSet, Mode=TwoWay}" />
+                                <TextBox
+                                    Grid.Row="0"
+                                    Grid.Column="3"
+                                    HorizontalAlignment="Stretch"
+                                    CornerRadius="0,4,4,0"
+                                    Text="{Binding SourceViewModel.UnicodePoint, Mode=TwoWay, Converter={StaticResource UIntToHexString}}" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                    Grid.ColumnSpan="2"
+                                    Margin="5,0,0,0"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    IsVisible="{Binding !IsSourceNameEditable}"
+                                    Text="{Binding SourceViewModel.Name}" />
+                                <TextBox
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                    Grid.ColumnSpan="2"
+                                    Margin="0,2,0,0"
+                                    HorizontalAlignment="Stretch"
+                                    IsVisible="{Binding IsSourceNameEditable}"
+                                    Text="{Binding SourceViewModel.Name, Mode=TwoWay}" />
+                            </Grid>
+                        </GroupBox>
+
+                        <!-- Destination Icon -->
+                        <GroupBox
                             Grid.Row="1"
                             Grid.Column="0"
-                            RowDefinitions="1*,32"
-                            ColumnDefinitions="Auto,300,100">
-                            <Image
-                                Grid.Row="0"
-                                Grid.RowSpan="2"
-                                Grid.Column="0"
-                                Width="50"
-                                Height="50"
-                                Margin="3"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Source="{Binding SourceViewModel.Glyph}" />
-                            <ComboBox
-                                Grid.Row="0"
-                                Grid.Column="1"
-                                HorizontalAlignment="Stretch"
-                                ItemsSource="{Binding SourceViewModel.IconSetOptions}"
-                                SelectedItem="{Binding SourceViewModel.IconSet, Mode=TwoWay}" />
-                            <TextBox
-                                Grid.Row="0"
-                                Grid.Column="2"
-                                HorizontalAlignment="Stretch"
-                                Text="{Binding SourceViewModel.UnicodePoint, Mode=TwoWay, Converter={StaticResource UIntToHexString}}" />
-                            <TextBlock
-                                Grid.Row="1"
-                                Grid.Column="1"
-                                Grid.ColumnSpan="2"
-                                Margin="5,0,0,0"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Center"
-                                IsVisible="{Binding !IsSourceNameEditable}"
-                                Text="{Binding SourceViewModel.Name}" />
-                            <TextBox
-                                Grid.Row="1"
-                                Grid.Column="1"
-                                Grid.ColumnSpan="2"
-                                Margin="0,2,0,0"
-                                HorizontalAlignment="Stretch"
-                                IsVisible="{Binding IsSourceNameEditable}"
-                                Text="{Binding SourceViewModel.Name, Mode=TwoWay}" />
-                        </Grid>
-                        <!-- Destination Icon -->
-                        <TextBlock
-                            Grid.Row="2"
-                            Grid.Column="0"
-                            FontWeight="Bold"
-                            Text="Destination" />
-                        <Grid
-                            Grid.Row="3"
-                            Grid.Column="0"
-                            RowDefinitions="1*,32"
-                            ColumnDefinitions="Auto,300,100">
-                            <Image
-                                Grid.Row="0"
-                                Grid.RowSpan="2"
-                                Grid.Column="0"
-                                Width="50"
-                                Height="50"
-                                Margin="3"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Source="{Binding DestinationViewModel.Glyph}" />
-                            <ComboBox
-                                Grid.Row="0"
-                                Grid.Column="1"
-                                HorizontalAlignment="Stretch"
-                                ItemsSource="{Binding DestinationViewModel.IconSetOptions}"
-                                SelectedItem="{Binding DestinationViewModel.IconSet, Mode=TwoWay}" />
-                            <TextBox
-                                Grid.Row="0"
-                                Grid.Column="2"
-                                HorizontalAlignment="Stretch"
-                                Text="{Binding DestinationViewModel.UnicodePoint, Mode=TwoWay, Converter={StaticResource UIntToHexString}}" />
-                            <TextBlock
-                                Grid.Row="1"
-                                Grid.Column="1"
-                                Grid.ColumnSpan="2"
-                                Margin="5,0,0,0"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Center"
-                                IsVisible="{Binding !IsDestinationNameEditable}"
-                                Text="{Binding DestinationViewModel.Name}" />
-                            <TextBox
-                                Grid.Row="1"
-                                Grid.Column="1"
-                                Grid.ColumnSpan="2"
-                                Margin="0,2,0,0"
-                                HorizontalAlignment="Stretch"
-                                IsVisible="{Binding IsDestinationNameEditable}"
-                                Text="{Binding DestinationViewModel.Name, Mode=TwoWay}" />
-                        </Grid>
+                            Header="Destination">
+                            <Grid
+                                RowDefinitions="1*,32"
+                                ColumnDefinitions="Auto,10,300,100">
+                                <Image
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2"
+                                    Grid.Column="0"
+                                    Width="50"
+                                    Height="50"
+                                    Margin="3"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{Binding DestinationViewModel.Glyph}" />
+                                <ComboBox
+                                    Grid.Row="0"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Stretch"
+                                    CornerRadius="4,0,0,4"
+                                    ItemsSource="{Binding DestinationViewModel.IconSetOptions}"
+                                    SelectedItem="{Binding DestinationViewModel.IconSet, Mode=TwoWay}" />
+                                <TextBox
+                                    Grid.Row="0"
+                                    Grid.Column="3"
+                                    HorizontalAlignment="Stretch"
+                                    CornerRadius="0,4,4,0"
+                                    Text="{Binding DestinationViewModel.UnicodePoint, Mode=TwoWay, Converter={StaticResource UIntToHexString}}" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                    Grid.ColumnSpan="2"
+                                    Margin="5,0,0,0"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    IsVisible="{Binding !IsDestinationNameEditable}"
+                                    Text="{Binding DestinationViewModel.Name}" />
+                                <TextBox
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                    Grid.ColumnSpan="2"
+                                    Margin="0,2,0,0"
+                                    HorizontalAlignment="Stretch"
+                                    IsVisible="{Binding IsDestinationNameEditable}"
+                                    Text="{Binding DestinationViewModel.Name, Mode=TwoWay}" />
+                            </Grid>
+                        </GroupBox>
+
                         <!-- Metadata -->
                         <Grid
                             Grid.Row="0"
-                            Grid.RowSpan="4"
+                            Grid.RowSpan="2"
                             Grid.Column="1"
                             Margin="10,0,0,0"
                             Grid.ColumnDefinitions="175,175,175"
