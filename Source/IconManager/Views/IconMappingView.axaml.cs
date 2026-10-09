@@ -305,39 +305,5 @@ namespace IconManager
 
             return;
         }
-
-        /// <summary>
-        /// Event handler for when the help with match quality definitions button is clicked.
-        /// </summary>
-        private void MatchQualityHelpButton_Click(object sender, RoutedEventArgs e)
-        {
-            string url = @"https://github.com/robloo/SymbolIconManager/blob/main/Docs/IconMapping.md#match-quality-values";
-
-            // See: https://brockallen.com/2016/09/24/process-start-for-urls-on-net-core/ and
-            // https://github.com/dotnet/runtime/issues/17938
-            try
-            {
-                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                {
-                    Process.Start(new ProcessStartInfo()
-                    {
-                        Arguments       = "/c start " + url,
-                        UseShellExecute = true,
-                        FileName        = "cmd"
-                    });
-                }
-                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-                {
-                    Process.Start("xdg-open", url);
-                }
-                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-                {
-                    Process.Start("open", url);
-                }
-            }
-            catch { }
-
-            return;
-        }
     }
 }

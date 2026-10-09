@@ -254,7 +254,7 @@
                                 VerticalAlignment="Center"
                                 Content="IsPlaceholder"
                                 IsChecked="{Binding IsPlaceholder, Mode=TwoWay}" />
-                            <Button
+                            <HyperlinkButton
                                 x:Name="MatchQualityHelpButton"
                                 Grid.Row="2"
                                 Grid.Column="0"
@@ -263,18 +263,15 @@
                                 Padding="0"
                                 HorizontalAlignment="Stretch"
                                 HorizontalContentAlignment="Left"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                Click="MatchQualityHelpButton_Click">
-                                <Button.Content>
+                                NavigateUri="https://github.com/robloo/SymbolIconManager/blob/main/Docs/IconMapping.md#match-quality-values">
+                                <HyperlinkButton.Content>
                                     <Viewbox
                                         Stretch="Uniform">
                                         <TextBlock
-                                            Foreground="Blue"
                                             Text="Help with MatchQuality" />
                                     </Viewbox>
-                                </Button.Content>
-                            </Button>
+                                </HyperlinkButton.Content>
+                            </HyperlinkButton>
                             <TextBox
                                 Grid.Row="3"
                                 Grid.Column="0"
