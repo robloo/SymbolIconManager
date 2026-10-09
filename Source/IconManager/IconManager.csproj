@@ -21,4 +21,10 @@
     <ProjectReference Include="..\IconManager.Core\IconManager.Core.csproj" />
     <ProjectReference Include="..\IconManager.IconSets\IconManager.IconSets.csproj" />
   </ItemGroup>
+
+  <Target Name="Format XAML" AfterTargets="BeforeBuild" Condition="'$(Configuration)' == 'Debug'">
+    <!-- XamlStyler -->
+    <Exec Command="dotnet tool install --global XamlStyler.Console" IgnoreExitCode="true" />
+    <Exec Command="xstyler.exe --recursive --directory &quot;$(SolutionDir)Source\IconManager&quot; --config &quot;$(SolutionDir)Source\IconManager\XamlStylerConfig.json&quot;" IgnoreExitCode="true" />
+  </Target>
 </Project>
