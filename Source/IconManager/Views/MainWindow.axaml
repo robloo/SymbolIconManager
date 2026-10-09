@@ -11,13 +11,13 @@
 
     <TabControl>
 
-        <!-- Icon Sets -->
+        <!-- Iconography -->
         <TabItem
-            Header="Icon Sets"
+            Header="Iconography"
             IsSelected="True">
             <IconographyView>
                 <IconographyView.DataContext>
-                    <IconSetsViewModel />
+                    <IconographyViewModel />
                 </IconographyView.DataContext>
             </IconographyView>
         </TabItem>

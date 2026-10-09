@@ -9,7 +9,7 @@ namespace IconManager.ViewModels
     /// <summary>
     /// The primary view model for the <see cref="IconographyView"/>
     /// </summary>
-    public partial class IconSetsViewModel : ViewModelBase
+    public partial class IconographyViewModel : ViewModelBase
     {
         private Dictionary<IconSet, List<IconViewModel>> _cachedIconSets = [];
 
@@ -20,9 +20,9 @@ namespace IconManager.ViewModels
          ***************************************************************************************/
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="IconSetsViewModel"/> class.
+        /// Initializes a new instance of the <see cref="IconographyViewModel"/> class.
         /// </summary>
-        public IconSetsViewModel()
+        public IconographyViewModel()
         {
             this.FillIconSets();
         }
