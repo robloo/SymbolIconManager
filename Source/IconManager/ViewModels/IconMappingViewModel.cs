@@ -8,7 +8,7 @@ namespace IconManager
 {
     public class IconMappingViewModel : ViewModelBase
     {
-        private readonly Brush PoorMappingBrush = new SolidColorBrush(new Color(0xFF, 0xF2, 0xD7, 0xD5));
+        private readonly Brush PoorMappingBrush = new SolidColorBrush(new Color(0x1F, 0xEB, 0x10, 0x00));
 
         private IconViewModel _SourceViewModel;
         private IconViewModel _DestinationViewModel;
