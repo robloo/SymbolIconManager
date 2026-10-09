@@ -1,4 +1,4 @@
-﻿namespace IconManager
+﻿namespace IconManager.Core.Glyphs
 {
     /// <summary>
     /// Defines a potential source for a glyph.
