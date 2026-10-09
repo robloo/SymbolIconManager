@@ -688,17 +688,17 @@ namespace IconManager.Models
                 List<string> searchDirectories = new List<string>();
 
                 string exePath = Assembly.GetExecutingAssembly().Location;
-                string sourcePath = new DirectoryInfo(exePath).Parent!.Parent!.Parent!.Parent!.FullName;
+                string sourceDirectoryPath = new DirectoryInfo(exePath).Parent!.Parent!.Parent!.Parent!.Parent!.FullName;
 
                 if (iconSetFamily == IconSetFamily.FluentUISystem)
                 {
-                    searchDirectories.Add(Path.Combine(sourcePath, "Data", "FluentUISystem", "GlyphSources"));
+                    searchDirectories.Add(Path.Combine(sourceDirectoryPath, "IconManager.IconSets", "FluentUISystem", "GlyphSources"));
                     EnumerateGlyphSources();
                     cachedLocalFluentUISystemGlyphSourcePaths = glyphSourcePaths;
                 }
                 else if (iconSetFamily == IconSetFamily.LineAwesome)
                 {
-                    searchDirectories.Add(Path.Combine(sourcePath, "Data", "LineAwesome", "GlyphSources"));
+                    searchDirectories.Add(Path.Combine(sourceDirectoryPath, "IconManager.IconSets", "LineAwesome", "GlyphSources"));
                     EnumerateGlyphSources();
                     cachedLocalLineAwesomeGlyphSourcePaths = glyphSourcePaths;
                 }
