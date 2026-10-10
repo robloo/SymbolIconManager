@@ -16,12 +16,12 @@ namespace IconManager
         public const int RenderWidth  = 64; // Pixels
         public const int RenderHeight = 64; // Pixels
 
-        private static SKPaint? cachedBackgroundPaint = null;
+        private static SKPaint? _cachedBackgroundPaint = null;
 
-        private static Dictionary<string, Bitmap>  cachedGlyphs     = new Dictionary<string, Bitmap>();  // IconSet_UnicodePoint is key
-        private static Dictionary<string, SKPaint> cachedTextPaints = new Dictionary<string, SKPaint>(); // IconSet/file name is key
+        private static Dictionary<string, Bitmap>  _cachedGlyphs     = new Dictionary<string, Bitmap>();  // IconSet_UnicodePoint is key
+        private static Dictionary<string, SKPaint> _cachedTextPaints = new Dictionary<string, SKPaint>(); // IconSet/file name is key
 
-        private static object cacheMutex = new object();
+        private static object _cacheMutex = new object();
 
         /// <summary>
         /// Gets a preview bitmap of the glyph for the defined icon set and Unicode point.
@@ -42,9 +42,9 @@ namespace IconManager
             }
 
             // Attempt to quickly load and return the preview from the cache
-            lock (cacheMutex)
+            lock (_cacheMutex)
             {
-                if (cachedGlyphs.TryGetValue(glyphKey, out result))
+                if (_cachedGlyphs.TryGetValue(glyphKey, out result))
                 {
                     return result;
                 }
@@ -123,11 +123,11 @@ namespace IconManager
             // Therefore, within the lock, a check must be made to ensure a glyph was not already added
             if (result is not null)
             {
-                lock (cacheMutex)
+                lock (_cacheMutex)
                 {
-                    if (cachedGlyphs.ContainsKey(glyphKey) == false)
+                    if (_cachedGlyphs.ContainsKey(glyphKey) == false)
                     {
-                        cachedGlyphs.Add(glyphKey, result);
+                        _cachedGlyphs.Add(glyphKey, result);
                     }
                 }
             }
@@ -152,25 +152,25 @@ namespace IconManager
                 SKPaint? textPaint = null;
                 SKBitmap bitmap = new SKBitmap(renderWidth, renderHeight);
 
-                lock (cacheMutex)
+                lock (_cacheMutex)
                 {
                     // Load all SKPaint objects
-                    if (cachedBackgroundPaint is null)
+                    if (_cachedBackgroundPaint is null)
                     {
-                        cachedBackgroundPaint = new SKPaint()
+                        _cachedBackgroundPaint = new SKPaint()
                         {
                             Color = SKColors.White
                         };
                     }
 
-                    if (cachedTextPaints.TryGetValue(fontKey, out textPaint) == false)
+                    if (_cachedTextPaints.TryGetValue(fontKey, out textPaint) == false)
                     {
                         textPaint = new SKPaint(font)
                         {
                             Color = SKColors.Black
                         };
 
-                        cachedTextPaints.Add(fontKey, textPaint);
+                        _cachedTextPaints.Add(fontKey, textPaint);
                     }
 
                     // Measure the rendered text
@@ -203,7 +203,7 @@ namespace IconManager
                                 y: 0,
                                 w: renderWidth,
                                 h: renderHeight,
-                                cachedBackgroundPaint);
+                                _cachedBackgroundPaint);
 
                             canvas.DrawText(
                                 text,

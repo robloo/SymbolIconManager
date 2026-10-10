@@ -12,10 +12,10 @@ namespace IconManager
     /// </summary>
     public class SegoeFluent : IconSetBase
     {
-        private static IReadOnlyList<Icon>?               cachedIcons = null;
-        private static IReadOnlyDictionary<uint, string>? cachedNames = null;
+        private static IReadOnlyList<Icon>?               _cachedIcons = null;
+        private static IReadOnlyDictionary<uint, string>? _cachedNames = null;
 
-        private static object cacheMutex = new object();
+        private static object _cacheMutex = new object();
 
         /***************************************************************************************
          *
@@ -50,10 +50,10 @@ namespace IconManager
                 }
             }
 
-            lock (cacheMutex)
+            lock (_cacheMutex)
             {
-                cachedIcons = icons.AsReadOnly();
-                cachedNames = names;
+                _cachedIcons = icons.AsReadOnly();
+                _cachedNames = names;
             }
 
             return;
@@ -63,14 +63,14 @@ namespace IconManager
         {
             string? name = null;
 
-            lock (cacheMutex)
+            lock (_cacheMutex)
             {
-                if (cachedNames is null)
+                if (_cachedNames is null)
                 {
                     RebuildCache();
                 }
 
-                cachedNames!.TryGetValue(unicodePoint, out name);
+                _cachedNames!.TryGetValue(unicodePoint, out name);
             }
 
             return name ?? string.Empty;
@@ -83,15 +83,15 @@ namespace IconManager
         {
             get
             {
-                lock (cacheMutex)
+                lock (_cacheMutex)
                 {
-                    if (cachedIcons is null)
+                    if (_cachedIcons is null)
                     {
                         RebuildCache();
                     }
                 }
 
-                return cachedIcons!;
+                return _cachedIcons!;
             }
         }
 

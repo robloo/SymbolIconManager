@@ -43,12 +43,12 @@ namespace IconManager
             Solid
         }
 
-        private static IReadOnlyList<Icon>? cachedIcons = null;
-        private static IReadOnlyDictionary<uint, string>? cachedBrandNames   = null;
-        private static IReadOnlyDictionary<uint, string>? cachedRegularNames = null;
-        private static IReadOnlyDictionary<uint, string>? cachedSolidNames   = null;
+        private static IReadOnlyList<Icon>? _cachedIcons = null;
+        private static IReadOnlyDictionary<uint, string>? _cachedBrandNames   = null;
+        private static IReadOnlyDictionary<uint, string>? _cachedRegularNames = null;
+        private static IReadOnlyDictionary<uint, string>? _cachedSolidNames   = null;
 
-        private static object cacheMutex = new object();
+        private static object _cacheMutex = new object();
 
         /***************************************************************************************
          *
@@ -118,12 +118,12 @@ namespace IconManager
                 }
             }
 
-            lock (cacheMutex)
+            lock (_cacheMutex)
             {
-                cachedIcons        = icons.AsReadOnly();
-                cachedBrandNames   = brandNames;
-                cachedRegularNames = regularNames;
-                cachedSolidNames   = solidNames;
+                _cachedIcons        = icons.AsReadOnly();
+                _cachedBrandNames   = brandNames;
+                _cachedRegularNames = regularNames;
+                _cachedSolidNames   = solidNames;
             }
 
             return;
@@ -133,26 +133,26 @@ namespace IconManager
         {
             string? name = null;
 
-            lock (cacheMutex)
+            lock (_cacheMutex)
             {
-                if (cachedBrandNames is null ||
-                    cachedRegularNames is null ||
-                    cachedSolidNames is null)
+                if (_cachedBrandNames is null ||
+                    _cachedRegularNames is null ||
+                    _cachedSolidNames is null)
                 {
                     RebuildCache();
                 }
 
                 if (style == IconStyle.Brand)
                 {
-                    cachedBrandNames!.TryGetValue(unicodePoint, out name);
+                    _cachedBrandNames!.TryGetValue(unicodePoint, out name);
                 }
                 else if (style == IconStyle.Solid)
                 {
-                    cachedSolidNames!.TryGetValue(unicodePoint, out name);
+                    _cachedSolidNames!.TryGetValue(unicodePoint, out name);
                 }
                 else
                 {
-                    cachedRegularNames!.TryGetValue(unicodePoint, out name);
+                    _cachedRegularNames!.TryGetValue(unicodePoint, out name);
                 }
             }
 
@@ -167,15 +167,15 @@ namespace IconManager
         {
             get
             {
-                lock (cacheMutex)
+                lock (_cacheMutex)
                 {
-                    if (cachedIcons is null)
+                    if (_cachedIcons is null)
                     {
                         RebuildCache();
                     }
                 }
 
-                return cachedIcons!;
+                return _cachedIcons!;
             }
         }
 
@@ -186,14 +186,14 @@ namespace IconManager
         {
             var matchingIcons = new List<Icon>();
 
-            lock (cacheMutex)
+            lock (_cacheMutex)
             {
-                if (cachedIcons is null)
+                if (_cachedIcons is null)
                 {
                     RebuildCache();
                 }
 
-                foreach (Icon icon in cachedIcons!)
+                foreach (Icon icon in _cachedIcons!)
                 {
                     if (icon.Style == style)
                     {

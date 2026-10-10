@@ -27,7 +27,7 @@ namespace IconManager
         private const string DefaultFontForgeFilePathWindows = @"C:\Program Files (x86)\FontForgeBuilds\run_fontforge.exe";
         private const string DefaultFontForgeFilePathMacOS   = @"/Applications/FontForge.app";
 
-        private static object directoryMutex = new object();
+        private static object _directoryMutex = new object();
 
         /***************************************************************************************
          *
@@ -136,7 +136,7 @@ namespace IconManager
 
             // We don't want potentially more than 1 thread determining the next available
             // directory at the same time
-            lock (directoryMutex)
+            lock (_directoryMutex)
             {
                 do
                 {

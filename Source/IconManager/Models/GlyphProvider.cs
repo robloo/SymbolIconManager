@@ -17,16 +17,16 @@ namespace IconManager.Models
     /// </summary>
     public static class GlyphProvider
     {
-        private static Dictionary<string, SKFont> cachedFonts = new Dictionary<string, SKFont>();  // IconSet/file name is key
+        private static Dictionary<string, SKFont> _cachedFonts = new Dictionary<string, SKFont>();  // IconSet/file name is key
 
-        private static List<string>? cachedLocalFluentUISystemGlyphSourcePaths  = null;
-        private static List<string>? cachedLocalLineAwesomeGlyphSourcePaths     = null;
-        private static List<string>? cachedRemoteFluentUISystemGlyphSourcePaths = null;
-        private static List<string>? cachedRemoteLineAwesomeGlyphSourcePaths    = null;
+        private static List<string>? _cachedLocalFluentUISystemGlyphSourcePaths  = null;
+        private static List<string>? _cachedLocalLineAwesomeGlyphSourcePaths     = null;
+        private static List<string>? _cachedRemoteFluentUISystemGlyphSourcePaths = null;
+        private static List<string>? _cachedRemoteLineAwesomeGlyphSourcePaths    = null;
 
-        private static object cacheMutex                    = new object();
-        private static object cachedLocalGlyphSourcesMutex  = new object();
-        private static object cachedRemoteGlyphSourcesMutex = new object();
+        private static object _cacheMutex                    = new object();
+        private static object _cachedLocalGlyphSourcesMutex  = new object();
+        private static object _cachedRemoteGlyphSourcesMutex = new object();
 
         /// <summary>
         /// Gets all possible glyph sources for the given icon set and Unicode point.
@@ -117,9 +117,9 @@ namespace IconManager.Models
                 "Source\\Data"
             };
 
-            lock (cacheMutex)
+            lock (_cacheMutex)
             {
-                if (cachedFonts.TryGetValue(fontKey, out font) == false)
+                if (_cachedFonts.TryGetValue(fontKey, out font) == false)
                 {
                     // Handle IconSet names first
                     if (Enum.TryParse(typeof(IconSet), fontKey, out object? parsedIconSet) &&
@@ -188,7 +188,7 @@ namespace IconManager.Models
                                     Size     = renderWidth // In pixels not points
                                 };
 
-                                cachedFonts.Add(fontKey, font);
+                                _cachedFonts.Add(fontKey, font);
                                 return font;
                             }
                         }
@@ -204,7 +204,7 @@ namespace IconManager.Models
                                     Size     = renderWidth // In pixels not points
                                 };
 
-                                cachedFonts.Add(fontKey, font);
+                                _cachedFonts.Add(fontKey, font);
                                 return font;
                             }
                         }
@@ -248,14 +248,14 @@ namespace IconManager.Models
                         return null;
                     }
 
-                    if (cachedLocalFluentUISystemGlyphSourcePaths is null)
+                    if (_cachedLocalFluentUISystemGlyphSourcePaths is null)
                     {
                         GlyphProvider.BuildLocalGlyphSourcePathsCache(IconSetFamily.FluentUISystem);
                     }
 
-                    lock (cachedLocalGlyphSourcesMutex)
+                    lock (_cachedLocalGlyphSourcesMutex)
                     {
-                        glyphFilePaths = cachedLocalFluentUISystemGlyphSourcePaths!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
+                        glyphFilePaths = _cachedLocalFluentUISystemGlyphSourcePaths!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
                     }
 
                     // Use the relativeGlyphUrl with the smallest directory structure
@@ -313,14 +313,14 @@ namespace IconManager.Models
                             break;
                     }
 
-                    if (cachedLocalLineAwesomeGlyphSourcePaths is null)
+                    if (_cachedLocalLineAwesomeGlyphSourcePaths is null)
                     {
                         GlyphProvider.BuildLocalGlyphSourcePathsCache(IconSetFamily.LineAwesome);
                     }
 
-                    lock (cachedLocalGlyphSourcesMutex)
+                    lock (_cachedLocalGlyphSourcesMutex)
                     {
-                        glyphFilePaths = cachedLocalLineAwesomeGlyphSourcePaths!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
+                        glyphFilePaths = _cachedLocalLineAwesomeGlyphSourcePaths!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
 
                         if (glyphFilePaths.Count == 0)
                         {
@@ -328,7 +328,7 @@ namespace IconManager.Models
                             // This is necessary for the Line Awesome font family because exact names are not enforced
                             // There is often some slight variation such as 'unlink' name with 'unlink-solid.svg' file
                             // In this example some file names have the style added to the end
-                            glyphFilePaths = cachedLocalLineAwesomeGlyphSourcePaths!.FindAll(s => s.Contains(nameBase));
+                            glyphFilePaths = _cachedLocalLineAwesomeGlyphSourcePaths!.FindAll(s => s.Contains(nameBase));
                         }
                     }
 
@@ -397,9 +397,9 @@ namespace IconManager.Models
                         return null;
                     }
 
-                    lock (cachedRemoteGlyphSourcesMutex)
+                    lock (_cachedRemoteGlyphSourcesMutex)
                     {
-                        if (cachedRemoteFluentUISystemGlyphSourcePaths is null)
+                        if (_cachedRemoteFluentUISystemGlyphSourcePaths is null)
                         {
                             // Rebuild the cache
                             var sources = new List<string>();
@@ -419,10 +419,10 @@ namespace IconManager.Models
                                 }
                             }
 
-                            cachedRemoteFluentUISystemGlyphSourcePaths = sources;
+                            _cachedRemoteFluentUISystemGlyphSourcePaths = sources;
                         }
 
-                        relativeGlyphUrls = cachedRemoteFluentUISystemGlyphSourcePaths!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
+                        relativeGlyphUrls = _cachedRemoteFluentUISystemGlyphSourcePaths!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
                     }
 
                     // Use the relativeGlyphUrl with the smallest directory structure
@@ -486,9 +486,9 @@ namespace IconManager.Models
                             break;
                     }
 
-                    lock (cachedRemoteGlyphSourcesMutex)
+                    lock (_cachedRemoteGlyphSourcesMutex)
                     {
-                        if (cachedRemoteLineAwesomeGlyphSourcePaths is null)
+                        if (_cachedRemoteLineAwesomeGlyphSourcePaths is null)
                         {
                             // Rebuild the cache
                             var sources = new List<string>();
@@ -508,10 +508,10 @@ namespace IconManager.Models
                                 }
                             }
 
-                            cachedRemoteLineAwesomeGlyphSourcePaths = sources;
+                            _cachedRemoteLineAwesomeGlyphSourcePaths = sources;
                         }
 
-                        relativeGlyphUrls = cachedRemoteLineAwesomeGlyphSourcePaths!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
+                        relativeGlyphUrls = _cachedRemoteLineAwesomeGlyphSourcePaths!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
 
                         if (relativeGlyphUrls.Count == 0)
                         {
@@ -519,7 +519,7 @@ namespace IconManager.Models
                             // This is necessary for the Line Awesome font family because exact names are not enforced
                             // There is often some slight variation such as 'unlink' name with 'unlink-solid.svg' file
                             // In this example some file names have the style added to the end
-                            relativeGlyphUrls = cachedRemoteLineAwesomeGlyphSourcePaths!.FindAll(s => s.Contains(nameBase));
+                            relativeGlyphUrls = _cachedRemoteLineAwesomeGlyphSourcePaths!.FindAll(s => s.Contains(nameBase));
                         }
                     }
 
@@ -683,7 +683,7 @@ namespace IconManager.Models
         /// <param name="iconSetFamily">The icon set family to build glyph source paths for.</param>
         private static void BuildLocalGlyphSourcePathsCache(IconSetFamily iconSetFamily)
         {
-            lock (cachedLocalGlyphSourcesMutex)
+            lock (_cachedLocalGlyphSourcesMutex)
             {
                 List<string> glyphSourcePaths = new List<string>();
                 List<string> searchDirectories = new List<string>();
@@ -695,13 +695,13 @@ namespace IconManager.Models
                 {
                     searchDirectories.Add(Path.Combine(sourceDirectoryPath, "IconManager.IconSets", "FluentUISystem", "GlyphSources"));
                     EnumerateGlyphSources();
-                    cachedLocalFluentUISystemGlyphSourcePaths = glyphSourcePaths;
+                    _cachedLocalFluentUISystemGlyphSourcePaths = glyphSourcePaths;
                 }
                 else if (iconSetFamily == IconSetFamily.LineAwesome)
                 {
                     searchDirectories.Add(Path.Combine(sourceDirectoryPath, "IconManager.IconSets", "LineAwesome", "GlyphSources"));
                     EnumerateGlyphSources();
-                    cachedLocalLineAwesomeGlyphSourcePaths = glyphSourcePaths;
+                    _cachedLocalLineAwesomeGlyphSourcePaths = glyphSourcePaths;
                 }
 
                 // Local function to scan the file system and enumerate all matching file paths

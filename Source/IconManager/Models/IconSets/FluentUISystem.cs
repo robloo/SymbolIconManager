@@ -60,13 +60,13 @@ namespace IconManager
             iOS
         }
 
-        private static IReadOnlyList<Icon>? cachedIcons = null;
-        private static IReadOnlyDictionary<uint, string>? cachedFilledNames  = null;
-        private static IReadOnlyDictionary<uint, string>? cachedRegularNames = null;
-        private static IReadOnlyList<Tuple<string, string>>? cachedDeprecatedNames = null;
+        private static IReadOnlyList<Icon>? _cachedIcons = null;
+        private static IReadOnlyDictionary<uint, string>? _cachedFilledNames  = null;
+        private static IReadOnlyDictionary<uint, string>? _cachedRegularNames = null;
+        private static IReadOnlyList<Tuple<string, string>>? _cachedDeprecatedNames = null;
 
-        private static object cacheMutex           = new object();
-        private static object deprecatedNamesMutex = new object();
+        private static object _cacheMutex           = new object();
+        private static object _deprecatedNamesMutex = new object();
 
         /***************************************************************************************
          *
@@ -148,11 +148,11 @@ namespace IconManager
                 }
             }
 
-            lock (cacheMutex)
+            lock (_cacheMutex)
             {
-                cachedIcons        = icons.AsReadOnly();
-                cachedFilledNames  = filledNames;
-                cachedRegularNames = regularNames;
+                _cachedIcons        = icons.AsReadOnly();
+                _cachedFilledNames  = filledNames;
+                _cachedRegularNames = regularNames;
             }
 
             return;
@@ -218,9 +218,9 @@ namespace IconManager
                 }
             }
 
-            lock (deprecatedNamesMutex)
+            lock (_deprecatedNamesMutex)
             {
-                cachedDeprecatedNames = deprecatedNames;
+                _cachedDeprecatedNames = deprecatedNames;
             }
 
             // Local function to extract the base name from a Fluent UI System icon name
@@ -290,21 +290,21 @@ namespace IconManager
         {
             string? name = null;
 
-            lock (cacheMutex)
+            lock (_cacheMutex)
             {
-                if (cachedFilledNames is null ||
-                    cachedRegularNames is null)
+                if (_cachedFilledNames is null ||
+                    _cachedRegularNames is null)
                 {
                     RebuildCache();
                 }
 
                 if (theme == IconTheme.Filled)
                 {
-                    cachedFilledNames!.TryGetValue(unicodePoint, out name);
+                    _cachedFilledNames!.TryGetValue(unicodePoint, out name);
                 }
                 else
                 {
-                    cachedRegularNames!.TryGetValue(unicodePoint, out name);
+                    _cachedRegularNames!.TryGetValue(unicodePoint, out name);
                 }
             }
 
@@ -319,15 +319,15 @@ namespace IconManager
         {
             get
             {
-                lock (cacheMutex)
+                lock (_cacheMutex)
                 {
-                    if (cachedIcons is null)
+                    if (_cachedIcons is null)
                     {
                         RebuildCache();
                     }
                 }
 
-                return cachedIcons!;
+                return _cachedIcons!;
             }
         }
 
@@ -338,14 +338,14 @@ namespace IconManager
         {
             var matchingIcons = new List<Icon>();
 
-            lock (cacheMutex)
+            lock (_cacheMutex)
             {
-                if (cachedIcons is null)
+                if (_cachedIcons is null)
                 {
                     RebuildCache();
                 }
 
-                foreach (Icon icon in cachedIcons!)
+                foreach (Icon icon in _cachedIcons!)
                 {
                     if (icon.Theme == theme)
                     {
@@ -362,14 +362,14 @@ namespace IconManager
             IconSize desiredSize,
             IconTheme desiredTheme)
         {
-            lock (cacheMutex)
+            lock (_cacheMutex)
             {
-                if (cachedIcons is null)
+                if (_cachedIcons is null)
                 {
                     RebuildCache();
                 }
 
-                foreach (Icon icon in cachedIcons!)
+                foreach (Icon icon in _cachedIcons!)
                 {
                     if (string.Equals(icon.BaseNameKey, baseNameKey, StringComparison.OrdinalIgnoreCase) &&
                         icon.Size == desiredSize &&
@@ -392,14 +392,14 @@ namespace IconManager
         {
             var matchingIcons = new List<Icon>();
 
-            lock (cacheMutex)
+            lock (_cacheMutex)
             {
-                if (cachedIcons is null)
+                if (_cachedIcons is null)
                 {
                     RebuildCache();
                 }
 
-                foreach (Icon icon in cachedIcons!)
+                foreach (Icon icon in _cachedIcons!)
                 {
                     if (string.Equals(icon.BaseNameKey, baseNameKey, StringComparison.OrdinalIgnoreCase) &&
                         icon.Theme == desiredTheme)
@@ -421,14 +421,14 @@ namespace IconManager
         {
             var matchingIcons = new List<Icon>();
 
-            lock (cacheMutex)
+            lock (_cacheMutex)
             {
-                if (cachedIcons is null)
+                if (_cachedIcons is null)
                 {
                     RebuildCache();
                 }
 
-                foreach (Icon icon in cachedIcons!)
+                foreach (Icon icon in _cachedIcons!)
                 {
                     if (string.Equals(icon.BaseNameKey, baseNameKey, StringComparison.OrdinalIgnoreCase) &&
                         icon.Size == desiredSize)
@@ -646,14 +646,14 @@ namespace IconManager
             if (string.IsNullOrEmpty(baseNameKey) == false)
             {
                 // Search for an updated name
-                lock (deprecatedNamesMutex)
+                lock (_deprecatedNamesMutex)
                 {
-                    if (cachedDeprecatedNames is null)
+                    if (_cachedDeprecatedNames is null)
                     {
                         RebuildDeprecatedNamesCache();
                     }
 
-                    foreach (var entry in cachedDeprecatedNames!)
+                    foreach (var entry in _cachedDeprecatedNames!)
                     {
                         if (string.Equals(baseNameKey, entry.Item1, StringComparison.OrdinalIgnoreCase))
                         {

@@ -10,8 +10,8 @@ namespace IconManager
     /// </summary>
     public class Log
     {
-        private List<string> messages = new List<string>();
-        private object messagesMutex = new object();
+        private List<string> _messages = new List<string>();
+        private object _messagesMutex = new object();
 
         /// <summary>
         /// Gets a value indicating whether the log is empty.
@@ -22,9 +22,9 @@ namespace IconManager
             {
                 bool isEmpty;
 
-                lock (messagesMutex)
+                lock (_messagesMutex)
                 {
-                    isEmpty = this.messages.Count == 0;
+                    isEmpty = this._messages.Count == 0;
                 }
 
                 return isEmpty;
@@ -37,9 +37,9 @@ namespace IconManager
         /// <param name="message">The message to log.</param>
         public void Error(string message)
         {
-            lock (messagesMutex)
+            lock (_messagesMutex)
             {
-                messages.Add($"Error: {message}");
+                _messages.Add($"Error: {message}");
             }
 
             return;
@@ -51,9 +51,9 @@ namespace IconManager
         /// <param name="message">The message to log.</param>
         public void Message(string message)
         {
-            lock (messagesMutex)
+            lock (_messagesMutex)
             {
-                messages.Add(message);
+                _messages.Add(message);
             }
 
             return;
@@ -68,9 +68,9 @@ namespace IconManager
         {
             string log;
 
-            lock (messagesMutex)
+            lock (_messagesMutex)
             {
-                log = string.Join(Environment.NewLine, messages);
+                log = string.Join(Environment.NewLine, _messages);
             }
 
             if (string.IsNullOrWhiteSpace(filePath) == false)
