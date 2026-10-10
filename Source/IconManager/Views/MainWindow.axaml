@@ -35,7 +35,11 @@
         <!-- Application Tools -->
         <TabItem
             Header="App Tools">
-            <AppToolsView />
+            <AppToolsView>
+                <AppToolsView.DataContext>
+                    <AppToolsViewModel />
+                </AppToolsView.DataContext>
+            </AppToolsView>
         </TabItem>
 
         <!-- Font Management -->

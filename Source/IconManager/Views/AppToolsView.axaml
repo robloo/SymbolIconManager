@@ -1,16 +1,17 @@
 ﻿<UserControl
-    x:Class="IconManager.AppToolsView"
+    x:Class="IconManager.Views.AppToolsView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="clr-namespace:IconManager"
     mc:Ignorable="d"
+    x:DataType="AppToolsViewModel"
     d:DesignHeight="450"
     d:DesignWidth="800">
     <Grid
         RowDefinitions="Auto,*"
         Margin="10">
+
         <Grid
             Grid.Row="0"
             HorizontalAlignment="Left"
@@ -24,27 +25,30 @@
                 VerticalAlignment="Center"
                 Text="Source Code:" />
             <TextBlock
-                x:Name="SourcePathTextBlock"
                 Grid.Row="0"
-                Grid.Column="1" />
+                Grid.Column="1"
+                Text="{Binding SourceDirectory, Mode=OneWay}" />
             <Button
                 x:Name="SourceDirectoryButton"
                 Grid.Row="1"
                 Grid.Column="1"
                 Content="Select Folder"
-                Click="SourceDirectoryButton_Click" />
+                Command="{Binding SelectSourceDirectoryCommand}" />
             <TextBlock
                 Grid.Row="2"
                 Grid.Column="0"
                 Margin="0,0,5,0"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
-                Text="Source Icon Set:" />
+                Text="{Binding SelectedSourceIconSet, StringFormat='Source Icon Set: {0}'}" />
             <ComboBox
                 x:Name="SourceIconSetComboBox"
                 Grid.Row="2"
-                Grid.Column="1" />
+                Grid.Column="1"
+                ItemsSource="{Binding SourceIconSets}"
+                SelectedItem="{Binding SelectedSourceIconSet}" />
         </Grid>
+
         <StackPanel
             Grid.Row="0"
             Orientation="Horizontal"
@@ -54,42 +58,38 @@
                 Margin="0,0,5,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Text="{Binding ListedIcons.Count, StringFormat='Count: {0}'}" />
+                Text="{Binding DisplayedIcons.Count, StringFormat='Count: {0}'}" />
             <Button
                 x:Name="ListIconsButton"
                 Content="List Used Icons"
-                Click="ListIconsButton_Click" />
+                Command="{Binding ListIconsCommand}" />
             <Button
                 x:Name="RemapIconsButton"
                 Content="Remap Icons"
-                Click="RemapIconsButton_Click" />
+                Command="{Binding RemapIconsCommand}" />
             <Button
                 x:Name="ExportToMappingsButton"
                 Content="Export to Mappings"
-                Click="ExportToMappingsButton_Click" />
+                Command="{Binding ExportToMappingsCommand}" />
             <Button
                 x:Name="ExportToImagesButton"
                 Content="Export to Images"
-                Click="ExportToImagesButton_Click" />
+                Command="{Binding ExportToImagesCommand}" />
             <Button
                 x:Name="ExportFileToImagesButton"
                 Content="Export File to Images"
-                Click="ExportFileToImagesButton_Click" />
-            <Button
-                x:Name="BuildFontButton"
-                Content="Build Font"
-                IsEnabled="False"
-                Click="BuildFontButton_Click" />
+                Command="{Binding ExportFileToImagesCommand}" />
         </StackPanel>
+
         <ListBox
             x:Name="ListBox"
             Grid.Row="1"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
-            ItemsSource="{Binding ListedIcons}">
+            ItemsSource="{Binding DisplayedIcons}">
             <ListBox.ItemTemplate>
                 <DataTemplate
-                    DataType="local:IconViewModel">
+                    DataType="IconViewModel">
                     <Grid
                         ColumnDefinitions="Auto,Auto,*">
                         <Image
