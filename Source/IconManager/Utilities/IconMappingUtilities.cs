@@ -52,7 +52,7 @@ namespace IconManager.Utilities
                 if (mapping.Source.IconSet == IconSet.FluentUISystemFilled ||
                     mapping.Source.IconSet == IconSet.FluentUISystemRegular)
                 {
-                    var icon = new FluentUISystem.Icon()
+                    var icon = new FluentUISystemIcon()
                     {
                         Name         = mapping.Source.Name,
                         UnicodePoint = mapping.Source.UnicodePoint
