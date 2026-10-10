@@ -13,8 +13,8 @@ namespace IconManager
     /// </summary>
     public class SegoeMDL2Assets : IconSetBase
     {
-        private static IReadOnlyList<Icon>?               _cachedIcons = null;
-        private static IReadOnlyDictionary<uint, string>? _cachedNames = null;
+        private static IReadOnlyList<SegoeMDL2AssetsIcon>? _cachedIcons = null;
+        private static IReadOnlyDictionary<uint, string>?  _cachedNames = null;
 
         private static Lock _cacheLock = new();
 
@@ -26,7 +26,7 @@ namespace IconManager
 
         private static void RebuildCache()
         {
-            var icons = new List<Icon>();
+            var icons = new List<SegoeMDL2AssetsIcon>();
             var names = new Dictionary<uint, string>();
 
             using (var sourceStream = AssetLoader.Open(new Uri(IconSets.Paths.SegoeMDL2Assets)))
@@ -39,7 +39,7 @@ namespace IconManager
                 {
                     foreach (var entry in rawIcons)
                     {
-                        var icon = new Icon()
+                        var icon = new SegoeMDL2AssetsIcon()
                         {
                             Name         = entry.Value,
                             UnicodePoint = Convert.ToUInt32(entry.Key, 16)
@@ -93,23 +93,6 @@ namespace IconManager
                 }
 
                 return _cachedIcons!;
-            }
-        }
-
-        /***************************************************************************************
-         *
-         * Classes
-         *
-         ***************************************************************************************/
-
-        /// <summary>
-        /// Represents a single icon in Segoe MDL2 Assets.
-        /// </summary>
-        public class Icon : IconManager.Core.Icons.Icon, IIcon
-        {
-            public Icon() : base()
-            {
-                base.IconSet = IconSet.SegoeMDL2Assets;
             }
         }
     }
