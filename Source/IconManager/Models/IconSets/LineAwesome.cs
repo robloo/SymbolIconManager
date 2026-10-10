@@ -44,7 +44,7 @@ namespace IconManager
             Solid
         }
 
-        private static IReadOnlyList<Icon>? _cachedIcons = null;
+        private static IReadOnlyList<LineAwesomeIcon>? _cachedIcons = null;
         private static IReadOnlyDictionary<uint, string>? _cachedBrandNames   = null;
         private static IReadOnlyDictionary<uint, string>? _cachedRegularNames = null;
         private static IReadOnlyDictionary<uint, string>? _cachedSolidNames   = null;
@@ -59,7 +59,7 @@ namespace IconManager
 
         private static void RebuildCache()
         {
-            var icons = new List<Icon>();
+            var icons = new List<LineAwesomeIcon>();
             var brandNames = new Dictionary<uint, string>();
             var regularNames = new Dictionary<uint, string>();
             var solidNames = new Dictionary<uint, string>();
@@ -92,7 +92,7 @@ namespace IconManager
                     {
                         foreach (var rawIcon in rawIcons)
                         {
-                            var icon = new Icon()
+                            var icon = new LineAwesomeIcon()
                             {
                                 // IconSet is determined automatically from Style
                                 Name         = rawIcon.Value,
@@ -185,7 +185,7 @@ namespace IconManager
         /// </summary>
         public static IReadOnlyList<IReadOnlyIcon> GetIcons(IconStyle style)
         {
-            var matchingIcons = new List<Icon>();
+            var matchingIcons = new List<LineAwesomeIcon>();
 
             lock (_cacheLock)
             {
@@ -194,7 +194,7 @@ namespace IconManager
                     RebuildCache();
                 }
 
-                foreach (Icon icon in _cachedIcons!)
+                foreach (LineAwesomeIcon icon in _cachedIcons!)
                 {
                     if (icon.Style == style)
                     {
@@ -244,108 +244,6 @@ namespace IconManager
             }
 
             return;
-        }
-
-        /***************************************************************************************
-         *
-         * Classes
-         *
-         ***************************************************************************************/
-
-        /// <summary>
-        /// Represents a single icon in the Line Awesome icon set.
-        /// </summary>
-        public class Icon : IIcon
-        {
-            /***************************************************************************************
-             *
-             * Property Accessors
-             *
-             ***************************************************************************************/
-
-            ///////////////////////////////////////////////////////////
-            // Data
-            ///////////////////////////////////////////////////////////
-
-            /// <inheritdoc/>
-            public IconSet IconSet
-            {
-                get
-                {
-                    if (this.Style == IconStyle.Brand)
-                    {
-                        return IconSet.LineAwesomeBrand;
-                    }
-                    else if (this.Style == IconStyle.Solid)
-                    {
-                        return IconSet.LineAwesomeSolid;
-                    }
-                    else
-                    {
-                        return IconSet.LineAwesomeRegular;
-                    }
-                }
-                set { /* Do nothing */ }
-            }
-
-            /// <inheritdoc/>
-            public string Name { get; set; } = string.Empty;
-
-            /// <summary>
-            /// Gets or sets the Line Awesome style of the icon.
-            /// </summary>
-            public IconStyle Style { get; set; } = IconStyle.Regular;
-
-            /// <inheritdoc/>
-            public uint UnicodePoint { get; set; } = 0;
-
-            ///////////////////////////////////////////////////////////
-            // Calculated
-            ///////////////////////////////////////////////////////////
-
-            /// <inheritdoc/>
-            public string UnicodeHexString
-            {
-                get => IconManager.Core.Icons.Icon.ToUnicodeHexString(this.UnicodePoint);
-            }
-
-            /***************************************************************************************
-             *
-             * Methods
-             *
-             ***************************************************************************************/
-
-            /// <summary>
-            /// Creates a new <see cref="Icon"/> instance from this instance's values.
-            /// </summary>
-            /// <returns>The cloned <see cref="Icon"/>.</returns>
-            public Icon Clone()
-            {
-                var clone = new Icon()
-                {
-                    Name         = this.Name,
-                    Style        = this.Style,
-                    UnicodePoint = this.UnicodePoint
-                };
-
-                return clone;
-            }
-
-            /// <summary>
-            /// Converts this <see cref="LineAwesome.Icon"/> into a standard <see cref="IconManager.Icon"/>.
-            /// This is sometimes needed because <see cref="LineAwesome.Icon"/> does not derive from
-            /// <see cref="IconManager.Icon"/> like most other icons do. It only implements the interface.
-            /// </summary>
-            /// <returns>A new <see cref="IconManager.Icon"/>.</returns>
-            public IconManager.Core.Icons.Icon AsIcon()
-            {
-                return new IconManager.Core.Icons.Icon()
-                {
-                    IconSet      = this.IconSet,
-                    Name         = this.Name,
-                    UnicodePoint = this.UnicodePoint
-                };
-            }
         }
     }
 }

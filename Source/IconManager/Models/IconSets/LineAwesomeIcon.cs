@@ -1,12 +1,12 @@
 ﻿using IconManager.Core.Icons;
-using static IconManager.FluentUISystem;
+using static IconManager.LineAwesome;
 
 namespace IconManager
 {
     /// <summary>
-    /// Represents a single icon in the Fluent UI System.
+    /// Represents a single icon in the Line Awesome icon set.
     /// </summary>
-    public class FluentUISystemIcon : FluentUISystemIconName, IIcon
+    public class LineAwesomeIcon : IIcon
     {
         /***************************************************************************************
          *
@@ -15,9 +15,9 @@ namespace IconManager
          ***************************************************************************************/
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FluentUISystemIcon"/> class.
+        /// Initializes a new instance of the <see cref="LineAwesomeIcon"/> class.
         /// </summary>
-        public FluentUISystemIcon()
+        public LineAwesomeIcon()
         {
         }
 
@@ -36,22 +36,29 @@ namespace IconManager
         {
             get
             {
-                if (this.Theme == IconTheme.Filled)
+                if (this.Style == IconStyle.Brand)
                 {
-                    return IconSet.FluentUISystemFilled;
+                    return IconSet.LineAwesomeBrand;
+                }
+                else if (this.Style == IconStyle.Solid)
+                {
+                    return IconSet.LineAwesomeSolid;
                 }
                 else
                 {
-                    return IconSet.FluentUISystemRegular;
+                    return IconSet.LineAwesomeRegular;
                 }
             }
             set { /* Do nothing */ }
         }
 
+        /// <inheritdoc/>
+        public string Name { get; set; } = string.Empty;
+
         /// <summary>
-        /// Gets or sets the raw, unparsed name or description of the icon.
+        /// Gets or sets the Line Awesome style of the icon.
         /// </summary>
-        public string RawName { get; set; } = string.Empty;
+        public IconStyle Style { get; set; } = IconStyle.Regular;
 
         /// <inheritdoc/>
         public uint UnicodePoint { get; set; } = 0;
@@ -68,20 +75,20 @@ namespace IconManager
 
         /***************************************************************************************
         *
-        * Public Methods
+        * Methods
         *
         ***************************************************************************************/
 
         /// <summary>
-        /// Creates a new <see cref="FluentUISystemIcon"/> instance from this instance's values.
+        /// Creates a new <see cref="LineAwesomeIcon"/> instance from this instance's values.
         /// </summary>
-        /// <returns>The cloned <see cref="FluentUISystemIcon"/>.</returns>
-        public FluentUISystemIcon Clone()
+        /// <returns>The cloned <see cref="LineAwesomeIcon"/>.</returns>
+        public LineAwesomeIcon Clone()
         {
-            var clone = new FluentUISystemIcon()
+            var clone = new LineAwesomeIcon()
             {
-                RawName      = this.RawName,
-                Name         = this.Name, // Automatically parses into components
+                Name         = this.Name,
+                Style        = this.Style,
                 UnicodePoint = this.UnicodePoint
             };
 
@@ -89,10 +96,10 @@ namespace IconManager
         }
 
         /// <summary>
-        /// Converts this <see cref="FluentUISystemIcon"/> into a standard <see cref="Icon"/>.
+        /// Converts this <see cref="LineAwesomeIcon"/> into a standard <see cref="Icon"/>.
         /// </summary>
         /// <remarks>
-        /// This is sometimes needed because <see cref="FluentUISystemIcon"/> does not derive from
+        /// This is sometimes needed because <see cref="LineAwesomeIcon"/> does not derive from
         /// <see cref="Icon"/> like most other icons do. It only implements the interface.
         /// </remarks>
         /// <returns>A new <see cref="Icon"/>.</returns>
