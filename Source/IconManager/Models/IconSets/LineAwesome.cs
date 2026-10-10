@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Text.Json;
+using System.Threading;
 
 namespace IconManager
 {
@@ -48,7 +49,7 @@ namespace IconManager
         private static IReadOnlyDictionary<uint, string>? _cachedRegularNames = null;
         private static IReadOnlyDictionary<uint, string>? _cachedSolidNames   = null;
 
-        private static object _cacheMutex = new object();
+        private static Lock _cacheLock = new();
 
         /***************************************************************************************
          *
@@ -118,7 +119,7 @@ namespace IconManager
                 }
             }
 
-            lock (_cacheMutex)
+            lock (_cacheLock)
             {
                 _cachedIcons        = icons.AsReadOnly();
                 _cachedBrandNames   = brandNames;
@@ -133,7 +134,7 @@ namespace IconManager
         {
             string? name = null;
 
-            lock (_cacheMutex)
+            lock (_cacheLock)
             {
                 if (_cachedBrandNames is null ||
                     _cachedRegularNames is null ||
@@ -167,7 +168,7 @@ namespace IconManager
         {
             get
             {
-                lock (_cacheMutex)
+                lock (_cacheLock)
                 {
                     if (_cachedIcons is null)
                     {
@@ -186,7 +187,7 @@ namespace IconManager
         {
             var matchingIcons = new List<Icon>();
 
-            lock (_cacheMutex)
+            lock (_cacheLock)
             {
                 if (_cachedIcons is null)
                 {

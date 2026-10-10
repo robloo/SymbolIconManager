@@ -3,6 +3,7 @@ using IconManager.Models;
 using SkiaSharp;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using Bitmap = Avalonia.Media.Imaging.Bitmap;
 
@@ -21,7 +22,7 @@ namespace IconManager
         private static Dictionary<string, Bitmap>  _cachedGlyphs     = new Dictionary<string, Bitmap>();  // IconSet_UnicodePoint is key
         private static Dictionary<string, SKPaint> _cachedTextPaints = new Dictionary<string, SKPaint>(); // IconSet/file name is key
 
-        private static object _cacheMutex = new object();
+        private static Lock _cacheLock = new();
 
         /// <summary>
         /// Gets a preview bitmap of the glyph for the defined icon set and Unicode point.
@@ -42,7 +43,7 @@ namespace IconManager
             }
 
             // Attempt to quickly load and return the preview from the cache
-            lock (_cacheMutex)
+            lock (_cacheLock)
             {
                 if (_cachedGlyphs.TryGetValue(glyphKey, out result))
                 {
@@ -123,7 +124,7 @@ namespace IconManager
             // Therefore, within the lock, a check must be made to ensure a glyph was not already added
             if (result is not null)
             {
-                lock (_cacheMutex)
+                lock (_cacheLock)
                 {
                     if (_cachedGlyphs.ContainsKey(glyphKey) == false)
                     {
@@ -152,7 +153,7 @@ namespace IconManager
                 SKPaint? textPaint = null;
                 SKBitmap bitmap = new SKBitmap(renderWidth, renderHeight);
 
-                lock (_cacheMutex)
+                lock (_cacheLock)
                 {
                     // Load all SKPaint objects
                     if (_cachedBackgroundPaint is null)

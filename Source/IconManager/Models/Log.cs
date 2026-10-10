@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading;
 
 namespace IconManager
 {
@@ -11,7 +12,7 @@ namespace IconManager
     public class Log
     {
         private List<string> _messages = new List<string>();
-        private object _messagesMutex = new object();
+        private Lock _messagesLock = new();
 
         /// <summary>
         /// Gets a value indicating whether the log is empty.
@@ -22,7 +23,7 @@ namespace IconManager
             {
                 bool isEmpty;
 
-                lock (_messagesMutex)
+                lock (_messagesLock)
                 {
                     isEmpty = this._messages.Count == 0;
                 }
@@ -37,7 +38,7 @@ namespace IconManager
         /// <param name="message">The message to log.</param>
         public void Error(string message)
         {
-            lock (_messagesMutex)
+            lock (_messagesLock)
             {
                 _messages.Add($"Error: {message}");
             }
@@ -51,7 +52,7 @@ namespace IconManager
         /// <param name="message">The message to log.</param>
         public void Message(string message)
         {
-            lock (_messagesMutex)
+            lock (_messagesLock)
             {
                 _messages.Add(message);
             }
@@ -68,7 +69,7 @@ namespace IconManager
         {
             string log;
 
-            lock (_messagesMutex)
+            lock (_messagesLock)
             {
                 log = string.Join(Environment.NewLine, _messages);
             }

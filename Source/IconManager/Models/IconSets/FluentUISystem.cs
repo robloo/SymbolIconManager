@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
+using System.Threading;
 
 namespace IconManager
 {
@@ -65,8 +66,8 @@ namespace IconManager
         private static IReadOnlyDictionary<uint, string>? _cachedRegularNames = null;
         private static IReadOnlyList<Tuple<string, string>>? _cachedDeprecatedNames = null;
 
-        private static object _cacheMutex           = new object();
-        private static object _deprecatedNamesMutex = new object();
+        private static Lock _cacheLock           = new();
+        private static Lock _deprecatedNamesLock = new();
 
         /***************************************************************************************
          *
@@ -148,7 +149,7 @@ namespace IconManager
                 }
             }
 
-            lock (_cacheMutex)
+            lock (_cacheLock)
             {
                 _cachedIcons        = icons.AsReadOnly();
                 _cachedFilledNames  = filledNames;
@@ -218,7 +219,7 @@ namespace IconManager
                 }
             }
 
-            lock (_deprecatedNamesMutex)
+            lock (_deprecatedNamesLock)
             {
                 _cachedDeprecatedNames = deprecatedNames;
             }
@@ -290,7 +291,7 @@ namespace IconManager
         {
             string? name = null;
 
-            lock (_cacheMutex)
+            lock (_cacheLock)
             {
                 if (_cachedFilledNames is null ||
                     _cachedRegularNames is null)
@@ -319,7 +320,7 @@ namespace IconManager
         {
             get
             {
-                lock (_cacheMutex)
+                lock (_cacheLock)
                 {
                     if (_cachedIcons is null)
                     {
@@ -338,7 +339,7 @@ namespace IconManager
         {
             var matchingIcons = new List<Icon>();
 
-            lock (_cacheMutex)
+            lock (_cacheLock)
             {
                 if (_cachedIcons is null)
                 {
@@ -362,7 +363,7 @@ namespace IconManager
             IconSize desiredSize,
             IconTheme desiredTheme)
         {
-            lock (_cacheMutex)
+            lock (_cacheLock)
             {
                 if (_cachedIcons is null)
                 {
@@ -392,7 +393,7 @@ namespace IconManager
         {
             var matchingIcons = new List<Icon>();
 
-            lock (_cacheMutex)
+            lock (_cacheLock)
             {
                 if (_cachedIcons is null)
                 {
@@ -421,7 +422,7 @@ namespace IconManager
         {
             var matchingIcons = new List<Icon>();
 
-            lock (_cacheMutex)
+            lock (_cacheLock)
             {
                 if (_cachedIcons is null)
                 {
@@ -646,7 +647,7 @@ namespace IconManager
             if (string.IsNullOrEmpty(baseNameKey) == false)
             {
                 // Search for an updated name
-                lock (_deprecatedNamesMutex)
+                lock (_deprecatedNamesLock)
                 {
                     if (_cachedDeprecatedNames is null)
                     {

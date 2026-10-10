@@ -8,6 +8,7 @@ using System.IO;
 using System.Net.Http;
 using System.Reflection;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace IconManager.Models
@@ -24,9 +25,9 @@ namespace IconManager.Models
         private static List<string>? _cachedRemoteFluentUISystemGlyphSourcePaths = null;
         private static List<string>? _cachedRemoteLineAwesomeGlyphSourcePaths    = null;
 
-        private static object _cacheMutex                    = new object();
-        private static object _cachedLocalGlyphSourcesMutex  = new object();
-        private static object _cachedRemoteGlyphSourcesMutex = new object();
+        private static Lock _cacheLock                    = new();
+        private static Lock _cachedLocalGlyphSourcesLock  = new();
+        private static Lock _cachedRemoteGlyphSourcesLock = new();
 
         /// <summary>
         /// Gets all possible glyph sources for the given icon set and Unicode point.
@@ -117,7 +118,7 @@ namespace IconManager.Models
                 "Source\\Data"
             };
 
-            lock (_cacheMutex)
+            lock (_cacheLock)
             {
                 if (_cachedFonts.TryGetValue(fontKey, out font) == false)
                 {
@@ -253,7 +254,7 @@ namespace IconManager.Models
                         GlyphProvider.BuildLocalGlyphSourcePathsCache(IconSetFamily.FluentUISystem);
                     }
 
-                    lock (_cachedLocalGlyphSourcesMutex)
+                    lock (_cachedLocalGlyphSourcesLock)
                     {
                         glyphFilePaths = _cachedLocalFluentUISystemGlyphSourcePaths!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
                     }
@@ -318,7 +319,7 @@ namespace IconManager.Models
                         GlyphProvider.BuildLocalGlyphSourcePathsCache(IconSetFamily.LineAwesome);
                     }
 
-                    lock (_cachedLocalGlyphSourcesMutex)
+                    lock (_cachedLocalGlyphSourcesLock)
                     {
                         glyphFilePaths = _cachedLocalLineAwesomeGlyphSourcePaths!.FindAll(s => s.EndsWith($@"{nameBase}.svg"));
 
@@ -397,7 +398,7 @@ namespace IconManager.Models
                         return null;
                     }
 
-                    lock (_cachedRemoteGlyphSourcesMutex)
+                    lock (_cachedRemoteGlyphSourcesLock)
                     {
                         if (_cachedRemoteFluentUISystemGlyphSourcePaths is null)
                         {
@@ -486,7 +487,7 @@ namespace IconManager.Models
                             break;
                     }
 
-                    lock (_cachedRemoteGlyphSourcesMutex)
+                    lock (_cachedRemoteGlyphSourcesLock)
                     {
                         if (_cachedRemoteLineAwesomeGlyphSourcePaths is null)
                         {
@@ -683,7 +684,7 @@ namespace IconManager.Models
         /// <param name="iconSetFamily">The icon set family to build glyph source paths for.</param>
         private static void BuildLocalGlyphSourcePathsCache(IconSetFamily iconSetFamily)
         {
-            lock (_cachedLocalGlyphSourcesMutex)
+            lock (_cachedLocalGlyphSourcesLock)
             {
                 List<string> glyphSourcePaths = new List<string>();
                 List<string> searchDirectories = new List<string>();
