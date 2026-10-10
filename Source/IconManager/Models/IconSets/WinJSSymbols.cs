@@ -13,7 +13,7 @@ namespace IconManager
     /// </summary>
     public class WinJSSymbols : IconSetBase
     {
-        private static IReadOnlyList<Icon>?               _cachedIcons = null;
+        private static IReadOnlyList<WinJSSymbolsIcon>?   _cachedIcons = null;
         private static IReadOnlyDictionary<uint, string>? _cachedNames = null;
 
         private static Lock _cacheLock = new();
@@ -26,7 +26,7 @@ namespace IconManager
 
         private static void RebuildCache()
         {
-            var icons = new List<Icon>();
+            var icons = new List<WinJSSymbolsIcon>();
             var names = new Dictionary<uint, string>();
 
             using (var sourceStream = AssetLoader.Open(new Uri(IconSets.Paths.WinJSSymbols)))
@@ -39,7 +39,7 @@ namespace IconManager
                 {
                     foreach (var entry in rawIcons)
                     {
-                        var icon = new Icon()
+                        var icon = new WinJSSymbolsIcon()
                         {
                             Name         = entry.Value,
                             UnicodePoint = Convert.ToUInt32(entry.Key.Substring(2), 16) // Remove 'U+'
@@ -93,23 +93,6 @@ namespace IconManager
                 }
 
                 return _cachedIcons!;
-            }
-        }
-
-        /***************************************************************************************
-         *
-         * Classes
-         *
-         ***************************************************************************************/
-
-        /// <summary>
-        /// Represents a single icon in WinJS Symbols.
-        /// </summary>
-        public class Icon : IconManager.Core.Icons.Icon, IIcon
-        {
-            public Icon() : base()
-            {
-                base.IconSet = IconSet.WinJSSymbols;
             }
         }
     }
