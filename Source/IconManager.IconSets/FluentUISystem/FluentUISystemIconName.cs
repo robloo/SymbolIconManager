@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Text;
-using static IconManager.FluentUISystem;
+using static IconManager.IconSets.FluentUISystem;
 
 namespace IconManager.IconSets
 {

@@ -219,7 +219,7 @@ namespace IconManager.IconSets
             List<string> glyphSources = new List<string>();
             string lineAwesomeCacheDirectory = @"line-awesome";
 
-            string searchDirectory = Path.Combine(App.IconManagerCache, lineAwesomeCacheDirectory, "svg");
+            string searchDirectory = Path.Combine(Paths.IconManagerCache, lineAwesomeCacheDirectory, "svg");
 
             foreach (string filePath in Directory.EnumerateFiles(searchDirectory, "*.*", SearchOption.AllDirectories))
             {
@@ -238,7 +238,7 @@ namespace IconManager.IconSets
                     WriteIndented = true
                 });
 
-            using (var fileStream = File.OpenWrite(Path.Combine(App.IconManagerCache, "LineAwesomeGlyphSources.json")))
+            using (var fileStream = File.OpenWrite(Path.Combine(Paths.IconManagerCache, "LineAwesomeGlyphSources.json")))
             {
                 fileStream.Write(Encoding.UTF8.GetBytes(jsonString));
             }

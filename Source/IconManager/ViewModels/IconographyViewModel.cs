@@ -1,4 +1,5 @@
 ﻿using IconManager.Core.Icons;
+using IconManager.IconSets;
 using IconManager.Views;
 using System;
 using System.Collections.Generic;

@@ -684,9 +684,9 @@ namespace IconManager.IconSets
             List<string> searchDirectories = new List<string>();
             string fluentUISystemCacheDirectory = @"fluentui-system-icons";
 
-            searchDirectories.Add(Path.Combine(App.IconManagerCache, fluentUISystemCacheDirectory, "assets"));
+            searchDirectories.Add(Path.Combine(Paths.IconManagerCache, fluentUISystemCacheDirectory, "assets"));
             //searchDirectories.Add(Path.Combine(new string[] {
-            //    App.IconManagerCache,
+            //    Paths.IconManagerCache,
             //    fluentUISystemCacheDirectory,
             //    "ios",
             //    "FluentIcons",
@@ -713,7 +713,7 @@ namespace IconManager.IconSets
                     WriteIndented = true
                 });
 
-            using (var fileStream = File.OpenWrite(Path.Combine(App.IconManagerCache, "FluentUISystemGlyphSources.json")))
+            using (var fileStream = File.OpenWrite(Path.Combine(Paths.IconManagerCache, "FluentUISystemGlyphSources.json")))
             {
                 fileStream.Write(Encoding.UTF8.GetBytes(jsonString));
             }

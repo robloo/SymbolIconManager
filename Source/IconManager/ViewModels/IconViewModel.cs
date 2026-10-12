@@ -1,5 +1,6 @@
 ﻿using Avalonia.Media.Imaging;
 using IconManager.Core.Icons;
+using IconManager.IconSets;
 using System;
 using System.Collections.ObjectModel;
 

@@ -1,7 +1,18 @@
-﻿namespace IconManager.IconSets
+﻿using System;
+using System.IO;
+
+namespace IconManager.IconSets
 {
     public static class Paths
     {
+        /// <summary>
+        /// Contains the directory to the root of the icon manager cache.
+        /// This is commonly used for saving glyph images and source files.
+        /// </summary>
+        public static readonly string IconManagerCache = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+            "IconManagerCache");
+
         public const string BasePath = "avares://IconManager.IconSets/";
 
         public const string FluentUISystemGlyphSources = $"{BasePath}FluentUISystem/FluentUISystemGlyphSources.json";

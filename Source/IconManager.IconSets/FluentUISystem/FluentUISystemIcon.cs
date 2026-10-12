@@ -1,5 +1,5 @@
 ﻿using IconManager.Core.Icons;
-using static IconManager.FluentUISystem;
+using static IconManager.IconSets.FluentUISystem;
 
 namespace IconManager.IconSets
 {

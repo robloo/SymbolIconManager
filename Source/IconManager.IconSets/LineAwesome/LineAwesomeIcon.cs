@@ -1,5 +1,5 @@
 ﻿using IconManager.Core.Icons;
-using static IconManager.LineAwesome;
+using static IconManager.IconSets.LineAwesome;
 
 namespace IconManager.IconSets
 {
