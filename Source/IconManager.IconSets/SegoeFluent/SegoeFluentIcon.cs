@@ -1,6 +1,6 @@
 ﻿using IconManager.Core.Icons;
 
-namespace IconManager
+namespace IconManager.IconSets
 {
     /// <summary>
     /// Represents a single icon in Segoe Fluent Icons.

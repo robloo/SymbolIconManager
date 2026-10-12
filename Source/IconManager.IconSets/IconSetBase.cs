@@ -1,7 +1,7 @@
 ﻿using IconManager.Core.Icons;
 using System.Collections.Generic;
 
-namespace IconManager
+namespace IconManager.IconSets
 {
     /// <summary>
     /// Contains a common base class shared by all icon set implementations.

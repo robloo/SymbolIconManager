@@ -54,4 +54,7 @@
     <AvaloniaResource Include="WinJSSymbols\Symbols.json" />
     <AvaloniaResource Include="WinJSSymbols\Symbols.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IconManager.Core\IconManager.Core.csproj" />
+  </ItemGroup>
 </Project>

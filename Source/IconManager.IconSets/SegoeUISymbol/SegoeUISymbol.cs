@@ -6,14 +6,14 @@ using System.IO;
 using System.Text.Json;
 using System.Threading;
 
-namespace IconManager
+namespace IconManager.IconSets
 {
     /// <summary>
-    /// Contains data and information for the Segoe Fluent Icons.
+    /// Contains data and information for the Segoe UI Symbol icons.
     /// </summary>
-    public class SegoeFluent : IconSetBase
+    public class SegoeUISymbol : IconSetBase
     {
-        private static IReadOnlyList<SegoeFluentIcon>?    _cachedIcons = null;
+        private static IReadOnlyList<SegoeUISymbolIcon>?  _cachedIcons = null;
         private static IReadOnlyDictionary<uint, string>? _cachedNames = null;
 
         private static Lock _cacheLock = new();
@@ -26,10 +26,10 @@ namespace IconManager
 
         private static void RebuildCache()
         {
-            var icons = new List<SegoeFluentIcon>();
+            var icons = new List<SegoeUISymbolIcon>();
             var names = new Dictionary<uint, string>();
 
-            using (var sourceStream = AssetLoader.Open(new Uri(IconSets.Paths.SegoeFluent)))
+            using (var sourceStream = AssetLoader.Open(new Uri(IconSets.Paths.SegoeUISymbol)))
             using (var reader = new StreamReader(sourceStream))
             {
                 string jsonString = reader.ReadToEnd();
@@ -39,7 +39,7 @@ namespace IconManager
                 {
                     foreach (var entry in rawIcons)
                     {
-                        var icon = new SegoeFluentIcon()
+                        var icon = new SegoeUISymbolIcon()
                         {
                             Name         = entry.Value,
                             UnicodePoint = Convert.ToUInt32(entry.Key, 16)
@@ -78,7 +78,7 @@ namespace IconManager
         }
 
         /// <summary>
-        /// Gets a read-only list of all icons in the Segoe MDL2 Assets icon set.
+        /// Gets a read-only list of all icons in the Segoe UI Symbol icon set.
         /// </summary>
         public static IReadOnlyList<IReadOnlyIcon> Icons
         {

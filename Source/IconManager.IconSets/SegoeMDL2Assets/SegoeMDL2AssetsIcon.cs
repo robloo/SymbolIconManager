@@ -1,11 +1,11 @@
 ﻿using IconManager.Core.Icons;
 
-namespace IconManager
+namespace IconManager.IconSets
 {
     /// <summary>
-    /// Represents a single icon in WinJS Symbols.
+    /// Represents a single icon in Segoe MDL2 Assets.
     /// </summary>
-    public class WinJSSymbolsIcon : Icon, IIcon
+    public class SegoeMDL2AssetsIcon : Icon, IIcon
     {
         /***************************************************************************************
          *
@@ -14,11 +14,11 @@ namespace IconManager
          ***************************************************************************************/
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WinJSSymbolsIcon"/> class.
+        /// Initializes a new instance of the <see cref="SegoeMDL2AssetsIcon"/> class.
         /// </summary>
-        public WinJSSymbolsIcon() : base()
+        public SegoeMDL2AssetsIcon() : base()
         {
-            base.IconSet = IconSet.WinJSSymbols;
+            base.IconSet = IconSet.SegoeMDL2Assets;
         }
     }
 }

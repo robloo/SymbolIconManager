@@ -6,7 +6,7 @@ using System.IO;
 using System.Text.Json;
 using System.Threading;
 
-namespace IconManager
+namespace IconManager.IconSets
 {
     /// <summary>
     /// Contains data and information for WinJS Symbols icons.

@@ -1,12 +1,12 @@
 ﻿using IconManager.Core.Icons;
-using static IconManager.LineAwesome;
+using static IconManager.FluentUISystem;
 
-namespace IconManager
+namespace IconManager.IconSets
 {
     /// <summary>
-    /// Represents a single icon in the Line Awesome icon set.
+    /// Represents a single icon in the Fluent UI System.
     /// </summary>
-    public class LineAwesomeIcon : IIcon
+    public class FluentUISystemIcon : FluentUISystemIconName, IIcon
     {
         /***************************************************************************************
          *
@@ -15,9 +15,9 @@ namespace IconManager
          ***************************************************************************************/
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LineAwesomeIcon"/> class.
+        /// Initializes a new instance of the <see cref="FluentUISystemIcon"/> class.
         /// </summary>
-        public LineAwesomeIcon()
+        public FluentUISystemIcon()
         {
         }
 
@@ -36,29 +36,22 @@ namespace IconManager
         {
             get
             {
-                if (this.Style == IconStyle.Brand)
+                if (this.Theme == IconTheme.Filled)
                 {
-                    return IconSet.LineAwesomeBrand;
-                }
-                else if (this.Style == IconStyle.Solid)
-                {
-                    return IconSet.LineAwesomeSolid;
+                    return IconSet.FluentUISystemFilled;
                 }
                 else
                 {
-                    return IconSet.LineAwesomeRegular;
+                    return IconSet.FluentUISystemRegular;
                 }
             }
             set { /* Do nothing */ }
         }
 
-        /// <inheritdoc/>
-        public string Name { get; set; } = string.Empty;
-
         /// <summary>
-        /// Gets or sets the Line Awesome style of the icon.
+        /// Gets or sets the raw, unparsed name or description of the icon.
         /// </summary>
-        public IconStyle Style { get; set; } = IconStyle.Regular;
+        public string RawName { get; set; } = string.Empty;
 
         /// <inheritdoc/>
         public uint UnicodePoint { get; set; } = 0;
@@ -75,20 +68,20 @@ namespace IconManager
 
         /***************************************************************************************
         *
-        * Methods
+        * Public Methods
         *
         ***************************************************************************************/
 
         /// <summary>
-        /// Creates a new <see cref="LineAwesomeIcon"/> instance from this instance's values.
+        /// Creates a new <see cref="FluentUISystemIcon"/> instance from this instance's values.
         /// </summary>
-        /// <returns>The cloned <see cref="LineAwesomeIcon"/>.</returns>
-        public LineAwesomeIcon Clone()
+        /// <returns>The cloned <see cref="FluentUISystemIcon"/>.</returns>
+        public FluentUISystemIcon Clone()
         {
-            var clone = new LineAwesomeIcon()
+            var clone = new FluentUISystemIcon()
             {
-                Name         = this.Name,
-                Style        = this.Style,
+                RawName      = this.RawName,
+                Name         = this.Name, // Automatically parses into components
                 UnicodePoint = this.UnicodePoint
             };
 
@@ -96,10 +89,10 @@ namespace IconManager
         }
 
         /// <summary>
-        /// Converts this <see cref="LineAwesomeIcon"/> into a standard <see cref="Icon"/>.
+        /// Converts this <see cref="FluentUISystemIcon"/> into a standard <see cref="Icon"/>.
         /// </summary>
         /// <remarks>
-        /// This is sometimes needed because <see cref="LineAwesomeIcon"/> does not derive from
+        /// This is sometimes needed because <see cref="FluentUISystemIcon"/> does not derive from
         /// <see cref="Icon"/> like most other icons do. It only implements the interface.
         /// </remarks>
         /// <returns>A new <see cref="Icon"/>.</returns>

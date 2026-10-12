@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 
-namespace IconManager
+namespace IconManager.IconSets
 {
     /// <summary>
     /// Contains data and information for the Icons8 Line Awesome icons.

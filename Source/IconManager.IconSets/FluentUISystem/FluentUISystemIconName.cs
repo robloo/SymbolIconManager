@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Text;
 using static IconManager.FluentUISystem;
 
-namespace IconManager
+namespace IconManager.IconSets
 {
     /// <summary>
     /// Represents a single Fluent UI System icon name with all of
