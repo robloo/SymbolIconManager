@@ -16,7 +16,7 @@ namespace IconManager
 
             using (var sourceStream = AssetLoader.Open(new Uri(sourceDataPath)))
             {
-                mappings = IconMappingList.Load(sourceStream);
+                mappings = IconMappingSerializer.Load(sourceStream);
             }
 
             var adjustedMappings = FluentUISystem.ConvertToSize(mappings, desiredSize);

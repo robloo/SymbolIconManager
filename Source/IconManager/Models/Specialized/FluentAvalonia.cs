@@ -83,8 +83,8 @@ namespace IconManager.Specialized
             }
 
             // Load the SegoeFluent mappings
-            var segoeV3Mappings = IconMappingList.Load(IconSet.SegoeFluent);
-            var segoeV1toV2 = IconMappingList.Load(IconSet.SegoeUISymbol, IconSet.SegoeMDL2Assets);
+            var segoeV3Mappings = IconMappingSerializer.Load(IconSet.SegoeFluent);
+            var segoeV1toV2 = IconMappingSerializer.Load(IconSet.SegoeUISymbol, IconSet.SegoeMDL2Assets);
 
             // Ensure latest icons are used
             IconMappingUtilities.UpdateDeprecatedIcons(mappings);

@@ -83,16 +83,16 @@ namespace IconManager.ViewModels
             switch (parameter?.ToString()?.ToUpperInvariant())
             {
                 case "SEGOEFLUENT.JSON":
-                    loadedMappings = IconMappingList.Load(IconSet.SegoeFluent);
+                    loadedMappings = IconMappingSerializer.Load(IconSet.SegoeFluent);
                     break;
                 case "FLUENTAVALONIA.JSON":
-                    loadedMappings = IconMappingList.Load(IconSets.Paths.FluentAvaloniaMappings);
+                    loadedMappings = IconMappingSerializer.Load(IconSets.Paths.FluentAvaloniaMappings);
                     break;
                 case "FLUENTUISYSTEMTOSEGOEMDL2ASSETS.JSON":
-                    loadedMappings = IconMappingList.Load(IconSet.FluentUISystemRegular, IconSet.SegoeMDL2Assets);
+                    loadedMappings = IconMappingSerializer.Load(IconSet.FluentUISystemRegular, IconSet.SegoeMDL2Assets);
                     break;
                 case "SEGOEUISYMBOLTOSEGOEMDL2ASSETS.JSON":
-                    loadedMappings = IconMappingList.Load(IconSet.SegoeUISymbol, IconSet.SegoeMDL2Assets);
+                    loadedMappings = IconMappingSerializer.Load(IconSet.SegoeUISymbol, IconSet.SegoeMDL2Assets);
                     break;
             }
 
@@ -143,7 +143,7 @@ namespace IconManager.ViewModels
                 {
                     var mappings = this.ViewToMappings();
                     IconMappingUtilities.Reprocess(mappings);
-                    IconMappingList.Save(mappings, fileStream);
+                    IconMappingSerializer.Save(mappings, fileStream);
                 }
             }
 
@@ -324,7 +324,7 @@ namespace IconManager.ViewModels
                     {
                         try
                         {
-                            mappings = IconMappingList.Load(fileStream);
+                            mappings = IconMappingSerializer.Load(fileStream);
                         }
                         catch
                         {

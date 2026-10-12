@@ -78,8 +78,8 @@ namespace IconManager.ViewModels
         [RelayCommand]
         public void BuildFluentAvaloniaFont()
         {
-            var fluentAvaloniaMappings = IconMappingList.Load(IconSets.Paths.FluentAvaloniaMappings);
-            var segoeFluentMappings = IconMappingList.Load(IconSet.SegoeFluent);
+            var fluentAvaloniaMappings = IconMappingSerializer.Load(IconSets.Paths.FluentAvaloniaMappings);
+            var segoeFluentMappings = IconMappingSerializer.Load(IconSet.SegoeFluent);
 
             // The Fluent Avalonia font must meet 3 requirements:
             //  1. Include all entries from the WinUI Symbol enum (even if no glyph is available)
@@ -110,11 +110,11 @@ namespace IconManager.ViewModels
             if (string.IsNullOrEmpty(path) == false)
             {
                 var fluentAvalonia = new Specialized.FluentAvalonia();
-                var mappings = fluentAvalonia.RebuildMappings(IconMappingList.Load(IconSets.Paths.FluentAvaloniaMappings));
+                var mappings = fluentAvalonia.RebuildMappings(IconMappingSerializer.Load(IconSets.Paths.FluentAvaloniaMappings));
 
                 using (var fileStream = File.OpenWrite(path))
                 {
-                    IconMappingList.Save(mappings, fileStream);
+                    IconMappingSerializer.Save(mappings, fileStream);
                 }
 
                 if (this.IncludeFluentAvaloniaEnum)
@@ -203,8 +203,8 @@ namespace IconManager.ViewModels
         private IconMappingList GetWinSymbols1Mappings()
         {
             var log = new Log();
-            var segoeV3Mappings = IconMappingList.Load(IconSet.SegoeFluent);
-            var segoeV1toV2Mappings = IconMappingList.Load(
+            var segoeV3Mappings = IconMappingSerializer.Load(IconSet.SegoeFluent);
+            var segoeV1toV2Mappings = IconMappingSerializer.Load(
                 IconSet.SegoeUISymbol,
                 IconSet.SegoeMDL2Assets);
 
@@ -280,7 +280,7 @@ namespace IconManager.ViewModels
         private IconMappingList GetWinSymbols2Mappings(bool includeLegacyGlyphs = true)
         {
             var log = new Log();
-            var segoeV3Mappings = IconMappingList.Load(IconSet.SegoeFluent);
+            var segoeV3Mappings = IconMappingSerializer.Load(IconSet.SegoeFluent);
 
             // WinSymbols2 is an equivalent font for SegoeMDL2Assets icons.
             //
@@ -363,7 +363,7 @@ namespace IconManager.ViewModels
             // by Microsoft, and ensure full backwards-compatibility, mappings are also
             // automatically added for earlier SegoeUISymbol (V1) glyphs.
 
-            var segoeV3Mappings = IconMappingList.Load(IconSet.SegoeFluent);
+            var segoeV3Mappings = IconMappingSerializer.Load(IconSet.SegoeFluent);
 
             if (includeLegacyGlyphs)
             {

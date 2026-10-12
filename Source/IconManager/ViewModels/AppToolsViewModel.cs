@@ -379,7 +379,7 @@ namespace IconManager.ViewModels
                     }
 
                     IconMappingUtilities.Reprocess(mappings);
-                    IconMappingList.Save(mappings, fileStream);
+                    IconMappingSerializer.Save(mappings, fileStream);
                 }
             }
 
