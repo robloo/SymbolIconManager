@@ -1,8 +1,7 @@
-﻿using IconManager.Core.Icons;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace IconManager
+namespace IconManager.Core.Icons
 {
     /// <summary>
     /// Contains a list of icon mappings along with methods to process them.
