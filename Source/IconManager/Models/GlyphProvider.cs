@@ -98,7 +98,9 @@ namespace IconManager.Models
             var fontDirectories = new string[]
             {
                 "Fonts",
-                "Source\\Data"
+                @"Source\IconManager.IconSets\FluentUISystem\DataSources",
+                @"Source\IconManager.IconSets\LineAwesome\DataSources",
+                @"Source\IconManager.IconSets\WinJSSymbols\DataSources"
             };
 
             lock (_cacheLock)
