@@ -45,13 +45,13 @@ namespace IconManager.Models
                 case IconSet.LineAwesomeSolid:
                     return LineAwesomeGlyphs.Instance.GetGlyphSources(iconSet, unicodePoint);
                 case IconSet.SegoeFluent:
+                    return SegoeFluentGlyphs.Instance.GetGlyphSources(iconSet, unicodePoint);
                 case IconSet.SegoeMDL2Assets:
+                    return SegoeMDL2AssetsGlyphs.Instance.GetGlyphSources(iconSet, unicodePoint);
                 case IconSet.SegoeUISymbol:
-                    possibleSources.Add(GlyphSource.RemotePngFile);
-                    break;
+                    return SegoeUISymbolGlyphs.Instance.GetGlyphSources(iconSet, unicodePoint);
                 case IconSet.WinJSSymbols:
-                    possibleSources.Add(GlyphSource.LocalFontFile);
-                    break;
+                    return WinJSSymbolsGlyphs.Instance.GetGlyphSources(iconSet, unicodePoint);
             }
 
             return possibleSources;
@@ -74,7 +74,7 @@ namespace IconManager.Models
                 case IconSet.LineAwesomeSolid:
                     return LineAwesomeGlyphs.Instance.GetFontSourceUri(iconSet);
                 case IconSet.WinJSSymbols:
-                    return new Uri(IconSets.Paths.WinJSSymbolsFont);
+                    return WinJSSymbolsGlyphs.Instance.GetFontSourceUri(iconSet);
             }
 
             return null;
@@ -247,13 +247,6 @@ namespace IconManager.Models
             IconSet iconSet,
             uint unicodePoint)
         {
-            var possibleGlyphSources = GlyphProvider.GetPossibleGlyphSources(iconSet, unicodePoint);
-            if (possibleGlyphSources.Contains(GlyphSource.RemotePngFile) == false &&
-                possibleGlyphSources.Contains(GlyphSource.RemoteSvgFile) == false)
-            {
-                return null;
-            }
-
             switch (iconSet)
             {
                 case IconSet.FluentUISystemFilled:
@@ -275,43 +268,24 @@ namespace IconManager.Models
                 }
                 case IconSet.SegoeFluent:
                 {
-                    string baseUrl = @"https://docs.microsoft.com/en-us/windows/apps/design/style/images/glyphs/segoe-fluent-icons/";
-                    return new Uri(baseUrl + Icon.ToUnicodeHexString(unicodePoint) + ".png");
+                    return SegoeFluentGlyphs.Instance.GetGlyphSourceUri(
+                        iconSet,
+                        unicodePoint,
+                        GlyphSource.RemotePngFile);
                 }
                 case IconSet.SegoeMDL2Assets:
                 {
-                    string baseUrl = @"https://docs.microsoft.com/en-us/windows/apps/design/style/images/segoe-mdl/";
-                    return new Uri(baseUrl + Icon.ToUnicodeHexString(unicodePoint) + ".png");
+                    return SegoeMDL2AssetsGlyphs.Instance.GetGlyphSourceUri(
+                        iconSet,
+                        unicodePoint,
+                        GlyphSource.RemotePngFile);
                 }
                 case IconSet.SegoeUISymbol:
                 {
-                    string name = SegoeUISymbol.FindName(unicodePoint).ToLowerInvariant();
-
-                    // Naming does not match 1-to-1 with the URL and there are some special cases
-                    // Special cases are defined here, separately
-                    switch (name)
-                    {
-                        case "account":
-                            name = "accounts";
-                            break;
-                        case "character":
-                            name = "characters";
-                            break;
-                        case "closedcaption":
-                            name = "cc";
-                            break;
-                        case "mailfilled":
-                            name = "mail2";
-                            break;
-                        case "page":
-                            name = "pageicon";
-                            break;
-                        case "setting":
-                            name = "settings";
-                            break;
-                    }
-
-                    return new Uri(@"https://docs.microsoft.com/en-us/previous-versions/windows/apps/images/jj841127." + name + @"(en-us,win.10).png");
+                    return SegoeUISymbolGlyphs.Instance.GetGlyphSourceUri(
+                        iconSet,
+                        unicodePoint,
+                        GlyphSource.RemotePngFile);
                 }
             }
 
@@ -358,9 +332,9 @@ namespace IconManager.Models
         /// <summary>
         /// Gets the image data stream (usually PNG or SVG format) of the glyph image file at the given URL.
         /// It is up to the caller to ensure the data stream is a supported format.
-        /// This will be downloaded from an online source.
+        /// This will be downloaded from an online source if needed.
         /// </summary>
-        /// <param name="uri">The URL of the glyph source image file to download.</param>
+        /// <param name="uri">The URI of the glyph source image file to download.</param>
         /// <returns>The glyph source image data stream.</returns>
         public static async Task<MemoryStream?> GetGlyphSourceStreamAsync(Uri uri)
         {
