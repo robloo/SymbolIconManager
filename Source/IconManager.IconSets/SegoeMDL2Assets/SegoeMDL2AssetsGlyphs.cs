@@ -8,7 +8,7 @@ namespace IconManager.IconSets
     /// <summary>
     /// Provides glyph sources for the Segoe MDL2 Assets font.
     /// </summary>
-    public class SegoeMDL2AssetsGlyphs
+    public class SegoeMDL2AssetsGlyphs : IGlyphSourceProvider
     {
         /// <summary>
         /// Gets the singleton instance of the <see cref="SegoeMDL2AssetsGlyphs"/> class.

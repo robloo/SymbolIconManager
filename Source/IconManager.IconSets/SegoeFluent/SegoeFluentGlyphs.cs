@@ -8,7 +8,7 @@ namespace IconManager.IconSets
     /// <summary>
     /// Provides glyph sources for the Segoe Fluent font.
     /// </summary>
-    public class SegoeFluentGlyphs
+    public class SegoeFluentGlyphs : IGlyphSourceProvider
     {
         /// <summary>
         /// Gets the singleton instance of the <see cref="SegoeFluentGlyphs"/> class.

@@ -8,7 +8,7 @@ namespace IconManager.IconSets
     /// <summary>
     /// Provides glyph sources for the Segoe UI Symbol font.
     /// </summary>
-    public class SegoeUISymbolGlyphs
+    public class SegoeUISymbolGlyphs : IGlyphSourceProvider
     {
         /// <summary>
         /// Gets the singleton instance of the <see cref="SegoeUISymbolGlyphs"/> class.

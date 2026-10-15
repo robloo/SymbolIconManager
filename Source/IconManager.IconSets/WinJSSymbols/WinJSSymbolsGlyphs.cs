@@ -8,7 +8,7 @@ namespace IconManager.IconSets
     /// <summary>
     /// Provides glyph sources for the WinJS symbols font.
     /// </summary>
-    public class WinJSSymbolsGlyphs
+    public class WinJSSymbolsGlyphs : IGlyphSourceProvider
     {
         /// <summary>
         /// Gets the singleton instance of the <see cref="WinJSSymbolsGlyphs"/> class.
