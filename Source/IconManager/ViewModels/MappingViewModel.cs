@@ -3,8 +3,10 @@ using CommunityToolkit.Mvvm.Input;
 using IconManager.Core.Fonts;
 using IconManager.Core.Icons;
 using IconManager.Core.Serialization;
+using IconManager.Services;
 using IconManager.Utilities;
 using IconManager.Views;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,6 +20,9 @@ namespace IconManager.ViewModels
     /// </summary>
     public partial class MappingViewModel : ViewModelBase
     {
+        // Services
+        private readonly IStorageService _storageService;
+
         /***************************************************************************************
          *
          * Constructors
@@ -29,6 +34,7 @@ namespace IconManager.ViewModels
         /// </summary>
         public MappingViewModel()
         {
+            this._storageService = App.Current.Services.GetRequiredService<IStorageService>();
         }
 
         /***************************************************************************************
@@ -122,7 +128,7 @@ namespace IconManager.ViewModels
                 SuggestedFileName = "Mappings.json",
                 ShowOverwritePrompt = true,
             };
-            var file = await App.Current!.TopLevel!.StorageProvider.SaveFilePickerAsync(options);
+            var file = await this._storageService.Provider.SaveFilePickerAsync(options);
 
             if (file is not null)
             {
@@ -311,7 +317,7 @@ namespace IconManager.ViewModels
                     },
                 },
             };
-            var files = await App.Current!.TopLevel!.StorageProvider.OpenFilePickerAsync(options);
+            var files = await this._storageService.Provider.OpenFilePickerAsync(options);
             IconMappingList mappings = new IconMappingList();
 
             // Load the mappings file

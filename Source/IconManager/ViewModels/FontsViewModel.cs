@@ -4,8 +4,10 @@ using IconManager.Core;
 using IconManager.Core.Fonts;
 using IconManager.Core.Icons;
 using IconManager.Core.Serialization;
+using IconManager.Services;
 using IconManager.Utilities;
 using IconManager.Views;
+using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -16,6 +18,9 @@ namespace IconManager.ViewModels
     /// </summary>
     public partial class FontsViewModel : ViewModelBase
     {
+        // Services
+        private readonly IStorageService _storageService;
+
         /***************************************************************************************
          *
          * Constructors
@@ -27,6 +32,7 @@ namespace IconManager.ViewModels
         /// </summary>
         public FontsViewModel()
         {
+            this._storageService = App.Current.Services.GetRequiredService<IStorageService>();
         }
 
         /***************************************************************************************
@@ -180,7 +186,7 @@ namespace IconManager.ViewModels
                 SuggestedFileName = "FluentAvalonia.json",
                 ShowOverwritePrompt = true,
             };
-            var file = await App.Current!.TopLevel!.StorageProvider.SaveFilePickerAsync(options);
+            var file = await this._storageService.Provider.SaveFilePickerAsync(options);
 
             if (file is not null)
             {

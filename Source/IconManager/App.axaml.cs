@@ -1,5 +1,4 @@
 using Avalonia;
-using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using IconManager.Core.Glyphs;
@@ -21,16 +20,6 @@ namespace IconManager
         public static readonly string IconManagerCache = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
             @"IconManagerCache");
-
-        /// <summary>
-        /// Gets a reference to the main window of the application.
-        /// </summary>
-        public MainWindow? MainWindow { get; private set; }
-
-        /// <summary>
-        /// Gets a reference to the top level of the application.
-        /// </summary>
-        public TopLevel? TopLevel { get; private set; }
 
         /// <summary>
         /// Gets the default glyph source provider for all supported icon sets.
@@ -76,7 +65,6 @@ namespace IconManager
                 var mainWindow = new MainWindow();
 
                 desktop.MainWindow = mainWindow;
-                App.Current?.MainWindow = mainWindow;
             }
 
             base.OnFrameworkInitializationCompleted();
@@ -101,6 +89,7 @@ namespace IconManager
 
             services.AddSingleton<IGlyphSourceProvider>(glyphSourceProvider);
             services.AddSingleton<IGlyphRenderer<Bitmap>>(new SkiaGlyphRenderer());
+            services.AddSingleton<IStorageService>(new AvaloniaStorageService());
 
             this.Services = services.BuildServiceProvider();
 

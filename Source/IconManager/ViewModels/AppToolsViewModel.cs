@@ -5,6 +5,7 @@ using IconManager.Core.Glyphs;
 using IconManager.Core.Icons;
 using IconManager.Core.Serialization;
 using IconManager.IconSets;
+using IconManager.Services;
 using IconManager.Utilities;
 using IconManager.Views;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,6 +34,7 @@ namespace IconManager.ViewModels
         // Services
         private readonly IGlyphRenderer<Bitmap> _glyphRendererService;
         private readonly IGlyphSourceProvider   _glyphSourceProviderService;
+        private readonly IStorageService        _storageService;
 
         /***************************************************************************************
          *
@@ -47,6 +49,7 @@ namespace IconManager.ViewModels
         {
             this._glyphRendererService       = App.Current.Services.GetRequiredService<IGlyphRenderer<Bitmap>>();
             this._glyphSourceProviderService = App.Current.Services.GetRequiredService<IGlyphSourceProvider>();
+            this._storageService             = App.Current.Services.GetRequiredService<IStorageService>();
 
             this.FillSourceIconSets();
         }
@@ -103,7 +106,7 @@ namespace IconManager.ViewModels
             {
                 AllowMultiple = false,
             };
-            var folders = await App.Current!.TopLevel!.StorageProvider.OpenFolderPickerAsync(options);
+            var folders = await this._storageService.Provider.OpenFolderPickerAsync(options);
 
             if (folders is not null &&
                 folders.Count > 0)
@@ -170,7 +173,7 @@ namespace IconManager.ViewModels
             {
                 AllowMultiple = false,
             };
-            var folders = await App.Current!.TopLevel!.StorageProvider.OpenFolderPickerAsync(options);
+            var folders = await this._storageService.Provider.OpenFolderPickerAsync(options);
 
             if (folders is not null &&
                 folders.Count > 0)
@@ -228,7 +231,7 @@ namespace IconManager.ViewModels
                     },
                 },
             };
-            var files = await App.Current!.TopLevel!.StorageProvider.OpenFilePickerAsync(options);
+            var files = await this._storageService.Provider.OpenFilePickerAsync(options);
             var glyphs = new List<Tuple<string, string, string>>();
 
             // Load the glyphs directly from a CSV file
@@ -366,7 +369,7 @@ namespace IconManager.ViewModels
                 SuggestedFileName = "Mappings.json",
                 ShowOverwritePrompt = true,
             };
-            var file = await App.Current!.TopLevel!.StorageProvider.SaveFilePickerAsync(options);
+            var file = await this._storageService.Provider.SaveFilePickerAsync(options);
 
             if (file is not null)
             {
