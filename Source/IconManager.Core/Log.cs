@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 
-namespace IconManager
+namespace IconManager.Core
 {
     /// <summary>
     /// An extremely simple, thread-safe log of messages.
