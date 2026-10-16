@@ -17,9 +17,9 @@ using System.Threading.Tasks;
 namespace IconManager.ViewModels
 {
     /// <summary>
-    /// The primary view model for the <see cref="MappingView"/>
+    /// The primary view model for the <see cref="MappingEditorView"/>
     /// </summary>
-    public partial class MappingViewModel : ViewModelBase
+    public partial class MappingEditorViewModel : ViewModelBase
     {
         // Services
         private readonly IGlyphSourceProvider _glyphSourceProviderService;
@@ -32,9 +32,9 @@ namespace IconManager.ViewModels
          ***************************************************************************************/
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MappingViewModel"/> class.
+        /// Initializes a new instance of the <see cref="MappingEditorViewModel"/> class.
         /// </summary>
-        public MappingViewModel()
+        public MappingEditorViewModel()
         {
             this._glyphSourceProviderService = App.Current.Services.GetRequiredService<IGlyphSourceProvider>();
             this._storageService             = App.Current.Services.GetRequiredService<IStorageService>();

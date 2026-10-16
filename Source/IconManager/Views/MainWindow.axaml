@@ -25,11 +25,11 @@
         <!-- Icon Mapping -->
         <TabItem
             Header="Icon Mapping">
-            <MappingView>
-                <MappingView.DataContext>
-                    <MappingViewModel />
-                </MappingView.DataContext>
-            </MappingView>
+            <MappingEditorView>
+                <MappingEditorView.DataContext>
+                    <MappingEditorViewModel />
+                </MappingEditorView.DataContext>
+            </MappingEditorView>
         </TabItem>
 
         <!-- Application Tools -->

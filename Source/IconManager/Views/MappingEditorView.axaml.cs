@@ -5,7 +5,7 @@ namespace IconManager.Views
     /// <summary>
     /// Displays a collection of icon mappings and supports editing.
     /// </summary>
-    public partial class MappingView : UserControl
+    public partial class MappingEditorView : UserControl
     {
         /***************************************************************************************
          *
@@ -14,9 +14,9 @@ namespace IconManager.Views
          ***************************************************************************************/
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MappingView"/> class.
+        /// Initializes a new instance of the <see cref="MappingEditorView"/> class.
         /// </summary>
-        public MappingView()
+        public MappingEditorView()
         {
             this.InitializeComponent();
         }
