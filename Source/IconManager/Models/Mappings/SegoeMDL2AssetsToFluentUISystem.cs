@@ -1,5 +1,6 @@
 ﻿using Avalonia.Platform;
 using IconManager.Core.Icons;
+using IconManager.Core.Serialization;
 using IconManager.IconSets;
 using System;
 

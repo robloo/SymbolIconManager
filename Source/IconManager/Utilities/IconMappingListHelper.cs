@@ -1,15 +1,14 @@
 ﻿using Avalonia.Platform;
 using IconManager.Core.Icons;
-using Newtonsoft.Json;
+using IconManager.Core.Serialization;
 using System;
-using System.IO;
 
 namespace IconManager
 {
     /// <summary>
-    /// Contains methods used to serialize an <see cref="IconMappingList"/> to/from JSON.
+    /// Contains helper methods useful when working with <see cref="IconMappingList"/>s.
     /// </summary>
-    public static class IconMappingSerializer
+    public static class IconMappingListHelper
     {
         /// <summary>
         /// Loads a known mapping list for the given icon set.
@@ -28,7 +27,7 @@ namespace IconManager
                     break;
             }
 
-            return IconMappingSerializer.Load(resourcePath);
+            return IconMappingListHelper.Load(resourcePath);
         }
 
         /// <summary>
@@ -56,7 +55,7 @@ namespace IconManager
                 resourcePath = IconSets.Paths.SegoeUISymbolToSegoeMDL2AssetsMappings;
             }
 
-            return IconMappingSerializer.Load(resourcePath);
+            return IconMappingListHelper.Load(resourcePath);
         }
 
         /// <summary>
@@ -75,54 +74,6 @@ namespace IconManager
             }
 
             return new IconMappingList();
-        }
-
-        /// <summary>
-        /// Loads a mapping list from the given stream.
-        /// </summary>
-        /// <param name="jsonStream">The JSON formatted stream to load from.</param>
-        /// <returns>A new mapping list.</returns>
-        public static IconMappingList Load(Stream jsonStream)
-        {
-            var mappings = new IconMappingList();
-
-            using (var reader = new StreamReader(jsonStream))
-            {
-                string jsonString = reader.ReadToEnd();
-                var rawMappings = JsonConvert.DeserializeObject<IconMappingList>(jsonString);
-
-                if (rawMappings is not null)
-                {
-                    mappings = rawMappings;
-                }
-            }
-
-            return mappings;
-        }
-
-        /// <summary>
-        /// Saves the given mapping list to the given stream.
-        /// </summary>
-        /// <param name="mappings">The mapping list to save.</param>
-        /// <param name="stream">The destination stream to write the JSON data to.</param>
-        public static void Save(IconMappingList mappings, Stream stream)
-        {
-            var settings = new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented
-            };
-
-            string jsonString = JsonConvert.SerializeObject(mappings, settings);
-
-            if (string.IsNullOrEmpty(jsonString) == false)
-            {
-                using (var writer = new StreamWriter(stream))
-                {
-                    writer.Write(jsonString);
-                }
-            }
-
-            return;
         }
     }
 }

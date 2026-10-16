@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using IconManager.Core.Fonts;
 using IconManager.Core.Icons;
+using IconManager.Core.Serialization;
 using IconManager.Utilities;
 using IconManager.Views;
 using System;
@@ -84,16 +85,16 @@ namespace IconManager.ViewModels
             switch (parameter?.ToString()?.ToUpperInvariant())
             {
                 case "SEGOEFLUENT.JSON":
-                    loadedMappings = IconMappingSerializer.Load(IconSet.SegoeFluent);
+                    loadedMappings = IconMappingListHelper.Load(IconSet.SegoeFluent);
                     break;
                 case "FLUENTAVALONIA.JSON":
-                    loadedMappings = IconMappingSerializer.Load(IconSets.Paths.FluentAvaloniaMappings);
+                    loadedMappings = IconMappingListHelper.Load(IconSets.Paths.FluentAvaloniaMappings);
                     break;
                 case "FLUENTUISYSTEMTOSEGOEMDL2ASSETS.JSON":
-                    loadedMappings = IconMappingSerializer.Load(IconSet.FluentUISystemRegular, IconSet.SegoeMDL2Assets);
+                    loadedMappings = IconMappingListHelper.Load(IconSet.FluentUISystemRegular, IconSet.SegoeMDL2Assets);
                     break;
                 case "SEGOEUISYMBOLTOSEGOEMDL2ASSETS.JSON":
-                    loadedMappings = IconMappingSerializer.Load(IconSet.SegoeUISymbol, IconSet.SegoeMDL2Assets);
+                    loadedMappings = IconMappingListHelper.Load(IconSet.SegoeUISymbol, IconSet.SegoeMDL2Assets);
                     break;
             }
 
