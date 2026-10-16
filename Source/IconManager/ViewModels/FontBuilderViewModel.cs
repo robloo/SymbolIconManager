@@ -15,9 +15,9 @@ using System.Threading.Tasks;
 namespace IconManager.ViewModels
 {
     /// <summary>
-    /// The primary view model for the <see cref="FontsView"/>
+    /// The primary view model for the <see cref="FontBuilderView"/>
     /// </summary>
-    public partial class FontsViewModel : ViewModelBase
+    public partial class FontBuilderViewModel : ViewModelBase
     {
         // Services
         private readonly IGlyphSourceProvider _glyphSourceProviderService;
@@ -30,9 +30,9 @@ namespace IconManager.ViewModels
          ***************************************************************************************/
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FontsViewModel"/> class.
+        /// Initializes a new instance of the <see cref="FontBuilderViewModel"/> class.
         /// </summary>
-        public FontsViewModel()
+        public FontBuilderViewModel()
         {
             this._glyphSourceProviderService = App.Current.Services.GetRequiredService<IGlyphSourceProvider>();
             this._storageService             = App.Current.Services.GetRequiredService<IStorageService>();

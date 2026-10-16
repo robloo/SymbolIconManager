@@ -5,7 +5,7 @@ namespace IconManager.Views
     /// <summary>
     /// Presents specialized commands used to build fonts and related files.
     /// </summary>
-    public partial class FontsView : UserControl
+    public partial class FontBuilderView : UserControl
     {
         /***************************************************************************************
          *
@@ -14,9 +14,9 @@ namespace IconManager.Views
          ***************************************************************************************/
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FontsView"/> class.
+        /// Initializes a new instance of the <see cref="FontBuilderView"/> class.
         /// </summary>
-        public FontsView()
+        public FontBuilderView()
         {
             this.InitializeComponent();
         }

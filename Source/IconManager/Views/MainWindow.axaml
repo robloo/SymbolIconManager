@@ -42,14 +42,14 @@
             </AppToolsView>
         </TabItem>
 
-        <!-- Font Management -->
+        <!-- Font Builder -->
         <TabItem
-            Header="Fonts">
-            <FontsView>
-                <FontsView.DataContext>
-                    <FontsViewModel />
-                </FontsView.DataContext>
-            </FontsView>
+            Header="Font Builder">
+            <FontBuilderView>
+                <FontBuilderView.DataContext>
+                    <FontBuilderViewModel />
+                </FontBuilderView.DataContext>
+            </FontBuilderView>
         </TabItem>
     </TabControl>
 </Window>
