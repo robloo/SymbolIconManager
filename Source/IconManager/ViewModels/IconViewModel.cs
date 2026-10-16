@@ -1,6 +1,8 @@
 ﻿using Avalonia.Media.Imaging;
+using IconManager.Core.Glyphs;
 using IconManager.Core.Icons;
 using IconManager.IconSets;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.ObjectModel;
 
@@ -11,6 +13,10 @@ namespace IconManager
     /// </summary>
     public class IconViewModel : ViewModelBase, IIcon
     {
+        // Services
+        private readonly IGlyphRenderer<Bitmap> _glyphRendererService;
+        private readonly IGlyphSourceProvider   _glyphSourceProviderService;
+
         private bool    _AutoUpdate;
         private Bitmap? _Glyph;
         private IconSet _IconSet;
@@ -30,6 +36,9 @@ namespace IconManager
         /// </summary>
         public IconViewModel()
         {
+            this._glyphRendererService       = App.Current.Services.GetRequiredService<IGlyphRenderer<Bitmap>>();
+            this._glyphSourceProviderService = App.Current.Services.GetRequiredService<IGlyphSourceProvider>();
+
             this._AutoUpdate   = false;
             this._Glyph        = null;
             this._IconSet      = IconSet.Undefined;
@@ -44,6 +53,9 @@ namespace IconManager
         /// </summary>
         public IconViewModel(IReadOnlyIcon icon)
         {
+            this._glyphRendererService       = App.Current.Services.GetRequiredService<IGlyphRenderer<Bitmap>>();
+            this._glyphSourceProviderService = App.Current.Services.GetRequiredService<IGlyphSourceProvider>();
+
             this._AutoUpdate   = false;
             this._Glyph        = null;
             this._IconSet      = icon.IconSet;
@@ -155,7 +167,11 @@ namespace IconManager
         /// </summary>
         public async void UpdateGlyphAsync()
         {
-            this.Glyph = await GlyphRenderer.GetPreviewBitmapAsync(this.IconSet, this.UnicodePoint);
+            this.Glyph = await this._glyphRendererService.RenderGlyphAsync(
+                this.IconSet,
+                this.UnicodePoint,
+                this._glyphSourceProviderService);
+
             return;
         }
 

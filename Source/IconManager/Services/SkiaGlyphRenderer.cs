@@ -10,15 +10,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using Bitmap = Avalonia.Media.Imaging.Bitmap;
 
-namespace IconManager
+namespace IconManager.Services
 {
     /// <summary>
-    /// Contains methods to retrieve rendered images of a glyph.
+    /// An icon glyph renderer implemented using SkiaSharp.
     /// </summary>
-    public static class GlyphRenderer
+    public class SkiaGlyphRenderer : IGlyphRenderer<Bitmap>
     {
-        public const int RenderWidth  = 64; // Pixels
-        public const int RenderHeight = 64; // Pixels
+        public const int DefaultRenderWidth  = 64; // Pixels
+        public const int DefaultRenderHeight = 64; // Pixels
 
         private static SKPaint? _cachedTextPaint = null;
 
@@ -27,28 +27,41 @@ namespace IconManager
 
         private static Lock _cacheLock = new();
 
-        /// <summary>
-        /// Gets a preview bitmap of the glyph for the defined icon set and Unicode point.
-        /// </summary>
-        /// <param name="iconSet">The icon set containing the Unicode point.</param>
-        /// <param name="unicodePoint">The Unicode point of the glyph.</param>
-        /// <returns>A preview bitmap of the glyph.</returns>
-        public static async Task<Bitmap?> GetPreviewBitmapAsync(IconSet iconSet, uint unicodePoint)
+        /***************************************************************************************
+         *
+         * Property Accessors
+         *
+         ***************************************************************************************/
+
+        /// <inheritdoc/>
+        public uint RenderHeight { get; set; } = DefaultRenderHeight;
+
+        /// <inheritdoc/>
+        public uint RenderWidth { get; set; } = DefaultRenderWidth;
+
+        /***************************************************************************************
+         *
+         * Public Methods
+         *
+         ***************************************************************************************/
+
+        /// <inheritdoc/>
+        public async Task<Bitmap?> RenderGlyphAsync(
+            IconSet iconSet,
+            uint unicodePoint,
+            IGlyphSourceProvider glyphSourceProvider,
+            GlyphSource glyphSource = GlyphSource.None)
         {
             string iconSetKey = iconSet.ToString();
             string glyphKey = iconSetKey + "_" + Icon.ToUnicodeHexString(unicodePoint);
             Bitmap? result = null;
 
-            // Temporary
-            var glyphSourceProvider = App.Current!.GlyphSourceProvider;
-
-            // Quickly return for unsupported icon sets
             if (iconSet == IconSet.Undefined)
             {
                 return null;
             }
 
-            // Attempt to quickly load and return the preview from the cache
+            // Attempt to quickly load and return the bitmap from the cache
             lock (_cacheLock)
             {
                 if (_cachedGlyphs.TryGetValue(glyphKey, out result))
@@ -72,11 +85,11 @@ namespace IconManager
                     // See: https://github.com/microsoft/fluentui-system-icons/issues/299
                     // A work-around for this case is required using the local or remote SVG file sources
 
-                    var font = GlyphRenderer.LoadFont(iconSet.ToString());
+                    var font = SkiaGlyphRenderer.LoadFont(iconSet.ToString());
 
                     if (font is not null)
                     {
-                        var bitmap = await GlyphRenderer.RenderGlyph(font, iconSet.ToString(), unicodePoint);
+                        var bitmap = await SkiaGlyphRenderer.RenderGlyphFromFontAsync(font, unicodePoint);
 
                         if (bitmap is not null)
                         {
@@ -103,7 +116,7 @@ namespace IconManager
                         // It probably should in the future
                         // Also note that no background is added to the rendered SVG unlike above
                         var svg = new SkiaSharp.Extended.Svg.SKSvg(
-                            new SKSize(GlyphRenderer.RenderWidth, GlyphRenderer.RenderHeight));
+                            new SKSize(this.RenderWidth, this.RenderHeight));
                         svg.Load(svgStream);
 
                         // Note that the default SKImage encoding format is .png
@@ -152,15 +165,20 @@ namespace IconManager
             return result;
         }
 
+        /***************************************************************************************
+         *
+         * Private Methods
+         *
+         ***************************************************************************************/
+
         /// <summary>
         /// Renders the glyph at the specified Unicode point using the given symbol font.
         /// </summary>
-        public static async Task<Bitmap?> RenderGlyph(
+        private static async Task<Bitmap?> RenderGlyphFromFontAsync(
             SKFont font,
-            string fontKey,
             uint unicodePoint,
-            int renderWidth = GlyphRenderer.RenderWidth,
-            int renderHeight = GlyphRenderer.RenderHeight)
+            int renderWidth = SkiaGlyphRenderer.DefaultRenderWidth,
+            int renderHeight = SkiaGlyphRenderer.DefaultRenderHeight)
         {
             return await Task.Run(() =>
             {
@@ -229,9 +247,9 @@ namespace IconManager
         /// <param name="fontNameKey">The name of the font to return.</param>
         /// <param name="renderWidth">The glyph render size in pixels for the typeface.</param>
         /// <returns>The loaded <see cref="SKFont"/>; otherwise, null.</returns>
-        public static SKFont? LoadFont(
+        private static SKFont? LoadFont(
             string fontNameKey,
-            uint renderWidth = GlyphRenderer.RenderWidth)
+            uint renderWidth = SkiaGlyphRenderer.DefaultRenderWidth)
         {
             string fontKey = Path.GetFileName(fontNameKey).Trim();
             Uri? fontUri = null;

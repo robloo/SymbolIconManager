@@ -4,8 +4,11 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using IconManager.Core.Glyphs;
 using IconManager.IconSets;
+using IconManager.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.IO;
+using Bitmap = Avalonia.Media.Imaging.Bitmap;
 
 namespace IconManager
 {
@@ -35,14 +38,22 @@ namespace IconManager
         public IGlyphSourceProvider GlyphSourceProvider { get; private set; } = null!;
 
         /// <summary>
+        /// Gets the provider of all registered application services.
+        /// </summary>
+        /// <remarks>
+        /// This is only available after the first Window or TopLevel is created.
+        /// </remarks>
+        public ServiceProvider Services { get; private set; } = null!;
+
+        /// <summary>
         /// Gets the current instance of the <see cref="Application"/> class.
         /// </summary>
         /// <value>
         /// The current instance of the <see cref="Application"/> class.
         /// </value>
-        public static new App? Current
+        public static new App Current
         {
-            get => Application.Current as App;
+            get => (App)Application.Current!;
         }
 
         /// <inheritdoc/>
@@ -58,15 +69,7 @@ namespace IconManager
         /// <inheritdoc/>
         public override void OnFrameworkInitializationCompleted()
         {
-            // Initialize the default glyph source provider
-            var provider = new GlyphSourceProviderCollection();
-            provider.Register(FluentUISystemGlyphs.Instance);
-            provider.Register(LineAwesomeGlyphs.Instance);
-            provider.Register(SegoeFluentGlyphs.Instance);
-            provider.Register(SegoeMDL2AssetsGlyphs.Instance);
-            provider.Register(SegoeUISymbolGlyphs.Instance);
-            provider.Register(WinJSSymbolsGlyphs.Instance);
-            this.GlyphSourceProvider = provider;
+            this.ConfigureServices();
 
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
@@ -77,6 +80,31 @@ namespace IconManager
             }
 
             base.OnFrameworkInitializationCompleted();
+        }
+
+        /// <summary>
+        /// Configures and registers services for dependency injection in the application.
+        /// </summary>
+        private void ConfigureServices()
+        {
+            var services = new ServiceCollection();
+
+            // Create the default glyph source provider
+            var glyphSourceProvider = new GlyphSourceProviderCollection();
+            glyphSourceProvider.Register(FluentUISystemGlyphs.Instance);
+            glyphSourceProvider.Register(LineAwesomeGlyphs.Instance);
+            glyphSourceProvider.Register(SegoeFluentGlyphs.Instance);
+            glyphSourceProvider.Register(SegoeMDL2AssetsGlyphs.Instance);
+            glyphSourceProvider.Register(SegoeUISymbolGlyphs.Instance);
+            glyphSourceProvider.Register(WinJSSymbolsGlyphs.Instance);
+            this.GlyphSourceProvider = glyphSourceProvider;
+
+            services.AddSingleton<IGlyphSourceProvider>(glyphSourceProvider);
+            services.AddSingleton<IGlyphRenderer<Bitmap>>(new SkiaGlyphRenderer());
+
+            this.Services = services.BuildServiceProvider();
+
+            return;
         }
     }
 }

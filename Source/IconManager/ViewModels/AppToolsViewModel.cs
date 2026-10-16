@@ -1,11 +1,13 @@
 ﻿using Avalonia.Media.Imaging;
 using Avalonia.Platform.Storage;
 using CommunityToolkit.Mvvm.Input;
+using IconManager.Core.Glyphs;
 using IconManager.Core.Icons;
 using IconManager.Core.Serialization;
 using IconManager.IconSets;
 using IconManager.Utilities;
 using IconManager.Views;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,6 +30,10 @@ namespace IconManager.ViewModels
     /// </summary>
     public partial class AppToolsViewModel : ViewModelBase
     {
+        // Services
+        private readonly IGlyphRenderer<Bitmap> _glyphRendererService;
+        private readonly IGlyphSourceProvider   _glyphSourceProviderService;
+
         /***************************************************************************************
          *
          * Constructors
@@ -39,6 +45,9 @@ namespace IconManager.ViewModels
         /// </summary>
         public AppToolsViewModel()
         {
+            this._glyphRendererService       = App.Current.Services.GetRequiredService<IGlyphRenderer<Bitmap>>();
+            this._glyphSourceProviderService = App.Current.Services.GetRequiredService<IGlyphSourceProvider>();
+
             this.FillSourceIconSets();
         }
 
@@ -185,7 +194,11 @@ namespace IconManager.ViewModels
                         File.Delete(filePath);
                     }
 
-                    Bitmap? bitmap = await GlyphRenderer.GetPreviewBitmapAsync(viewModel.IconSet, viewModel.UnicodePoint);
+                    Bitmap? bitmap = await this._glyphRendererService.RenderGlyphAsync(
+                        viewModel.IconSet,
+                        viewModel.UnicodePoint,
+                        this._glyphSourceProviderService);
+
                     bitmap?.Save(filePath, PngBitmapEncoderOptions.Default);
                 }
             }
@@ -219,7 +232,7 @@ namespace IconManager.ViewModels
             var glyphs = new List<Tuple<string, string, string>>();
 
             // Load the glyphs directly from a CSV file
-            // Format is "Font, UnicodePoint, ImageFileName"
+            // Format is "IconSet, UnicodePoint, ImageFileName"
             if (files is not null &&
                 files.Count > 0)
             {
@@ -298,11 +311,22 @@ namespace IconManager.ViewModels
                     }
                     catch { }
 
-                    var font = GlyphRenderer.LoadFont(glyph.Item1);
-
-                    if (font is not null)
+                    IconSet iconSet = IconSet.Undefined;
+                    try
                     {
-                        var bitmap = await GlyphRenderer.RenderGlyph(font, glyph.Item1, unicodePoint);
+                        iconSet = Enum.Parse<IconSet>(glyph.Item1);
+                    }
+                    catch { }
+
+                    if (unicodePoint != 0 &&
+                        iconSet != IconSet.Undefined)
+                    {
+                        Bitmap? bitmap = await this._glyphRendererService.RenderGlyphAsync(
+                            iconSet,
+                            unicodePoint,
+                            this._glyphSourceProviderService,
+                            GlyphSource.LocalFontFile);
+
                         bitmap?.Save(filePath, PngBitmapEncoderOptions.Default);
                     }
                 }
