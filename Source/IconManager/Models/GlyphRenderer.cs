@@ -1,4 +1,5 @@
-﻿using IconManager.Core.Icons;
+﻿using IconManager.Core.Glyphs;
+using IconManager.Core.Icons;
 using IconManager.Models;
 using SkiaSharp;
 using System.Collections.Generic;
@@ -35,6 +36,9 @@ namespace IconManager
             string iconSetKey = iconSet.ToString();
             string glyphKey = iconSetKey + "_" + Icon.ToUnicodeHexString(unicodePoint);
             Bitmap? result = null;
+
+            // Temporary
+            var glyphSourceProvider = App.Current!.GlyphSourceProvider;
 
             // Quickly return for unsupported icon sets
             if (iconSet == IconSet.Undefined)
@@ -78,7 +82,15 @@ namespace IconManager
                     {
                         // Attempt to use an SVG image as fallback
                         // Note that the icon set determines that the format will be SVG
-                        var svgStream = await GlyphProvider.GetGlyphSourceStreamAsync(iconSet, unicodePoint);
+                        MemoryStream? svgStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(
+                            iconSet,
+                            unicodePoint,
+                            GlyphSource.LocalSvgFile);
+
+                        svgStream ??= await glyphSourceProvider.GetGlyphSourceStreamAsync(
+                            iconSet,
+                            unicodePoint,
+                            GlyphSource.RemoteSvgFile);
 
                         if (svgStream is not null)
                         {
@@ -112,7 +124,7 @@ namespace IconManager
                 // These preview images are also never distributed with source code
                 // Also note that SegoeUISymbol is also proprietary but has no website to retrieve preview images from
 
-                using (Stream? imageStream = await GlyphProvider.GetGlyphSourceStreamAsync(iconSet, unicodePoint))
+                using (Stream? imageStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(iconSet, unicodePoint, GlyphSource.RemotePngFile))
                 {
                     return (imageStream is null ? null : new Bitmap(imageStream));
                 }

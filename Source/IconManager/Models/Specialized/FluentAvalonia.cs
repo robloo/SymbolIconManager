@@ -327,7 +327,7 @@ namespace IconManager.Specialized
             // Double check: ensure all source icon sets have a real glyph source that can be used for font construction
             foreach (IconMapping mapping in mappings)
             {
-                var possibleGlyphSources = GlyphProvider.GetPossibleGlyphSources(
+                var possibleGlyphSources = App.Current!.GlyphSourceProvider.GetGlyphSources(
                     mapping.Source.IconSet,
                     mapping.Source.UnicodePoint);
 

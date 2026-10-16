@@ -52,7 +52,7 @@ namespace IconManager.ViewModels
         public void BuildWinSymbols1Font()
         {
             var fontBuilder = new FontBuilder();
-            fontBuilder.BuildFont(this.GetWinSymbols1Mappings(), "WinSymbols1.ttf");
+            fontBuilder.BuildFont(this.GetWinSymbols1Mappings(), App.Current!.GlyphSourceProvider, "WinSymbols1.ttf");
 
             return;
         }
@@ -61,7 +61,7 @@ namespace IconManager.ViewModels
         public void BuildWinSymbols2Font()
         {
             var fontBuilder = new FontBuilder();
-            fontBuilder.BuildFont(this.GetWinSymbols2Mappings(), "WinSymbols2.ttf");
+            fontBuilder.BuildFont(this.GetWinSymbols2Mappings(), App.Current!.GlyphSourceProvider, "WinSymbols2.ttf");
 
             return;
         }
@@ -70,7 +70,7 @@ namespace IconManager.ViewModels
         public void BuildWinSymbols3Font()
         {
             var fontBuilder = new FontBuilder();
-            fontBuilder.BuildFont(this.GetWinSymbols3Mappings(), "WinSymbols3.ttf");
+            fontBuilder.BuildFont(this.GetWinSymbols3Mappings(), App.Current!.GlyphSourceProvider, "WinSymbols3.ttf");
 
             return;
         }
@@ -97,7 +97,7 @@ namespace IconManager.ViewModels
             segoeFluentMappings.MergeInto(fluentAvaloniaMappings);
 
             var fontBuilder = new FontBuilder();
-            fontBuilder.BuildFont(fluentAvaloniaMappings, "FluentAvalonia.ttf");
+            fontBuilder.BuildFont(fluentAvaloniaMappings, App.Current!.GlyphSourceProvider, "FluentAvalonia.ttf");
 
             return;
         }
@@ -141,7 +141,7 @@ namespace IconManager.ViewModels
             }
 
             var fontBuilder = new FontBuilder();
-            fontBuilder.BuildFont(mappings, "FluentUISystemRegular.ttf");
+            fontBuilder.BuildFont(mappings, App.Current!.GlyphSourceProvider, "FluentUISystemRegular.ttf");
 
             return;
         }
@@ -157,7 +157,7 @@ namespace IconManager.ViewModels
             }
 
             var fontBuilder = new FontBuilder();
-            fontBuilder.BuildFont(mappings, "FluentUISystemFilled.ttf");
+            fontBuilder.BuildFont(mappings, App.Current!.GlyphSourceProvider, "FluentUISystemFilled.ttf");
 
             return;
         }

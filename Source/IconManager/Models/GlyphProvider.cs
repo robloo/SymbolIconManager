@@ -6,9 +6,7 @@ using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net.Http;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace IconManager.Models
 {
@@ -20,65 +18,6 @@ namespace IconManager.Models
         private static Dictionary<string, SKFont> _cachedFonts = new Dictionary<string, SKFont>();  // IconSet/file name is key
 
         private static Lock _cacheLock = new();
-
-        /// <summary>
-        /// Gets all possible glyph sources for the given icon set and Unicode point.
-        /// Note that 'possible' here means it may exist, but is not guaranteed.
-        /// Use an associated GetGlyphSource method to confirm.
-        /// </summary>
-        /// <param name="iconSet">The icon set containing the glyph.</param>
-        /// <param name="unicodePoint">The Unicode point of the glyph.</param>
-        /// <returns>The list of possible glyph sources.</returns>
-        public static List<GlyphSource> GetPossibleGlyphSources(
-            IconSet iconSet,
-            uint unicodePoint)
-        {
-            var possibleSources = new List<GlyphSource>();
-
-            switch (iconSet)
-            {
-                case IconSet.FluentUISystemFilled:
-                case IconSet.FluentUISystemRegular:
-                    return FluentUISystemGlyphs.Instance.GetGlyphSources(iconSet, unicodePoint);
-                case IconSet.LineAwesomeBrand:
-                case IconSet.LineAwesomeRegular:
-                case IconSet.LineAwesomeSolid:
-                    return LineAwesomeGlyphs.Instance.GetGlyphSources(iconSet, unicodePoint);
-                case IconSet.SegoeFluent:
-                    return SegoeFluentGlyphs.Instance.GetGlyphSources(iconSet, unicodePoint);
-                case IconSet.SegoeMDL2Assets:
-                    return SegoeMDL2AssetsGlyphs.Instance.GetGlyphSources(iconSet, unicodePoint);
-                case IconSet.SegoeUISymbol:
-                    return SegoeUISymbolGlyphs.Instance.GetGlyphSources(iconSet, unicodePoint);
-                case IconSet.WinJSSymbols:
-                    return WinJSSymbolsGlyphs.Instance.GetGlyphSources(iconSet, unicodePoint);
-            }
-
-            return possibleSources;
-        }
-
-        /// <summary>
-        /// Gets the font data source URI of the defined icon set.
-        /// </summary>
-        /// <param name="iconSet">The icon set to get the font URI for.</param>
-        /// <returns>The URI for the icon set's font data source.</returns>
-        public static Uri? GetFontSourceUri(IconSet iconSet)
-        {
-            switch (iconSet)
-            {
-                case IconSet.FluentUISystemFilled:
-                case IconSet.FluentUISystemRegular:
-                    return FluentUISystemGlyphs.Instance.GetFontSourceUri(iconSet);
-                case IconSet.LineAwesomeBrand:
-                case IconSet.LineAwesomeRegular:
-                case IconSet.LineAwesomeSolid:
-                    return LineAwesomeGlyphs.Instance.GetFontSourceUri(iconSet);
-                case IconSet.WinJSSymbols:
-                    return WinJSSymbolsGlyphs.Instance.GetFontSourceUri(iconSet);
-            }
-
-            return null;
-        }
 
         /// <summary>
         /// Loads the <see cref="SKFont"/> file that matches the given name.
@@ -103,6 +42,11 @@ namespace IconManager.Models
                 @"Source\IconManager.IconSets\WinJSSymbols\DataSources"
             };
 
+            var glyphSourceProvider = new GlyphSourceProviderCollection();
+            glyphSourceProvider.Register(FluentUISystemGlyphs.Instance);
+            glyphSourceProvider.Register(LineAwesomeGlyphs.Instance);
+            glyphSourceProvider.Register(WinJSSymbolsGlyphs.Instance);
+
             lock (_cacheLock)
             {
                 if (_cachedFonts.TryGetValue(fontKey, out font) == false)
@@ -112,7 +56,7 @@ namespace IconManager.Models
                         parsedIconSet is IconSet iconSet)
                     {
                         // Only some IconSet's have available font files
-                        fontUri = GlyphProvider.GetFontSourceUri(iconSet);
+                        fontUri = glyphSourceProvider.GetFontSourceUri(iconSet);
                     }
 
                     // Search directories for a font by name
@@ -199,174 +143,6 @@ namespace IconManager.Models
             }
 
             return font;
-        }
-
-        /// <summary>
-        /// Gets the local image data source URI of the defined glyph.
-        /// This currently only supports SVG format.
-        /// </summary>
-        /// <param name="iconSet">The icon set containing the glyph.</param>
-        /// <param name="unicodePoint">The Unicode point of the glyph.</param>
-        /// <returns>The local URI of the glyph's image data source.</returns>
-        public static Uri? GetLocalGlyphSourceUri(
-            IconSet iconSet,
-            uint unicodePoint)
-        {
-            switch (iconSet)
-            {
-                case IconSet.FluentUISystemFilled:
-                case IconSet.FluentUISystemRegular:
-                {
-                    return FluentUISystemGlyphs.Instance.GetGlyphSourceUri(
-                        iconSet,
-                        unicodePoint,
-                        GlyphSource.LocalSvgFile);
-                }
-                case IconSet.LineAwesomeBrand:
-                case IconSet.LineAwesomeRegular:
-                case IconSet.LineAwesomeSolid:
-                {
-                    return LineAwesomeGlyphs.Instance.GetGlyphSourceUri(
-                        iconSet,
-                        unicodePoint,
-                        GlyphSource.LocalSvgFile);
-                }
-            }
-
-            return null;
-        }
-
-        /// <summary>
-        /// Gets the remote image data source URI of the defined glyph.
-        /// This may be an SVG or bitmap.
-        /// </summary>
-        /// <param name="iconSet">The icon set containing the glyph.</param>
-        /// <param name="unicodePoint">The Unicode point of the glyph.</param>
-        /// <returns>The remote URI of the glyph's image data source.</returns>
-        public static Uri? GetRemoteGlyphSourceUri(
-            IconSet iconSet,
-            uint unicodePoint)
-        {
-            switch (iconSet)
-            {
-                case IconSet.FluentUISystemFilled:
-                case IconSet.FluentUISystemRegular:
-                {
-                    return FluentUISystemGlyphs.Instance.GetGlyphSourceUri(
-                        iconSet,
-                        unicodePoint,
-                        GlyphSource.RemoteSvgFile);
-                }
-                case IconSet.LineAwesomeBrand:
-                case IconSet.LineAwesomeRegular:
-                case IconSet.LineAwesomeSolid:
-                {
-                    return LineAwesomeGlyphs.Instance.GetGlyphSourceUri(
-                        iconSet,
-                        unicodePoint,
-                        GlyphSource.RemoteSvgFile);
-                }
-                case IconSet.SegoeFluent:
-                {
-                    return SegoeFluentGlyphs.Instance.GetGlyphSourceUri(
-                        iconSet,
-                        unicodePoint,
-                        GlyphSource.RemotePngFile);
-                }
-                case IconSet.SegoeMDL2Assets:
-                {
-                    return SegoeMDL2AssetsGlyphs.Instance.GetGlyphSourceUri(
-                        iconSet,
-                        unicodePoint,
-                        GlyphSource.RemotePngFile);
-                }
-                case IconSet.SegoeUISymbol:
-                {
-                    return SegoeUISymbolGlyphs.Instance.GetGlyphSourceUri(
-                        iconSet,
-                        unicodePoint,
-                        GlyphSource.RemotePngFile);
-                }
-            }
-
-            return null;
-        }
-
-        /// <summary>
-        /// Gets the image data stream (usually PNG or SVG format) of the defined glyph.
-        /// It is up to the caller to ensure the data stream is a supported format.
-        /// This will be downloaded from an online source.
-        /// </summary>
-        /// <param name="iconSet">The icon set containing the glyph.</param>
-        /// <param name="unicodePoint">The Unicode point of the glyph.</param>
-        /// <returns>The glyph source image data stream.</returns>
-        public static async Task<MemoryStream?> GetGlyphSourceStreamAsync(
-            IconSet iconSet,
-            uint unicodePoint)
-        {
-            Uri? glyphUri = null;
-            var possibleGlyphSources = GlyphProvider.GetPossibleGlyphSources(iconSet, unicodePoint);
-
-            // Always prioritize any local glyph sources
-            if (glyphUri is null &&
-                possibleGlyphSources.Contains(GlyphSource.LocalSvgFile))
-            {
-                glyphUri = GlyphProvider.GetLocalGlyphSourceUri(iconSet, unicodePoint);
-            }
-
-            if (glyphUri is null &&
-                possibleGlyphSources.Contains(GlyphSource.RemotePngFile) ||
-                possibleGlyphSources.Contains(GlyphSource.RemoteSvgFile))
-            {
-                glyphUri = GlyphProvider.GetRemoteGlyphSourceUri(iconSet, unicodePoint);
-            }
-
-            if (glyphUri is not null)
-            {
-                return await GlyphProvider.GetGlyphSourceStreamAsync(glyphUri!);
-            }
-
-            return null;
-        }
-
-        /// <summary>
-        /// Gets the image data stream (usually PNG or SVG format) of the glyph image file at the given URL.
-        /// It is up to the caller to ensure the data stream is a supported format.
-        /// This will be downloaded from an online source if needed.
-        /// </summary>
-        /// <param name="uri">The URI of the glyph source image file to download.</param>
-        /// <returns>The glyph source image data stream.</returns>
-        public static async Task<MemoryStream?> GetGlyphSourceStreamAsync(Uri uri)
-        {
-            try
-            {
-                if (uri is not null)
-                {
-                    // Note: LocalPath MUST be used (AbsolutePath doesn't work in all cases)
-                    if (uri.IsFile &&
-                        File.Exists(uri.LocalPath))
-                    {
-                        using (FileStream fileStream = File.OpenRead(uri.LocalPath))
-                        {
-                            var memoryStream = new MemoryStream(); 
-                            fileStream.CopyTo(memoryStream);
-
-                            return memoryStream;
-                        }
-                    }
-                    else
-                    {
-                        using (var client = new HttpClient())
-                        {
-                            var data = await client.GetByteArrayAsync(uri);
-                            return new MemoryStream(data);
-                        }
-                    }
-                }
-            }
-            catch { }
-
-            return null;
         }
     }
 }

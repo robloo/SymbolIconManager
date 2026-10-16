@@ -202,7 +202,7 @@ namespace IconManager.ViewModels
         public void BuildFont()
         {
             var fontBuilder = new FontBuilder();
-            fontBuilder.BuildFont(this.ViewToMappings());
+            fontBuilder.BuildFont(this.ViewToMappings(), App.Current!.GlyphSourceProvider);
 
             return;
         }

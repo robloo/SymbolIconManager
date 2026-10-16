@@ -1,4 +1,5 @@
-﻿using IconManager.Core.Icons;
+﻿using IconManager.Core.Glyphs;
+using IconManager.Core.Icons;
 using IconManager.IconSets;
 using IconManager.Models;
 using System.Collections.Generic;
@@ -97,7 +98,9 @@ namespace IconManager.Utilities
         /// This is a slow process as all source glyphs will attempt to be loaded.
         /// </remarks>
         /// <param name="mappings">The mapping list to repair.</param>
-        public static async Task RepairMappingListSourceUnicodePoints(IconMappingList mappings)
+        public static async Task RepairMappingListSourceUnicodePoints(
+            IconMappingList mappings,
+            IGlyphSourceProvider glyphSourceProvider)
         {
             var filled = IconSetBase.GetIcons(IconSet.FluentUISystemFilled);
             var regular = IconSetBase.GetIcons(IconSet.FluentUISystemRegular);
@@ -107,7 +110,7 @@ namespace IconManager.Utilities
             {
                 if (mapping.Source.IsValidForSource)
                 {
-                    var glyph = await GlyphProvider.GetGlyphSourceStreamAsync(
+                    var glyph = await glyphSourceProvider.GetDefaultGlyphSourceStreamAsync(
                         mapping.Source.IconSet,
                         mapping.Source.UnicodePoint);
 

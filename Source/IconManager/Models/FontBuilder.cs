@@ -51,10 +51,12 @@ namespace IconManager
         /// An output folder will be created with a script that can be run to generate the font.
         /// </summary>
         /// <param name="mappings">The icon glyph mappings to generate the font with.</param>
+        /// <param name="glyphSourceProvider">The glyph source data provider.</param>
         /// <param name="fontFileName">The name of the output font file.
         /// This must end in extension '.ttf'.</param>
         public void BuildFont(
             IconMappingList mappings,
+            IGlyphSourceProvider glyphSourceProvider,
             string fontFileName = OutputFontFileName)
         {
             var buildLog = new Log();
@@ -91,7 +93,7 @@ namespace IconManager
             }
 
             // Write the python script to build the actual font with FontForge
-            using (MemoryStream pythonScript = this.BuildPythonFontScript(mappings, outputDirectory, fontFileName, buildLog))
+            using (MemoryStream pythonScript = this.BuildPythonFontScript(mappings, glyphSourceProvider, outputDirectory, fontFileName, buildLog))
             {
                 this.WriteStreamToFile(
                     pythonScript,
@@ -160,6 +162,7 @@ namespace IconManager
         /// <returns>The python script stream that builds the font.</returns>
         private MemoryStream BuildPythonFontScript(
             IconMappingList mappings,
+            IGlyphSourceProvider glyphSourceProvider,
             string outputDirectory,
             string fontFileName,
             Log buildLog)
@@ -242,7 +245,7 @@ namespace IconManager
 
             foreach (IconMapping mapping in mappings)
             {
-                var possibleGlyphSources = GlyphProvider.GetPossibleGlyphSources(
+                var possibleGlyphSources = glyphSourceProvider.GetGlyphSources(
                     mapping.Source.IconSet,
                     mapping.Source.UnicodePoint);
 
@@ -253,21 +256,15 @@ namespace IconManager
                     Uri? svgUri = null;
 
                     // Always prioritize any local glyph sources
-                    if (svgUri is null &&
-                        possibleGlyphSources.Contains(GlyphSource.LocalSvgFile))
-                    {
-                        svgUri = GlyphProvider.GetLocalGlyphSourceUri(
-                            mapping.Source.IconSet,
-                            mapping.Source.UnicodePoint);
-                    }
+                    svgUri ??= glyphSourceProvider.GetGlyphSourceUri(
+                        mapping.Source.IconSet,
+                        mapping.Source.UnicodePoint,
+                        GlyphSource.LocalSvgFile);
 
-                    if (svgUri is null &&
-                        possibleGlyphSources.Contains(GlyphSource.RemoteSvgFile))
-                    {
-                        svgUri = GlyphProvider.GetRemoteGlyphSourceUri(
-                            mapping.Source.IconSet,
-                            mapping.Source.UnicodePoint);
-                    }
+                    svgUri ??= glyphSourceProvider.GetGlyphSourceUri(
+                        mapping.Source.IconSet,
+                        mapping.Source.UnicodePoint,
+                        GlyphSource.RemoteSvgFile);
 
                     if (svgUri is null)
                     {
@@ -292,7 +289,7 @@ namespace IconManager
                     {
                         if (svgUri is not null)
                         {
-                            using (var stream = await GlyphProvider.GetGlyphSourceStreamAsync(svgUri!))
+                            using (var stream = await glyphSourceProvider.GetGlyphSourceStreamAsync(svgUri!))
                             {
                                 if (stream is not null)
                                 {
