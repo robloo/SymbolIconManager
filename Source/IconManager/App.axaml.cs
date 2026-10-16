@@ -22,11 +22,6 @@ namespace IconManager
             @"IconManagerCache");
 
         /// <summary>
-        /// Gets the default glyph source provider for all supported icon sets.
-        /// </summary>
-        public IGlyphSourceProvider GlyphSourceProvider { get; private set; } = null!;
-
-        /// <summary>
         /// Gets the provider of all registered application services.
         /// </summary>
         /// <remarks>
@@ -85,7 +80,6 @@ namespace IconManager
             glyphSourceProvider.Register(SegoeMDL2AssetsGlyphs.Instance);
             glyphSourceProvider.Register(SegoeUISymbolGlyphs.Instance);
             glyphSourceProvider.Register(WinJSSymbolsGlyphs.Instance);
-            this.GlyphSourceProvider = glyphSourceProvider;
 
             services.AddSingleton<IGlyphSourceProvider>(glyphSourceProvider);
             services.AddSingleton<IGlyphRenderer<Bitmap>>(new SkiaGlyphRenderer());

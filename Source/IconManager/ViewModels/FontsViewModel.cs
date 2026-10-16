@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using IconManager.Core;
 using IconManager.Core.Fonts;
+using IconManager.Core.Glyphs;
 using IconManager.Core.Icons;
 using IconManager.Core.Serialization;
 using IconManager.Services;
@@ -19,7 +20,8 @@ namespace IconManager.ViewModels
     public partial class FontsViewModel : ViewModelBase
     {
         // Services
-        private readonly IStorageService _storageService;
+        private readonly IGlyphSourceProvider _glyphSourceProviderService;
+        private readonly IStorageService      _storageService;
 
         /***************************************************************************************
          *
@@ -32,7 +34,8 @@ namespace IconManager.ViewModels
         /// </summary>
         public FontsViewModel()
         {
-            this._storageService = App.Current.Services.GetRequiredService<IStorageService>();
+            this._glyphSourceProviderService = App.Current.Services.GetRequiredService<IGlyphSourceProvider>();
+            this._storageService             = App.Current.Services.GetRequiredService<IStorageService>();
         }
 
         /***************************************************************************************
@@ -61,7 +64,7 @@ namespace IconManager.ViewModels
         public void BuildWinSymbols1Font()
         {
             var fontBuilder = new FontBuilder();
-            fontBuilder.BuildFont(this.GetWinSymbols1Mappings(), App.Current!.GlyphSourceProvider, "WinSymbols1.ttf");
+            fontBuilder.BuildFont(this.GetWinSymbols1Mappings(), this._glyphSourceProviderService, "WinSymbols1.ttf");
 
             return;
         }
@@ -70,7 +73,7 @@ namespace IconManager.ViewModels
         public void BuildWinSymbols2Font()
         {
             var fontBuilder = new FontBuilder();
-            fontBuilder.BuildFont(this.GetWinSymbols2Mappings(), App.Current!.GlyphSourceProvider, "WinSymbols2.ttf");
+            fontBuilder.BuildFont(this.GetWinSymbols2Mappings(), this._glyphSourceProviderService, "WinSymbols2.ttf");
 
             return;
         }
@@ -79,7 +82,7 @@ namespace IconManager.ViewModels
         public void BuildWinSymbols3Font()
         {
             var fontBuilder = new FontBuilder();
-            fontBuilder.BuildFont(this.GetWinSymbols3Mappings(), App.Current!.GlyphSourceProvider, "WinSymbols3.ttf");
+            fontBuilder.BuildFont(this.GetWinSymbols3Mappings(), this._glyphSourceProviderService, "WinSymbols3.ttf");
 
             return;
         }
@@ -106,7 +109,7 @@ namespace IconManager.ViewModels
             segoeFluentMappings.MergeInto(fluentAvaloniaMappings);
 
             var fontBuilder = new FontBuilder();
-            fontBuilder.BuildFont(fluentAvaloniaMappings, App.Current!.GlyphSourceProvider, "FluentAvalonia.ttf");
+            fontBuilder.BuildFont(fluentAvaloniaMappings, this._glyphSourceProviderService, "FluentAvalonia.ttf");
 
             return;
         }
@@ -150,7 +153,7 @@ namespace IconManager.ViewModels
             }
 
             var fontBuilder = new FontBuilder();
-            fontBuilder.BuildFont(mappings, App.Current!.GlyphSourceProvider, "FluentUISystemRegular.ttf");
+            fontBuilder.BuildFont(mappings, this._glyphSourceProviderService, "FluentUISystemRegular.ttf");
 
             return;
         }
@@ -166,7 +169,7 @@ namespace IconManager.ViewModels
             }
 
             var fontBuilder = new FontBuilder();
-            fontBuilder.BuildFont(mappings, App.Current!.GlyphSourceProvider, "FluentUISystemFilled.ttf");
+            fontBuilder.BuildFont(mappings, this._glyphSourceProviderService, "FluentUISystemFilled.ttf");
 
             return;
         }

@@ -2,6 +2,7 @@
 using IconManager.Core.Icons;
 using IconManager.IconSets;
 using IconManager.Utilities;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Text;
 
@@ -58,6 +59,7 @@ namespace IconManager.Specialized
         {
             string symbolEnumCommentPrefix = "WinUI Symbol.";
             IconMappingList mappings = existingMappings;
+            var glyphSourceProvider = App.Current.Services.GetRequiredService<IGlyphSourceProvider>();
 
             // Initialize the starting value of all new symbols Unicode points here.
             // New symbols are those that do not exist by name in either SegoeFluent or the
@@ -326,7 +328,7 @@ namespace IconManager.Specialized
             // Double check: ensure all source icon sets have a real glyph source that can be used for font construction
             foreach (IconMapping mapping in mappings)
             {
-                var possibleGlyphSources = App.Current!.GlyphSourceProvider.GetGlyphSources(
+                var possibleGlyphSources = glyphSourceProvider.GetGlyphSources(
                     mapping.Source.IconSet,
                     mapping.Source.UnicodePoint);
 

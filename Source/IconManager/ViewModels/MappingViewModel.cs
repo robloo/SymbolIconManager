@@ -1,6 +1,7 @@
 ﻿using Avalonia.Platform.Storage;
 using CommunityToolkit.Mvvm.Input;
 using IconManager.Core.Fonts;
+using IconManager.Core.Glyphs;
 using IconManager.Core.Icons;
 using IconManager.Core.Serialization;
 using IconManager.Services;
@@ -21,7 +22,8 @@ namespace IconManager.ViewModels
     public partial class MappingViewModel : ViewModelBase
     {
         // Services
-        private readonly IStorageService _storageService;
+        private readonly IGlyphSourceProvider _glyphSourceProviderService;
+        private readonly IStorageService      _storageService;
 
         /***************************************************************************************
          *
@@ -34,7 +36,8 @@ namespace IconManager.ViewModels
         /// </summary>
         public MappingViewModel()
         {
-            this._storageService = App.Current.Services.GetRequiredService<IStorageService>();
+            this._glyphSourceProviderService = App.Current.Services.GetRequiredService<IGlyphSourceProvider>();
+            this._storageService             = App.Current.Services.GetRequiredService<IStorageService>();
         }
 
         /***************************************************************************************
@@ -210,7 +213,7 @@ namespace IconManager.ViewModels
         public void BuildFont()
         {
             var fontBuilder = new FontBuilder();
-            fontBuilder.BuildFont(this.ViewToMappings(), App.Current!.GlyphSourceProvider);
+            fontBuilder.BuildFont(this.ViewToMappings(), this._glyphSourceProviderService);
 
             return;
         }
