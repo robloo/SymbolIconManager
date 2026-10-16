@@ -1,6 +1,6 @@
-﻿using IconManager.Core.Glyphs;
+﻿using IconManager.Core.Fonts;
+using IconManager.Core.Glyphs;
 using IconManager.Core.Icons;
-using IconManager.Models;
 using System;
 using System.Diagnostics;
 using System.Globalization;
@@ -465,46 +465,6 @@ namespace IconManager
             }
 
             return;
-        }
-
-        /***************************************************************************************
-         *
-         * Classes
-         *
-         ***************************************************************************************/
-
-        /// <summary>
-        /// Contains properties of a font.
-        /// </summary>
-        public class FontProperties
-        {
-            public FontProperties()
-            {
-                this.Comments   = "Released under the terms of the MIT license.";
-                this.Copyright  = $@"Copyright (c) {DateTime.Now.Year}, SymbolIconManager";
-                this.FamilyName = @"Symbols";
-                this.Name       = @"Symbols";
-            }
-
-            /// <summary>
-            /// Gets or sets any comments of the font.
-            /// </summary>
-            public string Comments { get; set; }
-
-            /// <summary>
-            /// Gets or sets the copyright information of the font.
-            /// </summary>
-            public string Copyright { get; set; }
-
-            /// <summary>
-            /// Gets or sets the name of the font's family.
-            /// </summary>
-            public string FamilyName { get; set; }
-
-            /// <summary>
-            /// Gets or sets the name of the font.
-            /// </summary>
-            public string Name { get; set; }
         }
     }
 }
