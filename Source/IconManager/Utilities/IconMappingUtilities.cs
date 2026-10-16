@@ -1,7 +1,6 @@
 ﻿using IconManager.Core.Glyphs;
 using IconManager.Core.Icons;
 using IconManager.IconSets;
-using IconManager.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

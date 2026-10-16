@@ -22,35 +22,47 @@ namespace IconManager.Core.Glyphs
         /// <param name="iconSet">The icon set containing the glyph.</param>
         /// <param name="unicodePoint">The Unicode point of the glyph.</param>
         /// <returns>The glyph source image data stream; otherwise, null.</returns>
-        public static async Task<MemoryStream?> GetDefaultGlyphSourceStreamAsync(
+        public static async Task<GlyphStream?> GetDefaultGlyphSourceStreamAsync(
             this IGlyphSourceProvider glyphSourceProvider,
             IconSet iconSet,
             uint unicodePoint)
         {
-            Uri? glyphUri = null;
-
             // Note: There is a priority to glyph sources that should be respected
             // The most local, highest fidelity data should be used first
             // Font glyph sources are NOT returned here (since they are a collection of glyphs)
 
-            glyphUri ??= glyphSourceProvider.GetGlyphSourceUri(
-                iconSet,
-                unicodePoint,
-                GlyphSource.LocalSvgFile);
-
-            glyphUri ??= glyphSourceProvider.GetGlyphSourceUri(
-                iconSet,
-                unicodePoint,
-                GlyphSource.RemoteSvgFile);
-
-            glyphUri ??= glyphSourceProvider.GetGlyphSourceUri(
-                iconSet,
-                unicodePoint,
-                GlyphSource.RemotePngFile);
-
-            if (glyphUri is not null)
+            GlyphSource[] glyphSources =
             {
-                return await glyphSourceProvider.GetGlyphSourceStreamAsync(glyphUri);
+                GlyphSource.LocalSvgFile,
+                GlyphSource.RemoteSvgFile,
+                GlyphSource.RemotePngFile
+            };
+
+            foreach (var glyphSource in glyphSources)
+            {
+                Uri? glyphUri = glyphSourceProvider.GetGlyphSourceUri(
+                    iconSet,
+                    unicodePoint,
+                    glyphSource);
+
+                if (glyphUri is null)
+                {
+                    continue;
+                }
+
+                GlyphStream? glyphStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(glyphUri);
+
+                if (glyphStream is null)
+                {
+                    continue;
+                }
+
+                glyphStream.IconSet      = iconSet;
+                glyphStream.Source       = glyphSource;
+                glyphStream.SourceUri    = glyphUri;
+                glyphStream.UnicodePoint = unicodePoint;
+
+                return glyphStream;
             }
 
             return null;
@@ -64,7 +76,7 @@ namespace IconManager.Core.Glyphs
         /// <param name="unicodePoint">The Unicode point of the glyph.</param>
         /// <param name="glyphSource">The type of glyph source to provide the image data stream for.</param>
         /// <returns>The glyph source image data stream; otherwise, null.</returns>
-        public static async Task<MemoryStream?> GetGlyphSourceStreamAsync(
+        public static async Task<GlyphStream?> GetGlyphSourceStreamAsync(
             this IGlyphSourceProvider glyphSourceProvider,
             IconSet iconSet,
             uint unicodePoint,
@@ -77,7 +89,14 @@ namespace IconManager.Core.Glyphs
 
             if (glyphUri is not null)
             {
-                return await glyphSourceProvider.GetGlyphSourceStreamAsync(glyphUri);
+                GlyphStream? glyphStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(glyphUri);
+
+                glyphStream?.IconSet      = iconSet;
+                glyphStream?.Source       = glyphSource;
+                glyphStream?.SourceUri    = glyphUri;
+                glyphStream?.UnicodePoint = unicodePoint;
+
+                return glyphStream;
             }
 
             return null;
@@ -93,34 +112,40 @@ namespace IconManager.Core.Glyphs
         /// <param name="glyphSourceProvider">The <see cref="IGlyphSourceProvider"/> to execute with.</param>
         /// <param name="uri">The URI of the glyph source image file to download.</param>
         /// <returns>The glyph source image data stream; otherwise, null.</returns>
-        public static async Task<MemoryStream?> GetGlyphSourceStreamAsync(
+        public static async Task<GlyphStream?> GetGlyphSourceStreamAsync(
             this IGlyphSourceProvider glyphSourceProvider,
             Uri uri)
         {
+            if (uri is null)
+            {
+                return null;
+            }
+
             try
             {
-                if (uri is not null)
-                {
-                    // Note: LocalPath MUST be used (AbsolutePath doesn't work in all cases)
-                    if (uri.IsFile &&
-                        File.Exists(uri.LocalPath))
-                    {
-                        using (FileStream fileStream = File.OpenRead(uri.LocalPath))
-                        {
-                            var memoryStream = new MemoryStream(); 
-                            fileStream.CopyTo(memoryStream);
+                byte[] data;
 
-                            return memoryStream;
-                        }
-                    }
-                    else
+                // Note: LocalPath MUST be used (AbsolutePath doesn't work in all cases)
+                if (uri.IsFile &&
+                    File.Exists(uri.LocalPath))
+                {
+                    data = await File.ReadAllBytesAsync(uri.LocalPath);
+                }
+                else
+                {
+                    using (var client = new HttpClient())
                     {
-                        using (var client = new HttpClient())
-                        {
-                            var data = await client.GetByteArrayAsync(uri);
-                            return new MemoryStream(data);
-                        }
+                        data = await client.GetByteArrayAsync(uri);
                     }
+                }
+
+                if (data is not null &&
+                    data.Length > 0)
+                {
+                    return new GlyphStream(data)
+                    {
+                        SourceUri = uri
+                    };
                 }
             }
             catch { }

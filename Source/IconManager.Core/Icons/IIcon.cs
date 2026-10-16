@@ -16,7 +16,7 @@ namespace IconManager.Core.Icons
         ///////////////////////////////////////////////////////////
 
         /// <summary>
-        /// Gets or sets the <see cref="IconManager.IconSet"/> that contains the icon.
+        /// Gets or sets the <see cref="Icons.IconSet"/> that contains the icon.
         /// </summary>
         /// <remarks>
         /// This should be used to interpret and differentiate the <see cref="UnicodePoint"/>.
