@@ -1,6 +1,7 @@
 ﻿using Avalonia.Platform.Storage;
 using CommunityToolkit.Mvvm.Input;
 using IconManager.Core;
+using IconManager.Core.Fonts;
 using IconManager.Core.Icons;
 using IconManager.Utilities;
 using IconManager.Views;

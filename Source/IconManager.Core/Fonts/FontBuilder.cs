@@ -1,5 +1,4 @@
-﻿using IconManager.Core.Fonts;
-using IconManager.Core.Glyphs;
+﻿using IconManager.Core.Glyphs;
 using IconManager.Core.Icons;
 using System;
 using System.Diagnostics;
@@ -9,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace IconManager
+namespace IconManager.Core.Fonts
 {
     /// <summary>
     /// Contains methods to build a font or generate a script that can build a font.
