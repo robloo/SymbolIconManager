@@ -7,7 +7,7 @@
       <a href="https://github.com/robloo/SymbolIconManager/blob/main/Docs/IconMapping.md">Icon Mapping Details</a>
     </td>
     <td>
-      <a href="https://github.com/robloo/SymbolIconManager/blob/main/Source/Data/ReadMe.md">Icon Set Data ReadMe</a>
+      <a href="https://github.com/robloo/SymbolIconManager/blob/main/Source/IconManager.IconSets/ReadMe.md">Icon Set Data ReadMe</a>
     </td>
   </tr>
 <table>
@@ -100,10 +100,10 @@ For more instructions on how to modify icon mapping files see [Icon Mapping](htt
 
 This application is possible thanks to the work of others:
 
- * [Avalonia UI](https://www.avaloniaui.net/) and [Avalonia.NameGenerator](https://github.com/AvaloniaUI/Avalonia.NameGenerator) provides the UI framework
+ * [Avalonia UI](https://www.avaloniaui.net/) provides the UI framework
  * [SkiaSharp](https://github.com/mono/SkiaSharp) provides the library used to render glyphs to images
  * [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json) which is still the best C# JSON serialization library doing things `System.Text.Json` can't
- * Also see the [Data ReadMe](https://github.com/robloo/SymbolIconManager/tree/main/Source/Data#readme) for a list of third-party data used by the app
+ * Also see the [Data ReadMe](https://github.com/robloo/SymbolIconManager/tree/main/Source/IconManager.IconSets#readme) for a list of third-party data used by the app
 
 Significant credit goes to Microsoft for open sourcing the symbol icon fonts and glyph sources that make most of this possible. This includes the older WinJS *Symbols* font as well as the newer *Fluent UI System Icons* which share a design language with current *Segoe Fluent Icons*.
 
