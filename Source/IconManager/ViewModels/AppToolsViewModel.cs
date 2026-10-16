@@ -3,7 +3,6 @@ using Avalonia.Platform.Storage;
 using CommunityToolkit.Mvvm.Input;
 using IconManager.Core.Icons;
 using IconManager.IconSets;
-using IconManager.Models;
 using IconManager.Utilities;
 using IconManager.Views;
 using System;
@@ -297,7 +296,7 @@ namespace IconManager.ViewModels
                     }
                     catch { }
 
-                    var font = GlyphProvider.LoadFont(glyph.Item1);
+                    var font = GlyphRenderer.LoadFont(glyph.Item1);
 
                     if (font is not null)
                     {
