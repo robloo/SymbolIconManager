@@ -185,7 +185,7 @@ namespace IconManager.ViewModels
                     }
 
                     Bitmap? bitmap = await GlyphRenderer.GetPreviewBitmapAsync(viewModel.IconSet, viewModel.UnicodePoint);
-                    bitmap?.Save(filePath);
+                    bitmap?.Save(filePath, PngBitmapEncoderOptions.Default);
                 }
             }
 
@@ -227,22 +227,23 @@ namespace IconManager.ViewModels
                 if (File.Exists(path))
                 {
                     using (var fileStream = File.OpenRead(path))
+                    using (var reader = new StreamReader(fileStream))
                     {
-                        using (var reader = new StreamReader(fileStream))
-                        {
-                            while (reader.EndOfStream == false)
-                            {
-                                string? line = reader.ReadLine();
-                                string[] columns = line?.Split(',') ?? new string[0];
+                        string? line = await reader.ReadLineAsync();
 
-                                if (columns.Length == 3)
-                                {
-                                    glyphs.Add(Tuple.Create(
-                                        columns[0].Trim(),
-                                        columns[1].Trim(),
-                                        columns[2].Trim()));
-                                }
+                        while (line is not null)
+                        {
+                            string[] columns = line.Split(',');
+
+                            if (columns.Length == 3)
+                            {
+                                glyphs.Add(Tuple.Create(
+                                    columns[0].Trim(),
+                                    columns[1].Trim(),
+                                    columns[2].Trim()));
                             }
+
+                            line = await reader.ReadLineAsync();
                         }
                     }
                 }
@@ -301,7 +302,7 @@ namespace IconManager.ViewModels
                     if (font is not null)
                     {
                         var bitmap = await GlyphRenderer.RenderGlyph(font, glyph.Item1, unicodePoint);
-                        bitmap?.Save(filePath);
+                        bitmap?.Save(filePath, PngBitmapEncoderOptions.Default);
                     }
                 }
 

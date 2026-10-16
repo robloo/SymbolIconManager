@@ -20,11 +20,10 @@ namespace IconManager
         public const int RenderWidth  = 64; // Pixels
         public const int RenderHeight = 64; // Pixels
 
-        private static SKPaint? _cachedBackgroundPaint = null;
+        private static SKPaint? _cachedTextPaint = null;
 
-        private static Dictionary<string, SKFont>  _cachedFonts      = new Dictionary<string, SKFont>();  // IconSet/file name is key
-        private static Dictionary<string, Bitmap>  _cachedGlyphs     = new Dictionary<string, Bitmap>();  // IconSet_UnicodePoint is key
-        private static Dictionary<string, SKPaint> _cachedTextPaints = new Dictionary<string, SKPaint>(); // IconSet/file name is key
+        private static Dictionary<string, SKFont> _cachedFonts  = new Dictionary<string, SKFont>();  // IconSet/file name is key
+        private static Dictionary<string, Bitmap> _cachedGlyphs = new Dictionary<string, Bitmap>();  // IconSet_UnicodePoint is key
 
         private static Lock _cacheLock = new();
 
@@ -74,47 +73,49 @@ namespace IconManager
                     // A work-around for this case is required using the local or remote SVG file sources
 
                     var font = GlyphRenderer.LoadFont(iconSet.ToString());
-                    var bitmap = await GlyphRenderer.RenderGlyph(font, iconSet.ToString(), unicodePoint);
 
-                    if (bitmap is not null)
+                    if (font is not null)
                     {
-                        // Use the Skia font-rendered glyph
-                        return bitmap;
-                    }
-                    else
-                    {
-                        // Attempt to use an SVG image as fallback
-                        // Note that the icon set determines that the format will be SVG
-                        MemoryStream? svgStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(
-                            iconSet,
-                            unicodePoint,
-                            GlyphSource.LocalSvgFile);
+                        var bitmap = await GlyphRenderer.RenderGlyph(font, iconSet.ToString(), unicodePoint);
 
-                        svgStream ??= await glyphSourceProvider.GetGlyphSourceStreamAsync(
-                            iconSet,
-                            unicodePoint,
-                            GlyphSource.RemoteSvgFile);
-
-                        if (svgStream is not null)
+                        if (bitmap is not null)
                         {
-                            // The size here (and above) isn't taking into account device DPI
-                            // It probably should in the future
-                            // Also note that no background is added to the rendered SVG unlike above
-                            var svg = new SkiaSharp.Extended.Svg.SKSvg(
-                                new SKSize(GlyphRenderer.RenderWidth, GlyphRenderer.RenderHeight));
-                            svg.Load(svgStream);
-
-                            // Note that the default SKImage encoding format is .png
-                            using (SKImage image = SKImage.FromPicture(svg.Picture, svg.CanvasSize.ToSizeI()))
-                            using (SKData encoded = image.Encode())
-                            using (Stream stream = encoded.AsStream())
-                            {
-                                return new Bitmap(stream);
-                            }
+                            // Use the Skia font-rendered glyph
+                            return bitmap;
                         }
-
-                        return null;
                     }
+
+                    // Attempt to use an SVG image as fallback
+                    // Note that the icon set determines that the format will be SVG
+                    MemoryStream? svgStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(
+                        iconSet,
+                        unicodePoint,
+                        GlyphSource.LocalSvgFile);
+
+                    svgStream ??= await glyphSourceProvider.GetGlyphSourceStreamAsync(
+                        iconSet,
+                        unicodePoint,
+                        GlyphSource.RemoteSvgFile);
+
+                    if (svgStream is not null)
+                    {
+                        // The size here (and above) isn't taking into account device DPI
+                        // It probably should in the future
+                        // Also note that no background is added to the rendered SVG unlike above
+                        var svg = new SkiaSharp.Extended.Svg.SKSvg(
+                            new SKSize(GlyphRenderer.RenderWidth, GlyphRenderer.RenderHeight));
+                        svg.Load(svgStream);
+
+                        // Note that the default SKImage encoding format is .png
+                        using (SKImage image = SKImage.FromPicture(svg.Picture, svg.CanvasSize.ToSizeI()))
+                        using (SKData encoded = image.Encode())
+                        using (Stream stream = encoded.AsStream())
+                        {
+                            return new Bitmap(stream);
+                        }
+                    }
+
+                    return null;
                 });
             }
             else if (iconSet == IconSet.SegoeFluent ||
@@ -164,87 +165,59 @@ namespace IconManager
             return await Task.Run(() =>
             {
                 var textBounds = new SKRect();
-                bool glyphExistsInFont;
-                SKPaint? textPaint = null;
                 SKBitmap bitmap = new SKBitmap(renderWidth, renderHeight);
 
                 lock (_cacheLock)
                 {
                     // Load all SKPaint objects
-                    if (_cachedBackgroundPaint is null)
+                    _cachedTextPaint ??= new SKPaint()
                     {
-                        _cachedBackgroundPaint = new SKPaint()
-                        {
-                            Color = SKColors.White
-                        };
-                    }
+                        Color = SKColors.Black
+                    };
 
-                    if (_cachedTextPaints.TryGetValue(fontKey, out textPaint) == false)
+                    // Check whether the font contains the glyph
+                    if (font.GetGlyph((int)unicodePoint) == 0)
                     {
-                        textPaint = new SKPaint(font)
-                        {
-                            Color = SKColors.Black
-                        };
-
-                        _cachedTextPaints.Add(fontKey, textPaint);
+                        return null;
                     }
 
                     // Measure the rendered text
-                    // This also checks if the glyph exists in the font before continuing
                     string text = string.Empty;
                     try
                     {
                         text = char.ConvertFromUtf32((int)unicodePoint).ToString();
                     }
                     catch { }
-                    textPaint.MeasureText(text, ref textBounds);
+                    font.MeasureText(text, out textBounds);
 
-                    if (textBounds.Width == 0 ||
-                        textBounds.Height == 0)
+                    // Render the glyph
+                    using (SKCanvas canvas = new SKCanvas(bitmap))
                     {
-                        glyphExistsInFont = false;
-                    }
-                    else
-                    {
-                        glyphExistsInFont = true;
-                    }
+                        // Set the canvas background
+                        canvas.Clear(SKColors.White);
 
-                    // Render the glyph using SkiaSharp
-                    if (glyphExistsInFont)
-                    {
-                        using (SKCanvas canvas = new SKCanvas(bitmap))
-                        {
-                            canvas.DrawRect(
-                                x: 0,
-                                y: 0,
-                                w: renderWidth,
-                                h: renderHeight,
-                                _cachedBackgroundPaint);
+                        // Center the glyph within the bitmap canvas
+                        // No need to consider baseline, just center the glyph
+                        float x = (renderWidth / 2f) - textBounds.MidX;
+                        float y = (renderHeight / 2f) - textBounds.MidY;
 
-                            canvas.DrawText(
-                                text,
-                                // No need to consider baseline, just center the glyph
-                                x: (renderWidth / 2f) - textBounds.MidX,
-                                y: (renderHeight / 2f) - textBounds.MidY,
-                                font,
-                                textPaint);
-                        }
+                        canvas.DrawText(
+                            text,
+                            x,
+                            y,
+                            font,
+                            _cachedTextPaint);
                     }
                 }
 
-                if (glyphExistsInFont)
+                // Use the Skia font-rendered glyph
+                // Note that the default SKImage encoding format is .png
+                using (SKImage image = SKImage.FromBitmap(bitmap))
+                using (SKData encoded = image.Encode())
+                using (Stream stream = encoded.AsStream())
                 {
-                    // Use the Skia font-rendered glyph
-                    // Note that the default SKImage encoding format is .png
-                    using (SKImage image = SKImage.FromBitmap(bitmap))
-                    using (SKData encoded = image.Encode())
-                    using (Stream stream = encoded.AsStream())
-                    {
-                        return new Bitmap(stream);
-                    }
+                    return new Bitmap(stream);
                 }
-
-                return null;
             });
         }
 
