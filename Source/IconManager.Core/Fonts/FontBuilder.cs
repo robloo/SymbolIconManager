@@ -288,7 +288,7 @@ namespace IconManager.Core.Fonts
                     {
                         if (svgUri is not null)
                         {
-                            using (var stream = await glyphSourceProvider.GetGlyphSourceStreamAsync(svgUri!))
+                            using (GlyphStream? stream = await glyphSourceProvider.GetGlyphSourceStreamAsync(svgUri!))
                             {
                                 if (stream is not null)
                                 {

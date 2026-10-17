@@ -218,11 +218,11 @@ namespace IconManager.Services
             if (result is null &&
                 glyphSources.Contains(GlyphSource.RemotePngFile))
             {
-                using (Stream? imageStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(iconSet, unicodePoint, GlyphSource.RemotePngFile))
+                using (GlyphStream? pngStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(iconSet, unicodePoint, GlyphSource.RemotePngFile))
                 {
-                    result = imageStream is null
+                    result = pngStream is null
                         ? null
-                        : new Bitmap(imageStream);
+                        : new Bitmap(pngStream);
                 }
             }
 

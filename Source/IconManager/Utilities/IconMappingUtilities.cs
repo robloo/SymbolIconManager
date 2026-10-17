@@ -109,7 +109,7 @@ namespace IconManager.Utilities
             {
                 if (mapping.Source.IsValidForSource)
                 {
-                    var glyph = await glyphSourceProvider.GetDefaultGlyphSourceStreamAsync(
+                    GlyphStream? glyph = await glyphSourceProvider.GetDefaultGlyphSourceStreamAsync(
                         mapping.Source.IconSet,
                         mapping.Source.UnicodePoint);
 
