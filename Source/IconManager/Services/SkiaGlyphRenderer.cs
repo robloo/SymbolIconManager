@@ -16,7 +16,14 @@ namespace IconManager.Services
     /// </summary>
     public class SkiaGlyphRenderer : IGlyphRenderer<Bitmap>
     {
+        /// <summary>
+        /// The default width, in pixels, of the rendered glyph.
+        /// </summary>
         public const int DefaultRenderWidth  = 64; // Pixels
+
+        /// <summary>
+        /// The default height, in pixels, of the rendered glyph.
+        /// </summary>
         public const int DefaultRenderHeight = 64; // Pixels
 
         private static SKPaint? _cachedTextPaint = null;
@@ -28,15 +35,41 @@ namespace IconManager.Services
 
         /***************************************************************************************
          *
+         * Constructors
+         *
+         ***************************************************************************************/
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SkiaGlyphRenderer"/> class.
+        /// </summary>
+        public SkiaGlyphRenderer()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SkiaGlyphRenderer"/> class.
+        /// </summary>
+        /// <param name="renderWidth">The width, in pixels, of the rendered glyph.</param>
+        /// <param name="renderHeight">The height, in pixels, of the rendered glyph.</param>
+        public SkiaGlyphRenderer(
+            uint renderWidth,
+            uint renderHeight)
+        {
+            this.RenderHeight = renderHeight;
+            this.RenderWidth  = renderWidth;
+        }
+
+        /***************************************************************************************
+         *
          * Property Accessors
          *
          ***************************************************************************************/
 
         /// <inheritdoc/>
-        public uint RenderHeight { get; set; } = DefaultRenderHeight;
+        public uint RenderHeight { get; init; } = DefaultRenderHeight;
 
         /// <inheritdoc/>
-        public uint RenderWidth { get; set; } = DefaultRenderWidth;
+        public uint RenderWidth { get; init; } = DefaultRenderWidth;
 
         /***************************************************************************************
          *
