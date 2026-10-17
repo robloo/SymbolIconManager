@@ -96,7 +96,20 @@ namespace IconManager.Services
                 return null;
             }
 
+            // Restrict the glyph source if an input request was given
+            // Note that this is ONLY a request and if it cannot be honored standard
+            // glyph sources will still be used as a fallback
+            if (glyphSource != GlyphSource.None &&
+                glyphSources.Contains(glyphSource))
+            {
+                glyphSources = new List<GlyphSource>
+                {
+                    glyphSource
+                };
+            }
+
             // Attempt to quickly load and return the bitmap from the cache
+            // This doesn't respect any input glyph source request, but that's fine for now
             lock (_cacheLock)
             {
                 if (_cachedGlyphs.TryGetValue(glyphKey, out result))
@@ -140,7 +153,7 @@ namespace IconManager.Services
 
                     if (font is not null)
                     {
-                        var bitmap = await SkiaGlyphRenderer.RenderGlyphFromFontAsync(font, unicodePoint);
+                        Bitmap? bitmap = await SkiaGlyphRenderer.RenderGlyphFromFontAsync(font, unicodePoint);
 
                         if (bitmap is not null)
                         {
@@ -159,15 +172,25 @@ namespace IconManager.Services
             {
                 result = await Task.Run<Bitmap?>(async () =>
                 {
-                    MemoryStream? svgStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(
-                        iconSet,
-                        unicodePoint,
-                        GlyphSource.LocalSvgFile);
+                    GlyphStream? svgStream = null;
 
-                    svgStream ??= await glyphSourceProvider.GetGlyphSourceStreamAsync(
-                        iconSet,
-                        unicodePoint,
-                        GlyphSource.RemoteSvgFile);
+                    if (svgStream is null &&
+                        glyphSources.Contains(GlyphSource.LocalSvgFile))
+                    {
+                        svgStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(
+                            iconSet,
+                            unicodePoint,
+                            GlyphSource.LocalSvgFile);
+                    }
+
+                    if (svgStream is null &&
+                        glyphSources.Contains(GlyphSource.RemoteSvgFile))
+                    {
+                        svgStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(
+                            iconSet,
+                            unicodePoint,
+                            GlyphSource.RemoteSvgFile);
+                    }
 
                     if (svgStream is not null)
                     {
