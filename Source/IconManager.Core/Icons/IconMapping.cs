@@ -16,24 +16,22 @@ namespace IconManager.Core.Icons
          *
          ***************************************************************************************/
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IconMapping"/> class.
+        /// </summary>
         public IconMapping()
         {
-            this.Source               = new Icon();
-            this.Destination          = new Icon();
-            this.GlyphMatchQuality    = MatchQuality.NoMatch;
-            this.MetaphorMatchQuality = MatchQuality.NoMatch;
-            this.IsPlaceholder        = false;
-            this.Comments             = string.Empty;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IconMapping"/> class.
+        /// </summary>
+        /// <param name="source">The source icon to map from.</param>
+        /// <param name="destination">The destination icon to map to.</param>
         public IconMapping(Icon source, Icon destination)
         {
-            this.Source               = source;
-            this.Destination          = destination;
-            this.GlyphMatchQuality    = MatchQuality.NoMatch;
-            this.MetaphorMatchQuality = MatchQuality.NoMatch;
-            this.IsPlaceholder        = false;
-            this.Comments             = string.Empty;
+            this.Source      = source;
+            this.Destination = destination;
         }
 
         /***************************************************************************************
@@ -56,7 +54,7 @@ namespace IconManager.Core.Icons
         /// in mapping serialization.
         /// </remarks>
         [JsonProperty(Order = 2)]
-        public Icon Source { get; set; }
+        public Icon Source { get; set; } = new Icon();
 
         /// <summary>
         /// Gets or sets the destination icon to map to.
@@ -68,34 +66,34 @@ namespace IconManager.Core.Icons
         /// in mapping serialization.
         /// </remarks>
         [JsonProperty(Order = 1)]
-        public Icon Destination { get; set; }
+        public Icon Destination { get; set; } = new Icon();
 
         /// <summary>
         /// Gets or sets the quality of match for the glyphs of the two icons.
         /// </summary>
         [JsonProperty(Order = 3)]
         [JsonConverter(typeof(MatchQualityConverter))]
-        public MatchQuality GlyphMatchQuality { get; set; }
+        public MatchQuality GlyphMatchQuality { get; set; } = MatchQuality.NoMatch;
 
         /// <summary>
         /// Gets or sets the quality of match for the metaphor (purpose) of the two icons.
         /// </summary>
         [JsonProperty(Order = 4)]
         [JsonConverter(typeof(MatchQualityConverter))]
-        public MatchQuality MetaphorMatchQuality { get; set; }
+        public MatchQuality MetaphorMatchQuality { get; set; } = MatchQuality.NoMatch;
 
         /// <summary>
         /// Gets or sets a value indicating whether the mapping had no direct equivalent
         /// so a generic substitution was made.
         /// </summary>
         [JsonProperty(Order = 5)]
-        public bool IsPlaceholder { get; set; }
+        public bool IsPlaceholder { get; set; } = false;
 
         /// <summary>
         /// Gets or sets comments describing the mapping and any decisions or special considerations.
         /// </summary>
         [JsonProperty(Order = 6)]
-        public string Comments { get; set; }
+        public string Comments { get; set; } = string.Empty;
 
         ///////////////////////////////////////////////////////////
         // Calculated
@@ -148,7 +146,7 @@ namespace IconManager.Core.Icons
         /// Copies each property value from this <see cref="IconMapping"/> instance into
         /// the destination. This will create an exact copy of values in the destination.
         /// </summary>
-        /// <param name="destination"></param>
+        /// <param name="destination">The destination <see cref="IconMapping"/> to copy into.</param>
         public void CopyTo(IconMapping destination)
         {
             destination.Source               = this.Source.Clone();

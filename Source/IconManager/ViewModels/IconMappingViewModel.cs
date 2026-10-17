@@ -6,23 +6,12 @@ using System.ComponentModel;
 
 namespace IconManager
 {
+    /// <summary>
+    /// Represents an editable <see cref="IconMapping"/>.
+    /// </summary>
     public class IconMappingViewModel : ViewModelBase
     {
         private readonly Brush PoorMappingBrush = new SolidColorBrush(new Color(0x1F, 0xEB, 0x10, 0x00));
-
-        private IconViewModel _SourceViewModel;
-        private IconViewModel _DestinationViewModel;
-        private MatchQuality  _GlyphMatchQuality;
-        private MatchQuality  _MetaphorMatchQuality;
-        private bool          _IsPlaceholder;
-        private string        _Comments;
-
-        private Brush _Background;
-        private bool  _IsSourceNameEditable;
-        private bool  _IsDestinationNameEditable;
-
-        private ObservableCollection<MatchQuality> _GlyphMatchQualityOptions    = new ObservableCollection<MatchQuality>();
-        private ObservableCollection<MatchQuality> _MetaphorMatchQualityOptions = new ObservableCollection<MatchQuality>();
 
         /***************************************************************************************
          *
@@ -30,37 +19,36 @@ namespace IconManager
          *
          ***************************************************************************************/
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IconMappingViewModel"/> class.
+        /// </summary>
         public IconMappingViewModel()
         {
-            this._Background           = new SolidColorBrush(Colors.Transparent);
-            this._SourceViewModel      = new IconViewModel();
-            this._DestinationViewModel = new IconViewModel();
-            this._GlyphMatchQuality    = MatchQuality.NoMatch;
-            this._MetaphorMatchQuality = MatchQuality.NoMatch;
-            this._IsPlaceholder        = false;
-            this._Comments             = string.Empty;
+            this.SourceViewModel.PropertyChanged      += IconViewModel_PropertyChanged;
+            this.DestinationViewModel.PropertyChanged += IconViewModel_PropertyChanged;
 
-            this._SourceViewModel.PropertyChanged      += IconViewModel_PropertyChanged;
-            this._DestinationViewModel.PropertyChanged += IconViewModel_PropertyChanged;
-
-            this.InitOptions();
+            this.FillMatchQuality();
             this.UpdateBackground();
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IconMappingViewModel"/> class.
+        /// </summary>
+        /// <param name="mapping">An existing icon mapping to initialize with.</param>
         public IconMappingViewModel(IconMapping mapping)
+            : this()
         {
-            this._Background           = new SolidColorBrush(Colors.Transparent);
-            this._SourceViewModel      = new IconViewModel(mapping.Source);
-            this._DestinationViewModel = new IconViewModel(mapping.Destination);
-            this._GlyphMatchQuality    = mapping.GlyphMatchQuality;
-            this._MetaphorMatchQuality = mapping.MetaphorMatchQuality;
-            this._IsPlaceholder        = mapping.IsPlaceholder;
-            this._Comments             = mapping.Comments;
+            this.IsPropertyChangedIgnoredInternally = true;
 
-            this._SourceViewModel.PropertyChanged      += IconViewModel_PropertyChanged;
-            this._DestinationViewModel.PropertyChanged += IconViewModel_PropertyChanged;
+            this.SourceViewModel      = new IconViewModel(mapping.Source);
+            this.DestinationViewModel = new IconViewModel(mapping.Destination);
+            this.GlyphMatchQuality    = mapping.GlyphMatchQuality;
+            this.MetaphorMatchQuality = mapping.MetaphorMatchQuality;
+            this.IsPlaceholder        = mapping.IsPlaceholder;
+            this.Comments             = mapping.Comments;
 
-            this.InitOptions();
+            this.IsPropertyChangedIgnoredInternally = false;
+
             this.UpdateBackground();
         }
 
@@ -77,58 +65,68 @@ namespace IconManager
         /// <inheritdoc cref="IconMapping.Source"/>
         public IconViewModel SourceViewModel
         {
-            get => this._SourceViewModel;
+            get => field;
             set
             {
-                this._SourceViewModel.PropertyChanged -= IconViewModel_PropertyChanged;
-                this.SetField(ref this._SourceViewModel, value);
-                this._SourceViewModel.PropertyChanged += IconViewModel_PropertyChanged;
+                field.PropertyChanged -= IconViewModel_PropertyChanged;
+                this.SetField(ref field, value);
+                field.PropertyChanged += IconViewModel_PropertyChanged;
 
                 this.UpdateDependentProperties();
             }
-        }
+        } = new IconViewModel();
 
         /// <inheritdoc cref="IconMapping.Destination"/>
         public IconViewModel DestinationViewModel
         {
-            get => this._DestinationViewModel;
+            get => field;
             set
             {
-                this._DestinationViewModel.PropertyChanged -= IconViewModel_PropertyChanged;
-                this.SetField(ref this._DestinationViewModel, value);
-                this._DestinationViewModel.PropertyChanged += IconViewModel_PropertyChanged;
+                field.PropertyChanged -= IconViewModel_PropertyChanged;
+                this.SetField(ref field, value);
+                field.PropertyChanged += IconViewModel_PropertyChanged;
 
                 this.UpdateDependentProperties();
             }
-        }
+        } = new IconViewModel();
 
         /// <inheritdoc cref="IconMapping.GlyphMatchQuality"/>
         public MatchQuality GlyphMatchQuality
         {
-            get => this._GlyphMatchQuality;
-            set => this.SetField(ref this._GlyphMatchQuality, value);
-        }
+            get => field;
+            set => this.SetField(ref field, value);
+        } = MatchQuality.NoMatch;
+
+        /// <summary>
+        /// Gets the list of options available to select from for <see cref="GlyphMatchQuality"/>.
+        /// </summary>
+        public ObservableCollection<MatchQuality> GlyphMatchQualityOptions { get; } = [];
 
         /// <inheritdoc cref="IconMapping.MetaphorMatchQuality"/>
         public MatchQuality MetaphorMatchQuality
         {
-            get => this._MetaphorMatchQuality;
-            set => this.SetField(ref this._MetaphorMatchQuality, value);
-        }
+            get => field;
+            set => this.SetField(ref field, value);
+        } = MatchQuality.NoMatch;
+
+        /// <summary>
+        /// Gets the list of options available to select from for <see cref="MetaphorMatchQuality"/>.
+        /// </summary>
+        public ObservableCollection<MatchQuality> MetaphorMatchQualityOptions { get; } = [];
 
         /// <inheritdoc cref="IconMapping.IsPlaceholder"/>
         public bool IsPlaceholder
         {
-            get => this._IsPlaceholder;
-            set => this.SetField(ref this._IsPlaceholder, value);
-        }
+            get => field;
+            set => this.SetField(ref field, value);
+        } = false;
 
         /// <inheritdoc cref="IconMapping.Comments"/>
         public string Comments
         {
-            get => this._Comments;
-            set => this.SetField(ref this._Comments, value);
-        }
+            get => field;
+            set => this.SetField(ref field, value);
+        } = string.Empty;
 
         ///////////////////////////////////////////////////////////
         // Calculated
@@ -140,25 +138,9 @@ namespace IconManager
         /// </summary>
         public Brush Background
         {
-            get => this._Background;
-            private set => this.SetField(ref this._Background, value);
-        }
-
-        /// <summary>
-        /// Gets the list of options available to select from for <see cref="GlyphMatchQuality"/>.
-        /// </summary>
-        public ObservableCollection<MatchQuality> GlyphMatchQualityOptions
-        {
-            get => this._GlyphMatchQualityOptions;
-        }
-
-        /// <summary>
-        /// Gets the list of options available to select from for <see cref="MetaphorMatchQuality"/>.
-        /// </summary>
-        public ObservableCollection<MatchQuality> MetaphorMatchQualityOptions
-        {
-            get => this._MetaphorMatchQualityOptions;
-        }
+            get => field;
+            private set => this.SetField(ref field, value);
+        } = new SolidColorBrush(Colors.Transparent);
 
         /// <summary>
         /// Gets a value indicating whether the source icon name can be edited by the user.
@@ -166,8 +148,8 @@ namespace IconManager
         /// </summary>
         public bool IsSourceNameEditable
         {
-            get => this._IsSourceNameEditable;
-            private set => this.SetField(ref this._IsSourceNameEditable, value);
+            get => field;
+            private set => this.SetField(ref field, value);
         }
 
         /// <summary>
@@ -176,8 +158,8 @@ namespace IconManager
         /// </summary>
         public bool IsDestinationNameEditable
         {
-            get => this._IsDestinationNameEditable;
-            private set => this.SetField(ref this._IsDestinationNameEditable, value);
+            get => field;
+            private set => this.SetField(ref field, value);
         }
 
         /***************************************************************************************
@@ -214,26 +196,34 @@ namespace IconManager
         /// <inheritdoc/>
         protected override void OnPropertyChanged(string propertyName)
         {
+            base.OnPropertyChanged(propertyName);
+
+            if (this.IsPropertyChangedIgnoredInternally)
+            {
+                return;
+            }
+
             if (propertyName != nameof(this.Background))
             {
                 this.UpdateBackground();
             }
 
-            base.OnPropertyChanged(propertyName);
             return;
         }
 
         /// <summary>
-        /// Initializes the list of options to select from.
+        /// Initializes the collection of all available match quality options.
         /// </summary>
-        private void InitOptions()
+        private void FillMatchQuality()
         {
-            var enumValues = (MatchQuality[])Enum.GetValues(typeof(MatchQuality));
+            this.GlyphMatchQualityOptions.Clear();
+            this.MetaphorMatchQualityOptions.Clear();
 
-            foreach (var value in enumValues)
+            var enumValues = Enum.GetValues<MatchQuality>();
+            foreach (MatchQuality value in enumValues)
             {
-                this._GlyphMatchQualityOptions.Add(value);
-                this._MetaphorMatchQualityOptions.Add(value);
+                this.GlyphMatchQualityOptions.Add(value);
+                this.MetaphorMatchQualityOptions.Add(value);
             }
 
             return;
@@ -264,8 +254,8 @@ namespace IconManager
         /// </summary>
         private void UpdateDependentProperties()
         {
-            this.IsSourceNameEditable      = this._SourceViewModel.IconSet == IconSet.Undefined;
-            this.IsDestinationNameEditable = this._DestinationViewModel.IconSet == IconSet.Undefined;
+            this.IsSourceNameEditable      = this.SourceViewModel.IconSet == IconSet.Undefined;
+            this.IsDestinationNameEditable = this.DestinationViewModel.IconSet == IconSet.Undefined;
         }
 
         /***************************************************************************************

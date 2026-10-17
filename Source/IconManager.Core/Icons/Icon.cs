@@ -14,6 +14,19 @@ namespace IconManager.Core.Icons
     {
         /***************************************************************************************
          *
+         * Constructors
+         *
+         ***************************************************************************************/
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Icon"/> class.
+        /// </summary>
+        public Icon()
+        {
+        }
+
+        /***************************************************************************************
+         *
          * Property Accessors
          *
          ***************************************************************************************/
@@ -90,7 +103,7 @@ namespace IconManager.Core.Icons
         /// <returns>The cloned <see cref="Icon"/>.</returns>
         public Icon Clone()
         {
-            Icon clone = new Icon()
+            var clone = new Icon()
             {
                 IconSet      = this.IconSet,
                 Name         = this.Name,
@@ -146,7 +159,7 @@ namespace IconManager.Core.Icons
         /// <inheritdoc/>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
 
             sb.Append(this.IconSet);
             sb.Append(" | ");
@@ -156,7 +169,7 @@ namespace IconManager.Core.Icons
             {
                 sb.Append(" (");
                 sb.Append(this.Name);
-                sb.Append(")");
+                sb.Append(')');
             }
 
             return sb.ToString();

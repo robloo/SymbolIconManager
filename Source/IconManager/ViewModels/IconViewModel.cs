@@ -9,21 +9,13 @@ using System.Collections.ObjectModel;
 namespace IconManager
 {
     /// <summary>
-    /// Represents an <see cref="Icon"/>.
+    /// Represents an editable <see cref="Icon"/>.
     /// </summary>
     public class IconViewModel : ViewModelBase, IIcon
     {
         // Services
         private readonly IGlyphRenderer<Bitmap> _glyphRendererService;
         private readonly IGlyphSourceProvider   _glyphSourceProviderService;
-
-        private bool    _AutoUpdate;
-        private Bitmap? _Glyph;
-        private IconSet _IconSet;
-        private string  _Name;
-        private uint    _UnicodePoint;
-
-        private ObservableCollection<IconSet> _IconSetOptions = new ObservableCollection<IconSet>();
 
         /***************************************************************************************
          *
@@ -39,30 +31,23 @@ namespace IconManager
             this._glyphRendererService       = App.Current.Services.GetRequiredService<IGlyphRenderer<Bitmap>>();
             this._glyphSourceProviderService = App.Current.Services.GetRequiredService<IGlyphSourceProvider>();
 
-            this._AutoUpdate   = false;
-            this._Glyph        = null;
-            this._IconSet      = IconSet.Undefined;
-            this._Name         = string.Empty;
-            this._UnicodePoint = 0;
-
-            this.InitOptions();
+            this.FillIconSets();
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IconViewModel"/> class.
         /// </summary>
+        /// <param name="icon">An existing icon to initialize with.</param>
         public IconViewModel(IReadOnlyIcon icon)
+            : this()
         {
-            this._glyphRendererService       = App.Current.Services.GetRequiredService<IGlyphRenderer<Bitmap>>();
-            this._glyphSourceProviderService = App.Current.Services.GetRequiredService<IGlyphSourceProvider>();
+            this.IsPropertyChangedIgnoredInternally = true;
 
-            this._AutoUpdate   = false;
-            this._Glyph        = null;
-            this._IconSet      = icon.IconSet;
-            this._Name         = icon.Name;
-            this._UnicodePoint = icon.UnicodePoint;
+            this.IconSet      = icon.IconSet;
+            this.Name         = icon.Name;
+            this.UnicodePoint = icon.UnicodePoint;
 
-            this.InitOptions();
+            this.IsPropertyChangedIgnoredInternally = false;
         }
 
         /***************************************************************************************
@@ -85,9 +70,9 @@ namespace IconManager
         /// </remarks>
         public bool AutoUpdate
         {
-            get => this._AutoUpdate;
-            set => this.SetField(ref this._AutoUpdate, value);
-        }
+            get => field;
+            set => this.SetField(ref field, value);
+        } = false;
 
         ///////////////////////////////////////////////////////////
         // Data
@@ -98,38 +83,35 @@ namespace IconManager
         /// </summary>
         public Bitmap? Glyph
         {
-            get => this._Glyph;
-            set => this.SetField(ref this._Glyph, value);
-        }
+            get => field;
+            set => this.SetField(ref field, value);
+        } = null;
 
         /// <inheritdoc/>
         public IconSet IconSet
         {
-            get => this._IconSet;
-            set => this.SetField(ref this._IconSet, value);
-        }
+            get => field;
+            set => this.SetField(ref field, value);
+        } = IconSet.Undefined;
 
         /// <summary>
         /// Gets the list of options available to select from for <see cref="IconSet"/>.
         /// </summary>
-        public ObservableCollection<IconSet> IconSetOptions
-        {
-            get => this._IconSetOptions;
-        }
+        public ObservableCollection<IconSet> IconSets { get; } = [];
 
         /// <inheritdoc/>
         public string Name
         {
-            get => this._Name;
-            set => this.SetField(ref this._Name, value);
-        }
+            get => field;
+            set => this.SetField(ref field, value);
+        } = string.Empty;
 
         /// <inheritdoc/>
         public uint UnicodePoint
         {
-            get => this._UnicodePoint;
-            set => this.SetField(ref this._UnicodePoint, value);
-        }
+            get => field;
+            set => this.SetField(ref field, value);
+        } = 0;
 
         ///////////////////////////////////////////////////////////
         // Calculated
@@ -194,10 +176,15 @@ namespace IconManager
         /// <inheritdoc/>
         protected override void OnPropertyChanged(string propertyName)
         {
-            if ((propertyName == nameof(this.IconSet) ||
-                 propertyName == nameof(this.UnicodePoint)) &&
-                (propertyName != nameof(this.Glyph) &&
-                 propertyName != nameof(this.Name)))
+            base.OnPropertyChanged(propertyName);
+
+            if (this.IsPropertyChangedIgnoredInternally)
+            {
+                return;
+            }
+
+            if (propertyName == nameof(this.IconSet) ||
+                propertyName == nameof(this.UnicodePoint))
             {
                 if (this.AutoUpdate)
                 {
@@ -206,20 +193,20 @@ namespace IconManager
                 }
             }
 
-            base.OnPropertyChanged(propertyName);
             return;
         }
 
         /// <summary>
-        /// Initializes the list of options to select from.
+        /// Initializes the collection of all available icon sets.
         /// </summary>
-        private void InitOptions()
+        private void FillIconSets()
         {
-            var enumValues = (IconSet[])Enum.GetValues(typeof(IconSet));
+            this.IconSets.Clear();
 
-            foreach (var value in enumValues)
+            var enumValues = Enum.GetValues<IconSet>();
+            foreach (IconSet value in enumValues)
             {
-                this._IconSetOptions.Add(value);
+                this.IconSets.Add(value);
             }
 
             return;

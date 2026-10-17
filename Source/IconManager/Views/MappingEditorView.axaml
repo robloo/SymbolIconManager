@@ -147,7 +147,7 @@
                                     Grid.Column="2"
                                     HorizontalAlignment="Stretch"
                                     CornerRadius="4,0,0,4"
-                                    ItemsSource="{Binding SourceViewModel.IconSetOptions}"
+                                    ItemsSource="{Binding SourceViewModel.IconSets}"
                                     SelectedItem="{Binding SourceViewModel.IconSet, Mode=TwoWay}" />
                                 <TextBox
                                     Grid.Row="0"
@@ -198,7 +198,7 @@
                                     Grid.Column="2"
                                     HorizontalAlignment="Stretch"
                                     CornerRadius="4,0,0,4"
-                                    ItemsSource="{Binding DestinationViewModel.IconSetOptions}"
+                                    ItemsSource="{Binding DestinationViewModel.IconSets}"
                                     SelectedItem="{Binding DestinationViewModel.IconSet, Mode=TwoWay}" />
                                 <TextBox
                                     Grid.Row="0"

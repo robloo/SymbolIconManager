@@ -229,6 +229,11 @@ namespace IconManager.ViewModels
         {
             base.OnPropertyChanged(propertyName);
 
+            if (this.IsPropertyChangedIgnoredInternally)
+            {
+                return;
+            }
+
             switch (propertyName)
             {
                 case nameof(this.FilterText):

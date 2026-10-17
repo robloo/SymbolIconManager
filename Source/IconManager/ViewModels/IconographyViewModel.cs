@@ -79,6 +79,11 @@ namespace IconManager.ViewModels
         {
             base.OnPropertyChanged(propertyName);
 
+            if (this.IsPropertyChangedIgnoredInternally)
+            {
+                return;
+            }
+
             switch (propertyName)
             {
                 case nameof(this.FilterText):
@@ -165,7 +170,7 @@ namespace IconManager.ViewModels
         }
 
         /// <summary>
-        /// Fills all available icon sets.
+        /// Initializes the collection of all available icon sets.
         /// </summary>
         private void FillIconSets()
         {
