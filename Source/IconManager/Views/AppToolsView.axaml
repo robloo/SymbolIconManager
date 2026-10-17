@@ -86,31 +86,7 @@
             Grid.Row="1"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
-            ItemsSource="{Binding DisplayedIcons}">
-            <ListBox.ItemTemplate>
-                <DataTemplate
-                    DataType="IconViewModel">
-                    <Grid
-                        ColumnDefinitions="Auto,Auto,*">
-                        <Image
-                            Grid.Column="0"
-                            Width="50"
-                            Height="50"
-                            Source="{Binding Glyph}" />
-                        <TextBlock
-                            Grid.Column="1"
-                            Margin="5"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Center"
-                            Text="{Binding UnicodeHexString}" />
-                        <TextBlock
-                            Grid.Column="2"
-                            Margin="5"
-                            VerticalAlignment="Center"
-                            Text="{Binding Name}" />
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            ItemTemplate="{StaticResource IconDataTemplate}"
+            ItemsSource="{Binding DisplayedIcons}" />
     </Grid>
 </UserControl>
