@@ -119,184 +119,199 @@
             <ListBox.ItemTemplate>
                 <DataTemplate
                     DataType="IconMappingViewModel">
-                    <Grid
-                        RowDefinitions="Auto,Auto"
-                        ColumnDefinitions="Auto,*"
-                        Background="{Binding Background, Mode=OneWay}">
-
-                        <!-- Source Icon -->
-                        <GroupBox
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            Header="Source">
-                            <Grid
-                                RowDefinitions="1*,32"
-                                ColumnDefinitions="Auto,10,300,100">
-                                <Image
-                                    Grid.Row="0"
-                                    Grid.RowSpan="2"
-                                    Grid.Column="0"
-                                    Width="50"
-                                    Height="50"
-                                    Margin="3"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Source="{Binding SourceViewModel.Glyph}" />
-                                <ComboBox
-                                    Grid.Row="0"
-                                    Grid.Column="2"
-                                    HorizontalAlignment="Stretch"
-                                    CornerRadius="4,0,0,4"
-                                    ItemsSource="{Binding SourceViewModel.IconSets}"
-                                    SelectedItem="{Binding SourceViewModel.IconSet, Mode=TwoWay}" />
-                                <TextBox
-                                    Grid.Row="0"
-                                    Grid.Column="3"
-                                    HorizontalAlignment="Stretch"
-                                    CornerRadius="0,4,4,0"
-                                    Text="{Binding SourceViewModel.UnicodePoint, Mode=TwoWay, Converter={StaticResource UIntToHexString}}" />
-                                <TextBlock
-                                    Grid.Row="1"
-                                    Grid.Column="2"
-                                    Grid.ColumnSpan="2"
-                                    Margin="5,0,0,0"
-                                    HorizontalAlignment="Stretch"
-                                    VerticalAlignment="Center"
-                                    IsVisible="{Binding !IsSourceNameEditable}"
-                                    Text="{Binding SourceViewModel.Name}" />
-                                <TextBox
-                                    Grid.Row="1"
-                                    Grid.Column="2"
-                                    Grid.ColumnSpan="2"
-                                    Margin="0,2,0,0"
-                                    HorizontalAlignment="Stretch"
-                                    IsVisible="{Binding IsSourceNameEditable}"
-                                    Text="{Binding SourceViewModel.Name, Mode=TwoWay}" />
-                            </Grid>
-                        </GroupBox>
-
-                        <!-- Destination Icon -->
-                        <GroupBox
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            Header="Destination">
-                            <Grid
-                                RowDefinitions="1*,32"
-                                ColumnDefinitions="Auto,10,300,100">
-                                <Image
-                                    Grid.Row="0"
-                                    Grid.RowSpan="2"
-                                    Grid.Column="0"
-                                    Width="50"
-                                    Height="50"
-                                    Margin="3"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Source="{Binding DestinationViewModel.Glyph}" />
-                                <ComboBox
-                                    Grid.Row="0"
-                                    Grid.Column="2"
-                                    HorizontalAlignment="Stretch"
-                                    CornerRadius="4,0,0,4"
-                                    ItemsSource="{Binding DestinationViewModel.IconSets}"
-                                    SelectedItem="{Binding DestinationViewModel.IconSet, Mode=TwoWay}" />
-                                <TextBox
-                                    Grid.Row="0"
-                                    Grid.Column="3"
-                                    HorizontalAlignment="Stretch"
-                                    CornerRadius="0,4,4,0"
-                                    Text="{Binding DestinationViewModel.UnicodePoint, Mode=TwoWay, Converter={StaticResource UIntToHexString}}" />
-                                <TextBlock
-                                    Grid.Row="1"
-                                    Grid.Column="2"
-                                    Grid.ColumnSpan="2"
-                                    Margin="5,0,0,0"
-                                    HorizontalAlignment="Stretch"
-                                    VerticalAlignment="Center"
-                                    IsVisible="{Binding !IsDestinationNameEditable}"
-                                    Text="{Binding DestinationViewModel.Name}" />
-                                <TextBox
-                                    Grid.Row="1"
-                                    Grid.Column="2"
-                                    Grid.ColumnSpan="2"
-                                    Margin="0,2,0,0"
-                                    HorizontalAlignment="Stretch"
-                                    IsVisible="{Binding IsDestinationNameEditable}"
-                                    Text="{Binding DestinationViewModel.Name, Mode=TwoWay}" />
-                            </Grid>
-                        </GroupBox>
-
-                        <!-- Metadata -->
+                    <Border
+                        Classes.incomplete="{Binding IsIncomplete}"
+                        Margin="0,2,0,2"
+                        Padding="4"
+                        BorderBrush="{DynamicResource GroupBoxBorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="8">
+                        <Border.Styles>
+                            <Style Selector="Border">
+                                <Setter Property="Background" Value="Transparent" />
+                            </Style>
+                            <Style Selector="Border.incomplete">
+                                <Setter Property="Background" Value="#1FEB1000" />
+                            </Style>
+                        </Border.Styles>
                         <Grid
-                            Grid.Row="0"
-                            Grid.RowSpan="2"
-                            Grid.Column="1"
-                            Margin="10,0,0,0"
-                            Grid.ColumnDefinitions="175,175,175"
-                            Grid.RowDefinitions="Auto,Auto,Auto,*">
-                            <TextBlock
+                            RowDefinitions="Auto,Auto"
+                            ColumnDefinitions="Auto,*">
+
+                            <!-- Source Icon -->
+                            <GroupBox
                                 Grid.Row="0"
                                 Grid.Column="0"
-                                Text="GlyphMatchQuality" />
-                            <ComboBox
+                                Header="Source">
+                                <Grid
+                                    RowDefinitions="1*,32"
+                                    ColumnDefinitions="Auto,10,300,100">
+                                    <Image
+                                        Grid.Row="0"
+                                        Grid.RowSpan="2"
+                                        Grid.Column="0"
+                                        Width="50"
+                                        Height="50"
+                                        Margin="3"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Source="{Binding SourceViewModel.Glyph}" />
+                                    <ComboBox
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        HorizontalAlignment="Stretch"
+                                        CornerRadius="4,0,0,4"
+                                        ItemsSource="{Binding SourceViewModel.IconSets}"
+                                        SelectedItem="{Binding SourceViewModel.IconSet, Mode=TwoWay}" />
+                                    <TextBox
+                                        Grid.Row="0"
+                                        Grid.Column="3"
+                                        HorizontalAlignment="Stretch"
+                                        CornerRadius="0,4,4,0"
+                                        Text="{Binding SourceViewModel.UnicodePoint, Mode=TwoWay, Converter={StaticResource UIntToHexString}}" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        Grid.ColumnSpan="2"
+                                        Margin="5,0,0,0"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center"
+                                        IsVisible="{Binding !IsSourceNameEditable}"
+                                        Text="{Binding SourceViewModel.Name}" />
+                                    <TextBox
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        Grid.ColumnSpan="2"
+                                        Margin="0,2,0,0"
+                                        HorizontalAlignment="Stretch"
+                                        IsVisible="{Binding IsSourceNameEditable}"
+                                        Text="{Binding SourceViewModel.Name, Mode=TwoWay}" />
+                                </Grid>
+                            </GroupBox>
+
+                            <!-- Destination Icon -->
+                            <GroupBox
                                 Grid.Row="1"
                                 Grid.Column="0"
-                                HorizontalAlignment="Stretch"
-                                Background="{Binding GlyphMatchQuality, Mode=OneWay, Converter={StaticResource MatchQualityToBrush}}"
-                                ItemsSource="{Binding GlyphMatchQualityOptions}"
-                                SelectedItem="{Binding GlyphMatchQuality, Mode=TwoWay}" />
-                            <TextBlock
+                                Header="Destination">
+                                <Grid
+                                    RowDefinitions="1*,32"
+                                    ColumnDefinitions="Auto,10,300,100">
+                                    <Image
+                                        Grid.Row="0"
+                                        Grid.RowSpan="2"
+                                        Grid.Column="0"
+                                        Width="50"
+                                        Height="50"
+                                        Margin="3"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Source="{Binding DestinationViewModel.Glyph}" />
+                                    <ComboBox
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        HorizontalAlignment="Stretch"
+                                        CornerRadius="4,0,0,4"
+                                        ItemsSource="{Binding DestinationViewModel.IconSets}"
+                                        SelectedItem="{Binding DestinationViewModel.IconSet, Mode=TwoWay}" />
+                                    <TextBox
+                                        Grid.Row="0"
+                                        Grid.Column="3"
+                                        HorizontalAlignment="Stretch"
+                                        CornerRadius="0,4,4,0"
+                                        Text="{Binding DestinationViewModel.UnicodePoint, Mode=TwoWay, Converter={StaticResource UIntToHexString}}" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        Grid.ColumnSpan="2"
+                                        Margin="5,0,0,0"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center"
+                                        IsVisible="{Binding !IsDestinationNameEditable}"
+                                        Text="{Binding DestinationViewModel.Name}" />
+                                    <TextBox
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        Grid.ColumnSpan="2"
+                                        Margin="0,2,0,0"
+                                        HorizontalAlignment="Stretch"
+                                        IsVisible="{Binding IsDestinationNameEditable}"
+                                        Text="{Binding DestinationViewModel.Name, Mode=TwoWay}" />
+                                </Grid>
+                            </GroupBox>
+
+                            <!-- Metadata -->
+                            <Grid
                                 Grid.Row="0"
+                                Grid.RowSpan="2"
                                 Grid.Column="1"
-                                Margin="5,0,0,0"
-                                Text="MetaphorMatchQuality" />
-                            <ComboBox
-                                Grid.Row="1"
-                                Grid.Column="1"
-                                Margin="5,0,0,0"
-                                HorizontalAlignment="Stretch"
-                                Background="{Binding MetaphorMatchQuality, Mode=OneWay, Converter={StaticResource MatchQualityToBrush}}"
-                                ItemsSource="{Binding MetaphorMatchQualityOptions}"
-                                SelectedItem="{Binding MetaphorMatchQuality, Mode=TwoWay}" />
-                            <CheckBox
-                                Grid.Row="0"
-                                Grid.RowSpan="3"
-                                Grid.Column="2"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Content="IsPlaceholder"
-                                IsChecked="{Binding IsPlaceholder, Mode=TwoWay}" />
-                            <HyperlinkButton
-                                x:Name="MatchQualityHelpButton"
-                                Grid.Row="2"
-                                Grid.Column="0"
-                                Grid.ColumnSpan="2"
-                                Height="15"
-                                Padding="0"
-                                HorizontalAlignment="Stretch"
-                                HorizontalContentAlignment="Left"
-                                NavigateUri="https://github.com/robloo/SymbolIconManager/blob/main/Docs/IconMapping.md#match-quality-values">
-                                <HyperlinkButton.Content>
-                                    <Viewbox
-                                        Stretch="Uniform">
-                                        <TextBlock
-                                            Text="Help with MatchQuality" />
-                                    </Viewbox>
-                                </HyperlinkButton.Content>
-                            </HyperlinkButton>
-                            <TextBox
-                                Grid.Row="3"
-                                Grid.Column="0"
-                                Grid.ColumnSpan="3"
-                                Margin="0,2,0,0"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                AcceptsReturn="True"
-                                PlaceholderText="Comments"
-                                Text="{Binding Comments, Mode=TwoWay}"
-                                TextWrapping="Wrap" />
+                                Margin="10,0,0,0"
+                                Grid.ColumnDefinitions="175,175,175"
+                                Grid.RowDefinitions="Auto,Auto,Auto,*">
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Text="GlyphMatchQuality" />
+                                <ComboBox
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Stretch"
+                                    Background="{Binding GlyphMatchQuality, Mode=OneWay, Converter={StaticResource MatchQualityToBrush}}"
+                                    ItemsSource="{Binding GlyphMatchQualityOptions}"
+                                    SelectedItem="{Binding GlyphMatchQuality, Mode=TwoWay}" />
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Margin="5,0,0,0"
+                                    Text="MetaphorMatchQuality" />
+                                <ComboBox
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Margin="5,0,0,0"
+                                    HorizontalAlignment="Stretch"
+                                    Background="{Binding MetaphorMatchQuality, Mode=OneWay, Converter={StaticResource MatchQualityToBrush}}"
+                                    ItemsSource="{Binding MetaphorMatchQualityOptions}"
+                                    SelectedItem="{Binding MetaphorMatchQuality, Mode=TwoWay}" />
+                                <CheckBox
+                                    Grid.Row="0"
+                                    Grid.RowSpan="3"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Content="IsPlaceholder"
+                                    IsChecked="{Binding IsPlaceholder, Mode=TwoWay}" />
+                                <HyperlinkButton
+                                    x:Name="MatchQualityHelpButton"
+                                    Grid.Row="2"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Height="15"
+                                    Padding="0"
+                                    HorizontalAlignment="Stretch"
+                                    HorizontalContentAlignment="Left"
+                                    NavigateUri="https://github.com/robloo/SymbolIconManager/blob/main/Docs/IconMapping.md#match-quality-values">
+                                    <HyperlinkButton.Content>
+                                        <Viewbox
+                                            Stretch="Uniform">
+                                            <TextBlock
+                                                Text="Help with MatchQuality" />
+                                        </Viewbox>
+                                    </HyperlinkButton.Content>
+                                </HyperlinkButton>
+                                <TextBox
+                                    Grid.Row="3"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="3"
+                                    Margin="0,2,0,0"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    AcceptsReturn="True"
+                                    PlaceholderText="Comments"
+                                    Text="{Binding Comments, Mode=TwoWay}"
+                                    TextWrapping="Wrap" />
+                            </Grid>
                         </Grid>
-                    </Grid>
+                    </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

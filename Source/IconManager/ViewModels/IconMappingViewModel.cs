@@ -1,5 +1,4 @@
-﻿using Avalonia.Media;
-using IconManager.Core.Icons;
+﻿using IconManager.Core.Icons;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -11,8 +10,6 @@ namespace IconManager
     /// </summary>
     public class IconMappingViewModel : ViewModelBase
     {
-        private readonly Brush PoorMappingBrush = new SolidColorBrush(new Color(0x1F, 0xEB, 0x10, 0x00));
-
         /***************************************************************************************
          *
          * Constructors
@@ -28,7 +25,7 @@ namespace IconManager
             this.DestinationViewModel.PropertyChanged += IconViewModel_PropertyChanged;
 
             this.FillMatchQuality();
-            this.UpdateBackground();
+            this.UpdateDependentProperties();
         }
 
         /// <summary>
@@ -49,7 +46,7 @@ namespace IconManager
 
             this.IsPropertyChangedIgnoredInternally = false;
 
-            this.UpdateBackground();
+            this.UpdateDependentProperties();
         }
 
         /***************************************************************************************
@@ -133,14 +130,13 @@ namespace IconManager
         ///////////////////////////////////////////////////////////
 
         /// <summary>
-        /// Get the background brush to display in the user-interface for the icon mapping.
-        /// This is set automatically based on the validity of the mapping itself.
+        /// Gets a value indicating whether the mapping is incomplete and is missing some information.
         /// </summary>
-        public Brush Background
+        public bool IsIncomplete
         {
             get => field;
             private set => this.SetField(ref field, value);
-        } = new SolidColorBrush(Colors.Transparent);
+        } = false;
 
         /// <summary>
         /// Gets a value indicating whether the source icon name can be edited by the user.
@@ -203,9 +199,12 @@ namespace IconManager
                 return;
             }
 
-            if (propertyName != nameof(this.Background))
+            if (propertyName == nameof(this.SourceViewModel) ||
+                propertyName == nameof(this.DestinationViewModel) ||
+                propertyName == nameof(this.GlyphMatchQuality) ||
+                propertyName == nameof(this.IsPlaceholder))
             {
-                this.UpdateBackground();
+                this.UpdateDependentProperties();
             }
 
             return;
@@ -230,30 +229,20 @@ namespace IconManager
         }
 
         /// <summary>
-        /// Recalculates and updates the background brush.
-        /// </summary>
-        private void UpdateBackground()
-        {
-            // Converting to an IconMapping and then throwing it away isn't the best performance
-            // However, that is better than code duplication
-            if (this.AsIconMapping().IsValid == false ||
-                this.IsPlaceholder)
-            {
-                this.Background = this.PoorMappingBrush;
-            }
-            else
-            {
-                this.Background = new SolidColorBrush(Colors.Transparent);
-            }
-
-            return;
-        }
-
-        /// <summary>
-        /// Updates the values of properties that are calculated depending on other property values.
+        /// Calculates property values which are dependent on other properties.
         /// </summary>
         private void UpdateDependentProperties()
         {
+            // Note the following when checking for incompletion:
+            //  * Only GlyphMatchQuality is relevant (ignore MetaphorMatchQuality)
+            //    This is because the metaphor match doesn't visually affect the output
+            //  * Converting to an IconMapping and then throwing it away isn't the best performance
+            //    However, that is better than code duplication
+            this.IsIncomplete =
+                this.AsIconMapping().IsValid == false ||
+                this.GlyphMatchQuality == MatchQuality.NoMatch ||
+                this.IsPlaceholder;
+
             this.IsSourceNameEditable      = this.SourceViewModel.IconSet == IconSet.Undefined;
             this.IsDestinationNameEditable = this.DestinationViewModel.IconSet == IconSet.Undefined;
         }
@@ -265,11 +254,10 @@ namespace IconManager
          ***************************************************************************************/
 
         /// <summary>
-        /// Event handler for when a child IconViewModel property changes.
+        /// Event handler for when a child <see cref="IconViewModel"/> property changes.
         /// </summary>
         private void IconViewModel_PropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            this.UpdateBackground();
             this.UpdateDependentProperties();
 
             return;
