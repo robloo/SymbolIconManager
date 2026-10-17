@@ -86,8 +86,12 @@ namespace IconManager.Services
         {
             string glyphKey = $"{iconSet}_{Icon.ToUnicodeHexString(unicodePoint)}";
             Bitmap? result = null;
+            var glyphSources = glyphSourceProvider.GetGlyphSources(
+                iconSet,
+                unicodePoint);
 
-            if (iconSet == IconSet.Undefined)
+            if (iconSet == IconSet.Undefined ||
+                glyphSources.Count == 0)
             {
                 return null;
             }
@@ -101,21 +105,34 @@ namespace IconManager.Services
                 }
             }
 
-            if (iconSet == IconSet.FluentUISystemFilled ||
-                iconSet == IconSet.FluentUISystemRegular ||
-                iconSet == IconSet.LineAwesomeBrand ||
-                iconSet == IconSet.LineAwesomeRegular ||
-                iconSet == IconSet.LineAwesomeSolid ||
-                iconSet == IconSet.WinJSSymbols)
+            // Several icon sets have an embedded font file within the application.
+            // Rendering glyphs is fastest using the embedded font itself so should always be tried first.
+            //
+            //   Note that FluentUISystem icons fonts have a bug and any glyph over 0xFFFF simply does not exist
+            //   See: https://github.com/microsoft/fluentui-system-icons/issues/299
+            //   A work-around for this case is required using the local or remote SVG file sources
+            //
+            // If rendering using a font fails, fallback to any available SVG files.
+            // SVG is high fidelity and the same quality as fonts.
+            //
+            // Only if rendering from both fonts and SVG files fails will PNG files be used.
+            // These can't really be rendered and are just passed-through verbatim.
+            //
+            //   Note that some icon sets are Microsoft proprietary and the fonts cannot be used on non-Windows systems.
+            //     * IconSet.SegoeFluent
+            //     * IconSet.SegoeMDL2Assets
+            //     * IconSet.SegoeUISymbol
+            //   The font is not packaged with this application and there is no guarantee it will be on the system.
+            //   Source files (whether SVG or PNG) are not packaged either.
+            //   To work around this, preview images are loaded from Microsoft's website on-demand.
+            //   These preview images are never distributed with source code.
+
+            // Attempt to render from a Font
+            if (result is null &&
+                glyphSources.Contains(GlyphSource.LocalFontFile))
             {
                 result = await Task.Run<Bitmap?>(async () =>
                 {
-                    // These icon sets have an embedded font file within the application
-                    // Rendering glyphs is fastest using the embedded font itself
-                    // Note that FluentUISystem icons fonts have a bug and any glyph over 0xFFFF simply does not exist
-                    // See: https://github.com/microsoft/fluentui-system-icons/issues/299
-                    // A work-around for this case is required using the local or remote SVG file sources
-
                     var font = SkiaGlyphRenderer.LoadFont(
                         iconSet,
                         glyphSourceProvider,
@@ -127,13 +144,21 @@ namespace IconManager.Services
 
                         if (bitmap is not null)
                         {
-                            // Use the Skia font-rendered glyph
                             return bitmap;
                         }
                     }
 
-                    // Attempt to use an SVG image as fallback
-                    // Note that the icon set determines that the format will be SVG
+                    return null;
+                });
+            }
+
+            // Attempt to render from an SVG file
+            if (result is null &&
+                (glyphSources.Contains(GlyphSource.LocalSvgFile) ||
+                 glyphSources.Contains(GlyphSource.RemoteSvgFile)))
+            {
+                result = await Task.Run<Bitmap?>(async () =>
+                {
                     MemoryStream? svgStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(
                         iconSet,
                         unicodePoint,
@@ -165,30 +190,26 @@ namespace IconManager.Services
                     return null;
                 });
             }
-            else if (iconSet == IconSet.SegoeFluent ||
-                     iconSet == IconSet.SegoeMDL2Assets ||
-                     iconSet == IconSet.SegoeUISymbol)
-            {
-                // These icon sets are Microsoft proprietary and the fonts cannot be used on non-Windows systems
-                // Therefore, the font is not packaged with the application and there is no guarantee it will be on the system either
-                // To work around this, preview images are loaded from Microsoft's website on-demand
-                // These preview images are also never distributed with source code
-                // Also note that SegoeUISymbol is also proprietary but has no website to retrieve preview images from
 
+            // Attempt to use a downloadable PNG bitmap directly
+            if (result is null &&
+                glyphSources.Contains(GlyphSource.RemotePngFile))
+            {
                 using (Stream? imageStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(iconSet, unicodePoint, GlyphSource.RemotePngFile))
                 {
-                    return (imageStream is null ? null : new Bitmap(imageStream));
+                    result = imageStream is null
+                        ? null
+                        : new Bitmap(imageStream);
                 }
             }
 
             // Add any new bitmap to the cache for next time
-            // In order to get this far a new glyph bitmap was generated (or at least an attempt was made)
-            // It is possible that two renderers for the same glyph are running simultaneously on differing threads
-            // Therefore, within the lock, a check must be made to ensure a glyph was not already added
             if (result is not null)
             {
                 lock (_cacheLock)
                 {
+                    // It is possible that two renderers for the same glyph are running simultaneously on differing threads
+                    // Therefore, within the lock, a check must be made to ensure a glyph was not already added
                     if (!_cachedGlyphs.ContainsKey(glyphKey))
                     {
                         _cachedGlyphs.Add(glyphKey, result);
