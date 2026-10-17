@@ -1,7 +1,6 @@
 ﻿using Avalonia.Platform;
 using IconManager.Core.Glyphs;
 using IconManager.Core.Icons;
-using IconManager.IconSets;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
@@ -22,7 +21,7 @@ namespace IconManager.Services
 
         private static SKPaint? _cachedTextPaint = null;
 
-        private static Dictionary<string, SKFont> _cachedFonts  = new Dictionary<string, SKFont>();  // IconSet/file name is key
+        private static Dictionary<string, SKFont> _cachedFonts  = new Dictionary<string, SKFont>();  // IconSet is key
         private static Dictionary<string, Bitmap> _cachedGlyphs = new Dictionary<string, Bitmap>();  // IconSet_UnicodePoint is key
 
         private static Lock _cacheLock = new();
@@ -52,8 +51,7 @@ namespace IconManager.Services
             IGlyphSourceProvider glyphSourceProvider,
             GlyphSource glyphSource = GlyphSource.None)
         {
-            string iconSetKey = iconSet.ToString();
-            string glyphKey = iconSetKey + "_" + Icon.ToUnicodeHexString(unicodePoint);
+            string glyphKey = $"{iconSet}_{Icon.ToUnicodeHexString(unicodePoint)}";
             Bitmap? result = null;
 
             if (iconSet == IconSet.Undefined)
@@ -81,11 +79,14 @@ namespace IconManager.Services
                 {
                     // These icon sets have an embedded font file within the application
                     // Rendering glyphs is fastest using the embedded font itself
-                    // Note that FluentSystemIcons fonts have a bug and any glyph over 0xFFFF simply does not exist
+                    // Note that FluentUISystem icons fonts have a bug and any glyph over 0xFFFF simply does not exist
                     // See: https://github.com/microsoft/fluentui-system-icons/issues/299
                     // A work-around for this case is required using the local or remote SVG file sources
 
-                    var font = SkiaGlyphRenderer.LoadFont(iconSet.ToString());
+                    var font = SkiaGlyphRenderer.LoadFont(
+                        iconSet,
+                        glyphSourceProvider,
+                        this.RenderWidth);
 
                     if (font is not null)
                     {
@@ -155,7 +156,7 @@ namespace IconManager.Services
             {
                 lock (_cacheLock)
                 {
-                    if (_cachedGlyphs.ContainsKey(glyphKey) == false)
+                    if (!_cachedGlyphs.ContainsKey(glyphKey))
                     {
                         _cachedGlyphs.Add(glyphKey, result);
                     }
@@ -240,124 +241,72 @@ namespace IconManager.Services
         }
 
         /// <summary>
-        /// Loads the <see cref="SKFont"/> file that matches the given name.
-        /// The <paramref name="fontNameKey"/> is commonly an <see cref="IconSet"/> but may also be
-        /// the actual .ttf file name.
+        /// Loads the <see cref="SKFont"/> that matches the given <see cref="IconSet"/>.
         /// </summary>
-        /// <param name="fontNameKey">The name of the font to return.</param>
+        /// <param name="iconSet">The <see cref="IconSet"/> of the font to load.</param>
+        /// <param name="glyphSourceProvider">The glyph source data provider.</param>
         /// <param name="renderWidth">The glyph render size in pixels for the typeface.</param>
         /// <returns>The loaded <see cref="SKFont"/>; otherwise, null.</returns>
         private static SKFont? LoadFont(
-            string fontNameKey,
+            IconSet iconSet,
+            IGlyphSourceProvider glyphSourceProvider,
             uint renderWidth = SkiaGlyphRenderer.DefaultRenderWidth)
         {
-            string fontKey = Path.GetFileName(fontNameKey).Trim();
-            Uri? fontUri = null;
-            SKFont? font = null;
-            var fontDirectories = new string[]
-            {
-                "Fonts",
-                @"Source\IconManager.IconSets\FluentUISystem\DataSources",
-                @"Source\IconManager.IconSets\LineAwesome\DataSources",
-                @"Source\IconManager.IconSets\WinJSSymbols\DataSources"
-            };
-
-            var glyphSourceProvider = new GlyphSourceProviderCollection();
-            glyphSourceProvider.Register(FluentUISystemGlyphs.Instance);
-            glyphSourceProvider.Register(LineAwesomeGlyphs.Instance);
-            glyphSourceProvider.Register(WinJSSymbolsGlyphs.Instance);
+            string fontKey = iconSet.ToString();
+            SKFont? font;
 
             lock (_cacheLock)
             {
-                if (_cachedFonts.TryGetValue(fontKey, out font) == false)
+                if (_cachedFonts.TryGetValue(fontKey, out font))
                 {
-                    // Handle IconSet names first
-                    if (Enum.TryParse(typeof(IconSet), fontKey, out object? parsedIconSet) &&
-                        parsedIconSet is IconSet iconSet)
+                    return font;
+                }
+            }
+
+            // Only some IconSet's have available font files
+            Uri? fontUri = glyphSourceProvider.GetFontSourceUri(iconSet);
+
+            if (fontUri is null)
+            {
+                return null;
+            }
+
+            // Load the SKFont (and internally the SKTypeface)
+            if (string.Equals(fontUri.Scheme, "avares", StringComparison.OrdinalIgnoreCase))
+            {
+                // Load from Avalonia assets
+                using (var sourceStream = AssetLoader.Open(fontUri))
+                {
+                    var typeface = SKTypeface.FromStream(sourceStream);
+                    font = new SKFont()
                     {
-                        // Only some IconSet's have available font files
-                        fontUri = glyphSourceProvider.GetFontSourceUri(iconSet);
-                    }
-
-                    // Search directories for a font by name
-                    if (fontUri is null)
+                        Typeface = typeface,
+                        Size     = renderWidth // In pixels not points
+                    };
+                }
+            }
+            else
+            {
+                // Load from the file system
+                using (var fileStream = File.OpenRead(fontUri.AbsolutePath))
+                {
+                    var typeface = SKTypeface.FromStream(fileStream);
+                    font = new SKFont()
                     {
-                        // The app should be running in debug/release mode within the bin directory
-                        // Locate this folder as the root
-                        string dirPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)!;
-                        DirectoryInfo dir = new DirectoryInfo(dirPath);
+                        Typeface = typeface,
+                        Size     = renderWidth // In pixels not points
+                    };
+                }
+            }
 
-                        while (dir.Exists &&
-                               string.Equals(dir.Name, "SymbolIconManager", StringComparison.OrdinalIgnoreCase) == false)
-                        {
-                            dir = Directory.GetParent(dir.FullName) ?? new DirectoryInfo("");
-                        }
-
-                        var searchDirectories = new string[fontDirectories.Length];
-                        for (int i = 0; i < fontDirectories.Length; i++)
-                        {
-                            searchDirectories[i] = Path.Combine(dir.FullName, fontDirectories[i]);
-                        }
-
-                        foreach (var searchDirectory in searchDirectories)
-                        {
-                            string[] files = Directory.GetFiles(
-                                searchDirectory,
-                                "*",
-                                SearchOption.AllDirectories);
-
-                            foreach (string filePath in files)
-                            {
-                                if (string.Equals(Path.GetFileName(filePath), fontNameKey, StringComparison.OrdinalIgnoreCase) ||
-                                    string.Equals(Path.GetFileNameWithoutExtension(filePath), fontNameKey, StringComparison.OrdinalIgnoreCase))
-                                {
-                                    fontUri = new Uri(filePath);
-                                    break;
-                                }
-                            }
-
-                            if (fontUri is not null)
-                            {
-                                break;
-                            }
-                        }
-                    }
-
-                    if (fontUri is not null)
+            if (font is not null)
+            {
+                lock (_cacheLock)
+                {
+                    // It's possible the font was already cached by another thread
+                    if (!_cachedFonts.ContainsKey(fontKey))
                     {
-                        // Load the SKFont (and internally the SKTypeface)
-                        if (string.Equals(fontUri.Scheme, "avares", StringComparison.OrdinalIgnoreCase))
-                        {
-                            // Load from Avalonia assets
-                            using (var sourceStream = AssetLoader.Open(fontUri))
-                            {
-                                var typeface = SKTypeface.FromStream(sourceStream);
-                                font = new SKFont()
-                                {
-                                    Typeface = typeface,
-                                    Size     = renderWidth // In pixels not points
-                                };
-
-                                _cachedFonts.Add(fontKey, font);
-                                return font;
-                            }
-                        }
-                        else
-                        {
-                            // Load from the file system
-                            using (var fileStream = File.OpenRead(fontUri.AbsolutePath))
-                            {
-                                var typeface = SKTypeface.FromStream(fileStream);
-                                font = new SKFont()
-                                {
-                                    Typeface = typeface,
-                                    Size     = renderWidth // In pixels not points
-                                };
-
-                                _cachedFonts.Add(fontKey, font);
-                                return font;
-                            }
-                        }
+                        _cachedFonts.Add(fontKey, font);
                     }
                 }
             }
