@@ -71,7 +71,7 @@ namespace IconManager.ViewModels
         public string SourceDirectory
         {
             get => field;
-            private set => this.SetField(ref field, value);
+            private set => this.SetProperty(ref field, value);
         } = string.Empty;
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace IconManager.ViewModels
         public IconSetViewModel? SelectedSourceIconSet
         {
             get => field;
-            set => this.SetField(ref field, value);
+            set => this.SetProperty(ref field, value);
         } = null;
 
         /***************************************************************************************

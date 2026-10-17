@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -63,7 +64,7 @@ namespace IconManager.ViewModels
         public string? FilterText
         {
             get => field;
-            set => this.SetField(ref field, value);
+            set => this.SetProperty(ref field, value);
         }
 
         /***************************************************************************************
@@ -225,16 +226,16 @@ namespace IconManager.ViewModels
          ***************************************************************************************/
 
         /// <inheritdoc/>
-        protected override void OnPropertyChanged(string propertyName)
+        protected override void OnPropertyChanged(PropertyChangedEventArgs e)
         {
-            base.OnPropertyChanged(propertyName);
+            base.OnPropertyChanged(e);
 
             if (this.IsPropertyChangedIgnoredInternally)
             {
                 return;
             }
 
-            switch (propertyName)
+            switch (e.PropertyName)
             {
                 case nameof(this.FilterText):
                     this.UpdateFilteredMappings();

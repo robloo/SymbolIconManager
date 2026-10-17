@@ -51,7 +51,7 @@ namespace IconManager.ViewModels
         public bool IncludeFluentAvaloniaEnum
         {
             get => field;
-            set => this.SetField(ref field, value);
+            set => this.SetProperty(ref field, value);
         } = true;
 
         /***************************************************************************************

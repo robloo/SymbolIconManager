@@ -5,6 +5,7 @@ using IconManager.IconSets;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace IconManager
 {
@@ -71,7 +72,7 @@ namespace IconManager
         public bool AutoUpdate
         {
             get => field;
-            set => this.SetField(ref field, value);
+            set => this.SetProperty(ref field, value);
         } = false;
 
         ///////////////////////////////////////////////////////////
@@ -84,14 +85,14 @@ namespace IconManager
         public Bitmap? Glyph
         {
             get => field;
-            set => this.SetField(ref field, value);
+            set => this.SetProperty(ref field, value);
         } = null;
 
         /// <inheritdoc/>
         public IconSet IconSet
         {
             get => field;
-            set => this.SetField(ref field, value);
+            set => this.SetProperty(ref field, value);
         } = IconSet.Undefined;
 
         /// <summary>
@@ -103,14 +104,14 @@ namespace IconManager
         public string Name
         {
             get => field;
-            set => this.SetField(ref field, value);
+            set => this.SetProperty(ref field, value);
         } = string.Empty;
 
         /// <inheritdoc/>
         public uint UnicodePoint
         {
             get => field;
-            set => this.SetField(ref field, value);
+            set => this.SetProperty(ref field, value);
         } = 0;
 
         ///////////////////////////////////////////////////////////
@@ -174,17 +175,17 @@ namespace IconManager
          ***************************************************************************************/
 
         /// <inheritdoc/>
-        protected override void OnPropertyChanged(string propertyName)
+        protected override void OnPropertyChanged(PropertyChangedEventArgs e)
         {
-            base.OnPropertyChanged(propertyName);
+            base.OnPropertyChanged(e);
 
             if (this.IsPropertyChangedIgnoredInternally)
             {
                 return;
             }
 
-            if (propertyName == nameof(this.IconSet) ||
-                propertyName == nameof(this.UnicodePoint))
+            if (e.PropertyName == nameof(this.IconSet) ||
+                e.PropertyName == nameof(this.UnicodePoint))
             {
                 if (this.AutoUpdate)
                 {

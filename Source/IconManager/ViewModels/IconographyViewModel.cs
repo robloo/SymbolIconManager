@@ -4,6 +4,7 @@ using IconManager.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace IconManager.ViewModels
 {
@@ -46,7 +47,7 @@ namespace IconManager.ViewModels
         public string? FilterText
         {
             get => field;
-            set => this.SetField(ref field, value);
+            set => this.SetProperty(ref field, value);
         }
 
         /// <summary>
@@ -65,7 +66,7 @@ namespace IconManager.ViewModels
         public IconSetViewModel? SelectedIconSet
         {
             get => field;
-            set => this.SetField(ref field, value);
+            set => this.SetProperty(ref field, value);
         } = null;
 
         /***************************************************************************************
@@ -75,16 +76,16 @@ namespace IconManager.ViewModels
          ***************************************************************************************/
 
         /// <inheritdoc/>
-        protected override void OnPropertyChanged(string propertyName)
+        protected override void OnPropertyChanged(PropertyChangedEventArgs e)
         {
-            base.OnPropertyChanged(propertyName);
+            base.OnPropertyChanged(e);
 
             if (this.IsPropertyChangedIgnoredInternally)
             {
                 return;
             }
 
-            switch (propertyName)
+            switch (e.PropertyName)
             {
                 case nameof(this.FilterText):
                     this.UpdateFilteredIcons();

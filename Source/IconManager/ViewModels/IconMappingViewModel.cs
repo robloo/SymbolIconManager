@@ -66,7 +66,7 @@ namespace IconManager
             set
             {
                 field.PropertyChanged -= IconViewModel_PropertyChanged;
-                this.SetField(ref field, value);
+                this.SetProperty(ref field, value);
                 field.PropertyChanged += IconViewModel_PropertyChanged;
 
                 this.UpdateDependentProperties();
@@ -80,7 +80,7 @@ namespace IconManager
             set
             {
                 field.PropertyChanged -= IconViewModel_PropertyChanged;
-                this.SetField(ref field, value);
+                this.SetProperty(ref field, value);
                 field.PropertyChanged += IconViewModel_PropertyChanged;
 
                 this.UpdateDependentProperties();
@@ -91,7 +91,7 @@ namespace IconManager
         public MatchQuality GlyphMatchQuality
         {
             get => field;
-            set => this.SetField(ref field, value);
+            set => this.SetProperty(ref field, value);
         } = MatchQuality.NoMatch;
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace IconManager
         public MatchQuality MetaphorMatchQuality
         {
             get => field;
-            set => this.SetField(ref field, value);
+            set => this.SetProperty(ref field, value);
         } = MatchQuality.NoMatch;
 
         /// <summary>
@@ -115,14 +115,14 @@ namespace IconManager
         public bool IsPlaceholder
         {
             get => field;
-            set => this.SetField(ref field, value);
+            set => this.SetProperty(ref field, value);
         } = false;
 
         /// <inheritdoc cref="IconMapping.Comments"/>
         public string Comments
         {
             get => field;
-            set => this.SetField(ref field, value);
+            set => this.SetProperty(ref field, value);
         } = string.Empty;
 
         ///////////////////////////////////////////////////////////
@@ -135,7 +135,7 @@ namespace IconManager
         public bool IsIncomplete
         {
             get => field;
-            private set => this.SetField(ref field, value);
+            private set => this.SetProperty(ref field, value);
         } = false;
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace IconManager
         public bool IsSourceNameEditable
         {
             get => field;
-            private set => this.SetField(ref field, value);
+            private set => this.SetProperty(ref field, value);
         }
 
         /// <summary>
@@ -155,7 +155,7 @@ namespace IconManager
         public bool IsDestinationNameEditable
         {
             get => field;
-            private set => this.SetField(ref field, value);
+            private set => this.SetProperty(ref field, value);
         }
 
         /***************************************************************************************
@@ -190,19 +190,19 @@ namespace IconManager
          ***************************************************************************************/
 
         /// <inheritdoc/>
-        protected override void OnPropertyChanged(string propertyName)
+        protected override void OnPropertyChanged(PropertyChangedEventArgs e)
         {
-            base.OnPropertyChanged(propertyName);
+            base.OnPropertyChanged(e);
 
             if (this.IsPropertyChangedIgnoredInternally)
             {
                 return;
             }
 
-            if (propertyName == nameof(this.SourceViewModel) ||
-                propertyName == nameof(this.DestinationViewModel) ||
-                propertyName == nameof(this.GlyphMatchQuality) ||
-                propertyName == nameof(this.IsPlaceholder))
+            if (e.PropertyName == nameof(this.SourceViewModel) ||
+                e.PropertyName == nameof(this.DestinationViewModel) ||
+                e.PropertyName == nameof(this.GlyphMatchQuality) ||
+                e.PropertyName == nameof(this.IsPlaceholder))
             {
                 this.UpdateDependentProperties();
             }

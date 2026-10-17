@@ -42,7 +42,7 @@ namespace IconManager.ViewModels
         public IconSet IconSet
         {
             get => field;
-            set => this.SetField(ref field, value);
+            set => this.SetProperty(ref field, value);
         } = IconSet.Undefined;
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace IconManager.ViewModels
         public string Name
         {
             get => field;
-            set => this.SetField(ref field, value);
+            set => this.SetProperty(ref field, value);
         } = string.Empty;
 
         /***************************************************************************************
