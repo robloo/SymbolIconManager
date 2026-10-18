@@ -1,5 +1,4 @@
-﻿using Avalonia.Media.Imaging;
-using IconManager.Core.Glyphs;
+﻿using IconManager.Core.Glyphs;
 using IconManager.Core.Icons;
 using IconManager.IconSets;
 using Microsoft.Extensions.DependencyInjection;
@@ -129,6 +128,12 @@ namespace IconManager
          * Public Methods
          *
          ***************************************************************************************/
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return this.AsIcon().ToString();
+        }
 
         /// <summary>
         /// Converts this <see cref="IconViewModel"/> into a standard <see cref="Icon"/>.
