@@ -7,7 +7,6 @@ using IconManager.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.IO;
-using Bitmap = Avalonia.Media.Imaging.Bitmap;
 
 namespace IconManager
 {
@@ -82,7 +81,7 @@ namespace IconManager
             glyphSourceProvider.Register(WinJSSymbolsGlyphs.Instance);
 
             services.AddSingleton<IGlyphSourceProvider>(glyphSourceProvider);
-            services.AddSingleton<IGlyphRenderer<Bitmap>>(new SkiaGlyphRenderer());
+            services.AddSingleton<IGlyphRenderer<GlyphBitmap>>(new SkiaGlyphRenderer());
             services.AddSingleton<IStorageService>(new AvaloniaStorageService());
 
             this.Services = services.BuildServiceProvider();

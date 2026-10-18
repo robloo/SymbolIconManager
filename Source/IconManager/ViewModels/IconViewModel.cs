@@ -15,8 +15,8 @@ namespace IconManager
     public class IconViewModel : ViewModelBase, IIcon
     {
         // Services
-        private readonly IGlyphRenderer<Bitmap> _glyphRendererService;
-        private readonly IGlyphSourceProvider   _glyphSourceProviderService;
+        private readonly IGlyphRenderer<GlyphBitmap> _glyphRendererService;
+        private readonly IGlyphSourceProvider        _glyphSourceProviderService;
 
         /***************************************************************************************
          *
@@ -29,7 +29,7 @@ namespace IconManager
         /// </summary>
         public IconViewModel()
         {
-            this._glyphRendererService       = App.Current.Services.GetRequiredService<IGlyphRenderer<Bitmap>>();
+            this._glyphRendererService       = App.Current.Services.GetRequiredService<IGlyphRenderer<GlyphBitmap>>();
             this._glyphSourceProviderService = App.Current.Services.GetRequiredService<IGlyphSourceProvider>();
 
             this.FillIconSets();
@@ -82,7 +82,7 @@ namespace IconManager
         /// <summary>
         /// Gets or sets the displayed glyph (graphic/symbol) of the icon.
         /// </summary>
-        public Bitmap? Glyph
+        public GlyphBitmap? Glyph
         {
             get => field;
             set => this.SetProperty(ref field, value);

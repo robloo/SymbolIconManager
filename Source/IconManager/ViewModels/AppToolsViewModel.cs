@@ -32,9 +32,9 @@ namespace IconManager.ViewModels
     public partial class AppToolsViewModel : ViewModelBase
     {
         // Services
-        private readonly IGlyphRenderer<Bitmap> _glyphRendererService;
-        private readonly IGlyphSourceProvider   _glyphSourceProviderService;
-        private readonly IStorageService        _storageService;
+        private readonly IGlyphRenderer<GlyphBitmap> _glyphRendererService;
+        private readonly IGlyphSourceProvider        _glyphSourceProviderService;
+        private readonly IStorageService             _storageService;
 
         /***************************************************************************************
          *
@@ -47,7 +47,7 @@ namespace IconManager.ViewModels
         /// </summary>
         public AppToolsViewModel()
         {
-            this._glyphRendererService       = App.Current.Services.GetRequiredService<IGlyphRenderer<Bitmap>>();
+            this._glyphRendererService       = App.Current.Services.GetRequiredService<IGlyphRenderer<GlyphBitmap>>();
             this._glyphSourceProviderService = App.Current.Services.GetRequiredService<IGlyphSourceProvider>();
             this._storageService             = App.Current.Services.GetRequiredService<IStorageService>();
 
@@ -197,7 +197,7 @@ namespace IconManager.ViewModels
                         File.Delete(filePath);
                     }
 
-                    Bitmap? bitmap = await this._glyphRendererService.RenderGlyphAsync(
+                    GlyphBitmap? bitmap = await this._glyphRendererService.RenderGlyphAsync(
                         viewModel.IconSet,
                         viewModel.UnicodePoint,
                         this._glyphSourceProviderService);
@@ -324,7 +324,7 @@ namespace IconManager.ViewModels
                     if (unicodePoint != 0 &&
                         iconSet != IconSet.Undefined)
                     {
-                        Bitmap? bitmap = await this._glyphRendererService.RenderGlyphAsync(
+                        GlyphBitmap? bitmap = await this._glyphRendererService.RenderGlyphAsync(
                             iconSet,
                             unicodePoint,
                             this._glyphSourceProviderService,

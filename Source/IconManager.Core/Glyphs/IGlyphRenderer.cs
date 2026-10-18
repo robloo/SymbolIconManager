@@ -8,7 +8,6 @@ namespace IconManager.Core.Glyphs
     /// </summary>
     /// <typeparam name="TGlyph">
     /// The specific type of rendered glyph.
-    /// This is typically the bitmap class of the UI framework being used.
     /// </typeparam>
     public interface IGlyphRenderer<TGlyph>
     {

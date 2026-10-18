@@ -2,19 +2,22 @@
 using IconManager.Core.Glyphs;
 using IconManager.Core.Icons;
 using SkiaSharp;
+using Svg.Skia;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Bitmap = Avalonia.Media.Imaging.Bitmap;
+using System.Xml.Linq;
 
 namespace IconManager.Services
 {
     /// <summary>
     /// An icon glyph renderer implemented using SkiaSharp.
     /// </summary>
-    public class SkiaGlyphRenderer : IGlyphRenderer<Bitmap>
+    public class SkiaGlyphRenderer : IGlyphRenderer<GlyphBitmap>
     {
         /// <summary>
         /// The default width, in pixels, of the rendered glyph.
@@ -28,8 +31,8 @@ namespace IconManager.Services
 
         private static SKPaint? _cachedTextPaint = null;
 
-        private static Dictionary<string, SKFont> _cachedFonts  = new Dictionary<string, SKFont>();  // IconSet is key
-        private static Dictionary<string, Bitmap> _cachedGlyphs = new Dictionary<string, Bitmap>();  // IconSet_UnicodePoint is key
+        private static Dictionary<string, SKFont>      _cachedFonts  = new Dictionary<string, SKFont>();       // IconSet is key
+        private static Dictionary<string, GlyphBitmap> _cachedGlyphs = new Dictionary<string, GlyphBitmap>();  // IconSet_UnicodePoint is key
 
         private static Lock _cacheLock = new();
 
@@ -78,14 +81,14 @@ namespace IconManager.Services
          ***************************************************************************************/
 
         /// <inheritdoc/>
-        public async Task<Bitmap?> RenderGlyphAsync(
+        public async Task<GlyphBitmap?> RenderGlyphAsync(
             IconSet iconSet,
             uint unicodePoint,
             IGlyphSourceProvider glyphSourceProvider,
             GlyphSource glyphSource = GlyphSource.None)
         {
             string glyphKey = $"{iconSet}_{Icon.ToUnicodeHexString(unicodePoint)}";
-            Bitmap? result = null;
+            GlyphBitmap? result = null;
             var glyphSources = glyphSourceProvider.GetGlyphSources(
                 iconSet,
                 unicodePoint);
@@ -144,7 +147,7 @@ namespace IconManager.Services
             if (result is null &&
                 glyphSources.Contains(GlyphSource.LocalFontFile))
             {
-                result = await Task.Run<Bitmap?>(async () =>
+                result = await Task.Run<GlyphBitmap?>(async () =>
                 {
                     var font = SkiaGlyphRenderer.LoadFont(
                         iconSet,
@@ -153,11 +156,18 @@ namespace IconManager.Services
 
                     if (font is not null)
                     {
-                        Bitmap? bitmap = await SkiaGlyphRenderer.RenderGlyphFromFontAsync(font, unicodePoint);
+                        GlyphBitmap? glyphBitmap = await SkiaGlyphRenderer.RenderGlyphFromFontAsync(font, unicodePoint);
 
-                        if (bitmap is not null)
+                        if (glyphBitmap is not null)
                         {
-                            return bitmap;
+                            // Apply glyph metadata
+                            glyphBitmap.IconSet      = iconSet;
+                            // PathData is already set
+                            glyphBitmap.Source       = GlyphSource.LocalFontFile;
+                            glyphBitmap.SourceUri    = null;
+                            glyphBitmap.UnicodePoint = unicodePoint;
+
+                            return glyphBitmap;
                         }
                     }
 
@@ -170,7 +180,7 @@ namespace IconManager.Services
                 (glyphSources.Contains(GlyphSource.LocalSvgFile) ||
                  glyphSources.Contains(GlyphSource.RemoteSvgFile)))
             {
-                result = await Task.Run<Bitmap?>(async () =>
+                result = await Task.Run<GlyphBitmap?>(async () =>
                 {
                     GlyphStream? svgStream = null;
 
@@ -194,19 +204,48 @@ namespace IconManager.Services
 
                     if (svgStream is not null)
                     {
+                        // Read the SVG stream into a string
+                        string svgText;
+
+                        using (var reader = new StreamReader(
+                            svgStream,
+                            Encoding.UTF8,
+                            detectEncodingFromByteOrderMarks: true,
+                            leaveOpen: false))
+                        {
+                            svgText = reader.ReadToEnd();
+                        }
+
+                        // Extract the original path data from the SVG XML
+                        var svgXml = XDocument.Parse(svgText);
+                        string glyphPathData = svgXml
+                            .Descendants()
+                            .Where(e => e.Name.LocalName == "path")
+                            .Select(e => (string?)e.Attribute("d"))
+                            .Where(d => d != null)
+                            .ToList()
+                            .FirstOrDefault() ?? string.Empty;
+
                         // The size here (and above) isn't taking into account device DPI
                         // It probably should in the future
                         // Also note that no background is added to the rendered SVG unlike above
-                        var svg = new SkiaSharp.Extended.Svg.SKSvg(
-                            new SKSize(this.RenderWidth, this.RenderHeight));
-                        svg.Load(svgStream);
+                        var svg = SKSvg.CreateFromSvg(svgText);
 
                         // Note that the default SKImage encoding format is .png
-                        using (SKImage image = SKImage.FromPicture(svg.Picture, svg.CanvasSize.ToSizeI()))
+                        using (SKImage image = SKImage.FromPicture(svg.Picture, new SKSizeI((int)this.RenderWidth, (int)this.RenderHeight)))
                         using (SKData encoded = image.Encode())
                         using (Stream stream = encoded.AsStream())
                         {
-                            return new Bitmap(stream);
+                            var glyphBitmap = new GlyphBitmap(stream)
+                            {
+                                IconSet      = svgStream.IconSet,
+                                PathData     = glyphPathData,
+                                Source       = svgStream.Source,
+                                SourceUri    = svgStream.SourceUri,
+                                UnicodePoint = svgStream.UnicodePoint
+                            };
+
+                            return glyphBitmap;
                         }
                     }
 
@@ -220,9 +259,17 @@ namespace IconManager.Services
             {
                 using (GlyphStream? pngStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(iconSet, unicodePoint, GlyphSource.RemotePngFile))
                 {
-                    result = pngStream is null
-                        ? null
-                        : new Bitmap(pngStream);
+                    if (pngStream is not null)
+                    {
+                        result = new GlyphBitmap(pngStream)
+                        {
+                            PathData = string.Empty, // None for PNG
+                        };
+                    }
+                    else
+                    {
+                        result = null;
+                    }
                 }
             }
 
@@ -252,7 +299,7 @@ namespace IconManager.Services
         /// <summary>
         /// Renders the glyph at the specified Unicode point using the given symbol font.
         /// </summary>
-        private static async Task<Bitmap?> RenderGlyphFromFontAsync(
+        private static async Task<GlyphBitmap?> RenderGlyphFromFontAsync(
             SKFont font,
             uint unicodePoint,
             int renderWidth = SkiaGlyphRenderer.DefaultRenderWidth,
@@ -261,6 +308,8 @@ namespace IconManager.Services
             return await Task.Run(() =>
             {
                 var textBounds = new SKRect();
+                string pathData = string.Empty;
+                ushort glyphId = 0;
                 SKBitmap bitmap = new SKBitmap(renderWidth, renderHeight);
 
                 lock (_cacheLock)
@@ -272,9 +321,21 @@ namespace IconManager.Services
                     };
 
                     // Check whether the font contains the glyph
-                    if (font.GetGlyph((int)unicodePoint) == 0)
+                    glyphId = font.GetGlyph((int)unicodePoint);
+                    if (glyphId == 0)
                     {
                         return null;
+                    }
+
+                    // Extract the path data
+                    using (SKPath path = font.GetGlyphPath(glyphId))
+                    {
+                        if (path is not null)
+                        {
+                            // Move the font's baseline-relative path down so the font's ascent is at y = 0.
+                            path.Offset(0, -font.Metrics.Ascent);
+                            pathData = path.ToSvgPathData();
+                        }
                     }
 
                     // Measure the rendered text
@@ -312,7 +373,11 @@ namespace IconManager.Services
                 using (SKData encoded = image.Encode())
                 using (Stream stream = encoded.AsStream())
                 {
-                    return new Bitmap(stream);
+                    return new GlyphBitmap(stream)
+                    {
+                        PathData     = pathData,
+                        UnicodePoint = unicodePoint
+                    };
                 }
             });
         }
