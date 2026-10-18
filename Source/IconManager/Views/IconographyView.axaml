@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:labs="using:Avalonia.Labs.Controls"
     mc:Ignorable="d"
     x:DataType="IconographyViewModel"
     d:DesignHeight="450"
@@ -138,6 +139,7 @@
                 SelectedItem="{Binding SelectedIcon, Mode=TwoWay}">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
+                        <!-- TODO: Replace with Avalonia.Labs VirtualizingWrapPanel when released -->
                         <WrapPanel />
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>

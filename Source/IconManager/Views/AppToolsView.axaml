@@ -93,6 +93,7 @@
             ItemsSource="{Binding DisplayedIcons}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
+                    <!-- TODO: Replace with Avalonia.Labs VirtualizingWrapPanel when released -->
                     <WrapPanel />
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
