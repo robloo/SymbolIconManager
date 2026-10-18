@@ -226,6 +226,7 @@
                             RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
                             RowSpacing="10">
 
+                            <!-- Icon Name -->
                             <StackPanel
                                 Grid.Row="0"
                                 Orientation="Vertical"
@@ -249,6 +250,7 @@
                                 Command="{Binding #LayoutRoot.DataContext.CopyTextCommand}"
                                 CommandParameter="{Binding Name}" />
 
+                            <!-- Icon Set -->
                             <StackPanel
                                 Grid.Row="1"
                                 Orientation="Vertical"
@@ -272,6 +274,7 @@
                                 Command="{Binding #LayoutRoot.DataContext.CopyTextCommand}"
                                 CommandParameter="{Binding IconSet}" />
 
+                            <!-- Text Glyph -->
                             <StackPanel
                                 Grid.Row="2"
                                 Orientation="Vertical"
@@ -295,6 +298,7 @@
                                 Command="{Binding #LayoutRoot.DataContext.CopyTextCommand}"
                                 CommandParameter="{Binding #TextGlyphTextBlock.Text}" />
 
+                            <!-- Code Glyph -->
                             <StackPanel
                                 Grid.Row="3"
                                 Orientation="Vertical"
@@ -318,6 +322,7 @@
                                 Command="{Binding #LayoutRoot.DataContext.CopyTextCommand}"
                                 CommandParameter="{Binding #CodeGlyphTextBlock.Text}" />
 
+                            <!-- Path Data -->
                             <StackPanel
                                 Grid.Row="4"
                                 Orientation="Vertical"
@@ -335,11 +340,16 @@
                                     IsVisible="{Binding Glyph?.Source, Converter={x:Static ObjectConverters.IsNotNull}}">
                                     <Run Text="Path data (" /><Run Text="{Binding Glyph?.Source}" /><Run Text=")" />
                                 </TextBlock>
-                                <SelectableTextBlock
-                                    FontSize="10"
-                                    FontWeight="SemiBold"
-                                    Text="{Binding Glyph?.PathData}"
-                                    TextWrapping="Wrap" />
+                                <ScrollViewer
+                                    MaxHeight="200"
+                                    HorizontalScrollBarVisibility="Disabled"
+                                    VerticalScrollBarVisibility="Auto">
+                                    <SelectableTextBlock
+                                        FontSize="10"
+                                        FontWeight="SemiBold"
+                                        Text="{Binding Glyph?.PathData}"
+                                        TextWrapping="Wrap" />
+                                </ScrollViewer>
                             </StackPanel>
                             <Button
                                 Grid.Row="4"
@@ -349,22 +359,35 @@
                                 IsVisible="{Binding Glyph?.PathData, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                 Command="{Binding #LayoutRoot.DataContext.CopyTextCommand}"
                                 CommandParameter="{Binding Glyph?.PathData}" />
-                            <Panel
+
+                            <!-- Preview Path Data -->
+                            <StackPanel
                                 Grid.Row="5"
+                                Orientation="Vertical"
                                 HorizontalAlignment="Center"
-                                IsVisible="{Binding Glyph?.PathData, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
-                                <Rectangle
-                                    HorizontalAlignment="Stretch"
-                                    VerticalAlignment="Stretch"
-                                    Stroke="{DynamicResource TextControlForegroundDisabled}"
-                                    StrokeDashArray="4, 2"
-                                    StrokeThickness="1" />
-                                <Path
-                                    Width="64"
-                                    Height="64"
-                                    Data="{Binding Glyph?.PathData}"
-                                    Fill="{DynamicResource TextControlForeground}" />
-                            </Panel>
+                                IsVisible="{Binding Glyph?.PathData, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                                Spacing="2">
+                                <Panel>
+                                    <Rectangle
+                                        Width="{Binding Glyph?.PathViewBox?.Width}"
+                                        Height="{Binding Glyph?.PathViewBox?.Height}"
+                                        Stroke="{DynamicResource TextControlForegroundDisabled}"
+                                        StrokeDashArray="4, 2"
+                                        StrokeThickness="1" />
+                                    <Path
+                                        Width="{Binding Glyph?.PathViewBox?.Width}"
+                                        Height="{Binding Glyph?.PathViewBox?.Height}"
+                                        Data="{Binding Glyph?.PathData}"
+                                        Fill="{DynamicResource TextControlForeground}" />
+                                </Panel>
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    FontSize="11"
+                                    Foreground="{DynamicResource TextControlForegroundDisabled}"
+                                    IsVisible="{Binding Glyph?.PathData, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+                                    <Run Text="w: " /><Run Text="{Binding Glyph?.PathViewBox?.Width}" /><Run Text=" × h: " /><Run Text="{Binding Glyph?.PathViewBox?.Height}" />
+                                </TextBlock>
+                            </StackPanel>
 
                         </Grid>
                     </ScrollViewer>

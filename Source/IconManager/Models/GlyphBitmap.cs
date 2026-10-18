@@ -1,4 +1,5 @@
-﻿using IconManager.Core.Glyphs;
+﻿using Avalonia;
+using IconManager.Core.Glyphs;
 using IconManager.Core.Icons;
 using System;
 using System.IO;
@@ -52,6 +53,11 @@ namespace IconManager
         /// Gets or sets any SVG path data from the original source before it was rendered.
         /// </summary>
         public string PathData { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets the SVG path data view box used to interpret overall dimensions.
+        /// </summary>
+        public Rect PathViewBox { get; set; } = default(Rect);
 
         /// <inheritdoc cref="GlyphStream.Source"/>
         public GlyphSource Source { get; set; } = GlyphSource.None;

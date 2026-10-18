@@ -1,4 +1,5 @@
-﻿using Avalonia.Platform;
+﻿using Avalonia;
+using Avalonia.Platform;
 using IconManager.Core.Glyphs;
 using IconManager.Core.Icons;
 using SkiaSharp;
@@ -183,6 +184,7 @@ namespace IconManager.Services
                             // Apply glyph metadata
                             glyphBitmap.IconSet      = iconSet;
                             // PathData is already set
+                            // PathViewBox is already set
                             glyphBitmap.Source       = GlyphSource.LocalFontFile;
                             glyphBitmap.SourceUri    = null;
                             glyphBitmap.UnicodePoint = unicodePoint;
@@ -238,6 +240,7 @@ namespace IconManager.Services
                         GlyphBitmap? glyphBitmap = await SkiaGlyphRenderer.RenderGlyphFromSvgAsync(
                             svgText,
                             this.BackgroundColor,
+                            this.FillColor,
                             this.RenderWidth,
                             this.RenderHeight);
 
@@ -246,6 +249,7 @@ namespace IconManager.Services
                             // Apply glyph metadata
                             glyphBitmap.IconSet      = iconSet;
                             // PathData is already set
+                            // PathViewBox is already set
                             glyphBitmap.Source       = svgStream.Source;
                             glyphBitmap.SourceUri    = svgStream.SourceUri;
                             glyphBitmap.UnicodePoint = unicodePoint;
@@ -268,7 +272,8 @@ namespace IconManager.Services
                     {
                         result = new GlyphBitmap(pngStream)
                         {
-                            PathData = string.Empty, // None for PNG
+                            PathData    = string.Empty,  // None for PNG
+                            PathViewBox = default(Rect), // None for PNG
                         };
                     }
                     else
@@ -307,6 +312,7 @@ namespace IconManager.Services
         private static async Task<GlyphBitmap?> RenderGlyphFromSvgAsync(
             string svgText,
             SKColor backgroundColor,
+            SKColor fillColor,
             uint renderWidth = SkiaGlyphRenderer.DefaultRenderWidth,
             uint renderHeight = SkiaGlyphRenderer.DefaultRenderHeight)
         {
@@ -324,12 +330,16 @@ namespace IconManager.Services
                 }
 
                 // Extract the original path data from the SVG XML
+                // This assumes fairly simple SVG files and ONLY preserves path data
+                // If a glyph has multiple paths they will all be joined together as one
                 var svgXml = XDocument.Parse(svgText);
-                string pathData = svgXml
-                    .Descendants()
-                    .Where(e => e.Name.LocalName == "path")
-                    .Select(e => (string?)e.Attribute("d"))
-                    .FirstOrDefault(d => d != null) ?? string.Empty;
+                string pathData = string.Join(
+                    " ",
+                    svgXml
+                        .Descendants()
+                        .Where(e => e.Name.LocalName == "path")
+                        .Select(e => (string?)e.Attribute("d"))
+                        .Where(d => !string.IsNullOrWhiteSpace(d)));
 
                 using SKSvg svg = SKSvg.CreateFromSvg(svgText);
                 var svgPicture = svg.Picture;
@@ -375,7 +385,12 @@ namespace IconManager.Services
                 {
                     var glyphBitmap = new GlyphBitmap(stream)
                     {
-                        PathData = pathData
+                        PathData    = pathData,
+                        PathViewBox = new Rect(
+                            x: viewBox.Left,
+                            y: viewBox.Top,
+                            viewBox.Width,
+                            viewBox.Height)
                     };
 
                     return glyphBitmap;
@@ -464,6 +479,7 @@ namespace IconManager.Services
                     return new GlyphBitmap(stream)
                     {
                         PathData     = pathData,
+                        PathViewBox  = new Rect(x: 0, y: 0, renderWidth, renderHeight),
                         UnicodePoint = unicodePoint
                     };
                 }
