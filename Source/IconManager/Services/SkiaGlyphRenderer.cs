@@ -137,13 +137,14 @@ namespace IconManager.Services
 
             // Several icon sets have an embedded font file within the application.
             // Rendering glyphs is fastest using the embedded font itself so should always be tried first.
+            // Rendering from fonts also supports customizing the fill color.
             //
             //   Note that FluentUISystem icons fonts have a bug and any glyph over 0xFFFF simply does not exist
             //   See: https://github.com/microsoft/fluentui-system-icons/issues/299
             //   A work-around for this case is required using the local or remote SVG file sources
             //
             // If rendering using a font fails, fallback to any available SVG files.
-            // SVG is high fidelity and the same quality as fonts.
+            // SVG is high fidelity and almost the same quality as fonts.
             //
             // Only if rendering from both fonts and SVG files fails will PNG files be used.
             // These can't really be rendered and are just passed-through verbatim.
@@ -152,10 +153,9 @@ namespace IconManager.Services
             //     * IconSet.SegoeFluent
             //     * IconSet.SegoeMDL2Assets
             //     * IconSet.SegoeUISymbol
-            //   The font is not packaged with this application and there is no guarantee it will be on the system.
+            //   These fonts are not packaged with this application and there is no guarantee they will be on the system.
             //   Source files (whether SVG or PNG) are not packaged either.
             //   To work around this, preview images are loaded from Microsoft's website on-demand.
-            //   These preview images are never distributed with source code.
 
             // Attempt to render from a Font
             if (result is null &&
@@ -226,7 +226,6 @@ namespace IconManager.Services
                     {
                         // Read the SVG stream into a string
                         string svgText;
-
                         using (var reader = new StreamReader(
                             svgStream,
                             Encoding.UTF8,
@@ -236,31 +235,20 @@ namespace IconManager.Services
                             svgText = reader.ReadToEnd();
                         }
 
-                        // Extract the original path data from the SVG XML
-                        var svgXml = XDocument.Parse(svgText);
-                        string glyphPathData = svgXml
-                            .Descendants()
-                            .Where(e => e.Name.LocalName == "path")
-                            .Select(e => (string?)e.Attribute("d"))
-                            .Where(d => d != null)
-                            .ToList()
-                            .FirstOrDefault() ?? string.Empty;
+                        GlyphBitmap? glyphBitmap = await SkiaGlyphRenderer.RenderGlyphFromSvgAsync(
+                            svgText,
+                            this.BackgroundColor,
+                            this.RenderWidth,
+                            this.RenderHeight);
 
-                        var svg = SKSvg.CreateFromSvg(svgText);
-
-                        // Note that the default SKImage encoding format is .png
-                        using (SKImage image = SKImage.FromPicture(svg.Picture, new SKSizeI((int)this.RenderWidth, (int)this.RenderHeight)))
-                        using (SKData encoded = image.Encode())
-                        using (Stream stream = encoded.AsStream())
+                        if (glyphBitmap is not null)
                         {
-                            var glyphBitmap = new GlyphBitmap(stream)
-                            {
-                                IconSet      = svgStream.IconSet,
-                                PathData     = glyphPathData,
-                                Source       = svgStream.Source,
-                                SourceUri    = svgStream.SourceUri,
-                                UnicodePoint = svgStream.UnicodePoint
-                            };
+                            // Apply glyph metadata
+                            glyphBitmap.IconSet      = iconSet;
+                            // PathData is already set
+                            glyphBitmap.Source       = svgStream.Source;
+                            glyphBitmap.SourceUri    = svgStream.SourceUri;
+                            glyphBitmap.UnicodePoint = unicodePoint;
 
                             return glyphBitmap;
                         }
@@ -312,6 +300,50 @@ namespace IconManager.Services
          * Private Methods
          *
          ***************************************************************************************/
+
+        /// <summary>
+        /// Renders the given SVG glyph.
+        /// </summary>
+        private static async Task<GlyphBitmap?> RenderGlyphFromSvgAsync(
+            string svgText,
+            SKColor backgroundColor,
+            uint renderWidth = SkiaGlyphRenderer.DefaultRenderWidth,
+            uint renderHeight = SkiaGlyphRenderer.DefaultRenderHeight)
+        {
+            return await Task.Run(() =>
+            {
+                if (string.IsNullOrWhiteSpace(svgText))
+                {
+                    return null;
+                }
+
+                // Extract the original path data from the SVG XML
+                var svgXml = XDocument.Parse(svgText);
+                string pathData = svgXml
+                    .Descendants()
+                    .Where(e => e.Name.LocalName == "path")
+                    .Select(e => (string?)e.Attribute("d"))
+                    .Where(d => d != null)
+                    .ToList()
+                    .FirstOrDefault() ?? string.Empty;
+
+                var svg = SKSvg.CreateFromSvg(svgText);
+
+                // Convert to a PNG bitmap data stream
+                // Note that the default SKImage encoding format is .png
+                using (SKImage image = SKImage.FromPicture(svg.Picture, new SKSizeI((int)renderWidth, (int)renderHeight)))
+                using (SKData encoded = image.Encode())
+                using (Stream stream = encoded.AsStream())
+                {
+                    var glyphBitmap = new GlyphBitmap(stream)
+                    {
+                        PathData = pathData
+                    };
+
+                    return glyphBitmap;
+                }
+            });
+        }
 
         /// <summary>
         /// Renders the glyph at the specified Unicode point using the given symbol font.
