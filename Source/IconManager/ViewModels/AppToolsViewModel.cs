@@ -485,14 +485,17 @@ namespace IconManager.ViewModels
 
                         if (endIndex >= 0)
                         {
+                            uint unicodePoint = Convert.ToUInt32(
+                                fileText.Substring(
+                                    index + startPattern.Length,
+                                    endIndex - (index + startPattern.Length)),
+                                16);
+
                             var entry = new IconViewModel()
                             {
                                 IconSet      = iconSet,
-                                UnicodePoint = Convert.ToUInt32(
-                                    fileText.Substring(
-                                        index + startPattern.Length,
-                                        endIndex - (index + startPattern.Length)),
-                                    16),
+                                Name         = IconSetBase.FindName(iconSet, unicodePoint),
+                                UnicodePoint = unicodePoint
                             };
 
                             // Check if the icon is in the set being search for
