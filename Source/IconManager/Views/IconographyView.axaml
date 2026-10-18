@@ -10,35 +10,143 @@
     d:DesignWidth="800">
 
     <Grid
-        RowDefinitions="Auto,*"
-        Margin="10">
+        x:Name="LayoutRoot"
+        RowDefinitions="Auto,*">
 
-        <ComboBox
+        <!-- Top commands -->
+        <Grid
+            x:Name="TopCommandBarGridGrid"
             Grid.Row="0"
-            ItemsSource="{Binding IconSets}"
-            SelectedItem="{Binding SelectedIconSet}" />
+            MinHeight="50"
+            HorizontalAlignment="Stretch">
 
-        <StackPanel
-            Grid.Row="0"
-            Orientation="Horizontal"
-            HorizontalAlignment="Right">
-            <TextBlock
-                Margin="0,0,5,0"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Text="{Binding FilteredIcons.Count, StringFormat='Count: {0}'}" />
-            <TextBox
-                x:Name="FilterTextBox"
-                Width="200"
-                PlaceholderText="Filter"
-                Text="{Binding FilterText, Mode=TwoWay, Delay=200}" />
-        </StackPanel>
+            <Border
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Background="{DynamicResource ToolBarBackground}"
+                BorderBrush="{DynamicResource ToolBarBorderBrush}"
+                BorderThickness="0,1,0,1" />
 
-        <ListBox
-            Grid.Row="2"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            ItemTemplate="{StaticResource IconDataTemplate}"
-            ItemsSource="{Binding FilteredIcons}" />
+            <StackPanel
+                Orientation="Horizontal"
+                Margin="10,0,10,0"
+                VerticalAlignment="Center">
+
+                <ComboBox
+                    MinWidth="150"
+                    VerticalAlignment="Center"
+                    CornerRadius="4,0,0,4"
+                    ItemsSource="{Binding IconSets}"
+                    SelectedItem="{Binding SelectedIconSet}" />
+
+                <TextBox
+                    x:Name="FilterTextBox"
+                    Width="200"
+                    VerticalAlignment="Center"
+                    CornerRadius="0,4,4,0"
+                    PlaceholderText="Search &amp; filter icons"
+                    Text="{Binding FilterText, Mode=TwoWay, Delay=200}" />
+
+                <TextBlock
+                    Margin="2,0,0,0"
+                    VerticalAlignment="Center"
+                    Foreground="{DynamicResource TextControlForegroundDisabled}"
+                    Text="{Binding FilteredIcons.Count, StringFormat=' {0} visible'}" />
+
+            </StackPanel>
+        </Grid>
+
+        <!-- Icon Gallery -->
+        <Grid
+            Grid.Row="1"
+            ColumnDefinitions="*,Auto">
+
+            <!-- Icons -->
+            <ListBox
+                x:Name="IconsListBox"
+                Grid.Column="0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                ItemContainerTheme="{StaticResource IconContainerTheme}"
+                ItemTemplate="{StaticResource IconDataTemplate}"
+                ItemsSource="{Binding FilteredIcons}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+
+            <!-- Selected Icon Details -->
+            <Border
+                Grid.Column="1"
+                Width="300"
+                Margin="10"
+                Padding="10"
+                Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="{DynamicResource ControlCornerRadius}"
+                IsVisible="{Binding #IconsListBox.SelectedItem, Converter={x:Static ObjectConverters.IsNotNull}}">
+                <StackPanel
+                    x:DataType="IconViewModel"
+                    Orientation="Vertical"
+                    DataContext="{Binding #IconsListBox.SelectedItem}"
+                    Spacing="10">
+
+                    <Image
+                        Grid.Row="1"
+                        Width="64"
+                        Height="64"
+                        Margin="20"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="{Binding Glyph}" />
+
+                    <StackPanel
+                        Orientation="Vertical"
+                        Spacing="2">
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="{DynamicResource TextControlForegroundDisabled}"
+                            Text="Icon name" />
+                        <SelectableTextBlock
+                            FontSize="15"
+                            FontWeight="SemiBold"
+                            Text="{Binding Name}"
+                            TextTrimming="CharacterEllipsis" />
+                    </StackPanel>
+
+                    <StackPanel
+                        Orientation="Vertical"
+                        Spacing="2">
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="{DynamicResource TextControlForegroundDisabled}"
+                            Text="Text glyph" />
+                        <SelectableTextBlock
+                            FontSize="15"
+                            FontWeight="SemiBold"
+                            Text="{Binding UnicodeHexString, StringFormat='&amp;#x{0};'}" />
+                    </StackPanel>
+
+                    <StackPanel
+                        Orientation="Vertical"
+                        Spacing="2">
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="{DynamicResource TextControlForegroundDisabled}"
+                            Text="Code glyph" />
+                        <SelectableTextBlock
+                            FontSize="15"
+                            FontWeight="SemiBold"
+                            Text="{Binding UnicodeHexString, StringFormat='\\u{0}'}" />
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+        </Grid>
+
     </Grid>
+
 </UserControl>

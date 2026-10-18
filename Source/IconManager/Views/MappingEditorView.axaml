@@ -17,102 +17,121 @@
     </UserControl.Resources>
 
     <Grid
-        RowDefinitions="Auto,*"
-        Margin="10">
+        x:Name="LayoutRoot"
+        RowDefinitions="Auto,*">
 
-        <StackPanel
+        <!-- Top commands -->
+        <Grid
+            x:Name="TopCommandBarGridGrid"
             Grid.Row="0"
-            Orientation="Horizontal">
-            <SplitButton
-                x:Name="LoadButton"
-                MinWidth="100"
-                HorizontalContentAlignment="Center"
-                Content="Load"
-                Command="{Binding OpenMappingsCommand}">
-                <SplitButton.Flyout>
-                    <MenuFlyout
-                        Placement="BottomEdgeAlignedLeft">
-                        <MenuItem
-                            Header="SegoeFluent.json"
-                            Command="{Binding LoadMappingsCommand}"
-                            CommandParameter="SegoeFluent.json" />
-                        <MenuItem
-                            Header="FluentAvalonia.json"
-                            Command="{Binding LoadMappingsCommand}"
-                            CommandParameter="FluentAvalonia.json" />
-                        <MenuItem
-                            Header="-" />
-                        <MenuItem
-                            Header="FluentUISystemToSegoeMDL2Assets.json"
-                            Command="{Binding LoadMappingsCommand}"
-                            CommandParameter="FluentUISystemToSegoeMDL2Assets.json" />
-                        <MenuItem
-                            Header="SegoeUISymbolToSegoeMDL2Assets.json"
-                            Command="{Binding LoadMappingsCommand}"
-                            CommandParameter="SegoeUISymbolToSegoeMDL2Assets.json" />
-                    </MenuFlyout>
-                </SplitButton.Flyout>
-            </SplitButton>
-            <Button
-                x:Name="SaveButton"
-                MinWidth="100"
-                Margin="5,0,0,0"
-                HorizontalContentAlignment="Center"
-                Content="Save"
-                Command="{Binding SaveMappingsCommand}" />
-            <Button
-                x:Name="ClearButton"
-                MinWidth="100"
-                Margin="20,0,0,0"
-                HorizontalContentAlignment="Center"
-                Content="Clear"
-                Command="{Binding ClearMappingsCommand}" />
-            <Button
-                x:Name="ActionsButton"
-                MinWidth="100"
-                Margin="20,0,0,0"
-                HorizontalContentAlignment="Center"
-                Content="Actions...">
-                <Button.Flyout>
-                    <MenuFlyout
-                        Placement="BottomEdgeAlignedLeft">
-                        <MenuItem
-                            x:Name="MergeInMenuItem"
-                            Header="Merge In"
-                            Command="{Binding MergeInMappingsCommand}" />
-                        <MenuItem
-                            x:Name="UpdateDeprecatedIconsMenuItem"
-                            Header="Update Deprecated Icons"
-                            Command="{Binding UpdateDeprecatedIconsCommand}" />
-                        <MenuItem
-                            Header="-" />
-                        <MenuItem
-                            x:Name="BuildFontMenuItem"
-                            Header="Build Font"
-                            Command="{Binding BuildFontCommand}" />
-                    </MenuFlyout>
-                </Button.Flyout>
-            </Button>
-        </StackPanel>
+            MinHeight="50"
+            HorizontalAlignment="Stretch">
 
-        <StackPanel
-            Grid.Row="0"
-            Orientation="Horizontal"
-            HorizontalAlignment="Right">
-            <TextBlock
-                Margin="0,0,5,0"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Text="{Binding FilteredMappings.Count, StringFormat='Count: {0}'}" />
-            <TextBox
-                x:Name="FilterTextBox"
-                Width="200"
-                PlaceholderText="Filter"
-                Text="{Binding FilterText, Mode=TwoWay, Delay=200}" />
-        </StackPanel>
+            <Border
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Background="{DynamicResource ToolBarBackground}"
+                BorderBrush="{DynamicResource ToolBarBorderBrush}"
+                BorderThickness="0,1,0,1" />
+
+            <StackPanel
+                Orientation="Horizontal"
+                Margin="10,0,10,0"
+                VerticalAlignment="Center">
+                <SplitButton
+                    x:Name="LoadButton"
+                    MinWidth="100"
+                    HorizontalContentAlignment="Center"
+                    Content="Load"
+                    Command="{Binding OpenMappingsCommand}">
+                    <SplitButton.Flyout>
+                        <MenuFlyout
+                            Placement="BottomEdgeAlignedLeft">
+                            <MenuItem
+                                Header="SegoeFluent.json"
+                                Command="{Binding LoadMappingsCommand}"
+                                CommandParameter="SegoeFluent.json" />
+                            <MenuItem
+                                Header="FluentAvalonia.json"
+                                Command="{Binding LoadMappingsCommand}"
+                                CommandParameter="FluentAvalonia.json" />
+                            <MenuItem
+                                Header="-" />
+                            <MenuItem
+                                Header="FluentUISystemToSegoeMDL2Assets.json"
+                                Command="{Binding LoadMappingsCommand}"
+                                CommandParameter="FluentUISystemToSegoeMDL2Assets.json" />
+                            <MenuItem
+                                Header="SegoeUISymbolToSegoeMDL2Assets.json"
+                                Command="{Binding LoadMappingsCommand}"
+                                CommandParameter="SegoeUISymbolToSegoeMDL2Assets.json" />
+                        </MenuFlyout>
+                    </SplitButton.Flyout>
+                </SplitButton>
+                <Button
+                    x:Name="SaveButton"
+                    MinWidth="100"
+                    Margin="5,0,0,0"
+                    HorizontalContentAlignment="Center"
+                    Content="Save"
+                    Command="{Binding SaveMappingsCommand}" />
+                <Button
+                    x:Name="ClearButton"
+                    MinWidth="100"
+                    Margin="20,0,0,0"
+                    HorizontalContentAlignment="Center"
+                    Content="Clear"
+                    Command="{Binding ClearMappingsCommand}" />
+                <Button
+                    x:Name="ActionsButton"
+                    MinWidth="100"
+                    Margin="20,0,0,0"
+                    HorizontalContentAlignment="Center"
+                    Content="Actions...">
+                    <Button.Flyout>
+                        <MenuFlyout
+                            Placement="BottomEdgeAlignedLeft">
+                            <MenuItem
+                                x:Name="MergeInMenuItem"
+                                Header="Merge In"
+                                Command="{Binding MergeInMappingsCommand}" />
+                            <MenuItem
+                                x:Name="UpdateDeprecatedIconsMenuItem"
+                                Header="Update Deprecated Icons"
+                                Command="{Binding UpdateDeprecatedIconsCommand}" />
+                            <MenuItem
+                                Header="-" />
+                            <MenuItem
+                                x:Name="BuildFontMenuItem"
+                                Header="Build Font"
+                                Command="{Binding BuildFontCommand}" />
+                        </MenuFlyout>
+                    </Button.Flyout>
+                </Button>
+            </StackPanel>
+
+            <StackPanel
+                Orientation="Horizontal"
+                Margin="10,0,10,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center">
+                <TextBlock
+                    Margin="0,0,5,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Text="{Binding FilteredMappings.Count, StringFormat='Count: {0}'}" />
+                <TextBox
+                    x:Name="FilterTextBox"
+                    Width="200"
+                    VerticalAlignment="Center"
+                    PlaceholderText="Filter"
+                    Text="{Binding FilterText, Mode=TwoWay, Delay=200}" />
+            </StackPanel>
+        </Grid>
 
         <ListBox
             Grid.Row="1"
+            Margin="10"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             ItemsSource="{Binding FilteredMappings}">

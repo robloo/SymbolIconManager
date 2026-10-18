@@ -8,7 +8,9 @@
     x:DataType="AppToolsViewModel"
     d:DesignHeight="450"
     d:DesignWidth="800">
+
     <Grid
+        x:Name="LayoutRoot"
         RowDefinitions="Auto,*"
         Margin="10">
 
@@ -86,7 +88,14 @@
             Grid.Row="1"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
+            ItemContainerTheme="{StaticResource IconContainerTheme}"
             ItemTemplate="{StaticResource IconDataTemplate}"
-            ItemsSource="{Binding DisplayedIcons}" />
+            ItemsSource="{Binding DisplayedIcons}">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
     </Grid>
 </UserControl>
