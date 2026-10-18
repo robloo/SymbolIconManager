@@ -158,7 +158,8 @@ namespace IconManager
             this.Glyph = await this._glyphRendererService.RenderGlyphAsync(
                 this.IconSet,
                 this.UnicodePoint,
-                this._glyphSourceProviderService);
+                this._glyphSourceProviderService,
+                GlyphSource.LocalSvgFile);
 
             return;
         }
