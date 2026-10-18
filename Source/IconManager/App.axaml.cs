@@ -5,6 +5,7 @@ using IconManager.Core.Glyphs;
 using IconManager.IconSets;
 using IconManager.Services;
 using Microsoft.Extensions.DependencyInjection;
+using SkiaSharp;
 using System;
 using System.IO;
 
@@ -80,8 +81,18 @@ namespace IconManager
             glyphSourceProvider.Register(SegoeUISymbolGlyphs.Instance);
             glyphSourceProvider.Register(WinJSSymbolsGlyphs.Instance);
 
+            var glyphRenderer = new SkiaGlyphRenderer()
+            {
+                BackgroundColor = SKColors.White,
+                FillColor       = SKColors.Black
+                /*
+                BackgroundColor = SKColors.Transparent,
+                FillColor       = new SKColor(0xFF0F8B8D) // Format: 0xAARRGGBB
+                */
+            };
+
             services.AddSingleton<IGlyphSourceProvider>(glyphSourceProvider);
-            services.AddSingleton<IGlyphRenderer<GlyphBitmap>>(new SkiaGlyphRenderer());
+            services.AddSingleton<IGlyphRenderer<GlyphBitmap>>(glyphRenderer);
             services.AddSingleton<IStorageService>(new AvaloniaStorageService());
 
             this.Services = services.BuildServiceProvider();

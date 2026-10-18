@@ -29,8 +29,6 @@ namespace IconManager.Services
         /// </summary>
         public const int DefaultRenderHeight = 64; // Pixels
 
-        private static SKPaint? _cachedTextPaint = null;
-
         private static Dictionary<string, SKFont>      _cachedFonts  = new Dictionary<string, SKFont>();       // IconSet is key
         private static Dictionary<string, GlyphBitmap> _cachedGlyphs = new Dictionary<string, GlyphBitmap>();  // IconSet_UnicodePoint is key
 
@@ -67,6 +65,22 @@ namespace IconManager.Services
          * Property Accessors
          *
          ***************************************************************************************/
+
+        /// <summary>
+        /// The background canvas color to use behind the rendered glyph.
+        /// </summary>
+        /// <remarks>
+        /// Not supported when rendered from existing bitmap sources.
+        /// </remarks>
+        public SKColor BackgroundColor { get; init; } = SKColors.Transparent;
+
+        /// <summary>
+        /// The path fill color to use in the rendered glyph.
+        /// </summary>
+        /// <remarks>
+        /// Not supported when rendered from existing bitmap sources.
+        /// </remarks>
+        public SKColor FillColor { get; init; } = SKColors.Black;
 
         /// <inheritdoc/>
         public uint RenderHeight { get; init; } = DefaultRenderHeight;
@@ -156,7 +170,13 @@ namespace IconManager.Services
 
                     if (font is not null)
                     {
-                        GlyphBitmap? glyphBitmap = await SkiaGlyphRenderer.RenderGlyphFromFontAsync(font, unicodePoint);
+                        GlyphBitmap? glyphBitmap = await SkiaGlyphRenderer.RenderGlyphFromFontAsync(
+                            font,
+                            unicodePoint,
+                            this.BackgroundColor,
+                            this.FillColor,
+                            this.RenderWidth,
+                            this.RenderHeight);
 
                         if (glyphBitmap is not null)
                         {
@@ -226,9 +246,6 @@ namespace IconManager.Services
                             .ToList()
                             .FirstOrDefault() ?? string.Empty;
 
-                        // The size here (and above) isn't taking into account device DPI
-                        // It probably should in the future
-                        // Also note that no background is added to the rendered SVG unlike above
                         var svg = SKSvg.CreateFromSvg(svgText);
 
                         // Note that the default SKImage encoding format is .png
@@ -302,72 +319,68 @@ namespace IconManager.Services
         private static async Task<GlyphBitmap?> RenderGlyphFromFontAsync(
             SKFont font,
             uint unicodePoint,
-            int renderWidth = SkiaGlyphRenderer.DefaultRenderWidth,
-            int renderHeight = SkiaGlyphRenderer.DefaultRenderHeight)
+            SKColor backgroundColor,
+            SKColor fillColor,
+            uint renderWidth = SkiaGlyphRenderer.DefaultRenderWidth,
+            uint renderHeight = SkiaGlyphRenderer.DefaultRenderHeight)
         {
             return await Task.Run(() =>
             {
                 var textBounds = new SKRect();
                 string pathData = string.Empty;
                 ushort glyphId = 0;
-                SKBitmap bitmap = new SKBitmap(renderWidth, renderHeight);
 
-                lock (_cacheLock)
+                // Check whether the font contains the glyph
+                glyphId = font.GetGlyph((int)unicodePoint);
+                if (glyphId == 0)
                 {
-                    // Load all SKPaint objects
-                    _cachedTextPaint ??= new SKPaint()
+                    return null;
+                }
+
+                // Extract the path data
+                using (SKPath path = font.GetGlyphPath(glyphId))
+                {
+                    if (path is not null)
                     {
-                        Color = SKColors.Black
-                    };
-
-                    // Check whether the font contains the glyph
-                    glyphId = font.GetGlyph((int)unicodePoint);
-                    if (glyphId == 0)
-                    {
-                        return null;
-                    }
-
-                    // Extract the path data
-                    using (SKPath path = font.GetGlyphPath(glyphId))
-                    {
-                        if (path is not null)
-                        {
-                            // Move the font's baseline-relative path down so the font's ascent is at y = 0.
-                            path.Offset(0, -font.Metrics.Ascent);
-                            pathData = path.ToSvgPathData();
-                        }
-                    }
-
-                    // Measure the rendered text
-                    string text = string.Empty;
-                    try
-                    {
-                        text = char.ConvertFromUtf32((int)unicodePoint).ToString();
-                    }
-                    catch { }
-                    font.MeasureText(text, out textBounds);
-
-                    // Render the glyph
-                    using (SKCanvas canvas = new SKCanvas(bitmap))
-                    {
-                        // Set the canvas background
-                        canvas.Clear(SKColors.White);
-
-                        // Center the glyph within the bitmap canvas
-                        // No need to consider baseline, just center the glyph
-                        float x = (renderWidth / 2f) - textBounds.MidX;
-                        float y = (renderHeight / 2f) - textBounds.MidY;
-
-                        canvas.DrawText(
-                            text,
-                            x,
-                            y,
-                            font,
-                            _cachedTextPaint);
+                        // Move the font's baseline-relative path down so the font's ascent is at y = 0.
+                        path.Offset(0, -font.Metrics.Ascent);
+                        pathData = path.ToSvgPathData();
                     }
                 }
 
-                // Use the Skia font-rendered glyph
+                // Measure the rendered text
+                string text = string.Empty;
+                try
+                {
+                    text = char.ConvertFromUtf32((int)unicodePoint).ToString();
+                }
+                catch { }
+                font.MeasureText(text, out textBounds);
+
+                // Render the glyph
+                using SKBitmap bitmap = new SKBitmap((int)renderWidth, (int)renderHeight);
+                using SKCanvas canvas = new SKCanvas(bitmap);
+                using SKPaint textPaint = new SKPaint()
+                {
+                    Color = fillColor
+                };
+
+                // Set the canvas background
+                canvas.Clear(backgroundColor);
+
+                // Center the glyph within the bitmap canvas
+                // No need to consider baseline, just center the glyph
+                float x = (renderWidth / 2f) - textBounds.MidX;
+                float y = (renderHeight / 2f) - textBounds.MidY;
+
+                canvas.DrawText(
+                    text,
+                    x,
+                    y,
+                    font,
+                    textPaint);
+
+                // Convert to a PNG bitmap data stream
                 // Note that the default SKImage encoding format is .png
                 using (SKImage image = SKImage.FromBitmap(bitmap))
                 using (SKData encoded = image.Encode())
