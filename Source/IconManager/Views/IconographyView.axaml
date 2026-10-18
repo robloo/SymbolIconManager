@@ -93,33 +93,56 @@
                 BorderBrush="{DynamicResource ToolBarBorderBrush}"
                 BorderThickness="0,1,0,1" />
 
+            <!-- Left Commands -->
             <StackPanel
                 Orientation="Horizontal"
                 Margin="10,0,10,0"
+                HorizontalAlignment="Left"
                 VerticalAlignment="Center">
+
+                <TextBox
+                    Width="200"
+                    VerticalAlignment="Center"
+                    IsEnabled="{Binding SelectedIconSet, Converter={x:Static ObjectConverters.IsNotNull}}"
+                    PlaceholderText="Search &amp; filter icons"
+                    Text="{Binding FilterText, Mode=TwoWay, Delay=200}">
+                    <TextBox.InnerRightContent>
+                        <Button
+                            Classes="close"
+                            IsVisible="{Binding FilterText, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                            Command="{Binding ClearFilterTextCommand}" />
+                    </TextBox.InnerRightContent>
+                </TextBox>
+
+                <TextBlock
+                    Margin="5,0,0,0"
+                    VerticalAlignment="Center"
+                    Foreground="{DynamicResource TextControlForegroundDisabled}"
+                    Text="{Binding FilteredIcons.Count, StringFormat='{}{0} visible'}" />
+
+            </StackPanel>
+
+            <!-- Right Commands -->
+            <StackPanel
+                Orientation="Horizontal"
+                Margin="10,0,10,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center">
+
+                <TextBlock
+                    Margin="0,0,5,0"
+                    VerticalAlignment="Center"
+                    Foreground="{DynamicResource TextControlForegroundDisabled}"
+                    Text="Icon set" />
 
                 <ComboBox
                     MinWidth="150"
                     VerticalAlignment="Center"
-                    CornerRadius="4,0,0,4"
                     ItemsSource="{Binding IconSets}"
                     SelectedItem="{Binding SelectedIconSet}" />
 
-                <TextBox
-                    x:Name="FilterTextBox"
-                    Width="200"
-                    VerticalAlignment="Center"
-                    CornerRadius="0,4,4,0"
-                    PlaceholderText="Search &amp; filter icons"
-                    Text="{Binding FilterText, Mode=TwoWay, Delay=200}" />
-
-                <TextBlock
-                    Margin="2,0,0,0"
-                    VerticalAlignment="Center"
-                    Foreground="{DynamicResource TextControlForegroundDisabled}"
-                    Text="{Binding FilteredIcons.Count, StringFormat=' {0} visible'}" />
-
             </StackPanel>
+
         </Grid>
 
         <!-- Icon Gallery -->

@@ -91,6 +91,17 @@ namespace IconManager.ViewModels
          ***************************************************************************************/
 
         /// <summary>
+        /// Clears any active filter text and rebuilds the displayed icons.
+        /// </summary>
+        [RelayCommand]
+        public void ClearFilterText()
+        {
+            this.FilterText = null;
+
+            return;
+        }
+
+        /// <summary>
         /// Clears any selected icon view model which will also close any open details side pane.
         /// </summary>
         [RelayCommand]
