@@ -19,35 +19,28 @@ namespace IconManager
             object? parameter,
             CultureInfo culture)
         {
-            string websiteUrl = string.Empty;
+            string? valueText = value?.ToString();
 
-            if (Enum.TryParse(value?.ToString(), ignoreCase: true, out IconSet iconSet))
+            IconSetFamily family =
+                Enum.TryParse(valueText, ignoreCase: true, out IconSet iconSet)
+                    ? iconSet.GetFamily()
+                    : IconSetFamily.Undefined;
+
+            if (family == IconSetFamily.Undefined)
             {
-                switch (iconSet)
-                {
-                    case IconSet.FluentUISystemFilled:
-                    case IconSet.FluentUISystemRegular:
-                        websiteUrl = FluentUISystem.WebsiteUrl;
-                        break;
-                    case IconSet.LineAwesomeBrand:
-                    case IconSet.LineAwesomeRegular:
-                    case IconSet.LineAwesomeSolid:
-                        websiteUrl = LineAwesome.WebsiteUrl;
-                        break;
-                    case IconSet.SegoeFluent:
-                        websiteUrl = SegoeFluent.WebsiteUrl;
-                        break;
-                    case IconSet.SegoeMDL2Assets:
-                        websiteUrl = SegoeMDL2Assets.WebsiteUrl;
-                        break;
-                    case IconSet.SegoeUISymbol:
-                        websiteUrl = SegoeUISymbol.WebsiteUrl;
-                        break;
-                    case IconSet.WinJSSymbols:
-                        websiteUrl = WinJSSymbols.WebsiteUrl;
-                        break;
-                }
+                Enum.TryParse(valueText, ignoreCase: true, out family);
             }
+
+            string? websiteUrl = family switch
+            {
+                IconSetFamily.FluentUISystem  => FluentUISystem.WebsiteUrl,
+                IconSetFamily.LineAwesome     => LineAwesome.WebsiteUrl,
+                IconSetFamily.SegoeFluent     => SegoeFluent.WebsiteUrl,
+                IconSetFamily.SegoeMDL2Assets => SegoeMDL2Assets.WebsiteUrl,
+                IconSetFamily.SegoeUISymbol   => SegoeUISymbol.WebsiteUrl,
+                IconSetFamily.WinJSSymbols    => WinJSSymbols.WebsiteUrl,
+                _ => null
+            };
 
             if (!string.IsNullOrEmpty(websiteUrl))
             {

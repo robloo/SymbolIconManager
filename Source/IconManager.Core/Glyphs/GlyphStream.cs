@@ -45,7 +45,7 @@ namespace IconManager.Core.Glyphs
         public GlyphSource Source { get; set; } = GlyphSource.None;
 
         /// <summary>
-        /// Gets the original source URI fo the icon glyph stream.
+        /// Gets the original source URI of the icon glyph stream.
         /// </summary>
         public Uri? SourceUri { get; set; } = null;
 
