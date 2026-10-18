@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace IconManager.IconSets
 {
     /// <summary>
-    /// Provides glyph sources for the Segoe Fluent font.
+    /// Provides glyph sources for the Windows 11 Segoe Fluent font.
     /// </summary>
     public class SegoeFluentGlyphs : IGlyphSourceProvider
     {

@@ -9,10 +9,15 @@ using System.Threading;
 namespace IconManager.IconSets
 {
     /// <summary>
-    /// Contains data and information for the Segoe UI Symbol icons.
+    /// Contains data and information for the Windows 8/8.1 Segoe UI Symbol icons.
     /// </summary>
     public class SegoeUISymbol : IconSetBase
     {
+        /// <summary>
+        /// Gets the primary website URL for the icon set.
+        /// </summary>
+        public const string WebsiteUrl = @"https://learn.microsoft.com/en-us/previous-versions/windows/apps/jj841127(v=win.10)";
+
         private static IReadOnlyList<SegoeUISymbolIcon>?  _cachedIcons = null;
         private static IReadOnlyDictionary<uint, string>? _cachedNames = null;
 

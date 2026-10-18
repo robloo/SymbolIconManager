@@ -13,6 +13,11 @@ namespace IconManager.IconSets
     /// </summary>
     public class WinJSSymbols : IconSetBase
     {
+        /// <summary>
+        /// Gets the primary website URL for the icon set.
+        /// </summary>
+        public const string WebsiteUrl = @"https://github.com/winjs/winjs/tree/master/src/fonts";
+
         private static IReadOnlyList<WinJSSymbolsIcon>?   _cachedIcons = null;
         private static IReadOnlyDictionary<uint, string>? _cachedNames = null;
 

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace IconManager.IconSets
 {
     /// <summary>
-    /// Provides glyph sources for the Segoe UI Symbol font.
+    /// Provides glyph sources for the Windows 8/8.1 Segoe UI Symbol font.
     /// </summary>
     public class SegoeUISymbolGlyphs : IGlyphSourceProvider
     {

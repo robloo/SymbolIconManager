@@ -9,10 +9,15 @@ using System.Threading;
 namespace IconManager.IconSets
 {
     /// <summary>
-    /// Contains data and information for the Segoe Fluent Icons.
+    /// Contains data and information for the Windows 11 Segoe Fluent Icons.
     /// </summary>
     public class SegoeFluent : IconSetBase
     {
+        /// <summary>
+        /// Gets the primary website URL for the icon set.
+        /// </summary>
+        public const string WebsiteUrl = @"https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-fluent-icons-font";
+
         private static IReadOnlyList<SegoeFluentIcon>?    _cachedIcons = null;
         private static IReadOnlyDictionary<uint, string>? _cachedNames = null;
 

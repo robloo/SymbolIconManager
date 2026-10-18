@@ -16,6 +16,11 @@ namespace IconManager.IconSets
     public class FluentUISystem : IconSetBase
     {
         /// <summary>
+        /// Gets the primary website URL for the icon set.
+        /// </summary>
+        public const string WebsiteUrl = @"https://github.com/microsoft/fluentui-system-icons";
+
+        /// <summary>
         /// Defines an icon size within the <see cref="FluentUISystem"/>.
         /// </summary>
         public enum IconSize

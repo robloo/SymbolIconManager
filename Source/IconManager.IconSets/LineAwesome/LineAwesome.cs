@@ -15,6 +15,11 @@ namespace IconManager.IconSets
     public class LineAwesome : IconSetBase
     {
         /// <summary>
+        /// Gets the primary website URL for the icon set.
+        /// </summary>
+        public const string WebsiteUrl = @"https://icons8.com/line-awesome#icons";
+
+        /// <summary>
         /// Defines the style of a <see cref="LineAwesome"/> icon.
         /// </summary>
         public enum IconStyle

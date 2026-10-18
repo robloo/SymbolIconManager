@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace IconManager.IconSets
 {
     /// <summary>
-    /// Provides glyph sources for the Segoe MDL2 Assets font.
+    /// Provides glyph sources for the Windows 10 Segoe MDL2 Assets font.
     /// </summary>
     public class SegoeMDL2AssetsGlyphs : IGlyphSourceProvider
     {

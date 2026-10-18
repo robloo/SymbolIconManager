@@ -9,10 +9,15 @@ using System.Threading;
 namespace IconManager.IconSets
 {
     /// <summary>
-    /// Contains data and information for the Segoe MDL2 Assets Icons.
+    /// Contains data and information for the Windows 10 Segoe MDL2 Assets Icons.
     /// </summary>
     public class SegoeMDL2Assets : IconSetBase
     {
+        /// <summary>
+        /// Gets the primary website URL for the icon set.
+        /// </summary>
+        public const string WebsiteUrl = @"https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-ui-symbol-font";
+
         private static IReadOnlyList<SegoeMDL2AssetsIcon>? _cachedIcons = null;
         private static IReadOnlyDictionary<uint, string>?  _cachedNames = null;
 

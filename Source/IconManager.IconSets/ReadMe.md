@@ -58,7 +58,7 @@ This application uses the *Fluent UI System* Unicode points defined in JSON file
 ## *Line Awesome* Icon Data | Icons8 | MIT License
 
  * [GitHub Repo](https://github.com/icons8/line-awesome)
- * [Website](https://icons8.com/line-awesome)
+ * [Website](https://icons8.com/line-awesome#icons)
 
  > Line Awesome is a free alternative for Font Awesome 5.11.2. It consists of ~1380 flat icons that offer complete coverage of the main Font Awesome icon set.
  >
