@@ -9,6 +9,71 @@
     d:DesignHeight="450"
     d:DesignWidth="800">
 
+    <UserControl.Styles>
+
+        <Style Selector="Button.close">
+            <Setter Property="Theme" Value="{StaticResource TransparentButton}" />
+            <Setter Property="Padding" Value="2" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Content">
+                <Template>
+                    <Viewbox
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"
+                        StretchDirection="Both">
+                        <Path
+                            Width="20"
+                            Height="20"
+                            Fill="{DynamicResource TextControlForeground}">
+                            <Path.Data>
+                                M4.08859 4.21569L4.14645 4.14645C4.32001 3.97288 4.58944 3.9536 4.78431 4.08859L4.85355 4.14645L10
+                                9.293L15.1464 4.14645C15.32 3.97288 15.5894 3.9536 15.7843 4.08859L15.8536 4.14645C16.0271 4.32001
+                                16.0464 4.58944 15.9114 4.78431L15.8536 4.85355L10.707 10L15.8536 15.1464C16.0271 15.32 16.0464
+                                15.5894 15.9114 15.7843L15.8536 15.8536C15.68 16.0271 15.4106 16.0464 15.2157 15.9114L15.1464
+                                15.8536L10 10.707L4.85355 15.8536C4.67999 16.0271 4.41056 16.0464 4.21569 15.9114L4.14645
+                                15.8536C3.97288 15.68 3.9536 15.4106 4.08859 15.2157L4.14645 15.1464L9.293 10L4.14645
+                                4.85355C3.97288 4.67999 3.9536 4.41056 4.08859 4.21569L4.14645 4.14645L4.08859 4.21569Z
+                            </Path.Data>
+                        </Path>
+                    </Viewbox>
+                </Template>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.copy">
+            <Setter Property="Theme" Value="{StaticResource TransparentButton}" />
+            <Setter Property="Padding" Value="2" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Content">
+                <Template>
+                    <Viewbox
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"
+                        StretchDirection="Both">
+                        <Path
+                            Width="20"
+                            Height="20"
+                            Fill="{DynamicResource TextControlForeground}">
+                            <Path.Data>
+                                M7 7H5.5C4.67157 7 4 7.67157 4 8.5V14.5C4 15.3284 4.67157 16 5.5 16H9.5C10.1529 16 10.707 15.5823
+                                10.9131 15H11.9502C11.7186 16.1411 10.7095 17 9.5 17H5.5C4.11929 17 3 15.8807 3 14.5V8.5C3
+                                7.11929 4.11929 6 5.5 6H7V7ZM14.5 3C15.8807 3 17 4.11929 17 5.5V11.5C17 12.8807 15.8807 14 14.5
+                                14H10.5C9.11929 14 8 12.8807 8 11.5V5.5C8 4.11929 9.11929 3 10.5 3H14.5ZM10.5 4C9.67157 4 9
+                                4.67157 9 5.5V11.5C9 12.3284 9.67157 13 10.5 13H14.5C15.3284 13 16 12.3284 16 11.5V5.5C16 4.67157
+                                15.3284 4 14.5 4H10.5Z
+                            </Path.Data>
+                        </Path>
+                    </Viewbox>
+                </Template>
+            </Setter>
+        </Style>
+
+    </UserControl.Styles>
+
     <Grid
         x:Name="LayoutRoot"
         RowDefinitions="Auto,*">
@@ -69,7 +134,8 @@
                 VerticalAlignment="Stretch"
                 ItemContainerTheme="{StaticResource IconContainerTheme}"
                 ItemTemplate="{StaticResource IconDataTemplate}"
-                ItemsSource="{Binding FilteredIcons}">
+                ItemsSource="{Binding FilteredIcons}"
+                SelectedItem="{Binding SelectedIcon, Mode=TwoWay}">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel />
@@ -87,15 +153,22 @@
                 BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                 BorderThickness="1"
                 CornerRadius="{DynamicResource ControlCornerRadius}"
-                IsVisible="{Binding #IconsListBox.SelectedItem, Converter={x:Static ObjectConverters.IsNotNull}}">
-                <StackPanel
+                IsVisible="{Binding SelectedIcon, Converter={x:Static ObjectConverters.IsNotNull}}">
+                <Grid
                     x:DataType="IconViewModel"
-                    Orientation="Vertical"
-                    DataContext="{Binding #IconsListBox.SelectedItem}"
-                    Spacing="10">
+                    RowDefinitions="Auto,*"
+                    DataContext="{Binding SelectedIcon}">
+
+                    <!-- Close Button -->
+                    <Button
+                        Grid.Row="0"
+                        Classes="close"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Command="{Binding #LayoutRoot.DataContext.ClearSelectedIconCommand}" />
 
                     <Image
-                        Grid.Row="1"
+                        Grid.Row="0"
                         Width="64"
                         Height="64"
                         Margin="20"
@@ -103,47 +176,133 @@
                         VerticalAlignment="Center"
                         Source="{Binding Glyph}" />
 
-                    <StackPanel
-                        Orientation="Vertical"
-                        Spacing="2">
-                        <TextBlock
-                            FontSize="12"
-                            Foreground="{DynamicResource TextControlForegroundDisabled}"
-                            Text="Icon name" />
-                        <SelectableTextBlock
-                            FontSize="15"
-                            FontWeight="SemiBold"
-                            Text="{Binding Name}"
-                            TextTrimming="CharacterEllipsis" />
-                    </StackPanel>
+                    <ScrollViewer
+                        Grid.Row="1"
+                        HorizontalScrollBarVisibility="Disabled"
+                        VerticalScrollBarVisibility="Auto">
+                        <Grid
+                            RowDefinitions="Auto,Auto,Auto,Auto"
+                            RowSpacing="10">
 
-                    <StackPanel
-                        Orientation="Vertical"
-                        Spacing="2">
-                        <TextBlock
-                            FontSize="12"
-                            Foreground="{DynamicResource TextControlForegroundDisabled}"
-                            Text="Text glyph" />
-                        <SelectableTextBlock
-                            FontSize="15"
-                            FontWeight="SemiBold"
-                            Text="{Binding UnicodeHexString, StringFormat='&amp;#x{0};'}" />
-                    </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Orientation="Vertical"
+                                Margin="0,0,32,0"
+                                Spacing="2">
+                                <TextBlock
+                                    FontSize="12"
+                                    Foreground="{DynamicResource TextControlForegroundDisabled}"
+                                    Text="Icon name" />
+                                <SelectableTextBlock
+                                    FontSize="15"
+                                    FontWeight="SemiBold"
+                                    Text="{Binding Name}"
+                                    TextTrimming="CharacterEllipsis" />
+                            </StackPanel>
+                            <Button
+                                Grid.Row="0"
+                                Classes="copy"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Command="{Binding #LayoutRoot.DataContext.CopyTextCommand}"
+                                CommandParameter="{Binding Name}" />
 
-                    <StackPanel
-                        Orientation="Vertical"
-                        Spacing="2">
-                        <TextBlock
-                            FontSize="12"
-                            Foreground="{DynamicResource TextControlForegroundDisabled}"
-                            Text="Code glyph" />
-                        <SelectableTextBlock
-                            FontSize="15"
-                            FontWeight="SemiBold"
-                            Text="{Binding UnicodeHexString, StringFormat='\\u{0}'}" />
-                    </StackPanel>
+                            <StackPanel
+                                Grid.Row="1"
+                                Orientation="Vertical"
+                                Margin="0,0,32,0"
+                                Spacing="2">
+                                <TextBlock
+                                    FontSize="12"
+                                    Foreground="{DynamicResource TextControlForegroundDisabled}"
+                                    Text="Text glyph" />
+                                <SelectableTextBlock
+                                    x:Name="TextGlyphTextBlock"
+                                    FontSize="15"
+                                    FontWeight="SemiBold"
+                                    Text="{Binding UnicodeHexString, StringFormat='&amp;#x{0};'}" />
+                            </StackPanel>
+                            <Button
+                                Grid.Row="1"
+                                Classes="copy"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Command="{Binding #LayoutRoot.DataContext.CopyTextCommand}"
+                                CommandParameter="{Binding #TextGlyphTextBlock.Text}" />
 
-                </StackPanel>
+                            <StackPanel
+                                Grid.Row="2"
+                                Orientation="Vertical"
+                                Margin="0,0,32,0"
+                                Spacing="2">
+                                <TextBlock
+                                    FontSize="12"
+                                    Foreground="{DynamicResource TextControlForegroundDisabled}"
+                                    Text="Code glyph" />
+                                <SelectableTextBlock
+                                    x:Name="CodeGlyphTextBlock"
+                                    FontSize="15"
+                                    FontWeight="SemiBold"
+                                    Text="{Binding UnicodeHexString, StringFormat='\\u{0}'}" />
+                            </StackPanel>
+                            <Button
+                                Grid.Row="2"
+                                Classes="copy"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Command="{Binding #LayoutRoot.DataContext.CopyTextCommand}"
+                                CommandParameter="{Binding #CodeGlyphTextBlock.Text}" />
+
+                            <StackPanel
+                                Grid.Row="3"
+                                Orientation="Vertical"
+                                Margin="0,0,32,0"
+                                IsVisible="{Binding Glyph?.PathData, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                                Spacing="2">
+                                <TextBlock
+                                    FontSize="12"
+                                    Foreground="{DynamicResource TextControlForegroundDisabled}"
+                                    IsVisible="{Binding Glyph?.Source, Converter={x:Static ObjectConverters.IsNull}}"
+                                    Text="Path data" />
+                                <TextBlock
+                                    FontSize="12"
+                                    Foreground="{DynamicResource TextControlForegroundDisabled}"
+                                    IsVisible="{Binding Glyph?.Source, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                    <Run Text="Path data (" /><Run Text="{Binding Glyph?.Source}" /><Run Text=")" />
+                                </TextBlock>
+                                <SelectableTextBlock
+                                    FontSize="10"
+                                    FontWeight="SemiBold"
+                                    Text="{Binding Glyph?.PathData}"
+                                    TextWrapping="Wrap" />
+                                <Panel
+                                    HorizontalAlignment="Center">
+                                    <Rectangle
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Stroke="{DynamicResource TextControlForegroundDisabled}"
+                                        StrokeDashArray="4, 2"
+                                        StrokeThickness="1" />
+                                    <Path
+                                        Width="64"
+                                        Height="64"
+                                        Data="{Binding Glyph?.PathData}"
+                                        Fill="{DynamicResource TextControlForeground}" />
+                                </Panel>
+                            </StackPanel>
+                            <Button
+                                Grid.Row="3"
+                                Classes="copy"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                IsVisible="{Binding Glyph?.PathData, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                                Command="{Binding #LayoutRoot.DataContext.CopyTextCommand}"
+                                CommandParameter="{Binding Glyph?.PathData}" />
+
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+
             </Border>
         </Grid>
 

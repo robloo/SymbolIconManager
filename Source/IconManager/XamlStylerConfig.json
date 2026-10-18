@@ -3,7 +3,7 @@
   "KeepFirstAttributeOnSameLine": false,
   "MaxAttributeCharactersPerLine": 0,
   "MaxAttributesPerLine": 1,
-  "NewlineExemptionElements": "GradientStop, LineSegment, Trigger, Condition, Setter, ResourceInclude, StyleInclude, ColumnDefinition, RowDefinition, Color, x:Double, sys:Double, FontFamily, GridLength, sys:String, Thickness",
+  "NewlineExemptionElements": "GradientStop, LineSegment, Trigger, Condition, Setter, ResourceInclude, StyleInclude, ColumnDefinition, RowDefinition, Color, x:Double, sys:Double, FontFamily, GridLength, Run, sys:String, Thickness",
   "SeparateByGroups": false,
   "AttributeIndentation": 0,
   "AttributeIndentationStyle": 1,

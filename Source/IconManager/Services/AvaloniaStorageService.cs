@@ -20,7 +20,7 @@ namespace IconManager.Services
 
                 if (lifetime is IClassicDesktopStyleApplicationLifetime desktop)
                 {
-                    return desktop.MainWindow!.StorageProvider;
+                    return TopLevel.GetTopLevel(desktop.MainWindow)!.StorageProvider;
                 }
 
                 if (lifetime is ISingleViewApplicationLifetime singleView)

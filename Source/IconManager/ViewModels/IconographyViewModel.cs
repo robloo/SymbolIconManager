@@ -1,10 +1,16 @@
-﻿using IconManager.Core.Icons;
+﻿using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Input.Platform;
+using CommunityToolkit.Mvvm.Input;
+using IconManager.Core.Icons;
 using IconManager.IconSets;
 using IconManager.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Threading.Tasks;
 
 namespace IconManager.ViewModels
 {
@@ -61,6 +67,15 @@ namespace IconManager.ViewModels
         public ObservableCollection<IconSetViewModel> IconSets { get; } = [];
 
         /// <summary>
+        /// Gets or sets the selected icon.
+        /// </summary>
+        public IconViewModel? SelectedIcon
+        {
+            get => field;
+            set => this.SetProperty(ref field, value);
+        } = null;
+
+        /// <summary>
         /// Gets or sets the selected icon set.
         /// </summary>
         public IconSetViewModel? SelectedIconSet
@@ -68,6 +83,57 @@ namespace IconManager.ViewModels
             get => field;
             set => this.SetProperty(ref field, value);
         } = null;
+
+        /***************************************************************************************
+         *
+         * Commands
+         *
+         ***************************************************************************************/
+
+        /// <summary>
+        /// Clears any selected icon view model which will also close any open details side pane.
+        /// </summary>
+        [RelayCommand]
+        public void ClearSelectedIcon()
+        {
+            this.SelectedIcon = null;
+
+            return;
+        }
+
+        /// <summary>
+        /// Copies the given text string to the clipboard.
+        /// </summary>
+        /// <param name="text">The text string to copy to the clipboard.</param>
+        /// <returns>An awaitable <see cref="Task"/> representing the asynchronous operation.</returns>
+        [RelayCommand]
+        public async Task CopyTextAsync(string? text)
+        {
+            if (!string.IsNullOrEmpty(text))
+            {
+                var lifetime = Application.Current?.ApplicationLifetime;
+                IClipboard? clipboard = null;
+
+                if (lifetime is IClassicDesktopStyleApplicationLifetime desktop)
+                {
+                    clipboard = TopLevel.GetTopLevel(desktop.MainWindow)?.Clipboard;
+                }
+
+                if (lifetime is ISingleViewApplicationLifetime singleView)
+                {
+                    clipboard = TopLevel.GetTopLevel(singleView.MainView)?.Clipboard;
+                }
+
+                if (clipboard is not null)
+                {
+                    try
+                    {
+                        await clipboard.SetTextAsync(text);
+                    }
+                    catch { }
+                }
+            }
+        }
 
         /***************************************************************************************
          *
