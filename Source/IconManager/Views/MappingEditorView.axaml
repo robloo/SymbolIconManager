@@ -9,13 +9,6 @@
     d:DesignHeight="450"
     d:DesignWidth="800">
 
-    <UserControl.Resources>
-        <MatchQualityToBrushConverter
-            x:Key="MatchQualityToBrush" />
-        <UIntToHexStringConverter
-            x:Key="UIntToHexString" />
-    </UserControl.Resources>
-
     <Grid
         x:Name="LayoutRoot"
         RowDefinitions="Auto,*">

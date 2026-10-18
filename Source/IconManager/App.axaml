@@ -10,6 +10,14 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceInclude Source="avares://IconManager/Views/DataTemplates.axaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <IconSetUrlConverter
+                x:Key="IconSetUrl" />
+            <MatchQualityToBrushConverter
+                x:Key="MatchQualityToBrush" />
+            <UIntToHexStringConverter
+                x:Key="UIntToHexString" />
+
         </ResourceDictionary>
     </Application.Resources>
 

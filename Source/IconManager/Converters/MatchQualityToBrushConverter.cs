@@ -13,7 +13,7 @@ namespace IconManager
     public class MatchQualityToBrushConverter : IValueConverter
     {
         /// <inheritdoc/>
-        public object Convert(
+        public object? Convert(
             object? value,
             Type targetType,
             object? parameter,
@@ -41,7 +41,7 @@ namespace IconManager
         }
 
         /// <inheritdoc/>
-        public object ConvertBack(
+        public object? ConvertBack(
             object? value,
             Type targetType,
             object? parameter,
