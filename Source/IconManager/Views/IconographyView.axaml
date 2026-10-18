@@ -158,7 +158,7 @@
                 IsVisible="{Binding SelectedIcon, Converter={x:Static ObjectConverters.IsNotNull}}">
                 <Grid
                     x:DataType="IconViewModel"
-                    RowDefinitions="Auto,*"
+                    RowDefinitions="Auto,Auto,*"
                     DataContext="{Binding SelectedIcon}">
 
                     <!-- Close Button -->
@@ -173,17 +173,26 @@
                         Grid.Row="0"
                         Width="64"
                         Height="64"
-                        Margin="20"
+                        Margin="20,20,20,0"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Source="{Binding Glyph}" />
+                    <SelectableTextBlock
+                        Grid.Row="1"
+                        Margin="0,4,0,20"
+                        HorizontalAlignment="Center"
+                        FontSize="11"
+                        Foreground="{DynamicResource TextControlForegroundDisabled}"
+                        IsVisible="{Binding Glyph?.Source, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+                        <Run Text="Source: " /><Run Text="{Binding Glyph?.Source}" />
+                    </SelectableTextBlock>
 
                     <ScrollViewer
-                        Grid.Row="1"
+                        Grid.Row="2"
                         HorizontalScrollBarVisibility="Disabled"
                         VerticalScrollBarVisibility="Auto">
                         <Grid
-                            RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+                            RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
                             RowSpacing="10">
 
                             <StackPanel
