@@ -317,22 +317,60 @@ namespace IconManager.Services
                     return null;
                 }
 
+                if (renderWidth == 0 || renderHeight == 0 ||
+                    renderWidth >= int.MaxValue || renderHeight >= int.MaxValue)
+                {
+                    return null;
+                }
+
                 // Extract the original path data from the SVG XML
                 var svgXml = XDocument.Parse(svgText);
                 string pathData = svgXml
                     .Descendants()
                     .Where(e => e.Name.LocalName == "path")
                     .Select(e => (string?)e.Attribute("d"))
-                    .Where(d => d != null)
-                    .ToList()
-                    .FirstOrDefault() ?? string.Empty;
+                    .FirstOrDefault(d => d != null) ?? string.Empty;
 
-                var svg = SKSvg.CreateFromSvg(svgText);
+                using SKSvg svg = SKSvg.CreateFromSvg(svgText);
+                var svgPicture = svg.Picture;
+
+                if (svgPicture is null)
+                {
+                    return null;
+                }
+
+                // Svg.Skia has already interpreted the SVG viewBox information
+                // This is preserved in the CullRect property for the most part (though may not be exactly the same)
+                // If ever this logic stops working the viewBox can be parsed from SVG text/XML directly as well
+                SKRect viewBox = svgPicture.CullRect;
+
+                if (viewBox.Width <= 0 || viewBox.Height <= 0)
+                {
+                    return null;
+                }
+
+                using SKBitmap bitmap = new SKBitmap((int)renderWidth, (int)renderHeight);
+                using SKCanvas canvas = new SKCanvas(bitmap);
+
+                // Set the canvas background
+                canvas.Clear(backgroundColor);
+
+                // Calculate the scale to fit the SVG image proportionally inside the bitmap canvas
+                float scale = Math.Min(
+                    renderWidth / viewBox.Width,
+                    renderHeight / viewBox.Height);
+
+                // Center the scaled glyph within the bitmap canvas
+                float x = ((renderWidth  - (viewBox.Width  * scale)) / 2f) - (viewBox.Left * scale);
+                float y = ((renderHeight - (viewBox.Height * scale)) / 2f) - (viewBox.Top  * scale);
+
+                canvas.Translate(x, y);
+                canvas.Scale(scale, scale);
+                canvas.DrawPicture(svgPicture);
 
                 // Convert to a PNG bitmap data stream
-                // Note that the default SKImage encoding format is .png
-                using (SKImage image = SKImage.FromPicture(svg.Picture, new SKSizeI((int)renderWidth, (int)renderHeight)))
-                using (SKData encoded = image.Encode())
+                using (SKImage image = SKImage.FromBitmap(bitmap))
+                using (SKData encoded = image.Encode(SKEncodedImageFormat.Png, 100))
                 using (Stream stream = encoded.AsStream())
                 {
                     var glyphBitmap = new GlyphBitmap(stream)
@@ -361,6 +399,12 @@ namespace IconManager.Services
                 var textBounds = new SKRect();
                 string pathData = string.Empty;
                 ushort glyphId = 0;
+
+                if (renderWidth == 0 || renderHeight == 0 ||
+                    renderWidth >= int.MaxValue || renderHeight >= int.MaxValue)
+                {
+                    return null;
+                }
 
                 // Check whether the font contains the glyph
                 glyphId = font.GetGlyph((int)unicodePoint);
@@ -413,9 +457,8 @@ namespace IconManager.Services
                     textPaint);
 
                 // Convert to a PNG bitmap data stream
-                // Note that the default SKImage encoding format is .png
                 using (SKImage image = SKImage.FromBitmap(bitmap))
-                using (SKData encoded = image.Encode())
+                using (SKData encoded = image.Encode(SKEncodedImageFormat.Png, 100))
                 using (Stream stream = encoded.AsStream())
                 {
                     return new GlyphBitmap(stream)
