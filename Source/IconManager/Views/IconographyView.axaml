@@ -183,7 +183,7 @@
                         HorizontalScrollBarVisibility="Disabled"
                         VerticalScrollBarVisibility="Auto">
                         <Grid
-                            RowDefinitions="Auto,Auto,Auto,Auto"
+                            RowDefinitions="Auto,Auto,Auto,Auto,Auto"
                             RowSpacing="10">
 
                             <StackPanel
@@ -277,20 +277,6 @@
                                     FontWeight="SemiBold"
                                     Text="{Binding Glyph?.PathData}"
                                     TextWrapping="Wrap" />
-                                <Panel
-                                    HorizontalAlignment="Center">
-                                    <Rectangle
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Stretch"
-                                        Stroke="{DynamicResource TextControlForegroundDisabled}"
-                                        StrokeDashArray="4, 2"
-                                        StrokeThickness="1" />
-                                    <Path
-                                        Width="64"
-                                        Height="64"
-                                        Data="{Binding Glyph?.PathData}"
-                                        Fill="{DynamicResource TextControlForeground}" />
-                                </Panel>
                             </StackPanel>
                             <Button
                                 Grid.Row="3"
@@ -300,6 +286,22 @@
                                 IsVisible="{Binding Glyph?.PathData, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                 Command="{Binding #LayoutRoot.DataContext.CopyTextCommand}"
                                 CommandParameter="{Binding Glyph?.PathData}" />
+                            <Panel
+                                Grid.Row="4"
+                                HorizontalAlignment="Center"
+                                IsVisible="{Binding Glyph?.PathData, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+                                <Rectangle
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Stroke="{DynamicResource TextControlForegroundDisabled}"
+                                    StrokeDashArray="4, 2"
+                                    StrokeThickness="1" />
+                                <Path
+                                    Width="64"
+                                    Height="64"
+                                    Data="{Binding Glyph?.PathData}"
+                                    Fill="{DynamicResource TextControlForeground}" />
+                            </Panel>
 
                         </Grid>
                     </ScrollViewer>
