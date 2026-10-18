@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <AvaloniaResource Include="Resources\Icons\AppIcon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Icons\AppIcon.ico" />
     <None Remove="XamlStylerConfig.json" />
   </ItemGroup>
 

@@ -14,7 +14,13 @@
     </Application.Resources>
 
     <Application.Styles>
-        <fa:FluentAvaloniaTheme />
+        <!--
+            Notes on custom accent color:
+            - Using this shade of teal works in both light/dark themes
+            - This matches the color in the AppIcon.ico
+        -->
+        <fa:FluentAvaloniaTheme
+            CustomAccentColor="#0F8B8D" />
     </Application.Styles>
 
 </Application>
