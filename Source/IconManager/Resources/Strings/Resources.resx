@@ -308,4 +308,40 @@
   <data name="MainWindow_FontBuilderText" xml:space="preserve">
     <value>Font Builder</value>
   </data>
+  <data name="FontBuilderView_BuildWinSymbols1FontText" xml:space="preserve">
+    <value>Build WinSymbols1 (SegoeUISymbol) Font</value>
+  </data>
+  <data name="FontBuilderView_SegoeFontsHeaderText" xml:space="preserve">
+    <value>Segoe Fonts</value>
+  </data>
+  <data name="FontBuilderView_BuildWinSymbols2FontText" xml:space="preserve">
+    <value>Build WinSymbols2 (SegoeMDL2Assets) Font</value>
+  </data>
+  <data name="FontBuilderView_BuildWinSymbols3FontText" xml:space="preserve">
+    <value>Build WinSymbols3 (SegoeFluent) Font</value>
+  </data>
+  <data name="FontBuilderView_FluentUISystemHeaderText" xml:space="preserve">
+    <value>Fluent UI System Fonts</value>
+  </data>
+  <data name="FontBuilderView_FluentAvaloniaHeaderText" xml:space="preserve">
+    <value>Fluent Avalonia Font</value>
+  </data>
+  <data name="FontBuilderView_BuildFluentUISystemRegularFontText" xml:space="preserve">
+    <value>Build Fluent UI System
+Regular Font</value>
+  </data>
+  <data name="FontBuilderView_BuildFluentUISystemFilledFontText" xml:space="preserve">
+    <value>Build Fluent UI System
+Filled Font</value>
+  </data>
+  <data name="FontBuilderView_BuildFluentAvaloniaFontText" xml:space="preserve">
+    <value>Build FluentAvalonia
+Font</value>
+  </data>
+  <data name="FontBuilderView_RebuildFluentAvaloniaMappingsText" xml:space="preserve">
+    <value>Rebuild FluentAvalonia Mappings</value>
+  </data>
+  <data name="FontBuilderView_IncludeEnumValuesText" xml:space="preserve">
+    <value>Include Enum Values</value>
+  </data>
 </root>

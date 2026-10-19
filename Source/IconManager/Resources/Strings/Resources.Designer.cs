@@ -178,6 +178,108 @@ namespace IconManager.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Build FluentAvalonia
+        ///Font.
+        /// </summary>
+        internal static string FontBuilderView_BuildFluentAvaloniaFontText {
+            get {
+                return ResourceManager.GetString("FontBuilderView_BuildFluentAvaloniaFontText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Build Fluent UI System
+        ///Filled Font.
+        /// </summary>
+        internal static string FontBuilderView_BuildFluentUISystemFilledFontText {
+            get {
+                return ResourceManager.GetString("FontBuilderView_BuildFluentUISystemFilledFontText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Build Fluent UI System
+        ///Regular Font.
+        /// </summary>
+        internal static string FontBuilderView_BuildFluentUISystemRegularFontText {
+            get {
+                return ResourceManager.GetString("FontBuilderView_BuildFluentUISystemRegularFontText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Build WinSymbols1 (SegoeUISymbol) Font.
+        /// </summary>
+        internal static string FontBuilderView_BuildWinSymbols1FontText {
+            get {
+                return ResourceManager.GetString("FontBuilderView_BuildWinSymbols1FontText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Build WinSymbols2 (SegoeMDL2Assets) Font.
+        /// </summary>
+        internal static string FontBuilderView_BuildWinSymbols2FontText {
+            get {
+                return ResourceManager.GetString("FontBuilderView_BuildWinSymbols2FontText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Build WinSymbols3 (SegoeFluent) Font.
+        /// </summary>
+        internal static string FontBuilderView_BuildWinSymbols3FontText {
+            get {
+                return ResourceManager.GetString("FontBuilderView_BuildWinSymbols3FontText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fluent Avalonia Font.
+        /// </summary>
+        internal static string FontBuilderView_FluentAvaloniaHeaderText {
+            get {
+                return ResourceManager.GetString("FontBuilderView_FluentAvaloniaHeaderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fluent UI System Fonts.
+        /// </summary>
+        internal static string FontBuilderView_FluentUISystemHeaderText {
+            get {
+                return ResourceManager.GetString("FontBuilderView_FluentUISystemHeaderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Include Enum Values.
+        /// </summary>
+        internal static string FontBuilderView_IncludeEnumValuesText {
+            get {
+                return ResourceManager.GetString("FontBuilderView_IncludeEnumValuesText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rebuild FluentAvalonia Mappings.
+        /// </summary>
+        internal static string FontBuilderView_RebuildFluentAvaloniaMappingsText {
+            get {
+                return ResourceManager.GetString("FontBuilderView_RebuildFluentAvaloniaMappingsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Segoe Fonts.
+        /// </summary>
+        internal static string FontBuilderView_SegoeFontsHeaderText {
+            get {
+                return ResourceManager.GetString("FontBuilderView_SegoeFontsHeaderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Code glyph.
         /// </summary>
         internal static string IconographyView_CodeGlyphText {

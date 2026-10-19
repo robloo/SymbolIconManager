@@ -28,7 +28,7 @@
             <GroupBox.Header>
                 <TextBlock
                     Classes="group-header"
-                    Text="Segoe Fonts" />
+                    Text="{Localize FontBuilderView_SegoeFontsHeaderText}" />
             </GroupBox.Header>
             <Grid
                 Grid.ColumnDefinitions="Auto,Auto,Auto">
@@ -39,7 +39,7 @@
                     Command="{Binding BuildWinSymbols1FontCommand}">
                     <Button.Content>
                         <TextBlock
-                            Text="Build WinSymbols1 (SegoeUISymbol) Font"
+                            Text="{Localize FontBuilderView_BuildWinSymbols1FontText}"
                             TextAlignment="Center"
                             TextWrapping="Wrap" />
                     </Button.Content>
@@ -52,7 +52,7 @@
                     Command="{Binding BuildWinSymbols2FontCommand}">
                     <Button.Content>
                         <TextBlock
-                            Text="Build WinSymbols2 (SegoeMDL2Assets) Font"
+                            Text="{Localize FontBuilderView_BuildWinSymbols2FontText}"
                             TextAlignment="Center"
                             TextWrapping="Wrap" />
                     </Button.Content>
@@ -65,7 +65,7 @@
                     Command="{Binding BuildWinSymbols3FontCommand}">
                     <Button.Content>
                         <TextBlock
-                            Text="Build WinSymbols3 (SegoeFluent) Font"
+                            Text="{Localize FontBuilderView_BuildWinSymbols3FontText}"
                             TextAlignment="Center"
                             TextWrapping="Wrap" />
                     </Button.Content>
@@ -79,7 +79,7 @@
             <GroupBox.Header>
                 <TextBlock
                     Classes="group-header"
-                    Text="Fluent Avalonia Font" />
+                    Text="{Localize FontBuilderView_FluentAvaloniaHeaderText}" />
             </GroupBox.Header>
             <Grid
                 Grid.ColumnDefinitions="Auto,Auto"
@@ -92,7 +92,7 @@
                     Command="{Binding BuildFluentAvaloniaFontCommand}">
                     <Button.Content>
                         <TextBlock
-                            Text="Build FluentAvalonia Font"
+                            Text="{Localize FontBuilderView_BuildFluentAvaloniaFontText}"
                             TextAlignment="Center"
                             TextWrapping="Wrap" />
                     </Button.Content>
@@ -106,7 +106,7 @@
                     Command="{Binding RebuildFluentAvaloniaMappingsCommand}">
                     <Button.Content>
                         <TextBlock
-                            Text="Rebuild FluentAvalonia Mappings"
+                            Text="{Localize FontBuilderView_RebuildFluentAvaloniaMappingsText}"
                             TextAlignment="Center"
                             TextWrapping="Wrap" />
                     </Button.Content>
@@ -120,7 +120,7 @@
                     IsThreeState="False">
                     <CheckBox.Content>
                         <TextBlock
-                            Text="Include Enum Values"
+                            Text="{Localize FontBuilderView_IncludeEnumValuesText}"
                             TextAlignment="Center"
                             TextWrapping="Wrap" />
                     </CheckBox.Content>
@@ -134,7 +134,7 @@
             <GroupBox.Header>
                 <TextBlock
                     Classes="group-header"
-                    Text="Fluent UI System Fonts" />
+                    Text="{Localize FontBuilderView_FluentUISystemHeaderText}" />
             </GroupBox.Header>
             <Grid
                 Grid.ColumnDefinitions="Auto,Auto">
@@ -145,7 +145,7 @@
                     Command="{Binding BuildFluentUISystemRegularFontCommand}">
                     <Button.Content>
                         <TextBlock
-                            Text="Build Fluent UI System Regular Font"
+                            Text="{Localize FontBuilderView_BuildFluentUISystemRegularFontText}"
                             TextAlignment="Center"
                             TextWrapping="Wrap" />
                     </Button.Content>
@@ -158,7 +158,7 @@
                     Command="{Binding BuildFluentUISystemFilledFontCommand}">
                     <Button.Content>
                         <TextBlock
-                            Text="Build Fluent UI System Filled Font"
+                            Text="{Localize FontBuilderView_BuildFluentUISystemFilledFontText}"
                             TextAlignment="Center"
                             TextWrapping="Wrap" />
                     </Button.Content>
