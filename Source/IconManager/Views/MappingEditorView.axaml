@@ -202,7 +202,17 @@
             Grid.Row="1"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
+            ItemContainerTheme="{StaticResource LargePillListBoxItemTheme}"
             ItemsSource="{Binding FilteredMappings}">
+            <ListBox.Styles>
+                <!--
+                    Alternating row background
+                    Even rows keep the default SubtleFillColorTransparentBrush
+                -->
+                <Style Selector="ListBoxItem:nth-child(odd)">
+                    <Setter Property="Background" Value="{DynamicResource ControlAltFillColorSecondaryBrush}" />
+                </Style>
+            </ListBox.Styles>
             <ListBox.ItemTemplate>
                 <DataTemplate
                     DataType="IconMappingViewModel">
@@ -211,7 +221,7 @@
                         Margin="0,2,0,2"
                         Padding="4"
                         BorderBrush="{DynamicResource GroupBoxBorderBrush}"
-                        BorderThickness="1"
+                        BorderThickness="0"
                         CornerRadius="8">
                         <Border.Styles>
                             <Style Selector="Border">
