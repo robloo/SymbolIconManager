@@ -10,6 +10,21 @@
     d:DesignHeight="450"
     d:DesignWidth="800">
 
+    <UserControl.Styles>
+
+        <Style Selector=":is(TextBlock).title">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="{DynamicResource TextControlForegroundDisabled}" />
+        </Style>
+
+        <Style Selector=":is(TextBlock).content">
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+
+    </UserControl.Styles>
+
     <Grid
         x:Name="LayoutRoot"
         RowDefinitions="Auto,*">
@@ -171,12 +186,10 @@
                                 Margin="0,0,32,0"
                                 Spacing="2">
                                 <TextBlock
-                                    FontSize="12"
-                                    Foreground="{DynamicResource TextControlForegroundDisabled}"
+                                    Classes="title"
                                     Text="{Localize Key=IconographyView_IconNameText, FallbackValue='&lt;missing&gt;'}" />
                                 <SelectableTextBlock
-                                    FontSize="15"
-                                    FontWeight="SemiBold"
+                                    Classes="content"
                                     Text="{Binding Name}"
                                     TextTrimming="CharacterEllipsis" />
                             </StackPanel>
@@ -197,15 +210,13 @@
                                 <TextBlock
                                     Grid.Row="0"
                                     Grid.Column="0"
-                                    FontSize="12"
-                                    Foreground="{DynamicResource TextControlForegroundDisabled}"
+                                    Classes="title"
                                     Text="{Localize Key=IconographyView_IconSetText, FallbackValue='&lt;missing&gt;'}" />
                                 <SelectableTextBlock
                                     x:Name="IconSetTextBlock"
                                     Grid.Row="2"
                                     Grid.Column="0"
-                                    FontSize="15"
-                                    FontWeight="SemiBold"
+                                    Classes="content"
                                     Text="{Binding IconSet, Converter={StaticResource IconSetInfo}, ConverterParameter={x:Static IconSetInfoType.Name}}"
                                     TextTrimming="CharacterEllipsis" />
                                 <Border
@@ -239,13 +250,11 @@
                                 Margin="0,0,32,0"
                                 Spacing="2">
                                 <TextBlock
-                                    FontSize="12"
-                                    Foreground="{DynamicResource TextControlForegroundDisabled}"
+                                    Classes="title"
                                     Text="{Localize Key=IconographyView_TextGlyphText, FallbackValue='&lt;missing&gt;'}" />
                                 <SelectableTextBlock
                                     x:Name="TextGlyphTextBlock"
-                                    FontSize="15"
-                                    FontWeight="SemiBold"
+                                    Classes="content"
                                     Text="{Binding UnicodeHexString, StringFormat='&amp;#x{0};'}" />
                             </StackPanel>
                             <Button
@@ -263,13 +272,11 @@
                                 Margin="0,0,32,0"
                                 Spacing="2">
                                 <TextBlock
-                                    FontSize="12"
-                                    Foreground="{DynamicResource TextControlForegroundDisabled}"
+                                    Classes="title"
                                     Text="{Localize Key=IconographyView_CodeGlyphText, FallbackValue='&lt;missing&gt;'}" />
                                 <SelectableTextBlock
                                     x:Name="CodeGlyphTextBlock"
-                                    FontSize="15"
-                                    FontWeight="SemiBold"
+                                    Classes="content"
                                     Text="{Binding UnicodeHexString, StringFormat='\\u{0}'}" />
                             </StackPanel>
                             <Button
@@ -288,13 +295,11 @@
                                 IsVisible="{Binding Glyph?.PathData, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                 Spacing="2">
                                 <TextBlock
-                                    FontSize="12"
-                                    Foreground="{DynamicResource TextControlForegroundDisabled}"
+                                    Classes="title"
                                     IsVisible="{Binding Glyph?.Source, Converter={x:Static ObjectConverters.IsNull}}"
                                     Text="{Localize Key=IconographyView_PathDataText, FallbackValue='&lt;missing&gt;'}" />
                                 <TextBlock
-                                    FontSize="12"
-                                    Foreground="{DynamicResource TextControlForegroundDisabled}"
+                                    Classes="title"
                                     IsVisible="{Binding Glyph?.Source, Converter={x:Static ObjectConverters.IsNotNull}}">
                                     <Run Text="{Localize Key=IconographyView_PathDataText}" /><Run Text="{Binding Glyph?.Source, StringFormat=' ({0})'}" />
                                 </TextBlock>
@@ -303,8 +308,8 @@
                                     HorizontalScrollBarVisibility="Disabled"
                                     VerticalScrollBarVisibility="Auto">
                                     <SelectableTextBlock
+                                        Classes="content"
                                         FontSize="10"
-                                        FontWeight="SemiBold"
                                         Text="{Binding Glyph?.PathData}"
                                         TextWrapping="Wrap" />
                                 </ScrollViewer>
