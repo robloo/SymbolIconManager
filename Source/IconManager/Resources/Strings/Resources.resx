@@ -248,4 +248,25 @@
   <data name="MappingEditorView_SaveMappingsText" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="MappingEditorView_MatchQualityHelpText" xml:space="preserve">
+    <value>Help with MatchQuality</value>
+  </data>
+  <data name="MappingEditorView_CommentsText" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="MappingEditorView_IsPlaceholderText" xml:space="preserve">
+    <value>IsPlaceholder</value>
+  </data>
+  <data name="MappingEditorView_MetaphorMatchQualityText" xml:space="preserve">
+    <value>MetaphorMatchQuality</value>
+  </data>
+  <data name="MappingEditorView_GlyphMatchQualityText" xml:space="preserve">
+    <value>GlyphMatchQuality</value>
+  </data>
+  <data name="MappingEditorView_SourceText" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="MappingEditorView_DestinationText" xml:space="preserve">
+    <value>Destination</value>
+  </data>
 </root>

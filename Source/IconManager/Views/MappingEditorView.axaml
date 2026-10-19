@@ -223,7 +223,7 @@
                             <GroupBox
                                 Grid.Row="0"
                                 Grid.Column="0"
-                                Header="Source">
+                                Header="{Localize Key=MappingEditorView_SourceText, FallbackValue='&lt;missing&gt;'}">
                                 <Grid
                                     RowDefinitions="1*,32"
                                     ColumnDefinitions="Auto,10,300,100">
@@ -274,7 +274,7 @@
                             <GroupBox
                                 Grid.Row="1"
                                 Grid.Column="0"
-                                Header="Destination">
+                                Header="{Localize Key=MappingEditorView_DestinationText, FallbackValue='&lt;missing&gt;'}">
                                 <Grid
                                     RowDefinitions="1*,32"
                                     ColumnDefinitions="Auto,10,300,100">
@@ -332,7 +332,7 @@
                                 <TextBlock
                                     Grid.Row="0"
                                     Grid.Column="0"
-                                    Text="GlyphMatchQuality" />
+                                    Text="{Localize Key=MappingEditorView_GlyphMatchQualityText, FallbackValue='&lt;missing&gt;'}" />
                                 <ComboBox
                                     Grid.Row="1"
                                     Grid.Column="0"
@@ -344,7 +344,7 @@
                                     Grid.Row="0"
                                     Grid.Column="1"
                                     Margin="5,0,0,0"
-                                    Text="MetaphorMatchQuality" />
+                                    Text="{Localize Key=MappingEditorView_MetaphorMatchQualityText, FallbackValue='&lt;missing&gt;'}" />
                                 <ComboBox
                                     Grid.Row="1"
                                     Grid.Column="1"
@@ -359,7 +359,7 @@
                                     Grid.Column="2"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    Content="IsPlaceholder"
+                                    Content="{Localize Key=MappingEditorView_IsPlaceholderText, FallbackValue='&lt;missing&gt;'}"
                                     IsChecked="{Binding IsPlaceholder, Mode=TwoWay}" />
                                 <HyperlinkButton
                                     x:Name="MatchQualityHelpButton"
@@ -375,7 +375,7 @@
                                         <Viewbox
                                             Stretch="Uniform">
                                             <TextBlock
-                                                Text="Help with MatchQuality" />
+                                                Text="{Localize Key=MappingEditorView_MatchQualityHelpText, FallbackValue='&lt;missing&gt;'}" />
                                         </Viewbox>
                                     </HyperlinkButton.Content>
                                 </HyperlinkButton>
@@ -387,7 +387,7 @@
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
                                     AcceptsReturn="True"
-                                    PlaceholderText="Comments"
+                                    PlaceholderText="{Localize Key=MappingEditorView_CommentsText, FallbackValue='&lt;missing&gt;'}"
                                     Text="{Binding Comments, Mode=TwoWay}"
                                     TextWrapping="Wrap" />
                             </Grid>

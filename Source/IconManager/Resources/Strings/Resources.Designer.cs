@@ -376,6 +376,24 @@ namespace IconManager.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comments.
+        /// </summary>
+        internal static string MappingEditorView_CommentsText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_CommentsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Destination.
+        /// </summary>
+        internal static string MappingEditorView_DestinationText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_DestinationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search &amp; filter mappings.
         /// </summary>
         internal static string MappingEditorView_FilterText {
@@ -385,11 +403,47 @@ namespace IconManager.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GlyphMatchQuality.
+        /// </summary>
+        internal static string MappingEditorView_GlyphMatchQualityText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_GlyphMatchQualityText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IsPlaceholder.
+        /// </summary>
+        internal static string MappingEditorView_IsPlaceholderText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_IsPlaceholderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help with MatchQuality.
+        /// </summary>
+        internal static string MappingEditorView_MatchQualityHelpText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_MatchQualityHelpText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Merge In.
         /// </summary>
         internal static string MappingEditorView_MergeInText {
             get {
                 return ResourceManager.GetString("MappingEditorView_MergeInText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MetaphorMatchQuality.
+        /// </summary>
+        internal static string MappingEditorView_MetaphorMatchQualityText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_MetaphorMatchQualityText", resourceCulture);
             }
         }
         
@@ -408,6 +462,15 @@ namespace IconManager.Resources.Strings {
         internal static string MappingEditorView_SaveMappingsText {
             get {
                 return ResourceManager.GetString("MappingEditorView_SaveMappingsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source.
+        /// </summary>
+        internal static string MappingEditorView_SourceText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_SourceText", resourceCulture);
             }
         }
         
