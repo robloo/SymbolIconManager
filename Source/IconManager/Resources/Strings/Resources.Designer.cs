@@ -61,7 +61,7 @@ namespace IconManager.Resources.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Microsoft&apos;s premier open-source, cross-platform symbol icon font family..
+        ///   Looks up a localized string similar to Microsoft&apos;s premier open source, cross-platform symbol icon font family..
         /// </summary>
         internal static string IconSetFamily_FluentUISystem_DescriptionText {
             get {
@@ -79,7 +79,7 @@ namespace IconManager.Resources.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An open-source symbol icon font provided by Icons8 replacing the older Font Awesome icons..
+        ///   Looks up a localized string similar to An open source symbol icon font provided by Icons8 replacing the older Font Awesome icons..
         /// </summary>
         internal static string IconSetFamily_LineAwesome_DescriptionText {
             get {
@@ -151,7 +151,7 @@ namespace IconManager.Resources.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An open source icon font fallback to Microsoft&apos;s Segoe UI Symbol Icons that was provided by the Microsoft WinJS team around Windows 8/8.1..
+        ///   Looks up a localized string similar to An open source alternative to Microsoft&apos;s Segoe UI Symbol Icons that was provided by the Microsoft WinJS team around Windows 8/8.1..
         /// </summary>
         internal static string IconSetFamily_WinJSSymbols_DescriptionText {
             get {

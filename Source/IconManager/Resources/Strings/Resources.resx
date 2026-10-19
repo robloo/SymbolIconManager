@@ -142,7 +142,7 @@
     <comment>Version 1</comment>
   </data>
   <data name="IconSetFamily_WinJSSymbols_DescriptionText" xml:space="preserve">
-    <value>An open source icon font fallback to Microsoft's Segoe UI Symbol Icons that was provided by the Microsoft WinJS team around Windows 8/8.1.</value>
+    <value>An open source alternative to Microsoft's Segoe UI Symbol Icons that was provided by the Microsoft WinJS team around Windows 8/8.1.</value>
   </data>
   <data name="IconSetFamily_WinJSSymbols_NameText" xml:space="preserve">
     <value>WinJS Symbols</value>
@@ -151,10 +151,10 @@
     <value>Fluent UI System Icons</value>
   </data>
   <data name="IconSetFamily_FluentUISystem_DescriptionText" xml:space="preserve">
-    <value>Microsoft's premier open-source, cross-platform symbol icon font family.</value>
+    <value>Microsoft's premier open source, cross-platform symbol icon font family.</value>
   </data>
   <data name="IconSetFamily_LineAwesome_DescriptionText" xml:space="preserve">
-    <value>An open-source symbol icon font provided by Icons8 replacing the older Font Awesome icons.</value>
+    <value>An open source symbol icon font provided by Icons8 replacing the older Font Awesome icons.</value>
   </data>
   <data name="IconSetFamily_LineAwesome_NameText" xml:space="preserve">
     <value>Line Awesome Icons</value>
