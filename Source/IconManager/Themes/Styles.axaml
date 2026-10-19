@@ -1,0 +1,35 @@
+﻿<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style Selector="Button.close">
+        <Setter Property="Theme" Value="{DynamicResource TransparentButton}" />
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Content">
+            <Template>
+                <PathIcon
+                    Width="{StaticResource PathIconSize}"
+                    Height="{StaticResource PathIconSize}"
+                    Data="{StaticResource ic_fluent_dismiss_20_regular}" />
+            </Template>
+        </Setter>
+    </Style>
+
+    <Style Selector="Button.copy">
+        <Setter Property="Theme" Value="{DynamicResource TransparentButton}" />
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Content">
+            <Template>
+                <PathIcon
+                    Width="{StaticResource PathIconSize}"
+                    Height="{StaticResource PathIconSize}"
+                    Data="{StaticResource ic_fluent_copy_20_regular}" />
+            </Template>
+        </Setter>
+    </Style>
+
+</Styles>

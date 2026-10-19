@@ -34,12 +34,54 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center">
 
+                <TextBox
+                    Width="250"
+                    VerticalAlignment="Center"
+                    IsEnabled="{Binding !!Mappings.Count}"
+                    PlaceholderText="{Localize Key=MappingEditorView_FilterText, FallbackValue='&lt;missing&gt;'}"
+                    Text="{Binding FilterText, Mode=TwoWay, Delay=200}">
+                    <TextBox.InnerRightContent>
+                        <Button
+                            Classes="close"
+                            Padding="8,4,8,4"
+                            IsVisible="{Binding FilterText, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                            Command="{Binding ClearFilterTextCommand}" />
+                    </TextBox.InnerRightContent>
+                </TextBox>
+
+                <TextBlock
+                    Margin="5,0,0,0"
+                    VerticalAlignment="Center"
+                    Foreground="{DynamicResource TextControlForegroundDisabled}">
+                    <Run Text="{Binding FilteredMappings.Count}" />
+                    <Run Text="{Localize Key=MappingEditorView_VisibleText, FallbackValue='&lt;missing&gt;'}" />
+                </TextBlock>
+
+            </StackPanel>
+
+            <!-- Right Commands -->
+            <StackPanel
+                Orientation="Horizontal"
+                Margin="10,0,10,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center">
+
                 <SplitButton
-                    x:Name="LoadButton"
                     MinWidth="100"
                     HorizontalContentAlignment="Center"
-                    Content="Load"
                     Command="{Binding OpenMappingsCommand}">
+                    <SplitButton.Content>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Spacing="4">
+                            <PathIcon
+                                Width="{StaticResource PathIconSize}"
+                                Height="{StaticResource PathIconSize}"
+                                Data="{StaticResource ic_fluent_folder_20_regular}" />
+                            <TextBlock
+                                Text="{Localize Key=MappingEditorView_OpenMappingsText, FallbackValue='&lt;missing&gt;'}" />
+                        </StackPanel>
+                    </SplitButton.Content>
                     <SplitButton.Flyout>
                         <MenuFlyout
                             Placement="BottomEdgeAlignedLeft">
@@ -64,67 +106,87 @@
                         </MenuFlyout>
                     </SplitButton.Flyout>
                 </SplitButton>
+
                 <Button
-                    x:Name="SaveButton"
                     MinWidth="100"
                     Margin="5,0,0,0"
                     HorizontalContentAlignment="Center"
-                    Content="Save"
-                    Command="{Binding SaveMappingsCommand}" />
+                    IsEnabled="{Binding !!Mappings.Count}"
+                    Command="{Binding SaveMappingsCommand}">
+                    <StackPanel
+                        Orientation="Horizontal"
+                        Spacing="4">
+                        <PathIcon
+                            Width="{StaticResource PathIconSize}"
+                            Height="{StaticResource PathIconSize}"
+                            Data="{StaticResource ic_fluent_save_20_regular}" />
+                        <TextBlock
+                            Text="{Localize Key=MappingEditorView_SaveMappingsText, FallbackValue='&lt;missing&gt;'}" />
+                    </StackPanel>
+                </Button>
+
                 <Button
-                    x:Name="ClearButton"
                     MinWidth="100"
+                    Margin="5,0,0,0"
+                    HorizontalContentAlignment="Center"
+                    IsEnabled="{Binding !!Mappings.Count}"
+                    Command="{Binding ClearMappingsCommand}">
+                    <StackPanel
+                        Orientation="Horizontal"
+                        Spacing="4">
+                        <PathIcon
+                            Width="{StaticResource PathIconSize}"
+                            Height="{StaticResource PathIconSize}"
+                            Data="{StaticResource ic_fluent_eraser_20_regular}" />
+                        <TextBlock
+                            Text="{Localize Key=MappingEditorView_ClearMappingsText, FallbackValue='&lt;missing&gt;'}" />
+                    </StackPanel>
+                </Button>
+
+                <Button
                     Margin="20,0,0,0"
                     HorizontalContentAlignment="Center"
-                    Content="Clear"
-                    Command="{Binding ClearMappingsCommand}" />
-                <Button
-                    x:Name="ActionsButton"
-                    MinWidth="100"
-                    Margin="20,0,0,0"
-                    HorizontalContentAlignment="Center"
-                    Content="Actions...">
+                    VerticalContentAlignment="Center">
+                    <Button.Content>
+                        <PathIcon
+                            Width="{StaticResource PathIconSize}"
+                            Height="{StaticResource PathIconSize}"
+                            Data="{StaticResource ic_fluent_more_horizontal_20_regular}" />
+                    </Button.Content>
                     <Button.Flyout>
                         <MenuFlyout
                             Placement="BottomEdgeAlignedLeft">
                             <MenuItem
-                                x:Name="MergeInMenuItem"
-                                Header="Merge In"
-                                Command="{Binding MergeInMappingsCommand}" />
+                                Header="{Localize Key=MappingEditorView_MergeInText, FallbackValue='&lt;missing&gt;'}"
+                                Command="{Binding MergeInMappingsCommand}">
+                                <MenuItem.Icon>
+                                    <PathIcon
+                                        Data="{StaticResource ic_fluent_arrow_join_20_regular}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
                             <MenuItem
-                                x:Name="UpdateDeprecatedIconsMenuItem"
-                                Header="Update Deprecated Icons"
-                                Command="{Binding UpdateDeprecatedIconsCommand}" />
+                                Header="{Localize Key=MappingEditorView_UpdateDeprecatedIconsText, FallbackValue='&lt;missing&gt;'}"
+                                IsEnabled="{Binding !!Mappings.Count}"
+                                Command="{Binding UpdateDeprecatedIconsCommand}">
+                                <MenuItem.Icon>
+                                    <PathIcon
+                                        Data="{StaticResource ic_fluent_arrow_repeat_all_20_regular}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
                             <MenuItem
                                 Header="-" />
                             <MenuItem
-                                x:Name="BuildFontMenuItem"
-                                Header="Build Font"
-                                Command="{Binding BuildFontCommand}" />
+                                Header="{Localize Key=MappingEditorView_BuildFontText, FallbackValue='&lt;missing&gt;'}"
+                                IsEnabled="{Binding !!Mappings.Count}"
+                                Command="{Binding BuildFontCommand}">
+                                <MenuItem.Icon>
+                                    <PathIcon
+                                        Data="{StaticResource ic_fluent_text_font_20_regular}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
                         </MenuFlyout>
                     </Button.Flyout>
                 </Button>
-
-            </StackPanel>
-
-            <!-- Right Commands -->
-            <StackPanel
-                Orientation="Horizontal"
-                Margin="10,0,10,0"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center">
-
-                <TextBlock
-                    Margin="0,0,5,0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Text="{Binding FilteredMappings.Count, StringFormat='Count: {0}'}" />
-                <TextBox
-                    x:Name="FilterTextBox"
-                    Width="200"
-                    VerticalAlignment="Center"
-                    PlaceholderText="Filter"
-                    Text="{Binding FilterText, Mode=TwoWay, Delay=200}" />
 
             </StackPanel>
 

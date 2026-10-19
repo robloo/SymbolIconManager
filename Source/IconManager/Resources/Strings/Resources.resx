@@ -224,4 +224,28 @@
   <data name="AppToolsView_SourceDirectoryPlaceholderText" xml:space="preserve">
     <value>Source code directory</value>
   </data>
+  <data name="MappingEditorView_FilterText" xml:space="preserve">
+    <value>Search &amp; filter mappings</value>
+  </data>
+  <data name="MappingEditorView_VisibleText" xml:space="preserve">
+    <value>visible</value>
+  </data>
+  <data name="MappingEditorView_MergeInText" xml:space="preserve">
+    <value>Merge In</value>
+  </data>
+  <data name="MappingEditorView_UpdateDeprecatedIconsText" xml:space="preserve">
+    <value>Update Deprecated Icons</value>
+  </data>
+  <data name="MappingEditorView_BuildFontText" xml:space="preserve">
+    <value>Build Font</value>
+  </data>
+  <data name="MappingEditorView_OpenMappingsText" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="MappingEditorView_ClearMappingsText" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="MappingEditorView_SaveMappingsText" xml:space="preserve">
+    <value>Save</value>
+  </data>
 </root>

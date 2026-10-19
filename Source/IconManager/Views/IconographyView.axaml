@@ -10,40 +10,6 @@
     d:DesignHeight="450"
     d:DesignWidth="800">
 
-    <UserControl.Styles>
-
-        <Style Selector="Button.close">
-            <Setter Property="Theme" Value="{StaticResource TransparentButton}" />
-            <Setter Property="Padding" Value="8" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="Content">
-                <Template>
-                    <PathIcon
-                        Width="{StaticResource PathIconSize}"
-                        Height="{StaticResource PathIconSize}"
-                        Data="{StaticResource ic_fluent_dismiss_20_regular}" />
-                </Template>
-            </Setter>
-        </Style>
-
-        <Style Selector="Button.copy">
-            <Setter Property="Theme" Value="{StaticResource TransparentButton}" />
-            <Setter Property="Padding" Value="8" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="Content">
-                <Template>
-                    <PathIcon
-                        Width="{StaticResource PathIconSize}"
-                        Height="{StaticResource PathIconSize}"
-                        Data="{StaticResource ic_fluent_copy_20_regular}" />
-                </Template>
-            </Setter>
-        </Style>
-
-    </UserControl.Styles>
-
     <Grid
         x:Name="LayoutRoot"
         RowDefinitions="Auto,*">
@@ -72,12 +38,13 @@
                 <TextBox
                     Width="250"
                     VerticalAlignment="Center"
-                    IsEnabled="{Binding SelectedIconSet, Converter={x:Static ObjectConverters.IsNotNull}}"
+                    IsEnabled="{Binding !!Icons.Count}"
                     PlaceholderText="{Localize Key=IconographyView_FilterText, FallbackValue='&lt;missing&gt;'}"
                     Text="{Binding FilterText, Mode=TwoWay, Delay=200}">
                     <TextBox.InnerRightContent>
                         <Button
                             Classes="close"
+                            Padding="8,4,8,4"
                             IsVisible="{Binding FilterText, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                             Command="{Binding ClearFilterTextCommand}" />
                     </TextBox.InnerRightContent>

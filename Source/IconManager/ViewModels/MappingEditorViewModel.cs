@@ -74,6 +74,17 @@ namespace IconManager.ViewModels
          ***************************************************************************************/
 
         /// <summary>
+        /// Clears any active filter text and rebuilds the displayed mappings.
+        /// </summary>
+        [RelayCommand]
+        public void ClearFilterText()
+        {
+            this.FilterText = null;
+
+            return;
+        }
+
+        /// <summary>
         /// Select and load an existing mappings file into the editor.
         /// </summary>
         [RelayCommand]
@@ -110,6 +121,7 @@ namespace IconManager.ViewModels
 
             if (loadedMappings is not null)
             {
+                this.ClearFilterText();
                 this.UpdateMappings(loadedMappings);
             }
 
@@ -168,7 +180,14 @@ namespace IconManager.ViewModels
         [RelayCommand]
         public void ClearMappings()
         {
-            this.FilterText = null;
+            // If a filter is applied, first just clear the filter
+            // This can help the user realize a filter is active
+            if (!string.IsNullOrEmpty(this.FilterText))
+            {
+                this.ClearFilterText();
+                return;
+            }
+
             this.Mappings.Clear();
             this.FilteredMappings.Clear();
 

@@ -356,5 +356,77 @@ namespace IconManager.Resources.Strings {
                 return ResourceManager.GetString("IconSetFamily_WinJSSymbols_NameText", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Build Font.
+        /// </summary>
+        internal static string MappingEditorView_BuildFontText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_BuildFontText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        internal static string MappingEditorView_ClearMappingsText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_ClearMappingsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search &amp; filter mappings.
+        /// </summary>
+        internal static string MappingEditorView_FilterText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_FilterText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Merge In.
+        /// </summary>
+        internal static string MappingEditorView_MergeInText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_MergeInText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
+        internal static string MappingEditorView_OpenMappingsText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_OpenMappingsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string MappingEditorView_SaveMappingsText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_SaveMappingsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Deprecated Icons.
+        /// </summary>
+        internal static string MappingEditorView_UpdateDeprecatedIconsText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_UpdateDeprecatedIconsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to visible.
+        /// </summary>
+        internal static string MappingEditorView_VisibleText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_VisibleText", resourceCulture);
+            }
+        }
     }
 }

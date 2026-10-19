@@ -27,6 +27,9 @@
     </Application.Resources>
 
     <Application.Styles>
+
+        <StyleInclude Source="avares://IconManager/Themes/Styles.axaml" />
+
         <!--
             Notes on custom accent color:
             - Using this shade of teal works in both light/dark themes
