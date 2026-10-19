@@ -35,7 +35,7 @@
                 VerticalAlignment="Center">
 
                 <Button
-                    Height="{Binding #SourceDirectoryTextBox.Bounds.Height}"
+                    Height="{Binding #SourceDirectoryBorder.Bounds.Height}"
                     Padding="8,4,8,4"
                     VerticalAlignment="Center"
                     HorizontalContentAlignment="Center"
@@ -48,18 +48,28 @@
                         Height="{StaticResource PathIconSize}"
                         Data="{StaticResource ic_fluent_folder_20_regular}" />
                 </Button>
-                <TextBox
-                    x:Name="SourceDirectoryTextBox"
+                <Border
+                    x:Name="SourceDirectoryBorder"
+                    Classes="textbox-style"
                     MinWidth="200"
                     MaxWidth="400"
                     VerticalAlignment="Center"
-                    CornerRadius="0"
-                    IsReadOnly="True"
-                    PlaceholderText="{Localize Key=AppToolsView_SourceDirectoryPlaceholderText, FallbackValue='&lt;missing&gt;'}"
-                    Text="{Binding SourceDirectory, Mode=OneWay}"
-                    TextWrapping="NoWrap" />
+                    BorderThickness="0,1,0,1"
+                    CornerRadius="0">
+                    <Panel>
+                        <TextBlock
+                            Foreground="{DynamicResource TextControlForegroundDisabled}"
+                            IsVisible="{Binding SourceDirectory, Converter={x:Static StringConverters.IsNullOrEmpty}}"
+                            Text="{Localize Key=AppToolsView_SourceDirectoryPlaceholderText, FallbackValue='&lt;missing&gt;'}" />
+                        <SelectableTextBlock
+                            IsVisible="{Binding SourceDirectory, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                            Text="{Binding SourceDirectory, Mode=OneWay}"
+                            TextTrimming="PrefixCharacterEllipsis"
+                            TextWrapping="NoWrap" />
+                    </Panel>
+                </Border>
                 <ComboBox
-                    Height="{Binding #SourceDirectoryTextBox.Bounds.Height}"
+                    Height="{Binding #SourceDirectoryBorder.Bounds.Height}"
                     VerticalAlignment="Center"
                     CornerRadius="0,4,4,0"
                     ItemsSource="{Binding SourceIconSets}"
