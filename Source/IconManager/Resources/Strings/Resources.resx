@@ -159,4 +159,32 @@
   <data name="IconSetFamily_LineAwesome_NameText" xml:space="preserve">
     <value>Line Awesome Icons</value>
   </data>
+  <data name="IconographyView_FilterText" xml:space="preserve">
+    <value>Search &amp; filter icons</value>
+  </data>
+  <data name="IconographyView_VisibleText" xml:space="preserve">
+    <value>visible</value>
+  </data>
+  <data name="IconographyView_IconSetText" xml:space="preserve">
+    <value>Icon set</value>
+  </data>
+  <data name="IconographyView_SourceText" xml:space="preserve">
+    <value>Source: </value>
+    <comment>Needs a trailing space</comment>
+  </data>
+  <data name="IconographyView_IconNameText" xml:space="preserve">
+    <value>Icon name</value>
+  </data>
+  <data name="IconographyView_TextGlyphText" xml:space="preserve">
+    <value>Text glyph</value>
+  </data>
+  <data name="IconographyView_CodeGlyphText" xml:space="preserve">
+    <value>Code glyph</value>
+  </data>
+  <data name="IconographyView_WebsiteText" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="IconographyView_PathDataText" xml:space="preserve">
+    <value>Path data</value>
+  </data>
 </root>

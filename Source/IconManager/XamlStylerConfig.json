@@ -36,7 +36,7 @@
   "ReorderCanvasChildren": false,
   "ReorderSetters": 0,
   "FormatMarkupExtension": true,
-  "NoNewLineMarkupExtensions": "x:Bind, Binding, CompiledBinding, ReflectionBinding, TemplateBinding, CoreString, Thickness, Translate",
+  "NoNewLineMarkupExtensions": "x:Bind, Binding, CompiledBinding, ReflectionBinding, TemplateBinding, Localize, Translate",
   "ThicknessSeparator": 2,
   "ThicknessAttributes": "Margin, Padding, BorderThickness, CornerRadius, ThumbnailClipMargin",
   "FormatOnSave": true,

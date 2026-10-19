@@ -87,7 +87,7 @@
                     Width="200"
                     VerticalAlignment="Center"
                     IsEnabled="{Binding SelectedIconSet, Converter={x:Static ObjectConverters.IsNotNull}}"
-                    PlaceholderText="Search &amp; filter icons"
+                    PlaceholderText="{Localize Key=IconographyView_FilterText, FallbackValue='&lt;missing&gt;'}"
                     Text="{Binding FilterText, Mode=TwoWay, Delay=200}">
                     <TextBox.InnerRightContent>
                         <Button
@@ -100,8 +100,10 @@
                 <TextBlock
                     Margin="5,0,0,0"
                     VerticalAlignment="Center"
-                    Foreground="{DynamicResource TextControlForegroundDisabled}"
-                    Text="{Binding FilteredIcons.Count, StringFormat='{}{0} visible'}" />
+                    Foreground="{DynamicResource TextControlForegroundDisabled}">
+                    <Run Text="{Binding FilteredIcons.Count}" />
+                    <Run Text="{Localize Key=IconographyView_VisibleText, FallbackValue='&lt;missing&gt;'}" />
+                </TextBlock>
 
             </StackPanel>
 
@@ -116,7 +118,7 @@
                     Margin="0,0,5,0"
                     VerticalAlignment="Center"
                     Foreground="{DynamicResource TextControlForegroundDisabled}"
-                    Text="Icon set" />
+                    Text="{Localize Key=IconographyView_IconSetText, FallbackValue='&lt;missing&gt;'}" />
 
                 <ComboBox
                     MinWidth="150"
@@ -190,14 +192,14 @@
                         FontSize="11"
                         Foreground="{DynamicResource TextControlForegroundDisabled}"
                         IsVisible="{Binding Glyph?.Source, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
-                        <Run Text="Source: " /><Run Text="{Binding Glyph?.Source}" />
+                        <Run Text="{Localize Key=IconographyView_SourceText, FallbackValue='&lt;missing&gt;'}" /><Run Text="{Binding Glyph?.Source}" />
                     </TextBlock>
                     <HyperlinkButton
                         Grid.Row="2"
                         Margin="0,0,0,20"
                         Padding="2"
                         HorizontalAlignment="Center"
-                        Content="Website"
+                        Content="{Localize Key=IconographyView_WebsiteText, FallbackValue='&lt;missing&gt;'}"
                         NavigateUri="{Binding IconSet, Converter={StaticResource IconSetInfo}, ConverterParameter={x:Static IconSetInfoType.WebsiteUrl}}"
                         TextElement.FontSize="12" />
 
@@ -218,7 +220,7 @@
                                 <TextBlock
                                     FontSize="12"
                                     Foreground="{DynamicResource TextControlForegroundDisabled}"
-                                    Text="Icon name" />
+                                    Text="{Localize Key=IconographyView_IconNameText, FallbackValue='&lt;missing&gt;'}" />
                                 <SelectableTextBlock
                                     FontSize="15"
                                     FontWeight="SemiBold"
@@ -244,7 +246,7 @@
                                     Grid.Column="0"
                                     FontSize="12"
                                     Foreground="{DynamicResource TextControlForegroundDisabled}"
-                                    Text="Icon set" />
+                                    Text="{Localize Key=IconographyView_IconSetText, FallbackValue='&lt;missing&gt;'}" />
                                 <SelectableTextBlock
                                     x:Name="IconSetTextBlock"
                                     Grid.Row="2"
@@ -292,7 +294,7 @@
                                 <TextBlock
                                     FontSize="12"
                                     Foreground="{DynamicResource TextControlForegroundDisabled}"
-                                    Text="Text glyph" />
+                                    Text="{Localize Key=IconographyView_TextGlyphText, FallbackValue='&lt;missing&gt;'}" />
                                 <SelectableTextBlock
                                     x:Name="TextGlyphTextBlock"
                                     FontSize="15"
@@ -316,7 +318,7 @@
                                 <TextBlock
                                     FontSize="12"
                                     Foreground="{DynamicResource TextControlForegroundDisabled}"
-                                    Text="Code glyph" />
+                                    Text="{Localize Key=IconographyView_CodeGlyphText, FallbackValue='&lt;missing&gt;'}" />
                                 <SelectableTextBlock
                                     x:Name="CodeGlyphTextBlock"
                                     FontSize="15"
@@ -342,12 +344,12 @@
                                     FontSize="12"
                                     Foreground="{DynamicResource TextControlForegroundDisabled}"
                                     IsVisible="{Binding Glyph?.Source, Converter={x:Static ObjectConverters.IsNull}}"
-                                    Text="Path data" />
+                                    Text="{Localize Key=IconographyView_PathDataText, FallbackValue='&lt;missing&gt;'}" />
                                 <TextBlock
                                     FontSize="12"
                                     Foreground="{DynamicResource TextControlForegroundDisabled}"
                                     IsVisible="{Binding Glyph?.Source, Converter={x:Static ObjectConverters.IsNotNull}}">
-                                    <Run Text="Path data (" /><Run Text="{Binding Glyph?.Source}" /><Run Text=")" />
+                                    <Run Text="{Localize Key=IconographyView_PathDataText}" /><Run Text="{Binding Glyph?.Source, StringFormat=' ({0})'}" />
                                 </TextBlock>
                                 <ScrollViewer
                                     MaxHeight="200"

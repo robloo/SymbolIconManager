@@ -61,6 +61,87 @@ namespace IconManager.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Code glyph.
+        /// </summary>
+        internal static string IconographyView_CodeGlyphText {
+            get {
+                return ResourceManager.GetString("IconographyView_CodeGlyphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search &amp; filter icons.
+        /// </summary>
+        internal static string IconographyView_FilterText {
+            get {
+                return ResourceManager.GetString("IconographyView_FilterText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icon name.
+        /// </summary>
+        internal static string IconographyView_IconNameText {
+            get {
+                return ResourceManager.GetString("IconographyView_IconNameText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icon set.
+        /// </summary>
+        internal static string IconographyView_IconSetText {
+            get {
+                return ResourceManager.GetString("IconographyView_IconSetText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path data.
+        /// </summary>
+        internal static string IconographyView_PathDataText {
+            get {
+                return ResourceManager.GetString("IconographyView_PathDataText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source: .
+        /// </summary>
+        internal static string IconographyView_SourceText {
+            get {
+                return ResourceManager.GetString("IconographyView_SourceText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text glyph.
+        /// </summary>
+        internal static string IconographyView_TextGlyphText {
+            get {
+                return ResourceManager.GetString("IconographyView_TextGlyphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to visible.
+        /// </summary>
+        internal static string IconographyView_VisibleText {
+            get {
+                return ResourceManager.GetString("IconographyView_VisibleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Website.
+        /// </summary>
+        internal static string IconographyView_WebsiteText {
+            get {
+                return ResourceManager.GetString("IconographyView_WebsiteText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Microsoft&apos;s premier open source, cross-platform symbol icon font family..
         /// </summary>
         internal static string IconSetFamily_FluentUISystem_DescriptionText {
