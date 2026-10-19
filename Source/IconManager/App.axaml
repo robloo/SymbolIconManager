@@ -8,8 +8,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://IconManager/Views/DataTemplates.axaml" />
                 <ResourceInclude Source="avares://IconManager/Themes/ControlThemes.axaml" />
+                <ResourceInclude Source="avares://IconManager/Themes/DataTemplates.axaml" />
                 <ResourceInclude Source="avares://IconManager/Themes/Icons.axaml" />
                 <ResourceInclude Source="avares://IconManager/Themes/ThemeDictionary.axaml" />
             </ResourceDictionary.MergedDictionaries>
