@@ -79,6 +79,44 @@
             <GroupBox.Header>
                 <TextBlock
                     Classes="group-header"
+                    Text="{Localize FontBuilderView_FluentUISystemHeaderText}" />
+            </GroupBox.Header>
+            <Grid
+                Grid.ColumnDefinitions="Auto,Auto">
+                <Button
+                    Grid.Column="0"
+                    Width="200"
+                    HorizontalContentAlignment="Center"
+                    Command="{Binding BuildFluentUISystemRegularFontCommand}">
+                    <Button.Content>
+                        <TextBlock
+                            Text="{Localize FontBuilderView_BuildFluentUISystemRegularFontText}"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap" />
+                    </Button.Content>
+                </Button>
+                <Button
+                    Grid.Column="1"
+                    Width="200"
+                    Margin="5,0,0,0"
+                    HorizontalContentAlignment="Center"
+                    Command="{Binding BuildFluentUISystemFilledFontCommand}">
+                    <Button.Content>
+                        <TextBlock
+                            Text="{Localize FontBuilderView_BuildFluentUISystemFilledFontText}"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap" />
+                    </Button.Content>
+                </Button>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox
+            Grid.Row="2"
+            Margin="0,20,0,0">
+            <GroupBox.Header>
+                <TextBlock
+                    Classes="group-header"
                     Text="{Localize FontBuilderView_FluentAvaloniaHeaderText}" />
             </GroupBox.Header>
             <Grid
@@ -125,44 +163,6 @@
                             TextWrapping="Wrap" />
                     </CheckBox.Content>
                 </CheckBox>
-            </Grid>
-        </GroupBox>
-
-        <GroupBox
-            Grid.Row="2"
-            Margin="0,20,0,0">
-            <GroupBox.Header>
-                <TextBlock
-                    Classes="group-header"
-                    Text="{Localize FontBuilderView_FluentUISystemHeaderText}" />
-            </GroupBox.Header>
-            <Grid
-                Grid.ColumnDefinitions="Auto,Auto">
-                <Button
-                    Grid.Column="0"
-                    Width="200"
-                    HorizontalContentAlignment="Center"
-                    Command="{Binding BuildFluentUISystemRegularFontCommand}">
-                    <Button.Content>
-                        <TextBlock
-                            Text="{Localize FontBuilderView_BuildFluentUISystemRegularFontText}"
-                            TextAlignment="Center"
-                            TextWrapping="Wrap" />
-                    </Button.Content>
-                </Button>
-                <Button
-                    Grid.Column="1"
-                    Width="200"
-                    Margin="5,0,0,0"
-                    HorizontalContentAlignment="Center"
-                    Command="{Binding BuildFluentUISystemFilledFontCommand}">
-                    <Button.Content>
-                        <TextBlock
-                            Text="{Localize FontBuilderView_BuildFluentUISystemFilledFontText}"
-                            TextAlignment="Center"
-                            TextWrapping="Wrap" />
-                    </Button.Content>
-                </Button>
             </Grid>
         </GroupBox>
 
