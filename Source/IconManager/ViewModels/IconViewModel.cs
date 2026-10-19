@@ -61,18 +61,30 @@ namespace IconManager
         /// automatically updated based on changes to other properties.
         /// </summary>
         /// <remarks>
-        /// This value is set to false by default for performance reasons.
-        /// In addition, it should always be set to false when changing multiple properties at once.
-        /// This avoids unnecessary (and expensive) recalculation of properties such as Glyph.
-        /// 
-        /// Setting this property to true will not immediately update the glyph and name.
-        /// No updates occur until other properties change.
+        ///   <para>
+        ///     This value is set to false by default for performance reasons.
+        ///     In addition, it should always be set to false when changing multiple properties at once.
+        ///     This avoids unnecessary (and expensive) recalculation of properties such as Glyph.
+        ///   </para>
+        ///   <para>
+        ///     Setting this property to true will not immediately update the glyph and name.
+        ///     No updates occur until other properties change.
+        ///   </para>
         /// </remarks>
         public bool AutoUpdate
         {
             get => field;
             set => this.SetProperty(ref field, value);
         } = false;
+
+        /// <summary>
+        /// Gets or sets a custom glyph renderer that will override the default one.
+        /// </summary>
+        public IGlyphRenderer<GlyphBitmap>? GlyphRenderer
+        {
+            get => field;
+            set => this.SetProperty(ref field, value);
+        } = null;
 
         ///////////////////////////////////////////////////////////
         // Data
@@ -155,7 +167,9 @@ namespace IconManager
         /// </summary>
         public async void UpdateGlyphAsync()
         {
-            this.Glyph = await this._glyphRendererService.RenderGlyphAsync(
+            var renderer = this.GlyphRenderer ?? this._glyphRendererService;
+
+            this.Glyph = await renderer.RenderGlyphAsync(
                 this.IconSet,
                 this.UnicodePoint,
                 this._glyphSourceProviderService,

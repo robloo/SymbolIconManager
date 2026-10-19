@@ -83,12 +83,10 @@ namespace IconManager
 
             var glyphRenderer = new SkiaGlyphRenderer()
             {
+                // Use a white background with black fill for best compatibility
+                // This is visible across both light/dark themes easily and is best for exported images
                 BackgroundColor = SKColors.White,
                 FillColor       = SKColors.Black
-                /*
-                BackgroundColor = SKColors.Transparent,
-                FillColor       = new SKColor(0xFF0F8B8D) // Format: 0xAARRGGBB
-                */
             };
 
             services.AddSingleton<IGlyphSourceProvider>(glyphSourceProvider);

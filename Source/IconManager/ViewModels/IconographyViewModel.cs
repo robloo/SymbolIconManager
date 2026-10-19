@@ -3,9 +3,12 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input.Platform;
 using CommunityToolkit.Mvvm.Input;
+using IconManager.Core.Glyphs;
 using IconManager.Core.Icons;
 using IconManager.IconSets;
+using IconManager.Services;
 using IconManager.Views;
+using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,6 +22,9 @@ namespace IconManager.ViewModels
     /// </summary>
     public partial class IconographyViewModel : ViewModelBase
     {
+        // Services
+        private readonly IGlyphRenderer<GlyphBitmap> _glyphRendererService;
+
         private Dictionary<IconSet, List<IconViewModel>> _cachedIconSets = [];
 
         /***************************************************************************************
@@ -32,6 +38,13 @@ namespace IconManager.ViewModels
         /// </summary>
         public IconographyViewModel()
         {
+            this._glyphRendererService = new SkiaGlyphRenderer()
+            {
+                // Use a transparent background with custom fill for best design
+                BackgroundColor = SKColors.Transparent,
+                FillColor       = new SKColor(0xFF0F8B8D) // Format: 0xAARRGGBB
+            };
+
             this.FillIconSets();
         }
 
@@ -195,7 +208,10 @@ namespace IconManager.ViewModels
                     var icons = IconSetBase.GetIcons(selectedIconSet.Value);
                     for (int i = 0; i < icons.Count; i++)
                     {
-                        var viewModel = new IconViewModel(icons[i]);
+                        var viewModel = new IconViewModel(icons[i])
+                        {
+                            GlyphRenderer = this._glyphRendererService
+                        };
                         viewModel.UpdateGlyphAsync();
 
                         iconViewModels.Add(viewModel);
