@@ -30,10 +30,10 @@ namespace IconManager.Services
         /// </summary>
         public const int DefaultRenderHeight = 64; // Pixels
 
-        private static Dictionary<string, SKFont>      _cachedFonts  = new Dictionary<string, SKFont>();       // IconSet is key
-        private static Dictionary<string, GlyphBitmap> _cachedGlyphs = new Dictionary<string, GlyphBitmap>();  // IconSet_UnicodePoint is key
+        private Dictionary<string, SKFont>      _cachedFonts  = new Dictionary<string, SKFont>();       // IconSet is key
+        private Dictionary<string, GlyphBitmap> _cachedGlyphs = new Dictionary<string, GlyphBitmap>();  // IconSet_UnicodePoint is key
 
-        private static Lock _cacheLock = new();
+        private Lock _cacheLock = new();
 
         /***************************************************************************************
          *
@@ -128,9 +128,9 @@ namespace IconManager.Services
 
             // Attempt to quickly load and return the bitmap from the cache
             // This doesn't respect any input glyph source request, but that's fine for now
-            lock (_cacheLock)
+            lock (this._cacheLock)
             {
-                if (_cachedGlyphs.TryGetValue(glyphKey, out result))
+                if (this._cachedGlyphs.TryGetValue(glyphKey, out result))
                 {
                     return result;
                 }
@@ -164,7 +164,7 @@ namespace IconManager.Services
             {
                 result = await Task.Run<GlyphBitmap?>(async () =>
                 {
-                    var font = SkiaGlyphRenderer.LoadFont(
+                    var font = this.LoadFont(
                         iconSet,
                         glyphSourceProvider,
                         this.RenderWidth);
@@ -286,13 +286,13 @@ namespace IconManager.Services
             // Add any new bitmap to the cache for next time
             if (result is not null)
             {
-                lock (_cacheLock)
+                lock (this._cacheLock)
                 {
                     // It is possible that two renderers for the same glyph are running simultaneously on differing threads
                     // Therefore, within the lock, a check must be made to ensure a glyph was not already added
-                    if (!_cachedGlyphs.ContainsKey(glyphKey))
+                    if (!this._cachedGlyphs.ContainsKey(glyphKey))
                     {
-                        _cachedGlyphs.Add(glyphKey, result);
+                        this._cachedGlyphs.Add(glyphKey, result);
                     }
                 }
             }
@@ -521,7 +521,7 @@ namespace IconManager.Services
         /// <param name="glyphSourceProvider">The glyph source data provider.</param>
         /// <param name="renderWidth">The glyph render size in pixels for the typeface.</param>
         /// <returns>The loaded <see cref="SKFont"/>; otherwise, null.</returns>
-        private static SKFont? LoadFont(
+        private SKFont? LoadFont(
             IconSet iconSet,
             IGlyphSourceProvider glyphSourceProvider,
             uint renderWidth = SkiaGlyphRenderer.DefaultRenderWidth)
@@ -529,9 +529,9 @@ namespace IconManager.Services
             string fontKey = iconSet.ToString();
             SKFont? font;
 
-            lock (_cacheLock)
+            lock (this._cacheLock)
             {
-                if (_cachedFonts.TryGetValue(fontKey, out font))
+                if (this._cachedFonts.TryGetValue(fontKey, out font))
                 {
                     return font;
                 }
@@ -575,12 +575,12 @@ namespace IconManager.Services
 
             if (font is not null)
             {
-                lock (_cacheLock)
+                lock (this._cacheLock)
                 {
                     // It's possible the font was already cached by another thread
-                    if (!_cachedFonts.ContainsKey(fontKey))
+                    if (!this._cachedFonts.ContainsKey(fontKey))
                     {
-                        _cachedFonts.Add(fontKey, font);
+                        this._cachedFonts.Add(fontKey, font);
                     }
                 }
             }
