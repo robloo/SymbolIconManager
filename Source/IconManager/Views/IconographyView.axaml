@@ -198,7 +198,7 @@
                         Padding="2"
                         HorizontalAlignment="Center"
                         Content="Website"
-                        NavigateUri="{Binding IconSet, Converter={StaticResource IconSetUrl}}"
+                        NavigateUri="{Binding IconSet, Converter={StaticResource IconSetInfo}, ConverterParameter={x:Static IconSetInfoType.WebsiteUrl}}"
                         TextElement.FontSize="12" />
 
                     <ScrollViewer

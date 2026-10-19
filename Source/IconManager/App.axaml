@@ -12,8 +12,8 @@
                 <ResourceInclude Source="avares://IconManager/Themes/Icons.axaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <IconSetUrlConverter
-                x:Key="IconSetUrl" />
+            <IconSetInfoConverter
+                x:Key="IconSetInfo" />
             <MatchQualityToBrushConverter
                 x:Key="MatchQualityToBrush" />
             <UIntToHexStringConverter

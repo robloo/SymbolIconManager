@@ -43,7 +43,7 @@
         SegoeMDL2Assets,
 
         /// <summary>
-        /// The Windows 8 Segoe UI Symbol icons (Windows symbols version 1).
+        /// The Windows 8/8.1 Segoe UI Symbol icons (Windows symbols version 1).
         /// </summary>
         /// <remarks>
         /// https://docs.microsoft.com/en-us/previous-versions/windows/apps/jj841127(v=win.10).
