@@ -9,6 +9,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceInclude Source="avares://IconManager/Views/DataTemplates.axaml" />
+                <ResourceInclude Source="avares://IconManager/Themes/Icons.axaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <IconSetUrlConverter
