@@ -341,7 +341,35 @@ namespace IconManager.Services
                         .Select(e => (string?)e.Attribute("d"))
                         .Where(d => !string.IsNullOrWhiteSpace(d)));
 
-                using SKSvg svg = SKSvg.CreateFromSvg(svgText);
+                // Modify the SVG XML text directly to change the fill color
+                // The fill will be overridden on every path and will also include inline styles
+                string fillHex = $"#{fillColor.Red:X2}{fillColor.Green:X2}{fillColor.Blue:X2}";
+                var svgPaths = svgXml
+                    .Descendants()
+                    .Where(e => e.Name.LocalName == "path");
+
+                foreach (XElement pathElement in svgPaths)
+                {
+                    pathElement.SetAttributeValue("fill", fillHex);
+
+                    // Override an existing inline fill style
+                    var style = (string?)pathElement.Attribute("style");
+                    if (!string.IsNullOrWhiteSpace(style))
+                    {
+                        var declarations = style
+                            .Split(';')
+                            .Where(s => !s.TrimStart().StartsWith(
+                                "fill:", StringComparison.OrdinalIgnoreCase));
+
+                        pathElement.SetAttributeValue(
+                            "style",
+                            string.Join(";", declarations) + $";fill:{fillHex}");
+                    }
+                }
+
+                // Load the SVG image
+                string modifiedSvgText = svgXml.ToString(SaveOptions.DisableFormatting);
+                using SKSvg svg = SKSvg.CreateFromSvg(modifiedSvgText);
                 var svgPicture = svg.Picture;
 
                 if (svgPicture is null)
