@@ -5,10 +5,11 @@
     <DataTemplate
         x:Key="IconDataTemplate"
         x:DataType="IconViewModel">
+        <!-- The overall width/height is chosen to align with the default app window size -->
         <Grid
             RowDefinitions="Auto,*,Auto"
-            Width="110"
-            Height="110"
+            Width="105"
+            Height="105"
             Background="Transparent"
             ToolTip.Tip="{Binding Name}">
             <TextBlock
