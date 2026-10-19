@@ -86,13 +86,13 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Foreground="{DynamicResource TextControlForegroundDisabled}"
-                        IsVisible="{Binding !!DisplayedIcons.Count}">
-                        <Run Text="{Localize Key=AppToolsView_CountText}" /><Run Text="{Binding DisplayedIcons.Count}" />
+                        IsVisible="{Binding !!Icons.Count}">
+                        <Run Text="{Localize Key=AppToolsView_CountText}" /><Run Text="{Binding Icons.Count}" />
                     </TextBlock>
                     <Button
                         IsEnabled="{Binding SourceDirectory, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                         ToolTip.Tip="{Localize Key=AppToolsView_FindIconsToolTipText, FallbackValue='&lt;missing&gt;'}"
-                        Command="{Binding ListIconsCommand}">
+                        Command="{Binding FindIconsCommand}">
                         <StackPanel
                             Orientation="Horizontal"
                             Spacing="4">
@@ -112,7 +112,7 @@
                         Command="{Binding RemapIconsCommand}" />
 
                     <Button
-                        IsEnabled="{Binding !!DisplayedIcons.Count}"
+                        IsEnabled="{Binding !!Icons.Count}"
                         ToolTip.Tip="{Localize Key=AppToolsView_ExportToMappingsToolTipText, FallbackValue='&lt;missing&gt;'}"
                         Command="{Binding ExportToMappingsCommand}">
                         <StackPanel
@@ -128,7 +128,7 @@
                     </Button>
 
                     <Button
-                        IsEnabled="{Binding !!DisplayedIcons.Count}"
+                        IsEnabled="{Binding !!Icons.Count}"
                         ToolTip.Tip="{Localize Key=AppToolsView_ExportToImagesToolTipText, FallbackValue='&lt;missing&gt;'}"
                         Command="{Binding ExportToImagesCommand}">
                         <StackPanel
@@ -168,7 +168,7 @@
                 VerticalAlignment="Stretch"
                 ItemContainerTheme="{StaticResource IconContainerTheme}"
                 ItemTemplate="{StaticResource IconDataTemplate}"
-                ItemsSource="{Binding DisplayedIcons}">
+                ItemsSource="{Binding Icons}">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <!-- TODO: Replace with Avalonia.Labs VirtualizingWrapPanel when released -->

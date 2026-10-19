@@ -61,9 +61,9 @@ namespace IconManager.ViewModels
          ***************************************************************************************/
 
         /// <summary>
-        /// Gets the list of icons to display.
+        /// Gets the list of displayed icons that were found in the source code.
         /// </summary>
-        public ObservableCollection<IconViewModel> DisplayedIcons { get; } = [];
+        public ObservableCollection<IconViewModel> Icons { get; } = [];
 
         /// <summary>
         /// Gets the source code (both XAML/C#) directory path selected by the user.
@@ -126,17 +126,17 @@ namespace IconManager.ViewModels
         /// This may be restricted to a specified icon set using <see cref="SelectedSourceIconSet"/>.
         /// </summary>
         [RelayCommand]
-        public void ListIcons()
+        public void FindIcons()
         {
             var selectedIconSet = this.SelectedSourceIconSet?.IconSet;
             var usedGlyphs = this.ListUsedIcons(selectedIconSet ?? IconSet.Undefined);
 
             // Update the listed glyphs for display to the user
-            this.DisplayedIcons.Clear();
+            this.Icons.Clear();
             foreach (var entry in usedGlyphs)
             {
                 entry.UpdateGlyphAsync();
-                this.DisplayedIcons.Add(entry);
+                this.Icons.Add(entry);
             }
 
             return;
@@ -164,7 +164,7 @@ namespace IconManager.ViewModels
         [RelayCommand]
         public async Task ExportToImages()
         {
-            if (this.DisplayedIcons.Count <= 0)
+            if (this.Icons.Count <= 0)
             {
                 return;
             }
@@ -187,7 +187,7 @@ namespace IconManager.ViewModels
                     Directory.CreateDirectory(directoryName);
                 }
 
-                foreach (IconViewModel viewModel in this.DisplayedIcons)
+                foreach (IconViewModel viewModel in this.Icons)
                 {
                     string filePath = Path.Combine(path, viewModel.UnicodeHexString.ToLowerInvariant() + ".png");
 
@@ -359,7 +359,7 @@ namespace IconManager.ViewModels
         [RelayCommand]
         public async Task ExportToMappings()
         {
-            if (this.DisplayedIcons.Count <= 0)
+            if (this.Icons.Count <= 0)
             {
                 return;
             }
@@ -392,7 +392,7 @@ namespace IconManager.ViewModels
                 {
                     var mappings = new IconMappingList();
 
-                    foreach (IconViewModel viewModel in this.DisplayedIcons)
+                    foreach (IconViewModel viewModel in this.Icons)
                     {
                         var mapping = new IconMapping()
                         {
