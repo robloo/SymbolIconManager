@@ -234,28 +234,54 @@
                                 CommandParameter="{Binding Name}" />
 
                             <!-- Icon Set -->
-                            <StackPanel
+                            <Grid
                                 Grid.Row="1"
-                                Orientation="Vertical"
-                                Margin="0,0,32,0"
-                                Spacing="2">
+                                RowDefinitions="Auto,2,Auto"
+                                ColumnDefinitions="Auto,*"
+                                Margin="0,0,32,0">
                                 <TextBlock
+                                    Grid.Row="0"
+                                    Grid.Column="0"
                                     FontSize="12"
                                     Foreground="{DynamicResource TextControlForegroundDisabled}"
                                     Text="Icon set" />
                                 <SelectableTextBlock
+                                    x:Name="IconSetTextBlock"
+                                    Grid.Row="2"
+                                    Grid.Column="0"
                                     FontSize="15"
                                     FontWeight="SemiBold"
-                                    Text="{Binding IconSet}"
+                                    Text="{Binding IconSet, Converter={StaticResource IconSetInfo}, ConverterParameter={x:Static IconSetInfoType.Name}}"
                                     TextTrimming="CharacterEllipsis" />
-                            </StackPanel>
+                                <Border
+                                    Grid.Row="0"
+                                    Grid.RowSpan="3"
+                                    Grid.Column="1"
+                                    Margin="4,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Bottom"
+                                    Background="Transparent"
+                                    ToolTip.Tip="{Binding IconSet, Converter={StaticResource IconSetInfo}, ConverterParameter={x:Static IconSetInfoType.Description}}">
+                                    <Viewbox
+                                        Width="20"
+                                        Height="20"
+                                        Stretch="Uniform"
+                                        StretchDirection="Both">
+                                        <Path
+                                            Width="20"
+                                            Height="20"
+                                            Data="{StaticResource ic_fluent_info_20_regular}"
+                                            Fill="{DynamicResource TextControlForegroundDisabled}" />
+                                    </Viewbox>
+                                </Border>
+                            </Grid>
                             <Button
                                 Grid.Row="1"
                                 Classes="copy"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Top"
                                 Command="{Binding #LayoutRoot.DataContext.CopyTextCommand}"
-                                CommandParameter="{Binding IconSet}" />
+                                CommandParameter="{Binding #IconSetTextBlock.Text}" />
 
                             <!-- Text Glyph -->
                             <StackPanel
