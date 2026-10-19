@@ -158,7 +158,7 @@
                     </Button.Content>
                     <Button.Flyout>
                         <MenuFlyout
-                            Placement="BottomEdgeAlignedLeft">
+                            Placement="BottomEdgeAlignedRight">
                             <MenuItem
                                 Header="{Localize Key=MappingEditorView_MergeInText, FallbackValue='&lt;missing&gt;'}"
                                 ToolTip.Tip="{Localize Key=MappingEditorView_MergeInToolTipText, FallbackValue='&lt;missing&gt;'}"

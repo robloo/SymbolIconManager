@@ -293,4 +293,7 @@
   <data name="MappingEditorView_SaveMappingsToolTipText" xml:space="preserve">
     <value>Saves all mappings in the editor into a new JSON file.</value>
   </data>
+  <data name="AppToolsView_ExportText" xml:space="preserve">
+    <value>Export...</value>
+  </data>
 </root>

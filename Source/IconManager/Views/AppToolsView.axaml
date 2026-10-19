@@ -111,43 +111,54 @@
                         IsVisible="False"
                         Command="{Binding RemapIconsCommand}" />
 
-                    <Button
-                        IsEnabled="{Binding !!Icons.Count}"
-                        ToolTip.Tip="{Localize Key=AppToolsView_ExportToMappingsToolTipText, FallbackValue='&lt;missing&gt;'}"
-                        Command="{Binding ExportToMappingsCommand}">
-                        <StackPanel
-                            Orientation="Horizontal"
-                            Spacing="4">
-                            <PathIcon
-                                Width="{StaticResource PathIconSize}"
-                                Height="{StaticResource PathIconSize}"
-                                Data="{StaticResource ic_fluent_document_20_regular}" />
-                            <TextBlock
-                                Text="{Localize Key=AppToolsView_ExportToMappingsText, FallbackValue='&lt;missing&gt;'}" />
-                        </StackPanel>
-                    </Button>
-
-                    <Button
-                        IsEnabled="{Binding !!Icons.Count}"
-                        ToolTip.Tip="{Localize Key=AppToolsView_ExportToImagesToolTipText, FallbackValue='&lt;missing&gt;'}"
-                        Command="{Binding ExportToImagesCommand}">
-                        <StackPanel
-                            Orientation="Horizontal"
-                            Spacing="4">
-                            <PathIcon
-                                Width="{StaticResource PathIconSize}"
-                                Height="{StaticResource PathIconSize}"
-                                Data="{StaticResource ic_fluent_image_20_regular}" />
-                            <TextBlock
-                                Text="{Localize Key=AppToolsView_ExportToImagesText, FallbackValue='&lt;missing&gt;'}" />
-                        </StackPanel>
-                    </Button>
-
                     <!-- Disabled: Not general-purpose -->
                     <Button
                         Content="{Localize Key=AppToolsView_ExportFileToImagesText, FallbackValue='&lt;missing&gt;'}"
                         IsVisible="False"
                         Command="{Binding ExportFileToImagesCommand}" />
+
+                    <!-- Unified Export Menu -->
+                    <Button
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center">
+                        <Button.Content>
+                            <StackPanel
+                                Orientation="Horizontal"
+                                Spacing="4">
+                                <PathIcon
+                                    Width="{StaticResource PathIconSize}"
+                                    Height="{StaticResource PathIconSize}"
+                                    Data="{StaticResource ic_fluent_arrow_export_ltr_20_regular}" />
+                                <TextBlock
+                                    Text="{Localize Key=AppToolsView_ExportText, FallbackValue='&lt;missing&gt;'}" />
+                            </StackPanel>
+                        </Button.Content>
+                        <Button.Flyout>
+                            <MenuFlyout
+                                Placement="BottomEdgeAlignedRight">
+                                <MenuItem
+                                    Header="{Localize Key=AppToolsView_ExportToMappingsText, FallbackValue='&lt;missing&gt;'}"
+                                    IsEnabled="{Binding !!Icons.Count}"
+                                    ToolTip.Tip="{Localize Key=AppToolsView_ExportToMappingsToolTipText, FallbackValue='&lt;missing&gt;'}"
+                                    Command="{Binding ExportToMappingsCommand}">
+                                    <MenuItem.Icon>
+                                        <PathIcon
+                                            Data="{StaticResource ic_fluent_document_20_regular}" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem
+                                    Header="{Localize Key=AppToolsView_ExportToImagesText, FallbackValue='&lt;missing&gt;'}"
+                                    IsEnabled="{Binding !!Icons.Count}"
+                                    ToolTip.Tip="{Localize Key=AppToolsView_ExportToImagesToolTipText, FallbackValue='&lt;missing&gt;'}"
+                                    Command="{Binding ExportToImagesCommand}">
+                                    <MenuItem.Icon>
+                                        <PathIcon
+                                            Data="{StaticResource ic_fluent_image_20_regular}" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </MenuFlyout>
+                        </Button.Flyout>
+                    </Button>
 
                 </StackPanel>
 

@@ -79,6 +79,15 @@ namespace IconManager.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Export....
+        /// </summary>
+        internal static string AppToolsView_ExportText {
+            get {
+                return ResourceManager.GetString("AppToolsView_ExportText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Export to Images.
         /// </summary>
         internal static string AppToolsView_ExportToImagesText {
