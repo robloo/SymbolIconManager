@@ -367,11 +367,29 @@ namespace IconManager.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Constructs a new font using the defined mappings in the editor. The output font location, including all data and scripts, will be automatically opened..
+        /// </summary>
+        internal static string MappingEditorView_BuildFontToolTipText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_BuildFontToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clear.
         /// </summary>
         internal static string MappingEditorView_ClearMappingsText {
             get {
                 return ResourceManager.GetString("MappingEditorView_ClearMappingsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clears all mappings and resets the editor..
+        /// </summary>
+        internal static string MappingEditorView_ClearMappingsToolTipText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_ClearMappingsToolTipText", resourceCulture);
             }
         }
         
@@ -403,6 +421,15 @@ namespace IconManager.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The visual similarity between the two icons in the mapping..
+        /// </summary>
+        internal static string MappingEditorView_GlyphMatchQualityDescriptionText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_GlyphMatchQualityDescriptionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GlyphMatchQuality.
         /// </summary>
         internal static string MappingEditorView_GlyphMatchQualityText {
@@ -421,7 +448,7 @@ namespace IconManager.Resources.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Help with MatchQuality.
+        ///   Looks up a localized string similar to docs.
         /// </summary>
         internal static string MappingEditorView_MatchQualityHelpText {
             get {
@@ -435,6 +462,24 @@ namespace IconManager.Resources.Strings {
         internal static string MappingEditorView_MergeInText {
             get {
                 return ResourceManager.GetString("MappingEditorView_MergeInText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Merges mappings from an existing JSON file into the editor. All mappings currently in the editor and in the selected file will be kept..
+        /// </summary>
+        internal static string MappingEditorView_MergeInToolTipText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_MergeInToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The conceptual similarity (purpose/meaning) between the two icons in the mapping..
+        /// </summary>
+        internal static string MappingEditorView_MetaphorMatchQualityDescriptionText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_MetaphorMatchQualityDescriptionText", resourceCulture);
             }
         }
         
@@ -457,11 +502,29 @@ namespace IconManager.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Opens an existing JSON mappings file for editing..
+        /// </summary>
+        internal static string MappingEditorView_OpenMappingsToolTipText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_OpenMappingsToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         internal static string MappingEditorView_SaveMappingsText {
             get {
                 return ResourceManager.GetString("MappingEditorView_SaveMappingsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saves all mappings in the editor into a new JSON file..
+        /// </summary>
+        internal static string MappingEditorView_SaveMappingsToolTipText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_SaveMappingsToolTipText", resourceCulture);
             }
         }
         
@@ -480,6 +543,15 @@ namespace IconManager.Resources.Strings {
         internal static string MappingEditorView_UpdateDeprecatedIconsText {
             get {
                 return ResourceManager.GetString("MappingEditorView_UpdateDeprecatedIconsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scans all mappings in the editor and updates any known deprecated icons. Only certain icon sets are supported..
+        /// </summary>
+        internal static string MappingEditorView_UpdateDeprecatedIconsToolTipText {
+            get {
+                return ResourceManager.GetString("MappingEditorView_UpdateDeprecatedIconsToolTipText", resourceCulture);
             }
         }
         

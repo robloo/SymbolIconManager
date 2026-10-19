@@ -69,6 +69,7 @@
                 <SplitButton
                     MinWidth="100"
                     HorizontalContentAlignment="Center"
+                    ToolTip.Tip="{Localize Key=MappingEditorView_OpenMappingsToolTipText, FallbackValue='&lt;missing&gt;'}"
                     Command="{Binding OpenMappingsCommand}">
                     <SplitButton.Content>
                         <StackPanel
@@ -112,6 +113,7 @@
                     Margin="5,0,0,0"
                     HorizontalContentAlignment="Center"
                     IsEnabled="{Binding !!Mappings.Count}"
+                    ToolTip.Tip="{Localize Key=MappingEditorView_SaveMappingsToolTipText, FallbackValue='&lt;missing&gt;'}"
                     Command="{Binding SaveMappingsCommand}">
                     <StackPanel
                         Orientation="Horizontal"
@@ -130,6 +132,7 @@
                     Margin="5,0,0,0"
                     HorizontalContentAlignment="Center"
                     IsEnabled="{Binding !!Mappings.Count}"
+                    ToolTip.Tip="{Localize Key=MappingEditorView_ClearMappingsToolTipText, FallbackValue='&lt;missing&gt;'}"
                     Command="{Binding ClearMappingsCommand}">
                     <StackPanel
                         Orientation="Horizontal"
@@ -158,6 +161,7 @@
                             Placement="BottomEdgeAlignedLeft">
                             <MenuItem
                                 Header="{Localize Key=MappingEditorView_MergeInText, FallbackValue='&lt;missing&gt;'}"
+                                ToolTip.Tip="{Localize Key=MappingEditorView_MergeInToolTipText, FallbackValue='&lt;missing&gt;'}"
                                 Command="{Binding MergeInMappingsCommand}">
                                 <MenuItem.Icon>
                                     <PathIcon
@@ -167,6 +171,7 @@
                             <MenuItem
                                 Header="{Localize Key=MappingEditorView_UpdateDeprecatedIconsText, FallbackValue='&lt;missing&gt;'}"
                                 IsEnabled="{Binding !!Mappings.Count}"
+                                ToolTip.Tip="{Localize Key=MappingEditorView_UpdateDeprecatedIconsToolTipText, FallbackValue='&lt;missing&gt;'}"
                                 Command="{Binding UpdateDeprecatedIconsCommand}">
                                 <MenuItem.Icon>
                                     <PathIcon
@@ -178,6 +183,7 @@
                             <MenuItem
                                 Header="{Localize Key=MappingEditorView_BuildFontText, FallbackValue='&lt;missing&gt;'}"
                                 IsEnabled="{Binding !!Mappings.Count}"
+                                ToolTip.Tip="{Localize Key=MappingEditorView_BuildFontToolTipText, FallbackValue='&lt;missing&gt;'}"
                                 Command="{Binding BuildFontCommand}">
                                 <MenuItem.Icon>
                                     <PathIcon
@@ -222,8 +228,13 @@
                             <!-- Source Icon -->
                             <GroupBox
                                 Grid.Row="0"
-                                Grid.Column="0"
-                                Header="{Localize Key=MappingEditorView_SourceText, FallbackValue='&lt;missing&gt;'}">
+                                Grid.Column="0">
+                                <GroupBox.Header>
+                                    <TextBlock
+                                        Text="{Localize Key=MappingEditorView_SourceText, FallbackValue='&lt;missing&gt;'}"
+                                        TextElement.FontSize="14"
+                                        TextElement.FontWeight="SemiBold" />
+                                </GroupBox.Header>
                                 <Grid
                                     RowDefinitions="1*,32"
                                     ColumnDefinitions="Auto,10,300,100">
@@ -273,8 +284,13 @@
                             <!-- Destination Icon -->
                             <GroupBox
                                 Grid.Row="1"
-                                Grid.Column="0"
-                                Header="{Localize Key=MappingEditorView_DestinationText, FallbackValue='&lt;missing&gt;'}">
+                                Grid.Column="0">
+                                <GroupBox.Header>
+                                    <TextBlock
+                                        Text="{Localize Key=MappingEditorView_DestinationText, FallbackValue='&lt;missing&gt;'}"
+                                        TextElement.FontSize="14"
+                                        TextElement.FontWeight="SemiBold" />
+                                </GroupBox.Header>
                                 <Grid
                                     RowDefinitions="1*,32"
                                     ColumnDefinitions="Auto,10,300,100">
@@ -327,12 +343,36 @@
                                 Grid.RowSpan="2"
                                 Grid.Column="1"
                                 Margin="10,0,0,0"
-                                Grid.ColumnDefinitions="175,175,175"
-                                Grid.RowDefinitions="Auto,Auto,Auto,*">
-                                <TextBlock
+                                Grid.ColumnDefinitions="200,5,200,150"
+                                Grid.RowDefinitions="Auto,Auto,*">
+
+                                <!-- GlyphMatchQuality -->
+                                <StackPanel
                                     Grid.Row="0"
                                     Grid.Column="0"
-                                    Text="{Localize Key=MappingEditorView_GlyphMatchQualityText, FallbackValue='&lt;missing&gt;'}" />
+                                    Orientation="Horizontal">
+                                    <TextBlock
+                                        Margin="2,0,0,-4"
+                                        Text="{Localize Key=MappingEditorView_GlyphMatchQualityText, FallbackValue='&lt;missing&gt;'}" />
+                                    <Border
+                                        Margin="4,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Background="Transparent"
+                                        ToolTip.Tip="{Localize Key=MappingEditorView_GlyphMatchQualityDescriptionText}">
+                                        <PathIcon
+                                            Width="{StaticResource PathIconSize}"
+                                            Height="{StaticResource PathIconSize}"
+                                            Data="{StaticResource ic_fluent_info_20_regular}"
+                                            Foreground="{DynamicResource TextControlForegroundDisabled}" />
+                                    </Border>
+                                    <HyperlinkButton
+                                        Margin="4,0,0,0"
+                                        Padding="2"
+                                        VerticalAlignment="Center"
+                                        Content="{Localize Key=MappingEditorView_MatchQualityHelpText, FallbackValue='&lt;missing&gt;'}"
+                                        NavigateUri="https://github.com/robloo/SymbolIconManager/blob/main/Docs/IconMapping.md#match-quality-values"
+                                        TextElement.FontSize="11" />
+                                </StackPanel>
                                 <ComboBox
                                     Grid.Row="1"
                                     Grid.Column="0"
@@ -340,49 +380,57 @@
                                     Background="{Binding GlyphMatchQuality, Mode=OneWay, Converter={StaticResource MatchQualityToBrush}}"
                                     ItemsSource="{Binding GlyphMatchQualityOptions}"
                                     SelectedItem="{Binding GlyphMatchQuality, Mode=TwoWay}" />
-                                <TextBlock
+
+                                <!-- MetaphorMatchQuality -->
+                                <StackPanel
                                     Grid.Row="0"
-                                    Grid.Column="1"
-                                    Margin="5,0,0,0"
-                                    Text="{Localize Key=MappingEditorView_MetaphorMatchQualityText, FallbackValue='&lt;missing&gt;'}" />
+                                    Grid.Column="2"
+                                    Orientation="Horizontal">
+                                    <TextBlock
+                                        Margin="2,0,0,-4"
+                                        Text="{Localize Key=MappingEditorView_MetaphorMatchQualityText, FallbackValue='&lt;missing&gt;'}" />
+                                    <Border
+                                        Margin="4,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Background="Transparent"
+                                        ToolTip.Tip="{Localize Key=MappingEditorView_MetaphorMatchQualityDescriptionText}">
+                                        <PathIcon
+                                            Width="{StaticResource PathIconSize}"
+                                            Height="{StaticResource PathIconSize}"
+                                            Data="{StaticResource ic_fluent_info_20_regular}"
+                                            Foreground="{DynamicResource TextControlForegroundDisabled}" />
+                                    </Border>
+                                    <HyperlinkButton
+                                        Margin="4,0,0,0"
+                                        Padding="2"
+                                        VerticalAlignment="Center"
+                                        Content="{Localize Key=MappingEditorView_MatchQualityHelpText, FallbackValue='&lt;missing&gt;'}"
+                                        NavigateUri="https://github.com/robloo/SymbolIconManager/blob/main/Docs/IconMapping.md#match-quality-values"
+                                        TextElement.FontSize="11" />
+                                </StackPanel>
                                 <ComboBox
                                     Grid.Row="1"
-                                    Grid.Column="1"
-                                    Margin="5,0,0,0"
+                                    Grid.Column="2"
                                     HorizontalAlignment="Stretch"
                                     Background="{Binding MetaphorMatchQuality, Mode=OneWay, Converter={StaticResource MatchQualityToBrush}}"
                                     ItemsSource="{Binding MetaphorMatchQualityOptions}"
                                     SelectedItem="{Binding MetaphorMatchQuality, Mode=TwoWay}" />
+
+                                <!-- IsPlaceholder -->
                                 <CheckBox
                                     Grid.Row="0"
-                                    Grid.RowSpan="3"
-                                    Grid.Column="2"
+                                    Grid.RowSpan="2"
+                                    Grid.Column="3"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                     Content="{Localize Key=MappingEditorView_IsPlaceholderText, FallbackValue='&lt;missing&gt;'}"
                                     IsChecked="{Binding IsPlaceholder, Mode=TwoWay}" />
-                                <HyperlinkButton
-                                    x:Name="MatchQualityHelpButton"
+
+                                <!-- Comments -->
+                                <TextBox
                                     Grid.Row="2"
                                     Grid.Column="0"
-                                    Grid.ColumnSpan="2"
-                                    Height="15"
-                                    Padding="0"
-                                    HorizontalAlignment="Stretch"
-                                    HorizontalContentAlignment="Left"
-                                    NavigateUri="https://github.com/robloo/SymbolIconManager/blob/main/Docs/IconMapping.md#match-quality-values">
-                                    <HyperlinkButton.Content>
-                                        <Viewbox
-                                            Stretch="Uniform">
-                                            <TextBlock
-                                                Text="{Localize Key=MappingEditorView_MatchQualityHelpText, FallbackValue='&lt;missing&gt;'}" />
-                                        </Viewbox>
-                                    </HyperlinkButton.Content>
-                                </HyperlinkButton>
-                                <TextBox
-                                    Grid.Row="3"
-                                    Grid.Column="0"
-                                    Grid.ColumnSpan="3"
+                                    Grid.ColumnSpan="4"
                                     Margin="0,2,0,0"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"

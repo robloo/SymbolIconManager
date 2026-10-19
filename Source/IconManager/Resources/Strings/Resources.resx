@@ -249,7 +249,7 @@
     <value>Save</value>
   </data>
   <data name="MappingEditorView_MatchQualityHelpText" xml:space="preserve">
-    <value>Help with MatchQuality</value>
+    <value>docs</value>
   </data>
   <data name="MappingEditorView_CommentsText" xml:space="preserve">
     <value>Comments</value>
@@ -268,5 +268,29 @@
   </data>
   <data name="MappingEditorView_DestinationText" xml:space="preserve">
     <value>Destination</value>
+  </data>
+  <data name="MappingEditorView_GlyphMatchQualityDescriptionText" xml:space="preserve">
+    <value>The visual similarity between the two icons in the mapping.</value>
+  </data>
+  <data name="MappingEditorView_MetaphorMatchQualityDescriptionText" xml:space="preserve">
+    <value>The conceptual similarity (purpose/meaning) between the two icons in the mapping.</value>
+  </data>
+  <data name="MappingEditorView_MergeInToolTipText" xml:space="preserve">
+    <value>Merges mappings from an existing JSON file into the editor. All mappings currently in the editor and in the selected file will be kept.</value>
+  </data>
+  <data name="MappingEditorView_BuildFontToolTipText" xml:space="preserve">
+    <value>Constructs a new font using the defined mappings in the editor. The output font location, including all data and scripts, will be automatically opened.</value>
+  </data>
+  <data name="MappingEditorView_UpdateDeprecatedIconsToolTipText" xml:space="preserve">
+    <value>Scans all mappings in the editor and updates any known deprecated icons. Only certain icon sets are supported.</value>
+  </data>
+  <data name="MappingEditorView_ClearMappingsToolTipText" xml:space="preserve">
+    <value>Clears all mappings and resets the editor.</value>
+  </data>
+  <data name="MappingEditorView_OpenMappingsToolTipText" xml:space="preserve">
+    <value>Opens an existing JSON mappings file for editing.</value>
+  </data>
+  <data name="MappingEditorView_SaveMappingsToolTipText" xml:space="preserve">
+    <value>Saves all mappings in the editor into a new JSON file.</value>
   </data>
 </root>
