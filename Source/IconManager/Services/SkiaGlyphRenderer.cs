@@ -106,7 +106,7 @@ namespace IconManager.Services
             GlyphBitmap? result = null;
             var glyphSources = glyphSourceProvider.GetGlyphSources(
                 iconSet,
-                unicodePoint);
+                unicodePoint).ToList();
 
             if (iconSet == IconSet.Undefined ||
                 glyphSources.Count == 0)
@@ -114,23 +114,21 @@ namespace IconManager.Services
                 return null;
             }
 
-            // Restrict the glyph source if an input request was given
-            // Note that this is ONLY a request and if it cannot be honored standard
-            // glyph sources will still be used as a fallback
-            if (glyphSource != GlyphSource.None &&
-                glyphSources.Contains(glyphSource))
-            {
-                glyphSources = new List<GlyphSource>
-                {
-                    glyphSource
-                };
-            }
-
             // Attempt to quickly load and return the bitmap from the cache
-            // This doesn't respect any input glyph source request, but that's fine for now
+            // This handles the following cases:
+            //   1. No glyph source requested                        ->  Return the cached bitmap
+            //   2. Requested glyph source matches the cached bitmap ->  Return the cached bitmap
+            //   3. Requested glyph source is unavailable            ->  Return the cached bitmap as a fallback
+            // 
+            // If the requested glyph source is available, but the cached bitmap came from another source,
+            // the cached bitmap will be skipped and rendered/cached again. Only the latest bitmap for all
+            // glyph source exists in the cache at a given time.
             lock (this._cacheLock)
             {
-                if (this._cachedGlyphs.TryGetValue(glyphKey, out result))
+                if (this._cachedGlyphs.TryGetValue(glyphKey, out result) &&
+                    (glyphSource == GlyphSource.None ||
+                     result.Source == glyphSource ||
+                     !glyphSources.Contains(glyphSource)))
                 {
                     return result;
                 }
@@ -158,71 +156,124 @@ namespace IconManager.Services
             //   Source files (whether SVG or PNG) are not packaged either.
             //   To work around this, preview images are loaded from Microsoft's website on-demand.
 
-            // Attempt to render from a Font
-            if (result is null &&
-                glyphSources.Contains(GlyphSource.LocalFontFile))
-            {
-                result = await Task.Run<GlyphBitmap?>(async () =>
+            // Prioritize glyph sources
+            glyphSources = glyphSources
+                .Distinct()
+                .OrderBy(source => source switch
                 {
-                    var font = this.LoadFont(
+                    GlyphSource.LocalFontFile  => 0,
+                    GlyphSource.LocalSvgFile   => 1,
+                    GlyphSource.RemoteSvgFile  => 2,
+                    GlyphSource.RemotePngFile  => 3,
+                    _                          => 4
+                })
+                .ToList();
+
+            // Prioritize any input glyph source if a request was provided
+            // Note that this is ONLY a request and if it cannot be honored standard
+            // glyph sources will still be used as a fallback
+            if (glyphSource != GlyphSource.None &&
+                glyphSources.Contains(glyphSource))
+            {
+                glyphSources.Remove(glyphSource);
+                glyphSources.Insert(0, glyphSource);
+            }
+
+            // Render the glyph
+            foreach (GlyphSource source in glyphSources)
+            {
+                try
+                {
+                    result = await this.RenderGlyphFromSourceAsync(
+                        iconSet,
+                        unicodePoint,
+                        glyphSourceProvider,
+                        source);
+                }
+                catch { }
+
+                if (result is not null)
+                {
+                    break;
+                }
+            }
+
+            // Add any new bitmap to the cache for next time
+            if (result is not null)
+            {
+                lock (this._cacheLock)
+                {
+                    // It is possible that two renderers for the same glyph are running simultaneously on differing threads
+                    // Therefore, within the lock, a check must be made to ensure a glyph was not already added
+                    if (!this._cachedGlyphs.ContainsKey(glyphKey))
+                    {
+                        this._cachedGlyphs.Add(glyphKey, result);
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        /***************************************************************************************
+         *
+         * Private Methods
+         *
+         ***************************************************************************************/
+
+        /// <summary>
+        /// Renders a glyph using an explicit source.
+        /// </summary>
+        private async Task<GlyphBitmap?> RenderGlyphFromSourceAsync(
+            IconSet iconSet,
+            uint unicodePoint,
+            IGlyphSourceProvider glyphSourceProvider,
+            GlyphSource glyphSource)
+        {
+            // Attempt to render from a Font
+            if (glyphSource == GlyphSource.LocalFontFile)
+            {
+                SKFont? font = await Task.Run(() =>
+                    this.LoadFont(
                         iconSet,
                         glyphSourceProvider,
-                        this.RenderWidth);
+                        this.RenderWidth));
 
-                    if (font is not null)
+                if (font is not null)
+                {
+                    GlyphBitmap? glyphBitmap = await SkiaGlyphRenderer.RenderGlyphFromFontAsync(
+                        font,
+                        unicodePoint,
+                        this.BackgroundColor,
+                        this.FillColor,
+                        this.RenderWidth,
+                        this.RenderHeight);
+
+                    if (glyphBitmap is not null)
                     {
-                        GlyphBitmap? glyphBitmap = await SkiaGlyphRenderer.RenderGlyphFromFontAsync(
-                            font,
-                            unicodePoint,
-                            this.BackgroundColor,
-                            this.FillColor,
-                            this.RenderWidth,
-                            this.RenderHeight);
+                        // Apply glyph metadata
+                        glyphBitmap.IconSet      = iconSet;
+                        // PathData is already set
+                        // PathViewBox is already set
+                        glyphBitmap.Source       = GlyphSource.LocalFontFile;
+                        glyphBitmap.SourceUri    = null;
+                        glyphBitmap.UnicodePoint = unicodePoint;
 
-                        if (glyphBitmap is not null)
-                        {
-                            // Apply glyph metadata
-                            glyphBitmap.IconSet      = iconSet;
-                            // PathData is already set
-                            // PathViewBox is already set
-                            glyphBitmap.Source       = GlyphSource.LocalFontFile;
-                            glyphBitmap.SourceUri    = null;
-                            glyphBitmap.UnicodePoint = unicodePoint;
-
-                            return glyphBitmap;
-                        }
+                        return glyphBitmap;
                     }
-
-                    return null;
-                });
+                }
             }
 
             // Attempt to render from an SVG file
-            if (result is null &&
-                (glyphSources.Contains(GlyphSource.LocalSvgFile) ||
-                 glyphSources.Contains(GlyphSource.RemoteSvgFile)))
+            if (glyphSource == GlyphSource.LocalSvgFile ||
+                glyphSource == GlyphSource.RemoteSvgFile)
             {
-                result = await Task.Run<GlyphBitmap?>(async () =>
+                return await Task.Run(async () =>
                 {
-                    GlyphStream? svgStream = null;
-
-                    if (svgStream is null &&
-                        glyphSources.Contains(GlyphSource.LocalSvgFile))
-                    {
-                        svgStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(
-                            iconSet,
-                            unicodePoint,
-                            GlyphSource.LocalSvgFile);
-                    }
-
-                    if (svgStream is null &&
-                        glyphSources.Contains(GlyphSource.RemoteSvgFile))
-                    {
-                        svgStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(
-                            iconSet,
-                            unicodePoint,
-                            GlyphSource.RemoteSvgFile);
-                    }
+                    using GlyphStream? svgStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(
+                        iconSet,
+                        unicodePoint,
+                        glyphSource);
 
                     if (svgStream is not null)
                     {
@@ -232,9 +283,9 @@ namespace IconManager.Services
                             svgStream,
                             Encoding.UTF8,
                             detectEncodingFromByteOrderMarks: true,
-                            leaveOpen: false))
+                            leaveOpen: true))
                         {
-                            svgText = reader.ReadToEnd();
+                            svgText = await reader.ReadToEndAsync();
                         }
 
                         GlyphBitmap? glyphBitmap = await SkiaGlyphRenderer.RenderGlyphFromSvgAsync(
@@ -263,48 +314,26 @@ namespace IconManager.Services
             }
 
             // Attempt to use a downloadable PNG bitmap directly
-            if (result is null &&
-                glyphSources.Contains(GlyphSource.RemotePngFile))
+            if (glyphSource == GlyphSource.RemotePngFile)
             {
-                using (GlyphStream? pngStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(iconSet, unicodePoint, GlyphSource.RemotePngFile))
+                using GlyphStream? pngStream = await glyphSourceProvider.GetGlyphSourceStreamAsync(
+                    iconSet,
+                    unicodePoint,
+                    glyphSource);
+
+                if (pngStream is not null)
                 {
-                    if (pngStream is not null)
+                    // Note: Constructing from the PNG stream sets glyph metadata
+                    return new GlyphBitmap(pngStream)
                     {
-                        result = new GlyphBitmap(pngStream)
-                        {
-                            PathData    = string.Empty,  // None for PNG
-                            PathViewBox = default(Rect), // None for PNG
-                        };
-                    }
-                    else
-                    {
-                        result = null;
-                    }
+                        PathData    = string.Empty,  // None for PNG
+                        PathViewBox = default(Rect), // None for PNG
+                    };
                 }
             }
 
-            // Add any new bitmap to the cache for next time
-            if (result is not null)
-            {
-                lock (this._cacheLock)
-                {
-                    // It is possible that two renderers for the same glyph are running simultaneously on differing threads
-                    // Therefore, within the lock, a check must be made to ensure a glyph was not already added
-                    if (!this._cachedGlyphs.ContainsKey(glyphKey))
-                    {
-                        this._cachedGlyphs.Add(glyphKey, result);
-                    }
-                }
-            }
-
-            return result;
+            return null;
         }
-
-        /***************************************************************************************
-         *
-         * Private Methods
-         *
-         ***************************************************************************************/
 
         /// <summary>
         /// Renders the given SVG glyph.
