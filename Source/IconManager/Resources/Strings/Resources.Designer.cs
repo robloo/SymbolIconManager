@@ -367,6 +367,42 @@ namespace IconManager.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to App Tools.
+        /// </summary>
+        internal static string MainWindow_AppToolsText {
+            get {
+                return ResourceManager.GetString("MainWindow_AppToolsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Font Builder.
+        /// </summary>
+        internal static string MainWindow_FontBuilderText {
+            get {
+                return ResourceManager.GetString("MainWindow_FontBuilderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icon Mapping.
+        /// </summary>
+        internal static string MainWindow_IconMappingText {
+            get {
+                return ResourceManager.GetString("MainWindow_IconMappingText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Iconography.
+        /// </summary>
+        internal static string MainWindow_IconographyText {
+            get {
+                return ResourceManager.GetString("MainWindow_IconographyText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Build Font.
         /// </summary>
         internal static string MappingEditorView_BuildFontText {

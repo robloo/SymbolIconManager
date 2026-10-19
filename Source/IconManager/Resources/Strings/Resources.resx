@@ -296,4 +296,16 @@
   <data name="AppToolsView_ExportText" xml:space="preserve">
     <value>Export...</value>
   </data>
+  <data name="MainWindow_IconographyText" xml:space="preserve">
+    <value>Iconography</value>
+  </data>
+  <data name="MainWindow_IconMappingText" xml:space="preserve">
+    <value>Icon Mapping</value>
+  </data>
+  <data name="MainWindow_AppToolsText" xml:space="preserve">
+    <value>App Tools</value>
+  </data>
+  <data name="MainWindow_FontBuilderText" xml:space="preserve">
+    <value>Font Builder</value>
+  </data>
 </root>

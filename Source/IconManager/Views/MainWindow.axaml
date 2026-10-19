@@ -19,7 +19,7 @@
 
         <!-- Iconography -->
         <TabItem
-            Header="Iconography"
+            Header="{Localize MainWindow_IconographyText}"
             IsSelected="True">
             <IconographyView>
                 <IconographyView.DataContext>
@@ -30,7 +30,7 @@
 
         <!-- Icon Mapping -->
         <TabItem
-            Header="Icon Mapping">
+            Header="{Localize MainWindow_IconMappingText}">
             <MappingEditorView>
                 <MappingEditorView.DataContext>
                     <MappingEditorViewModel />
@@ -40,7 +40,7 @@
 
         <!-- Application Tools -->
         <TabItem
-            Header="App Tools">
+            Header="{Localize MainWindow_AppToolsText}">
             <AppToolsView>
                 <AppToolsView.DataContext>
                     <AppToolsViewModel />
@@ -50,7 +50,7 @@
 
         <!-- Font Builder -->
         <TabItem
-            Header="Font Builder">
+            Header="{Localize MainWindow_FontBuilderText}">
             <FontBuilderView>
                 <FontBuilderView.DataContext>
                     <FontBuilderViewModel />
