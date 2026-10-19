@@ -54,7 +54,7 @@
                     Width="250"
                     VerticalAlignment="Center"
                     IsEnabled="{Binding !!Icons.Count}"
-                    PlaceholderText="{Localize Key=IconographyView_FilterText, FallbackValue='&lt;missing&gt;'}"
+                    PlaceholderText="{Localize IconographyView_FilterText}"
                     Text="{Binding FilterText, Mode=TwoWay, Delay=200}">
                     <TextBox.InnerRightContent>
                         <Button
@@ -70,7 +70,7 @@
                     VerticalAlignment="Center"
                     Foreground="{DynamicResource TextControlForegroundDisabled}">
                     <Run Text="{Binding FilteredIcons.Count}" />
-                    <Run Text="{Localize Key=IconographyView_VisibleText, FallbackValue='&lt;missing&gt;'}" />
+                    <Run Text="{Localize IconographyView_VisibleText}" />
                 </TextBlock>
 
             </StackPanel>
@@ -86,7 +86,7 @@
                     Margin="0,0,5,0"
                     VerticalAlignment="Center"
                     Foreground="{DynamicResource TextControlForegroundDisabled}"
-                    Text="{Localize Key=IconographyView_IconSetText, FallbackValue='&lt;missing&gt;'}" />
+                    Text="{Localize IconographyView_IconSetText}" />
 
                 <ComboBox
                     MinWidth="150"
@@ -160,14 +160,14 @@
                         FontSize="11"
                         Foreground="{DynamicResource TextControlForegroundDisabled}"
                         IsVisible="{Binding Glyph?.Source, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
-                        <Run Text="{Localize Key=IconographyView_SourceText, FallbackValue='&lt;missing&gt;'}" /><Run Text="{Binding Glyph?.Source}" />
+                        <Run Text="{Localize IconographyView_SourceText}" /><Run Text="{Binding Glyph?.Source}" />
                     </TextBlock>
                     <HyperlinkButton
                         Grid.Row="2"
                         Margin="0,0,0,20"
                         Padding="2"
                         HorizontalAlignment="Center"
-                        Content="{Localize Key=IconographyView_WebsiteText, FallbackValue='&lt;missing&gt;'}"
+                        Content="{Localize IconographyView_WebsiteText}"
                         NavigateUri="{Binding IconSet, Converter={StaticResource IconSetInfo}, ConverterParameter={x:Static IconSetInfoType.WebsiteUrl}}"
                         TextElement.FontSize="12" />
 
@@ -187,7 +187,7 @@
                                 Spacing="2">
                                 <TextBlock
                                     Classes="title"
-                                    Text="{Localize Key=IconographyView_IconNameText, FallbackValue='&lt;missing&gt;'}" />
+                                    Text="{Localize IconographyView_IconNameText}" />
                                 <SelectableTextBlock
                                     Classes="content"
                                     Text="{Binding Name}"
@@ -211,7 +211,7 @@
                                     Grid.Row="0"
                                     Grid.Column="0"
                                     Classes="title"
-                                    Text="{Localize Key=IconographyView_IconSetText, FallbackValue='&lt;missing&gt;'}" />
+                                    Text="{Localize IconographyView_IconSetText}" />
                                 <SelectableTextBlock
                                     x:Name="IconSetTextBlock"
                                     Grid.Row="2"
@@ -251,7 +251,7 @@
                                 Spacing="2">
                                 <TextBlock
                                     Classes="title"
-                                    Text="{Localize Key=IconographyView_TextGlyphText, FallbackValue='&lt;missing&gt;'}" />
+                                    Text="{Localize IconographyView_TextGlyphText}" />
                                 <SelectableTextBlock
                                     x:Name="TextGlyphTextBlock"
                                     Classes="content"
@@ -273,7 +273,7 @@
                                 Spacing="2">
                                 <TextBlock
                                     Classes="title"
-                                    Text="{Localize Key=IconographyView_CodeGlyphText, FallbackValue='&lt;missing&gt;'}" />
+                                    Text="{Localize IconographyView_CodeGlyphText}" />
                                 <SelectableTextBlock
                                     x:Name="CodeGlyphTextBlock"
                                     Classes="content"
@@ -297,11 +297,11 @@
                                 <TextBlock
                                     Classes="title"
                                     IsVisible="{Binding Glyph?.Source, Converter={x:Static ObjectConverters.IsNull}}"
-                                    Text="{Localize Key=IconographyView_PathDataText, FallbackValue='&lt;missing&gt;'}" />
+                                    Text="{Localize IconographyView_PathDataText}" />
                                 <TextBlock
                                     Classes="title"
                                     IsVisible="{Binding Glyph?.Source, Converter={x:Static ObjectConverters.IsNotNull}}">
-                                    <Run Text="{Localize Key=IconographyView_PathDataText}" /><Run Text="{Binding Glyph?.Source, StringFormat=' ({0})'}" />
+                                    <Run Text="{Localize IconographyView_PathDataText}" /><Run Text="{Binding Glyph?.Source, StringFormat=' ({0})'}" />
                                 </TextBlock>
                                 <ScrollViewer
                                     MaxHeight="200"

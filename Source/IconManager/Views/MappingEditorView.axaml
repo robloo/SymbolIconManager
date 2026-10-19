@@ -38,7 +38,7 @@
                     Width="250"
                     VerticalAlignment="Center"
                     IsEnabled="{Binding !!Mappings.Count}"
-                    PlaceholderText="{Localize Key=MappingEditorView_FilterText, FallbackValue='&lt;missing&gt;'}"
+                    PlaceholderText="{Localize MappingEditorView_FilterText}"
                     Text="{Binding FilterText, Mode=TwoWay, Delay=200}">
                     <TextBox.InnerRightContent>
                         <Button
@@ -54,7 +54,7 @@
                     VerticalAlignment="Center"
                     Foreground="{DynamicResource TextControlForegroundDisabled}">
                     <Run Text="{Binding FilteredMappings.Count}" />
-                    <Run Text="{Localize Key=MappingEditorView_VisibleText, FallbackValue='&lt;missing&gt;'}" />
+                    <Run Text="{Localize MappingEditorView_VisibleText}" />
                 </TextBlock>
 
             </StackPanel>
@@ -69,7 +69,7 @@
                 <SplitButton
                     MinWidth="100"
                     HorizontalContentAlignment="Center"
-                    ToolTip.Tip="{Localize Key=MappingEditorView_OpenMappingsToolTipText, FallbackValue='&lt;missing&gt;'}"
+                    ToolTip.Tip="{Localize MappingEditorView_OpenMappingsToolTipText}"
                     Command="{Binding OpenMappingsCommand}">
                     <SplitButton.Content>
                         <StackPanel
@@ -80,7 +80,7 @@
                                 Height="{StaticResource PathIconSize}"
                                 Data="{StaticResource ic_fluent_folder_20_regular}" />
                             <TextBlock
-                                Text="{Localize Key=MappingEditorView_OpenMappingsText, FallbackValue='&lt;missing&gt;'}" />
+                                Text="{Localize MappingEditorView_OpenMappingsText}" />
                         </StackPanel>
                     </SplitButton.Content>
                     <SplitButton.Flyout>
@@ -113,7 +113,7 @@
                     Margin="5,0,0,0"
                     HorizontalContentAlignment="Center"
                     IsEnabled="{Binding !!Mappings.Count}"
-                    ToolTip.Tip="{Localize Key=MappingEditorView_SaveMappingsToolTipText, FallbackValue='&lt;missing&gt;'}"
+                    ToolTip.Tip="{Localize MappingEditorView_SaveMappingsToolTipText}"
                     Command="{Binding SaveMappingsCommand}">
                     <StackPanel
                         Orientation="Horizontal"
@@ -123,7 +123,7 @@
                             Height="{StaticResource PathIconSize}"
                             Data="{StaticResource ic_fluent_save_20_regular}" />
                         <TextBlock
-                            Text="{Localize Key=MappingEditorView_SaveMappingsText, FallbackValue='&lt;missing&gt;'}" />
+                            Text="{Localize MappingEditorView_SaveMappingsText}" />
                     </StackPanel>
                 </Button>
 
@@ -132,7 +132,7 @@
                     Margin="5,0,0,0"
                     HorizontalContentAlignment="Center"
                     IsEnabled="{Binding !!Mappings.Count}"
-                    ToolTip.Tip="{Localize Key=MappingEditorView_ClearMappingsToolTipText, FallbackValue='&lt;missing&gt;'}"
+                    ToolTip.Tip="{Localize MappingEditorView_ClearMappingsToolTipText}"
                     Command="{Binding ClearMappingsCommand}">
                     <StackPanel
                         Orientation="Horizontal"
@@ -142,7 +142,7 @@
                             Height="{StaticResource PathIconSize}"
                             Data="{StaticResource ic_fluent_eraser_20_regular}" />
                         <TextBlock
-                            Text="{Localize Key=MappingEditorView_ClearMappingsText, FallbackValue='&lt;missing&gt;'}" />
+                            Text="{Localize MappingEditorView_ClearMappingsText}" />
                     </StackPanel>
                 </Button>
 
@@ -160,8 +160,8 @@
                         <MenuFlyout
                             Placement="BottomEdgeAlignedRight">
                             <MenuItem
-                                Header="{Localize Key=MappingEditorView_MergeInText, FallbackValue='&lt;missing&gt;'}"
-                                ToolTip.Tip="{Localize Key=MappingEditorView_MergeInToolTipText, FallbackValue='&lt;missing&gt;'}"
+                                Header="{Localize MappingEditorView_MergeInText}"
+                                ToolTip.Tip="{Localize MappingEditorView_MergeInToolTipText}"
                                 Command="{Binding MergeInMappingsCommand}">
                                 <MenuItem.Icon>
                                     <PathIcon
@@ -169,9 +169,9 @@
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem
-                                Header="{Localize Key=MappingEditorView_UpdateDeprecatedIconsText, FallbackValue='&lt;missing&gt;'}"
+                                Header="{Localize MappingEditorView_UpdateDeprecatedIconsText}"
                                 IsEnabled="{Binding !!Mappings.Count}"
-                                ToolTip.Tip="{Localize Key=MappingEditorView_UpdateDeprecatedIconsToolTipText, FallbackValue='&lt;missing&gt;'}"
+                                ToolTip.Tip="{Localize MappingEditorView_UpdateDeprecatedIconsToolTipText}"
                                 Command="{Binding UpdateDeprecatedIconsCommand}">
                                 <MenuItem.Icon>
                                     <PathIcon
@@ -181,9 +181,9 @@
                             <MenuItem
                                 Header="-" />
                             <MenuItem
-                                Header="{Localize Key=MappingEditorView_BuildFontText, FallbackValue='&lt;missing&gt;'}"
+                                Header="{Localize MappingEditorView_BuildFontText}"
                                 IsEnabled="{Binding !!Mappings.Count}"
-                                ToolTip.Tip="{Localize Key=MappingEditorView_BuildFontToolTipText, FallbackValue='&lt;missing&gt;'}"
+                                ToolTip.Tip="{Localize MappingEditorView_BuildFontToolTipText}"
                                 Command="{Binding BuildFontCommand}">
                                 <MenuItem.Icon>
                                     <PathIcon
@@ -241,7 +241,7 @@
                                 Grid.Column="0">
                                 <GroupBox.Header>
                                     <TextBlock
-                                        Text="{Localize Key=MappingEditorView_SourceText, FallbackValue='&lt;missing&gt;'}"
+                                        Text="{Localize MappingEditorView_SourceText}"
                                         TextElement.FontSize="14"
                                         TextElement.FontWeight="SemiBold" />
                                 </GroupBox.Header>
@@ -297,7 +297,7 @@
                                 Grid.Column="0">
                                 <GroupBox.Header>
                                     <TextBlock
-                                        Text="{Localize Key=MappingEditorView_DestinationText, FallbackValue='&lt;missing&gt;'}"
+                                        Text="{Localize MappingEditorView_DestinationText}"
                                         TextElement.FontSize="14"
                                         TextElement.FontWeight="SemiBold" />
                                 </GroupBox.Header>
@@ -363,12 +363,12 @@
                                     Orientation="Horizontal">
                                     <TextBlock
                                         Margin="2,0,0,-4"
-                                        Text="{Localize Key=MappingEditorView_GlyphMatchQualityText, FallbackValue='&lt;missing&gt;'}" />
+                                        Text="{Localize MappingEditorView_GlyphMatchQualityText}" />
                                     <Border
                                         Margin="4,0,0,0"
                                         VerticalAlignment="Center"
                                         Background="Transparent"
-                                        ToolTip.Tip="{Localize Key=MappingEditorView_GlyphMatchQualityDescriptionText}">
+                                        ToolTip.Tip="{Localize MappingEditorView_GlyphMatchQualityDescriptionText}">
                                         <PathIcon
                                             Width="{StaticResource PathIconSize}"
                                             Height="{StaticResource PathIconSize}"
@@ -379,7 +379,7 @@
                                         Margin="4,0,0,0"
                                         Padding="2"
                                         VerticalAlignment="Center"
-                                        Content="{Localize Key=MappingEditorView_MatchQualityHelpText, FallbackValue='&lt;missing&gt;'}"
+                                        Content="{Localize MappingEditorView_MatchQualityHelpText}"
                                         NavigateUri="https://github.com/robloo/SymbolIconManager/blob/main/Docs/IconMapping.md#match-quality-values"
                                         TextElement.FontSize="11" />
                                 </StackPanel>
@@ -398,12 +398,12 @@
                                     Orientation="Horizontal">
                                     <TextBlock
                                         Margin="2,0,0,-4"
-                                        Text="{Localize Key=MappingEditorView_MetaphorMatchQualityText, FallbackValue='&lt;missing&gt;'}" />
+                                        Text="{Localize MappingEditorView_MetaphorMatchQualityText}" />
                                     <Border
                                         Margin="4,0,0,0"
                                         VerticalAlignment="Center"
                                         Background="Transparent"
-                                        ToolTip.Tip="{Localize Key=MappingEditorView_MetaphorMatchQualityDescriptionText}">
+                                        ToolTip.Tip="{Localize MappingEditorView_MetaphorMatchQualityDescriptionText}">
                                         <PathIcon
                                             Width="{StaticResource PathIconSize}"
                                             Height="{StaticResource PathIconSize}"
@@ -414,7 +414,7 @@
                                         Margin="4,0,0,0"
                                         Padding="2"
                                         VerticalAlignment="Center"
-                                        Content="{Localize Key=MappingEditorView_MatchQualityHelpText, FallbackValue='&lt;missing&gt;'}"
+                                        Content="{Localize MappingEditorView_MatchQualityHelpText}"
                                         NavigateUri="https://github.com/robloo/SymbolIconManager/blob/main/Docs/IconMapping.md#match-quality-values"
                                         TextElement.FontSize="11" />
                                 </StackPanel>
@@ -433,7 +433,7 @@
                                     Grid.Column="3"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    Content="{Localize Key=MappingEditorView_IsPlaceholderText, FallbackValue='&lt;missing&gt;'}"
+                                    Content="{Localize MappingEditorView_IsPlaceholderText}"
                                     IsChecked="{Binding IsPlaceholder, Mode=TwoWay}" />
 
                                 <!-- Comments -->
@@ -445,7 +445,7 @@
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
                                     AcceptsReturn="True"
-                                    PlaceholderText="{Localize Key=MappingEditorView_CommentsText, FallbackValue='&lt;missing&gt;'}"
+                                    PlaceholderText="{Localize MappingEditorView_CommentsText}"
                                     Text="{Binding Comments, Mode=TwoWay}"
                                     TextWrapping="Wrap" />
                             </Grid>

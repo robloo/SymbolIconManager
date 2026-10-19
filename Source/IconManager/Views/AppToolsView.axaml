@@ -41,7 +41,7 @@
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
                     CornerRadius="4,0,0,4"
-                    ToolTip.Tip="{Localize Key=AppToolsView_SelectSourceDirectoryToolTipText, FallbackValue='&lt;missing&gt;'}"
+                    ToolTip.Tip="{Localize AppToolsView_SelectSourceDirectoryToolTipText}"
                     Command="{Binding SelectSourceDirectoryCommand}">
                     <PathIcon
                         Width="{StaticResource PathIconSize}"
@@ -60,7 +60,7 @@
                         <TextBlock
                             Foreground="{DynamicResource TextControlForegroundDisabled}"
                             IsVisible="{Binding SourceDirectory, Converter={x:Static StringConverters.IsNullOrEmpty}}"
-                            Text="{Localize Key=AppToolsView_SourceDirectoryPlaceholderText, FallbackValue='&lt;missing&gt;'}" />
+                            Text="{Localize AppToolsView_SourceDirectoryPlaceholderText}" />
                         <SelectableTextBlock
                             IsVisible="{Binding SourceDirectory, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                             Text="{Binding SourceDirectory, Mode=OneWay}"
@@ -74,7 +74,7 @@
                     CornerRadius="0,4,4,0"
                     ItemsSource="{Binding SourceIconSets}"
                     SelectedItem="{Binding SelectedSourceIconSet}"
-                    ToolTip.Tip="{Localize Key=AppToolsView_SelectIconSetToolTipText, FallbackValue='&lt;missing&gt;'}" />
+                    ToolTip.Tip="{Localize AppToolsView_SelectIconSetToolTipText}" />
 
             </StackPanel>
 
@@ -97,11 +97,11 @@
                         VerticalAlignment="Center"
                         Foreground="{DynamicResource TextControlForegroundDisabled}"
                         IsVisible="{Binding !!Icons.Count}">
-                        <Run Text="{Localize Key=AppToolsView_CountText}" /><Run Text="{Binding Icons.Count}" />
+                        <Run Text="{Localize AppToolsView_CountText}" /><Run Text="{Binding Icons.Count}" />
                     </TextBlock>
                     <Button
                         IsEnabled="{Binding SourceDirectory, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                        ToolTip.Tip="{Localize Key=AppToolsView_FindIconsToolTipText, FallbackValue='&lt;missing&gt;'}"
+                        ToolTip.Tip="{Localize AppToolsView_FindIconsToolTipText}"
                         Command="{Binding FindIconsCommand}">
                         <StackPanel
                             Orientation="Horizontal"
@@ -111,19 +111,19 @@
                                 Height="{StaticResource PathIconSize}"
                                 Data="{StaticResource ic_fluent_search_20_regular}" />
                             <TextBlock
-                                Text="{Localize Key=AppToolsView_FindIconsText, FallbackValue='&lt;missing&gt;'}" />
+                                Text="{Localize AppToolsView_FindIconsText}" />
                         </StackPanel>
                     </Button>
 
                     <!-- Disabled: Not general-purpose -->
                     <Button
-                        Content="{Localize Key=AppToolsView_RemapIconsText, FallbackValue='&lt;missing&gt;'}"
+                        Content="{Localize AppToolsView_RemapIconsText}"
                         IsVisible="False"
                         Command="{Binding RemapIconsCommand}" />
 
                     <!-- Disabled: Not general-purpose -->
                     <Button
-                        Content="{Localize Key=AppToolsView_ExportFileToImagesText, FallbackValue='&lt;missing&gt;'}"
+                        Content="{Localize AppToolsView_ExportFileToImagesText}"
                         IsVisible="False"
                         Command="{Binding ExportFileToImagesCommand}" />
 
@@ -140,16 +140,16 @@
                                     Height="{StaticResource PathIconSize}"
                                     Data="{StaticResource ic_fluent_arrow_export_ltr_20_regular}" />
                                 <TextBlock
-                                    Text="{Localize Key=AppToolsView_ExportText, FallbackValue='&lt;missing&gt;'}" />
+                                    Text="{Localize AppToolsView_ExportText}" />
                             </StackPanel>
                         </Button.Content>
                         <Button.Flyout>
                             <MenuFlyout
                                 Placement="BottomEdgeAlignedRight">
                                 <MenuItem
-                                    Header="{Localize Key=AppToolsView_ExportToMappingsText, FallbackValue='&lt;missing&gt;'}"
+                                    Header="{Localize AppToolsView_ExportToMappingsText}"
                                     IsEnabled="{Binding !!Icons.Count}"
-                                    ToolTip.Tip="{Localize Key=AppToolsView_ExportToMappingsToolTipText, FallbackValue='&lt;missing&gt;'}"
+                                    ToolTip.Tip="{Localize AppToolsView_ExportToMappingsToolTipText}"
                                     Command="{Binding ExportToMappingsCommand}">
                                     <MenuItem.Icon>
                                         <PathIcon
@@ -157,9 +157,9 @@
                                     </MenuItem.Icon>
                                 </MenuItem>
                                 <MenuItem
-                                    Header="{Localize Key=AppToolsView_ExportToImagesText, FallbackValue='&lt;missing&gt;'}"
+                                    Header="{Localize AppToolsView_ExportToImagesText}"
                                     IsEnabled="{Binding !!Icons.Count}"
-                                    ToolTip.Tip="{Localize Key=AppToolsView_ExportToImagesToolTipText, FallbackValue='&lt;missing&gt;'}"
+                                    ToolTip.Tip="{Localize AppToolsView_ExportToImagesToolTipText}"
                                     Command="{Binding ExportToImagesCommand}">
                                     <MenuItem.Icon>
                                         <PathIcon

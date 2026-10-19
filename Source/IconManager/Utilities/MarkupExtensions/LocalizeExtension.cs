@@ -38,7 +38,7 @@ namespace IconManager
         /// <param name="fallbackValue">The fallback value to return when the key isn't found.</param>
         public LocalizeExtension(
             string key,
-            string? fallbackValue)
+            string fallbackValue)
         {
             this.Key = key;
             this.FallbackValue = fallbackValue;
@@ -59,7 +59,7 @@ namespace IconManager
         /// Gets or sets the optional fallback value to return when no
         /// translated/localized string is found for the given key.
         /// </summary>
-        public string? FallbackValue { get; set; }
+        public string? FallbackValue { get; set; } = null;
 
         /***************************************************************************************
          *
@@ -79,7 +79,7 @@ namespace IconManager
                 string? text = Strings.Resources.ResourceManager.GetString(this.Key, Strings.Resources.Culture);
 
                 return string.IsNullOrEmpty(text)
-                    ? this.FallbackValue ?? string.Empty
+                    ? this.GetFallbackValue() ?? string.Empty
                     : text;
 #if !DEBUG
             }
@@ -88,6 +88,27 @@ namespace IconManager
                 return this.FallbackValue ?? string.Empty;
             }
 #endif
+        }
+
+        /// <summary>
+        /// Gets the fallback value to return when no localized value was found matching the given key.
+        /// </summary>
+        /// <returns>The fallback value.</returns>
+        private string? GetFallbackValue()
+        {
+            // Note: Only null is checked here
+            // Consumers are allowed to provide an empty string to avoid the default fallback values
+            if (this.FallbackValue is not null)
+            {
+                return this.FallbackValue;
+            }
+
+            if (!string.IsNullOrEmpty(this.Key))
+            {
+                return $"<{this.Key}>";
+            }
+
+            return "<missing>";
         }
     }
 }
