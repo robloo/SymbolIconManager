@@ -21,6 +21,8 @@
             <UIntToHexStringConverter
                 x:Key="UIntToHexString" />
 
+            <x:Double x:Key="PathIconSize">16</x:Double>
+
         </ResourceDictionary>
     </Application.Resources>
 

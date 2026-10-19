@@ -15,7 +15,7 @@
 
         <!-- Top commands -->
         <Grid
-            x:Name="TopCommandBarGridGrid"
+            x:Name="TopCommandBarGrid"
             Grid.Row="0"
             MinHeight="50"
             HorizontalAlignment="Stretch">
@@ -27,10 +27,13 @@
                 BorderBrush="{DynamicResource ToolBarBorderBrush}"
                 BorderThickness="0,1,0,1" />
 
+            <!-- Left Commands -->
             <StackPanel
                 Orientation="Horizontal"
                 Margin="10,0,10,0"
+                HorizontalAlignment="Left"
                 VerticalAlignment="Center">
+
                 <SplitButton
                     x:Name="LoadButton"
                     MinWidth="100"
@@ -101,13 +104,16 @@
                         </MenuFlyout>
                     </Button.Flyout>
                 </Button>
+
             </StackPanel>
 
+            <!-- Right Commands -->
             <StackPanel
                 Orientation="Horizontal"
                 Margin="10,0,10,0"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center">
+
                 <TextBlock
                     Margin="0,0,5,0"
                     HorizontalAlignment="Center"
@@ -119,12 +125,13 @@
                     VerticalAlignment="Center"
                     PlaceholderText="Filter"
                     Text="{Binding FilterText, Mode=TwoWay, Delay=200}" />
+
             </StackPanel>
+
         </Grid>
 
         <ListBox
             Grid.Row="1"
-            Margin="10"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             ItemsSource="{Binding FilteredMappings}">

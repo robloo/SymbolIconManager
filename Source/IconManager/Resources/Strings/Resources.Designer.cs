@@ -61,6 +61,114 @@ namespace IconManager.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Count: .
+        /// </summary>
+        internal static string AppToolsView_CountText {
+            get {
+                return ResourceManager.GetString("AppToolsView_CountText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export File to Images.
+        /// </summary>
+        internal static string AppToolsView_ExportFileToImagesText {
+            get {
+                return ResourceManager.GetString("AppToolsView_ExportFileToImagesText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export to Images.
+        /// </summary>
+        internal static string AppToolsView_ExportToImagesText {
+            get {
+                return ResourceManager.GetString("AppToolsView_ExportToImagesText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exports all displayed icons as PNG images. This is useful when creating documentation that requires these graphics..
+        /// </summary>
+        internal static string AppToolsView_ExportToImagesToolTipText {
+            get {
+                return ResourceManager.GetString("AppToolsView_ExportToImagesToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export to Mappings.
+        /// </summary>
+        internal static string AppToolsView_ExportToMappingsText {
+            get {
+                return ResourceManager.GetString("AppToolsView_ExportToMappingsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exports all displayed icons as a new JSON mappings file. This mappings file can then be opened for further editing..
+        /// </summary>
+        internal static string AppToolsView_ExportToMappingsToolTipText {
+            get {
+                return ResourceManager.GetString("AppToolsView_ExportToMappingsToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find Icons.
+        /// </summary>
+        internal static string AppToolsView_FindIconsText {
+            get {
+                return ResourceManager.GetString("AppToolsView_FindIconsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finds and lists all icons used in the source code.
+        /// </summary>
+        internal static string AppToolsView_FindIconsToolTipText {
+            get {
+                return ResourceManager.GetString("AppToolsView_FindIconsToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remap Icons.
+        /// </summary>
+        internal static string AppToolsView_RemapIconsText {
+            get {
+                return ResourceManager.GetString("AppToolsView_RemapIconsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the source code&apos;s icon set. This is required to correctly interpret plain Unicode values..
+        /// </summary>
+        internal static string AppToolsView_SelectIconSetToolTipText {
+            get {
+                return ResourceManager.GetString("AppToolsView_SelectIconSetToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the source code folder.
+        /// </summary>
+        internal static string AppToolsView_SelectSourceDirectoryToolTipText {
+            get {
+                return ResourceManager.GetString("AppToolsView_SelectSourceDirectoryToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source code directory.
+        /// </summary>
+        internal static string AppToolsView_SourceDirectoryPlaceholderText {
+            get {
+                return ResourceManager.GetString("AppToolsView_SourceDirectoryPlaceholderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Code glyph.
         /// </summary>
         internal static string IconographyView_CodeGlyphText {

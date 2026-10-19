@@ -14,44 +14,30 @@
 
         <Style Selector="Button.close">
             <Setter Property="Theme" Value="{StaticResource TransparentButton}" />
-            <Setter Property="Padding" Value="2" />
+            <Setter Property="Padding" Value="8" />
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="Content">
                 <Template>
-                    <Viewbox
-                        Width="24"
-                        Height="24"
-                        Stretch="Uniform"
-                        StretchDirection="Both">
-                        <Path
-                            Width="20"
-                            Height="20"
-                            Data="{StaticResource ic_fluent_dismiss_20_regular}"
-                            Fill="{DynamicResource TextControlForeground}" />
-                    </Viewbox>
+                    <PathIcon
+                        Width="{StaticResource PathIconSize}"
+                        Height="{StaticResource PathIconSize}"
+                        Data="{StaticResource ic_fluent_dismiss_20_regular}" />
                 </Template>
             </Setter>
         </Style>
 
         <Style Selector="Button.copy">
             <Setter Property="Theme" Value="{StaticResource TransparentButton}" />
-            <Setter Property="Padding" Value="2" />
+            <Setter Property="Padding" Value="8" />
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="Content">
                 <Template>
-                    <Viewbox
-                        Width="24"
-                        Height="24"
-                        Stretch="Uniform"
-                        StretchDirection="Both">
-                        <Path
-                            Width="20"
-                            Height="20"
-                            Data="{StaticResource ic_fluent_copy_20_regular}"
-                            Fill="{DynamicResource TextControlForeground}" />
-                    </Viewbox>
+                    <PathIcon
+                        Width="{StaticResource PathIconSize}"
+                        Height="{StaticResource PathIconSize}"
+                        Data="{StaticResource ic_fluent_copy_20_regular}" />
                 </Template>
             </Setter>
         </Style>
@@ -64,7 +50,7 @@
 
         <!-- Top commands -->
         <Grid
-            x:Name="TopCommandBarGridGrid"
+            x:Name="TopCommandBarGrid"
             Grid.Row="0"
             MinHeight="50"
             HorizontalAlignment="Stretch">
@@ -84,7 +70,7 @@
                 VerticalAlignment="Center">
 
                 <TextBox
-                    Width="200"
+                    Width="250"
                     VerticalAlignment="Center"
                     IsEnabled="{Binding SelectedIconSet, Converter={x:Static ObjectConverters.IsNotNull}}"
                     PlaceholderText="{Localize Key=IconographyView_FilterText, FallbackValue='&lt;missing&gt;'}"
@@ -264,17 +250,11 @@
                                     VerticalAlignment="Bottom"
                                     Background="Transparent"
                                     ToolTip.Tip="{Binding IconSet, Converter={StaticResource IconSetInfo}, ConverterParameter={x:Static IconSetInfoType.Description}}">
-                                    <Viewbox
-                                        Width="20"
-                                        Height="20"
-                                        Stretch="Uniform"
-                                        StretchDirection="Both">
-                                        <Path
-                                            Width="20"
-                                            Height="20"
-                                            Data="{StaticResource ic_fluent_info_20_regular}"
-                                            Fill="{DynamicResource TextControlForegroundDisabled}" />
-                                    </Viewbox>
+                                    <PathIcon
+                                        Width="{StaticResource PathIconSize}"
+                                        Height="{StaticResource PathIconSize}"
+                                        Data="{StaticResource ic_fluent_info_20_regular}"
+                                        Foreground="{DynamicResource TextControlForegroundDisabled}" />
                                 </Border>
                             </Grid>
                             <Button

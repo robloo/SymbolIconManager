@@ -11,92 +11,174 @@
 
     <Grid
         x:Name="LayoutRoot"
-        RowDefinitions="Auto,*"
-        Margin="10">
+        RowDefinitions="Auto,*">
 
+        <!-- Top commands -->
         <Grid
+            x:Name="TopCommandBarGrid"
             Grid.Row="0"
-            HorizontalAlignment="Left"
-            Grid.ColumnDefinitions="Auto,Auto"
-            Grid.RowDefinitions="Auto,Auto,Auto">
-            <TextBlock
-                Grid.Row="0"
-                Grid.Column="0"
-                Margin="0,0,5,0"
+            MinHeight="50"
+            HorizontalAlignment="Stretch">
+
+            <Border
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Background="{DynamicResource ToolBarBackground}"
+                BorderBrush="{DynamicResource ToolBarBorderBrush}"
+                BorderThickness="0,1,0,1" />
+
+            <!-- Left Commands -->
+            <StackPanel
+                Orientation="Horizontal"
+                Margin="10,0,10,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center">
+
+                <Button
+                    Height="{Binding #SourceDirectoryTextBox.Bounds.Height}"
+                    Padding="8,4,8,4"
+                    VerticalAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    CornerRadius="4,0,0,4"
+                    ToolTip.Tip="{Localize Key=AppToolsView_SelectSourceDirectoryToolTipText, FallbackValue='&lt;missing&gt;'}"
+                    Command="{Binding SelectSourceDirectoryCommand}">
+                    <PathIcon
+                        Width="{StaticResource PathIconSize}"
+                        Height="{StaticResource PathIconSize}"
+                        Data="{StaticResource ic_fluent_folder_20_regular}" />
+                </Button>
+                <TextBox
+                    x:Name="SourceDirectoryTextBox"
+                    MinWidth="200"
+                    MaxWidth="400"
+                    VerticalAlignment="Center"
+                    CornerRadius="0"
+                    IsReadOnly="True"
+                    PlaceholderText="{Localize Key=AppToolsView_SourceDirectoryPlaceholderText, FallbackValue='&lt;missing&gt;'}"
+                    Text="{Binding SourceDirectory, Mode=OneWay}"
+                    TextWrapping="NoWrap" />
+                <ComboBox
+                    Height="{Binding #SourceDirectoryTextBox.Bounds.Height}"
+                    VerticalAlignment="Center"
+                    CornerRadius="0,4,4,0"
+                    ItemsSource="{Binding SourceIconSets}"
+                    SelectedItem="{Binding SelectedSourceIconSet}"
+                    ToolTip.Tip="{Localize Key=AppToolsView_SelectIconSetToolTipText, FallbackValue='&lt;missing&gt;'}" />
+
+            </StackPanel>
+
+            <!-- Right Commands -->
+            <StackPanel
+                Orientation="Horizontal"
+                Margin="10,0,10,0"
                 HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Text="Source Code:" />
-            <TextBlock
-                Grid.Row="0"
-                Grid.Column="1"
-                Text="{Binding SourceDirectory, Mode=OneWay}" />
-            <Button
-                x:Name="SourceDirectoryButton"
-                Grid.Row="1"
-                Grid.Column="1"
-                Content="Select Folder"
-                Command="{Binding SelectSourceDirectoryCommand}" />
-            <TextBlock
-                Grid.Row="2"
-                Grid.Column="0"
-                Margin="0,0,5,0"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Text="{Binding SelectedSourceIconSet, StringFormat='Source Icon Set: {0}'}" />
-            <ComboBox
-                x:Name="SourceIconSetComboBox"
-                Grid.Row="2"
-                Grid.Column="1"
-                ItemsSource="{Binding SourceIconSets}"
-                SelectedItem="{Binding SelectedSourceIconSet}" />
+                VerticalAlignment="Center">
+
+                <StackPanel
+                    Grid.Row="0"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Spacing="5">
+
+                    <TextBlock
+                        Margin="0,0,5,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="{DynamicResource TextControlForegroundDisabled}"
+                        IsVisible="{Binding !!DisplayedIcons.Count}">
+                        <Run Text="{Localize Key=AppToolsView_CountText}" /><Run Text="{Binding DisplayedIcons.Count}" />
+                    </TextBlock>
+                    <Button
+                        IsEnabled="{Binding SourceDirectory, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                        ToolTip.Tip="{Localize Key=AppToolsView_FindIconsToolTipText, FallbackValue='&lt;missing&gt;'}"
+                        Command="{Binding ListIconsCommand}">
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Spacing="4">
+                            <PathIcon
+                                Width="{StaticResource PathIconSize}"
+                                Height="{StaticResource PathIconSize}"
+                                Data="{StaticResource ic_fluent_search_20_regular}" />
+                            <TextBlock
+                                Text="{Localize Key=AppToolsView_FindIconsText, FallbackValue='&lt;missing&gt;'}" />
+                        </StackPanel>
+                    </Button>
+
+                    <!-- Disabled: Not general-purpose -->
+                    <Button
+                        Content="{Localize Key=AppToolsView_RemapIconsText, FallbackValue='&lt;missing&gt;'}"
+                        IsVisible="False"
+                        Command="{Binding RemapIconsCommand}" />
+
+                    <Button
+                        IsEnabled="{Binding !!DisplayedIcons.Count}"
+                        ToolTip.Tip="{Localize Key=AppToolsView_ExportToMappingsToolTipText, FallbackValue='&lt;missing&gt;'}"
+                        Command="{Binding ExportToMappingsCommand}">
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Spacing="4">
+                            <PathIcon
+                                Width="{StaticResource PathIconSize}"
+                                Height="{StaticResource PathIconSize}"
+                                Data="{StaticResource ic_fluent_document_20_regular}" />
+                            <TextBlock
+                                Text="{Localize Key=AppToolsView_ExportToMappingsText, FallbackValue='&lt;missing&gt;'}" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button
+                        IsEnabled="{Binding !!DisplayedIcons.Count}"
+                        ToolTip.Tip="{Localize Key=AppToolsView_ExportToImagesToolTipText, FallbackValue='&lt;missing&gt;'}"
+                        Command="{Binding ExportToImagesCommand}">
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Spacing="4">
+                            <PathIcon
+                                Width="{StaticResource PathIconSize}"
+                                Height="{StaticResource PathIconSize}"
+                                Data="{StaticResource ic_fluent_image_20_regular}" />
+                            <TextBlock
+                                Text="{Localize Key=AppToolsView_ExportToImagesText, FallbackValue='&lt;missing&gt;'}" />
+                        </StackPanel>
+                    </Button>
+
+                    <!-- Disabled: Not general-purpose -->
+                    <Button
+                        Content="{Localize Key=AppToolsView_ExportFileToImagesText, FallbackValue='&lt;missing&gt;'}"
+                        IsVisible="False"
+                        Command="{Binding ExportFileToImagesCommand}" />
+
+                </StackPanel>
+
+            </StackPanel>
+
         </Grid>
 
-        <StackPanel
-            Grid.Row="0"
-            Orientation="Horizontal"
-            HorizontalAlignment="Right"
-            Spacing="5">
-            <TextBlock
-                Margin="0,0,5,0"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Text="{Binding DisplayedIcons.Count, StringFormat='Count: {0}'}" />
-            <Button
-                x:Name="ListIconsButton"
-                Content="List Used Icons"
-                Command="{Binding ListIconsCommand}" />
-            <Button
-                x:Name="RemapIconsButton"
-                Content="Remap Icons"
-                Command="{Binding RemapIconsCommand}" />
-            <Button
-                x:Name="ExportToMappingsButton"
-                Content="Export to Mappings"
-                Command="{Binding ExportToMappingsCommand}" />
-            <Button
-                x:Name="ExportToImagesButton"
-                Content="Export to Images"
-                Command="{Binding ExportToImagesCommand}" />
-            <Button
-                x:Name="ExportFileToImagesButton"
-                Content="Export File to Images"
-                Command="{Binding ExportFileToImagesCommand}" />
-        </StackPanel>
-
-        <ListBox
-            x:Name="ListBox"
+        <!-- Icon Gallery -->
+        <Grid
             Grid.Row="1"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            ItemContainerTheme="{StaticResource IconContainerTheme}"
-            ItemTemplate="{StaticResource IconDataTemplate}"
-            ItemsSource="{Binding DisplayedIcons}">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <!-- TODO: Replace with Avalonia.Labs VirtualizingWrapPanel when released -->
-                    <WrapPanel />
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-        </ListBox>
+            ColumnDefinitions="*,Auto">
+
+            <!-- Icons -->
+            <ListBox
+                x:Name="ListBox"
+                Grid.Column="0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                ItemContainerTheme="{StaticResource IconContainerTheme}"
+                ItemTemplate="{StaticResource IconDataTemplate}"
+                ItemsSource="{Binding DisplayedIcons}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <!-- TODO: Replace with Avalonia.Labs VirtualizingWrapPanel when released -->
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+
+        </Grid>
+
     </Grid>
+
 </UserControl>

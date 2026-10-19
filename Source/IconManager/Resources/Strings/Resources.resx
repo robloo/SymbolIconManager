@@ -187,4 +187,41 @@
   <data name="IconographyView_PathDataText" xml:space="preserve">
     <value>Path data</value>
   </data>
+  <data name="AppToolsView_SelectSourceDirectoryToolTipText" xml:space="preserve">
+    <value>Select the source code folder</value>
+  </data>
+  <data name="AppToolsView_FindIconsToolTipText" xml:space="preserve">
+    <value>Finds and lists all icons used in the source code</value>
+  </data>
+  <data name="AppToolsView_FindIconsText" xml:space="preserve">
+    <value>Find Icons</value>
+  </data>
+  <data name="AppToolsView_ExportToMappingsToolTipText" xml:space="preserve">
+    <value>Exports all displayed icons as a new JSON mappings file. This mappings file can then be opened for further editing.</value>
+  </data>
+  <data name="AppToolsView_ExportToMappingsText" xml:space="preserve">
+    <value>Export to Mappings</value>
+  </data>
+  <data name="AppToolsView_ExportToImagesToolTipText" xml:space="preserve">
+    <value>Exports all displayed icons as PNG images. This is useful when creating documentation that requires these graphics.</value>
+  </data>
+  <data name="AppToolsView_ExportToImagesText" xml:space="preserve">
+    <value>Export to Images</value>
+  </data>
+  <data name="AppToolsView_SelectIconSetToolTipText" xml:space="preserve">
+    <value>Select the source code's icon set. This is required to correctly interpret plain Unicode values.</value>
+  </data>
+  <data name="AppToolsView_RemapIconsText" xml:space="preserve">
+    <value>Remap Icons</value>
+  </data>
+  <data name="AppToolsView_CountText" xml:space="preserve">
+    <value>Count: </value>
+    <comment>Needs a trailing space</comment>
+  </data>
+  <data name="AppToolsView_ExportFileToImagesText" xml:space="preserve">
+    <value>Export File to Images</value>
+  </data>
+  <data name="AppToolsView_SourceDirectoryPlaceholderText" xml:space="preserve">
+    <value>Source code directory</value>
+  </data>
 </root>
