@@ -8,25 +8,29 @@ Before starting, note that the font building scripts are setup for Windows right
 
 ### Method 1 : From a Known Mapping File
 
- 1. Start the application and go to the `Fonts` tab
+ 1. Start the application and go to the `Font Builder` tab.
  1. Find the section for the font you wish to build and click the corresponding `[Build ... Font]` button.
- 1. The application will generate a FontForge Python script and download or copy all source SVG files that can be used to build a new font. The script and glyph SVG files will be added to a new directory within the application's executable directory. This output directory should automatically open for you.
- 1. Run `build_win.bat` (on Windows) to build the font and watch `output_font.ttf` be created automatically.
+ 1. The application will generate a FontForge Python script and download or copy all source SVG files that can be used to build the new font. The script and glyph SVG files will be added to a new directory within the application's executable directory.
+ 1. The `build_win.bat` (Windows) script will be automatically invoked to build the font.
       * Note that if the script fails the first time, wait 30 seconds and try again. It's possible glyph SVGs are still being downloaded.
+ 1. The new font is available at `output_font.ttf`. The output directory should automatically open for you.
+      * After completion, a link to this document and the [Special Font Metric Step](#special-font-metric-step) will be opened. The final font metrics must be set manually using FontForge.
 
 ### Method 2 : From an Undefined Mapping File
 
- 1. Start the application and go to the `Icon Mapping` tab and then press `[Load]`
- 1. Select a `.json` mapping file in the file picker or drop-down and open it, all mappings should now be visible in the view
- 1. Press [Build Font] and the application will generate a FontForge Python script and download or copy all source SVG files that can be used to build a new font. The script and glyph SVG files will be added to a new directory within the application's executable directory. This output directory should automatically open for you.
- 1. Run `build_win.bat` (on Windows) to build the font and watch `output_font.ttf` be created automatically.
+ 1. Start the application and go to the `Icon Mapping` tab and then press `[Open]`.
+ 1. Select a `.json` mapping file in the file picker or drop-down to open it, all mappings should now be visible in the view.
+ 1. Press `[...]` > `[Build Font]` and the application will generate a FontForge Python script and download or copy all source SVG files that can be used to build a new font. The script and glyph SVG files will be added to a new directory within the application's executable directory.
+ 1. The `build_win.bat` (Windows) script will be automatically invoked to build the font.
       * Note that if the script fails the first time, wait 30 seconds and try again. It's possible glyph SVGs are still being downloaded.
+ 1. The new font is available at `output_font.ttf`. The output directory should automatically open for you.
+      * After completion, a link to this document and the [Special Font Metric Step](#special-font-metric-step) will be opened. The final font metrics must be set manually using FontForge.
  1. Rename the font file to whatever you like.
       * Note that internally the font name will be 'Symbols' but can be renamed using FontForge.
 
 ### Special Font Metric Step
 
-A special step is needed after the .ttf file is generated to ensure the OS/2 table metrics are correct. This is mandatory for some applications. Unfortunately, there is an upstream bug in FontForge that prevents the Python script from being able to do this automatically (see [here](https://github.com/robloo/SymbolIconManager/blob/8f98ca32eadc113db03b4d081913e2f1bd3af650/Source/Models/FontBuilder.cs#L363-L387)).
+A special step is needed after the .ttf file is generated to ensure the OS/2 table metrics are correct. This is mandatory for some applications. Unfortunately, there is an upstream bug in FontForge that prevents the Python script from being able to do this automatically (see [here](https://github.com/robloo/SymbolIconManager/blob/2021a5b44f2ee647bbeba176fb1d596a7f1b265d/Source/IconManager.Core/Fonts/FontBuilder.cs#L399-L424)).
 
 To set these metrics:
  1. Open the font .ttf in FontForge
