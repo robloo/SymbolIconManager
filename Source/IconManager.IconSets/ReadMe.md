@@ -89,7 +89,16 @@ This application uses the *Line Awesome* Unicode points defined in the CSS file.
 
  * [Website](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-fluent-icons-font)
 
-*Segoe Fluent Icons* are proprietary and Windows-only according to the EULA. Propriety data such as icon glyphs are NOT redistributed here. Only Unicode points and names are used for the purposes of interoperability.
+*Segoe Fluent Icons* (Windows 11+) are proprietary and usable only on Windows, with designers, or with Microsoft Office according to the EULAs. Propriety data such as icon glyphs are NOT redistributed here. Only Unicode points and names are used for the purposes of interoperability.
+
+> [!Important]
+> Microsoft does have two public downloads available for this font:
+>  1. The same font as installed for Windows 11 [Segoe-Fluent-Icons.zip](https://aka.ms/SegoeFluentIcons) which is only used for designers and Windows 11 (see downloaded EULA for details)
+>     * https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-fluent-icons-font
+>  1. A cross-platform variant [WebFluentFonts.zip](https://aka.ms/WebFluentFonts) which is intended only for use with cross-platform Microsoft Office development (see downloaded EULA for details)
+>     * https://developer.microsoft.com/en-us/fluentui#/resources
+>
+> While these downloads do exist; they cannot be used outside of extremely narrow use cases and cannot be redistributed with applications.
 
 #### JSON File
 
@@ -112,7 +121,7 @@ Note that *Segoe Fluent Icons* are very close to *Fluent UI System* icons in gly
 
  * [Website](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-ui-symbol-font)
 
-*Segoe MDL2 Assets* are proprietary and Windows-only. Propriety data such as icon glyphs are NOT redistributed here. Only Unicode points and names are used for the purposes of interoperability.
+*Segoe MDL2 Assets* (Windows 10+) are proprietary and Windows-only. Propriety data such as icon glyphs are NOT redistributed here. Only Unicode points and names are used for the purposes of interoperability.
 
 #### JSON File
 
