@@ -1,4 +1,4 @@
-﻿using Avalonia;
+﻿using Avalonia.Data;
 using Avalonia.Data.Converters;
 using Avalonia.Media;
 using IconManager.Core.Icons;
@@ -12,6 +12,21 @@ namespace IconManager.Converters
     /// </summary>
     public class MatchQualityToBrushConverter : IValueConverter
     {
+        // Original colors are from the Flat UI theme
+        private static readonly Color OriginalDarkRedColor     = Color.FromUInt32(0xFFC0392B);
+        private static readonly Color OriginalLightRedColor    = Color.FromUInt32(0xFFD98880);
+        private static readonly Color OriginalSlightGreenColor = Color.FromUInt32(0xFFD4EFDF); // Very slightly green
+        private static readonly Color OriginalLightGreenColor  = Color.FromUInt32(0xFF7DCEA0);
+        private static readonly Color OriginalDarkGreenColor   = Color.FromUInt32(0xFF27AE60);
+
+        // Final colors have the uniform 'white' background replaced with alpha
+        // This allows them to work in both light/dark theme variants
+        private static readonly Color DarkRedColor     = Color.FromUInt32(0xD4B31100);
+        private static readonly Color LightRedColor    = Color.FromUInt32(0x7FB31000);
+        private static readonly Color SlightGreenColor = Color.FromUInt32(0x2B00A041); // Very slightly green
+        private static readonly Color LightGreenColor  = Color.FromUInt32(0x82009F45);
+        private static readonly Color DarkGreenColor   = Color.FromUInt32(0xD8009F43);
+
         /// <inheritdoc/>
         public object? Convert(
             object? value,
@@ -23,21 +38,20 @@ namespace IconManager.Converters
             {
                 switch (matchQuality)
                 {
-                    // Colors are from Flat UI theme
                     case MatchQuality.NoMatch:
-                        return new SolidColorBrush(new Color(0xFF, 0xC0, 0x39, 0x2B)); // Dark red
+                        return new SolidColorBrush(DarkRedColor);
                     case MatchQuality.Low:
-                        return new SolidColorBrush(new Color(0xFF, 0xD9, 0x88, 0x80)); // Lighter red
+                        return new SolidColorBrush(LightRedColor);
                     case MatchQuality.Medium:
-                        return new SolidColorBrush(new Color(0xFF, 0xD4, 0xEF, 0xDF)); // Very slightly green
+                        return new SolidColorBrush(SlightGreenColor);
                     case MatchQuality.High:
-                        return new SolidColorBrush(new Color(0xFF, 0x7D, 0xCE, 0xA0)); // Lighter green
+                        return new SolidColorBrush(LightGreenColor);
                     case MatchQuality.Exact:
-                        return new SolidColorBrush(new Color(0xFF, 0x27, 0xAE, 0x60)); // Dark green
+                        return new SolidColorBrush(DarkGreenColor);
                 }
             }
 
-            return AvaloniaProperty.UnsetValue;
+            return BindingOperations.DoNothing;
         }
 
         /// <inheritdoc/>
@@ -47,7 +61,7 @@ namespace IconManager.Converters
             object? parameter,
             CultureInfo culture)
         {
-            return AvaloniaProperty.UnsetValue;
+            return BindingOperations.DoNothing;
         }
     }
 }
