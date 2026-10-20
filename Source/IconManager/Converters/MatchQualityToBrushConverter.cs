@@ -5,7 +5,7 @@ using IconManager.Core.Icons;
 using System;
 using System.Globalization;
 
-namespace IconManager
+namespace IconManager.Converters
 {
     /// <summary>
     /// Converts a <see cref="MatchQuality"/> value into a corresponding perceived <see cref="SolidColorBrush"/>.

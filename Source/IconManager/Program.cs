@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Metadata;
 
 [assembly: XmlnsDefinition("https://github.com/avaloniaui", "IconManager")]
+[assembly: XmlnsDefinition("https://github.com/avaloniaui", "IconManager.Converters")]
 [assembly: XmlnsDefinition("https://github.com/avaloniaui", "IconManager.ViewModels")]
 [assembly: XmlnsDefinition("https://github.com/avaloniaui", "IconManager.Views")]
 

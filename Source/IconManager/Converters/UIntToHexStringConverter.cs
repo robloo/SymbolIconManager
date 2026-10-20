@@ -4,7 +4,7 @@ using IconManager.Core.Icons;
 using System;
 using System.Globalization;
 
-namespace IconManager
+namespace IconManager.Converters
 {
     /// <summary>
     /// Converts an unsigned integer value into a hexadecimal formatted string and vice versa.

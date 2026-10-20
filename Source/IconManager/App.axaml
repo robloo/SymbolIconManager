@@ -14,6 +14,8 @@
                 <ResourceInclude Source="avares://IconManager/Themes/ThemeDictionary.axaml" />
             </ResourceDictionary.MergedDictionaries>
 
+            <ForegroundContrastBrushConverter
+                x:Key="ForegroundContrastBrush" />
             <IconSetInfoConverter
                 x:Key="IconSetInfo" />
             <MatchQualityToBrushConverter

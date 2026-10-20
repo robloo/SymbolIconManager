@@ -6,7 +6,7 @@ using System;
 using System.Globalization;
 using Strings = IconManager.Resources.Strings;
 
-namespace IconManager
+namespace IconManager.Converters
 {
     /// <summary>
     /// Gets the online website URL for the given <see cref="IconSet"/>.
