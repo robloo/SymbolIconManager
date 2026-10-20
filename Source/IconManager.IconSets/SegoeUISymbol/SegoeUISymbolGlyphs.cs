@@ -2,6 +2,7 @@
 using IconManager.Core.Icons;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace IconManager.IconSets
 {
@@ -14,6 +15,25 @@ namespace IconManager.IconSets
         /// Gets the singleton instance of the <see cref="SegoeUISymbolGlyphs"/> class.
         /// </summary>
         public static readonly SegoeUISymbolGlyphs Instance = new();
+
+        /// <summary>
+        /// Caches the local font URI, including a missing-font result.
+        /// </summary>
+        private readonly Uri? _localFontUri;
+
+        /***************************************************************************************
+         *
+         * Constructors
+         *
+         ***************************************************************************************/
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SegoeUISymbolGlyphs"/> class.
+        /// </summary>
+        public SegoeUISymbolGlyphs()
+        {
+            this._localFontUri = FindLocalFontFileOnSystem();
+        }
 
         /***************************************************************************************
          *
@@ -33,10 +53,21 @@ namespace IconManager.IconSets
         /// <inheritdoc/>
         public List<GlyphSource> GetGlyphSources(IconSet iconSet, uint unicodePoint)
         {
-            return new List<GlyphSource>()
+            var glyphSources = new List<GlyphSource>();
+
+            if (iconSet != IconSet.SegoeUISymbol)
             {
-                GlyphSource.RemotePngFile
-            };
+                return glyphSources;
+            }
+
+            glyphSources.Add(GlyphSource.RemotePngFile);
+
+            if (this._localFontUri is not null)
+            {
+                glyphSources.Insert(0, GlyphSource.LocalFontFile);
+            }
+
+            return glyphSources;
         }
 
         /// <inheritdoc/>
@@ -81,8 +112,37 @@ namespace IconManager.IconSets
         {
             return iconSet switch
             {
+                IconSet.SegoeUISymbol => this._localFontUri,
                 _ => null
             };
+        }
+
+        /// <summary>
+        /// Searches for the Segoe UI Symbol font which may be installed on the system (usually requires Windows 8+).
+        /// </summary>
+        /// <returns>The Segoe UI Symbol font URI.</returns>
+        private static Uri? FindLocalFontFileOnSystem()
+        {
+            if (!OperatingSystem.IsWindows())
+            {
+                return null;
+            }
+
+            string windowsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Windows);
+
+            if (string.IsNullOrWhiteSpace(windowsDirectory))
+            {
+                return null;
+            }
+
+            string systemFontPath = Path.Combine(
+                windowsDirectory,
+                "Fonts",
+                "seguisym.ttf");
+
+            return File.Exists(systemFontPath)
+                ? new Uri(systemFontPath)
+                : null;
         }
     }
 }

@@ -34,6 +34,9 @@ namespace IconManager.Core.Glyphs
         /// <summary>
         /// Gets the data source URI of the defined glyph.
         /// </summary>
+        /// <remarks>
+        /// Unlike <see cref="GetFontSourceUri"/> this will return the source URI for the individual glyph.
+        /// </remarks>
         /// <param name="iconSet">The icon set containing the glyph.</param>
         /// <param name="unicodePoint">The Unicode point of the glyph.</param>
         /// <param name="glyphSource">The type of glyph source to provide the URL for.</param>
@@ -43,6 +46,10 @@ namespace IconManager.Core.Glyphs
         /// <summary>
         /// Gets the font data source URI of the defined icon set.
         /// </summary>
+        /// <remarks>
+        /// Unlike <see cref="GetGlyphSourceUri"/> this will return the entire font for all glyphs.
+        /// There is no specific URI for an individual glyph.
+        /// </remarks>
         /// <param name="iconSet">The icon set to get the font URI for.</param>
         /// <returns>The URI for the icon set's font data source; otherwise, null.</returns>
         Uri? GetFontSourceUri(IconSet iconSet);
