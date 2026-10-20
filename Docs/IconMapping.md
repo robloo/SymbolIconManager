@@ -75,6 +75,12 @@ Most matches between different icon sets should have a quality of `Medium`, `Hig
 
 The *Fluent UI System* icons are more powerful than the other icon sets. The *Fluent UI System* has icons in many different sizes and two different themes. Additionally, there is a different naming convention for Android and iOS. This requires some standard rules to enforce consistency in the mapping files. Other icon sets do not have these rules as there is only ever one Unicode point for a given icon -- no variations.
 
+> [!Important]
+> The Fluent UI System Icons have sizes including 16/20/24/28/48px. However, use 20px or 24px for the vast majority of use cases:
+>  * Size 20 is the standard for desktop [Source](https://michaelwe.st/work/fluent-icons/)
+>    > A new 20px size was hand-drawn specifically so the icons could replace existing 16px MDL2 assets in dense desktop UI without losing legibility at the swap.
+>  * Size 24 is the standard for mobile [Source](https://github.com/microsoft/fluentui-system-icons/blob/main/android/README.md)
+
  1. FluentUISystem must use the size 20 variant. The size 20 variant was specially designed for desktop usage [Source](https://michaelwe.st/work/fluent-icons/). If no size 20 variant exists, use the next closest (usually size 24 which is the mobile standard). It is possible within code to automatically switch between sizes so setting the size in a mapping file does not restrict the possibility of generating a size 24 for mobile usage. It just helps standardize the mapping file.
  1. FluentUISystem must use the Android names
  1. FluentUISystem names are considered unique and can be used as an ID like Unicode point. This allows for automatically re-mapping between sizes and themes in code.
