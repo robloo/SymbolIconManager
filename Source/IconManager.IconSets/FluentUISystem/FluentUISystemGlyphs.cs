@@ -45,6 +45,12 @@ namespace IconManager.IconSets
         /// <inheritdoc/>
         public List<GlyphSource> GetGlyphSources(IconSet iconSet, uint unicodePoint)
         {
+            if (iconSet != IconSet.FluentUISystemFilled &&
+                iconSet != IconSet.FluentUISystemRegular)
+            {
+                return new List<GlyphSource>();
+            }
+
             return new List<GlyphSource>()
             {
                 GlyphSource.LocalFontFile,

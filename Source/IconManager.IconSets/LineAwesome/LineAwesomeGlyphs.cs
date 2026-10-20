@@ -46,6 +46,13 @@ namespace IconManager.IconSets
         /// <inheritdoc/>
         public List<GlyphSource> GetGlyphSources(IconSet iconSet, uint unicodePoint)
         {
+            if (iconSet != IconSet.LineAwesomeBrand &&
+                iconSet != IconSet.LineAwesomeRegular &&
+                iconSet != IconSet.LineAwesomeSolid)
+            {
+                return new List<GlyphSource>();
+            }
+
             return new List<GlyphSource>()
             {
                 GlyphSource.LocalFontFile,
