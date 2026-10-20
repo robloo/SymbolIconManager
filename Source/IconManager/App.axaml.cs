@@ -4,6 +4,7 @@ using Avalonia.Markup.Xaml;
 using IconManager.Core.Glyphs;
 using IconManager.IconSets;
 using IconManager.Services;
+using IconManager.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using SkiaSharp;
 using System;
@@ -57,7 +58,10 @@ namespace IconManager
 
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                var mainWindow = new MainWindow();
+                var mainWindow = new MainWindow()
+                {
+                    DataContext = new ShellViewModel()
+                };
 
                 desktop.MainWindow = mainWindow;
             }
