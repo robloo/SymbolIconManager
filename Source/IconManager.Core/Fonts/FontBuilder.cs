@@ -27,6 +27,8 @@ namespace IconManager.Core.Fonts
         private const string DefaultFontForgeFilePathWindows = @"C:\Program Files (x86)\FontForgeBuilds\run_fontforge.exe";
         private const string DefaultFontForgeFilePathMacOS   = @"/Applications/FontForge.app";
 
+        private const string UserGuideUrl = @"https://github.com/robloo/SymbolIconManager/blob/main/Docs/UserGuide.md#special-font-metric-step";
+
         private static Lock _directoryLock = new();
 
         /***************************************************************************************
@@ -77,18 +79,21 @@ namespace IconManager.Core.Fonts
             Directory.CreateDirectory(Path.Combine(outputDirectory, GlyphSubDirectoryName));
 
             // Write the platform-dependent build scripts
+            string macScriptPath = Path.Combine(outputDirectory, MacOSScriptFileName);
+            string winScriptPath = Path.Combine(outputDirectory, WindowsScriptFileName);
+
             using (MemoryStream macScript = this.BuildMacOSScript(fontFileName))
             {
                 this.WriteStreamToFile(
                     macScript,
-                    Path.Combine(outputDirectory, MacOSScriptFileName));
+                    macScriptPath);
             }
 
             using (MemoryStream winScript = this.BuildWindowsScript(fontFileName))
             {
                 this.WriteStreamToFile(
                     winScript,
-                    Path.Combine(outputDirectory, WindowsScriptFileName));
+                    winScriptPath);
             }
 
             // Write the python script to build the actual font with FontForge
@@ -106,10 +111,9 @@ namespace IconManager.Core.Fonts
             }
 
             // Open the output location for the end-user
-            // This currently only works on Windows
             try
             {
-                if (System.OperatingSystem.IsWindows())
+                if (OperatingSystem.IsWindows())
                 {
                     Process.Start(new ProcessStartInfo
                     {
@@ -117,7 +121,7 @@ namespace IconManager.Core.Fonts
                         FileName = "explorer.exe"
                     });
                 }
-                else if (System.OperatingSystem.IsMacOS())
+                else if (OperatingSystem.IsMacOS())
                 {
                     Process.Start(new ProcessStartInfo
                     {
@@ -127,6 +131,39 @@ namespace IconManager.Core.Fonts
                 }
             }
             catch { }
+
+            // Attempt to automatically execute the font building script
+            try
+            {
+                if (OperatingSystem.IsWindows())
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName         = "cmd.exe",
+                        Arguments        = $"/c \"\"{winScriptPath}\"\"",
+                        WorkingDirectory = Path.GetDirectoryName(winScriptPath)!,
+                        UseShellExecute  = true
+                    });
+                }
+                else if (OperatingSystem.IsMacOS())
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName         = "open",
+                        ArgumentList     = { "-a", "Terminal", macScriptPath },
+                        WorkingDirectory = Path.GetDirectoryName(macScriptPath)!,
+                        UseShellExecute  = true
+                    });
+                }
+            }
+            catch { }
+
+            // Show the user the last step which must be completed manually
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = UserGuideUrl,
+                UseShellExecute = true
+            });
 
             return;
         }
@@ -402,7 +439,7 @@ namespace IconManager.Core.Fonts
         private MemoryStream BuildMacOSScript(string fontFileName)
         {
             var sb = new StringBuilder();
-            
+
             // This script does not currently work
             //  1. It requires special permissions to run on modern macOS versions
             //  2. FontForge has a bug on macOS where attempting to import an SVG outline gives
@@ -430,8 +467,8 @@ namespace IconManager.Core.Fonts
             sb.AppendLine($@"""{DefaultFontForgeFilePathWindows}"" -script ""%scriptPath%\{PythonScriptFileName}""");
             sb.AppendLine();
             sb.AppendLine($@"ECHO FontForge has finished building the {fontFileName} font.");
-            sb.AppendLine();
-            sb.AppendLine(@"PAUSE");
+            // sb.AppendLine();
+            // sb.AppendLine(@"PAUSE");
 
             return new MemoryStream(Encoding.UTF8.GetBytes(sb.ToString()));
         }
