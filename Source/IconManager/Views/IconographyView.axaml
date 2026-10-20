@@ -58,8 +58,7 @@
                     Text="{Binding FilterText, Mode=TwoWay, Delay=200}">
                     <TextBox.InnerRightContent>
                         <Button
-                            Classes="close"
-                            Padding="8,4,8,4"
+                            Classes="clear-text"
                             IsVisible="{Binding FilterText, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                             Command="{Binding ClearFilterTextCommand}" />
                     </TextBox.InnerRightContent>
