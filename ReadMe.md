@@ -12,14 +12,14 @@
   </tr>
 <table>
 
-# Symbol Icon Manager
+# Symbol Icon Manager <img src="https://github.com/robloo/SymbolIconManager/blob/main/Source/IconManager/Resources/Icons/AppIcon.svg" />
 
 The Symbol Icon Manager is an application written to facilitate working with Microsoft's various symbol icon fonts. Its most widely-useful tool is a font builder that allows mapping glyphs from a source icon set into a destination icon set (by Unicode point). In practice this means it is possible to build a free and open source variant of Microsoft's proprietary fonts (*Segoe MDL2 Assets* and *Segoe Fluent Icons*) that can be used as a drop-in replacement for apps that need it cross-platform. Using Microsoft's fonts in cross-platform projects directly is not possible due to licensing.
 
 In other words, the primary purpose of this tool is to build alternatives for Microsoft's symbol icon fonts for both the Avalonia and Uno Platform cross-platform UI frameworks. Usage outside of this purpose is limited and there are only a handful of developers that will need this functionality.
 
 <p align="center">
-  <img src="https://github.com/robloo/SymbolIconManager/raw/main/Docs/Images/IconMappingView.png" height="500px">
+  <img src="https://github.com/robloo/SymbolIconManager/raw/main/Docs/Images/IconSetsView.png" height="500px">
 </p>
 
 **Origin**
@@ -32,6 +32,10 @@ From there it wasn't much of a stretch to add the remainder of the tooling -- in
 
 This project is currently focusing on Microsoft's symbol icon fonts including *Segoe MDL2 Assets* and *Segoe Fluent Icons*. Other symbol icon sets (such as *Line Awesome*) are used only to provide equivalent glyphs for Microsoft's already defined Unicode points. Symbol icons for other frameworks or platforms are currently out of scope.
 
+**Redesign**
+
+In fall 2026 the application was completely redesigned with a brand new user interface and refactored backend. This streamlining enables new features while making the user interface and code much easier for developers to understand. A major goal was to provide a showcase for the latest coding standards in C#, MVVM and AvaloniaUI. If the code is public, it should be high quality for everyone to learn from -- no more hastily written internal-use tooling!
+
 ## Pre-Built Fonts
 
 The table below provides information for those looking for pre-built, drop-in replacements for Microsoft's various symbol icon fonts.
@@ -40,7 +44,7 @@ The table below provides information for those looking for pre-built, drop-in re
 |-------------------|----------------------|--------------|
 | [**WinSymbols1.ttf**](https://github.com/robloo/SymbolIconManager/blob/main/Fonts/WinSymbols1.ttf) | [Segoe UI Symbol](https://docs.microsoft.com/en-us/previous-versions/windows/apps/jj841127(v=win.10)) | None (Translates to SegoeMDL2Assets Unicode points and then uses the same, backwards-compatible mapping file from SegoeFluent.) |
 | [**WinSymbols2.ttf**](https://github.com/robloo/SymbolIconManager/blob/main/Fonts/WinSymbols2.ttf) | [Segoe MDL2 Assets](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-ui-symbol-font) | None (Uses the same, backwards-compatible mapping file from SegoeFluent) |
-| [**WinSymbols3.ttf**](https://github.com/robloo/SymbolIconManager/blob/main/Fonts/WinSymbols3.ttf) | [Segoe Fluent Icons](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-fluent-icons-font) | [`SegoeFluent.json`](https://github.com/robloo/SymbolIconManager/blob/main/Source/Data/Mappings/SegoeFluent.json) |
+| [**WinSymbols3.ttf**](https://github.com/robloo/SymbolIconManager/blob/main/Fonts/WinSymbols3.ttf) | [Segoe Fluent Icons](https://docs.microsoft.com/en-us/windows/apps/design/style/segoe-fluent-icons-font) | [`SegoeFluent.json`](https://github.com/robloo/SymbolIconManager/blob/main/Source/IconManager.IconSets/Mappings/SegoeFluent.json) |
 | [**FluentUISystemFilled.ttf**](https://github.com/robloo/SymbolIconManager/blob/main/Fonts/FluentUISystemFilled.ttf) | [FluentSystemIcons-Filled.ttf](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Filled.ttf) | None (Identity) |
 | [**FluentUISystemRegular.ttf**](https://github.com/robloo/SymbolIconManager/blob/main/Fonts/FluentUISystemRegular.ttf) | [FluentSystemIcons-Regular.ttf](https://github.com/microsoft/fluentui-system-icons/blob/master/fonts/FluentSystemIcons-Regular.ttf) | None (Identity) |
  
@@ -53,8 +57,8 @@ This application has the following functionality:
 
 <table>
   <tr>
-    <th><b>Icon Sets Viewer</b></th> 
-    <th><b>Icon Mapping & Font Builder</b></th>
+    <th><b>Iconography</b></th> 
+    <th><b>Icon Mapping</b></th>
     <th><b>Application Tools</b></th>
   </tr>
   <tr>
@@ -76,16 +80,22 @@ This application has the following functionality:
   </tr>
 </table>
 
- 1. **Icon Sets Viewer**
-     * Quickly browse through all Microsoft symbol font glyphs.
+ 1. **Iconography**
+     * Quickly browse through all Microsoft symbol font glyphs (including some by Icons8).
      * Supports search/filtering to find glyphs faster.
- 1. **Icon Mapping & Font Builder**
+     * See details for a selected icon including the glyph's path data which can be pasted into XAML.
+ 1. **Icon Mapping Editor**
      * Provides tools to facilitate making and reviewing icon set mapping files (by Unicode point/Glyph).
      * Provides a tool to build cross-platform, open-source variants of Microsoft's Symbol fonts using icon mapping files.
  1. **Application Tools**
      * Provides a tool to list all symbol icons used in an app's source code (C#/XAML files).
      * Provides a tool to remap icon Unicode points from one symbol icon set to another. This is done by replacing all occurances of one Unicode point with another (usually in a FontIcon's Glyph property). For example, this can be used to switch an application's source code from using *Segoe MDL2 Assets* to *Fluent UI System Icons*. 
      * [Planned] Provides a tool to build an application-specific custom symbol font containing only the glyphs actually needed by the application's source code (C#/XAML). Fonts are quite large (commonly around 1MB) and some apps may not want to package the whole thing. This tool significantly reduces the font file size.
+ 1. **Font Builder**
+     * Provides tools to quickly build drop-in symbols fonts
+       * Includes replacements for all three of Microsoft's proprietary symbol icon fonts.
+       * Includes the Fluent UI System Icon Fonts (both Filled and Regular).
+       * Includes a specialized [FluentAvalonia](https://github.com/amwx/FluentAvalonia) font which is shipped with the library to support icons without changing the WinUI3 source code.
 
 Ideas for future consideration:
  * Work with XAML path data for icons directly instead of through icon fonts. This can simplify usage (and file size) in some applications and scenarios. Think of this as a feature to convert FontIcons into PathIcons.
