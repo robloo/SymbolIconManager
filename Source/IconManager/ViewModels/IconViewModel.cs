@@ -15,7 +15,6 @@ namespace IconManager
     {
         // Services
         private readonly IGlyphRenderer<GlyphBitmap> _glyphRendererService;
-        private readonly IGlyphSourceProvider        _glyphSourceProviderService;
 
         /***************************************************************************************
          *
@@ -28,8 +27,7 @@ namespace IconManager
         /// </summary>
         public IconViewModel()
         {
-            this._glyphRendererService       = App.Current.Services.GetRequiredService<IGlyphRenderer<GlyphBitmap>>();
-            this._glyphSourceProviderService = App.Current.Services.GetRequiredService<IGlyphSourceProvider>();
+            this._glyphRendererService = App.Current.Services.GetRequiredService<IGlyphRenderer<GlyphBitmap>>();
 
             this.FillIconSets();
         }
@@ -172,8 +170,7 @@ namespace IconManager
             this.Glyph = await renderer.RenderGlyphAsync(
                 this.IconSet,
                 this.UnicodePoint,
-                this._glyphSourceProviderService,
-                GlyphSource.LocalSvgFile);
+                glyphSource: GlyphSource.LocalSvgFile);
 
             return;
         }

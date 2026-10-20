@@ -33,7 +33,6 @@ namespace IconManager.ViewModels
     {
         // Services
         private readonly IGlyphRenderer<GlyphBitmap> _glyphRendererService;
-        private readonly IGlyphSourceProvider        _glyphSourceProviderService;
         private readonly IStorageService             _storageService;
 
         /***************************************************************************************
@@ -47,9 +46,8 @@ namespace IconManager.ViewModels
         /// </summary>
         public AppToolsViewModel()
         {
-            this._glyphRendererService       = App.Current.Services.GetRequiredService<IGlyphRenderer<GlyphBitmap>>();
-            this._glyphSourceProviderService = App.Current.Services.GetRequiredService<IGlyphSourceProvider>();
-            this._storageService             = App.Current.Services.GetRequiredService<IStorageService>();
+            this._glyphRendererService = App.Current.Services.GetRequiredService<IGlyphRenderer<GlyphBitmap>>();
+            this._storageService       = App.Current.Services.GetRequiredService<IStorageService>();
 
             this.FillSourceIconSets();
         }
@@ -199,8 +197,7 @@ namespace IconManager.ViewModels
 
                     GlyphBitmap? bitmap = await this._glyphRendererService.RenderGlyphAsync(
                         viewModel.IconSet,
-                        viewModel.UnicodePoint,
-                        this._glyphSourceProviderService);
+                        viewModel.UnicodePoint);
 
                     bitmap?.Save(filePath, PngBitmapEncoderOptions.Default);
                 }
@@ -327,8 +324,7 @@ namespace IconManager.ViewModels
                         GlyphBitmap? bitmap = await this._glyphRendererService.RenderGlyphAsync(
                             iconSet,
                             unicodePoint,
-                            this._glyphSourceProviderService,
-                            GlyphSource.LocalFontFile);
+                            glyphSource: GlyphSource.LocalFontFile);
 
                         bitmap?.Save(filePath, PngBitmapEncoderOptions.Default);
                     }

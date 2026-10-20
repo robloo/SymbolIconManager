@@ -33,7 +33,8 @@ namespace IconManager.Services
         private Dictionary<string, SKFont>      _cachedFonts  = new Dictionary<string, SKFont>();       // IconSet is key
         private Dictionary<string, GlyphBitmap> _cachedGlyphs = new Dictionary<string, GlyphBitmap>();  // IconSet_UnicodePoint is key
 
-        private Lock _cacheLock = new();
+        private Lock                 _cacheLock           = new();
+        private IGlyphSourceProvider _glyphSourceProvider;
 
         /***************************************************************************************
          *
@@ -44,18 +45,23 @@ namespace IconManager.Services
         /// <summary>
         /// Initializes a new instance of the <see cref="SkiaGlyphRenderer"/> class.
         /// </summary>
-        public SkiaGlyphRenderer()
+        /// <param name="glyphSourceProvider">The default glyph source data provider.</param>
+        public SkiaGlyphRenderer(IGlyphSourceProvider glyphSourceProvider)
         {
+            this._glyphSourceProvider = glyphSourceProvider;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SkiaGlyphRenderer"/> class.
         /// </summary>
+        /// <param name="glyphSourceProvider">The default glyph source data provider.</param>
         /// <param name="renderWidth">The width, in pixels, of the rendered glyph.</param>
         /// <param name="renderHeight">The height, in pixels, of the rendered glyph.</param>
         public SkiaGlyphRenderer(
+            IGlyphSourceProvider glyphSourceProvider,
             uint renderWidth,
             uint renderHeight)
+            : this(glyphSourceProvider)
         {
             this.RenderHeight = renderHeight;
             this.RenderWidth  = renderWidth;
@@ -99,12 +105,13 @@ namespace IconManager.Services
         public async Task<GlyphBitmap?> RenderGlyphAsync(
             IconSet iconSet,
             uint unicodePoint,
-            IGlyphSourceProvider glyphSourceProvider,
+            IGlyphSourceProvider? glyphSourceProvider = null,
             GlyphSource glyphSource = GlyphSource.None)
         {
             string glyphKey = $"{iconSet}_{Icon.ToUnicodeHexString(unicodePoint)}";
             GlyphBitmap? result = null;
-            var glyphSources = glyphSourceProvider.GetGlyphSources(
+            var resolvedGlyphSourceProvider = glyphSourceProvider ?? this._glyphSourceProvider;
+            var glyphSources = resolvedGlyphSourceProvider.GetGlyphSources(
                 iconSet,
                 unicodePoint).ToList();
 
@@ -187,7 +194,7 @@ namespace IconManager.Services
                     result = await this.RenderGlyphFromSourceAsync(
                         iconSet,
                         unicodePoint,
-                        glyphSourceProvider,
+                        resolvedGlyphSourceProvider,
                         source);
                 }
                 catch { }

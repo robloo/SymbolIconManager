@@ -8,6 +8,7 @@ using IconManager.Core.Icons;
 using IconManager.IconSets;
 using IconManager.Services;
 using IconManager.Views;
+using Microsoft.Extensions.DependencyInjection;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
@@ -38,7 +39,8 @@ namespace IconManager.ViewModels
         /// </summary>
         public IconographyViewModel()
         {
-            this._glyphRendererService = new SkiaGlyphRenderer()
+            var glyphSourceProviderService = App.Current.Services.GetRequiredService<IGlyphSourceProvider>();
+            this._glyphRendererService = new SkiaGlyphRenderer(glyphSourceProviderService)
             {
                 // Use a transparent background with custom fill for best design
                 BackgroundColor = SKColors.Transparent,

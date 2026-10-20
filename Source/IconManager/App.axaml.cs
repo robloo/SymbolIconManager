@@ -85,7 +85,7 @@ namespace IconManager
             glyphSourceProvider.Register(SegoeUISymbolGlyphs.Instance);
             glyphSourceProvider.Register(WinJSSymbolsGlyphs.Instance);
 
-            var glyphRenderer = new SkiaGlyphRenderer()
+            var glyphRenderer = new SkiaGlyphRenderer(glyphSourceProvider)
             {
                 // Use a white background with black fill for best compatibility
                 // This is visible across both light/dark themes easily and is best for exported images

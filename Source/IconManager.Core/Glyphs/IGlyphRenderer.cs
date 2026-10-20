@@ -26,13 +26,13 @@ namespace IconManager.Core.Glyphs
         /// </summary>
         /// <param name="iconSet">The icon set containing the Unicode point.</param>
         /// <param name="unicodePoint">The Unicode point of the glyph.</param>
-        /// <param name="glyphSourceProvider">The glyph source data provider.</param>
-        /// <param name="glyphSource">The type of glyph source to use (if available).</param>
+        /// <param name="glyphSourceProvider">The optional, specific glyph source data provider.</param>
+        /// <param name="glyphSource">The optional, specific glyph source type to use (if available).</param>
         /// <returns>A render of the specified icon glyph; otherwise, null.</returns>
         Task<TGlyph?> RenderGlyphAsync(
             IconSet iconSet,
             uint unicodePoint,
-            IGlyphSourceProvider glyphSourceProvider,
+            IGlyphSourceProvider? glyphSourceProvider = null,
             GlyphSource glyphSource = GlyphSource.None);
     }
 }
