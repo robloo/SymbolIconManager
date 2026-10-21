@@ -3,7 +3,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 
-namespace IconManager
+namespace IconManager.ViewModels
 {
     /// <summary>
     /// Represents an editable <see cref="IconMapping"/>.

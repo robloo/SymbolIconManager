@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace IconManager
+namespace IconManager.Views
 {
     /// <summary>
     /// The main application shell hosting all other content.

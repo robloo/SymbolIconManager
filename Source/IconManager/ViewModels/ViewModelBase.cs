@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.ComponentModel;
 
-namespace IconManager
+namespace IconManager.ViewModels
 {
     /// <summary>
     /// The base class for all view models.

@@ -5,6 +5,7 @@ using IconManager.Core.Glyphs;
 using IconManager.IconSets;
 using IconManager.Services;
 using IconManager.ViewModels;
+using IconManager.Views;
 using Microsoft.Extensions.DependencyInjection;
 using SkiaSharp;
 using System;
